@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+html, body {
+	height: 100%;
+	margin: 0;
+   
+}
+#mypage_comm div{
+	box-sizing: border-box;
+}
+#mypage_comm a{
+	display: block;
+	text-decoration: none;
+ 	color: inherit;
+}
+#mypage_comm{
+	display: flex;
+	flex-direction: row;
+	width:100%;
+	height:100%;
+}
+#mypage_comm #mypage_r{
+	width:70%;
+}
+#mypage_r #mpc{
+	width:80%;
+	padding: 1%;
+}
+
+
+#mpc_t #first_name{
+	font-size:10px;
+}
+#mpc_t #second_name{
+	font-size:30px;
+	font-weight: bold;
+}
+#m_filter_search_div{
+	display:flex;
+	justify-content: flex-end;
+	padding-right:1%;
+}
+#mpc{
+	box-shadow: 0 0 0 1px #aaaaaa;
+	border-radius: 10px;
+	height:100%;
+}
+#mpc_t{
+	height:10%;
+}
+#mpc_m{
+	height:80%;
+}
+#mpc_b{
+	height:10%;
+}
+/* 실제 북마크 리스트목록영역 */
+#mpc #mpc_m{
+	width:100%;
+}
+#mpc_post_lists{
+	width:95%;
+	margin: 1% auto;
+}
+#mpc_post_lists #config_name{
+	width:100%;
+	display:flex;
+	box-shadow: 0 0 0 1px #ccc;
+	
+	
+}
+#config_name #mpc_type{
+	text-align:center;
+	width:10%;
+}
+#config_name #mpc_title{
+	padding-left:1%;
+	width:60%;
+}
+#config_name #mpc_writer{
+	text-align:center;
+	width:10%;
+}
+#config_name #mpc_post_date{
+	text-align:center;
+	width:10%;
+}
+#config_name #mpc_date{
+	text-align:center;
+	width:10%;
+}
+
+/* 북마크 리스트 */
+#mpc_post_lists .mpc_post_list{
+	box-shadow: 0 0 0 1px #ccc;
+	width:100%;
+	display:flex;
+}
+.mpc_post_list .mpc_list_title{
+	padding-left:1%;
+	width:60%;
+}
+.mpc_post_list .mpc_list_type{
+	text-align:center;
+	width:10%;
+}
+.mpc_post_list .mpc_list_writer{
+	text-align:center;
+	width:10%;
+}
+.mpc_post_list .mpc_list_post_date{
+	text-align:center;
+	width:10%;
+}
+.mpc_post_list .mpc_list_date{
+	text-align:center;
+	width:10%;
+}
+
+
+#mpc_b{
+	display:flex;
+	flex-direction:column;
+}
+#mpc_b div{
+	display:flex;
+	flex-direction:row;
+	justify-content: center;
+}
+.mpc_filter_search i{
+	cursor: pointer;
+}

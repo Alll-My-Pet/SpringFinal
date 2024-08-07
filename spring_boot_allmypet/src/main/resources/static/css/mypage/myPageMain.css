@@ -1,11 +1,16 @@
 @charset "UTF-8";
 html, body {
-  height: 100%;
-  margin: 0;
+	height: 100%;
+	margin: 0;
    
 }
-div{
+#mypage_main div{
 	box-sizing: border-box;
+}
+#mypage_main a{
+	display: block;
+	text-decoration: none;
+ 	color: inherit;
 }
 
 #mypage_main {
@@ -87,6 +92,12 @@ div{
 	width:70%;
 	border: 1px solid black;
 	border-radius: 50%;
+	overflow: hidden;
+}
+#my_profile_img{
+	width: 100%;
+    height: 100%;
+    object-fit: cover; 
 }
 #mp_info #info_pic #info_mypic_btn{
 	height:25%;
@@ -153,8 +164,11 @@ div{
 	justify-content: space-around;
 }
 
-#mp_comm .mp_div_list{
+#mp_comm a {
 	height:20%;
+}
+#mp_comm a .mp_div_list{
+	height:100%;
 }
 
 /*mp mkm 영역*/
@@ -165,8 +179,11 @@ div{
 	flex-direction: column;
 	justify-content: space-around;
 }
-#mp_mk .mp_mk_div{
+#mp_mk a{
 	height:25%;
+}
+#mp_mk .mp_mk_div{
+	height:100%;
 }
 
 /*mp breeder 영역*/
@@ -178,8 +195,11 @@ div{
 	justify-content: space-around;
 }
 
-#mp_breeder .mp_brd_div{
+#mp_breeder a{
 	height:37%;
+}
+#mp_breeder .mp_brd_div{
+	height:100%;
 }
 
 /*기타*/
