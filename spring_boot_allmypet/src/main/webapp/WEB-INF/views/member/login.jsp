@@ -12,29 +12,33 @@
 	</head>
 	<body>
 		<!-- top -->
-		<div class="login">
+		<section class="login">
 			<div class="loginTitle">
 				<strong>로그인</strong>
 			</div>
-			<div class="loginPage">
-				<form id="loginForm" class="wrapBox" method="post" action="#">
-					<input type="text" placeholder="아이디" required>
-					<input type="password" placeholder="비밀번호" required>
-					<!-- <div class="rememberId">
-						<label><input type="checkbox">아이디 저장</label>
-					</div> -->
-					<a class="forgot" href="/forgotID">아이디 찾기</a>
-					<a class="forgot" href="/forgotPW">비밀번호 찾기</a>
-					<button class="loginBtn" type="submit">로그인</button>
-				</form>
-			</div>
-			<div class="loginJoin">
-				<div>
-					<p>회원이 아니신가요?</p>
-					<button type="button" onclick="location.href='<%= request.getContextPath() %>/join'">회원가입</button>
+			<div class="loginBox">
+				<div class="loginLeft">
+					<div class="leftContext">
+						<form id="loginForm" class="wrapLogin" method="post" action="#">
+							<label><input type="text" placeholder="아이디" required></label>
+							<label><input type="password" placeholder="비밀번호" required></label>
+							<!-- <div class="rememberId">
+								<label><input type="checkbox">아이디 저장</label>
+							</div> -->
+							<a class="forgot" href="/forgotID">아이디 찾기</a>
+							<a class="forgot" href="/forgotPW">비밀번호 찾기</a>
+							<button class="loginBtn" type="submit">로그인</button>
+						</form>
+					</div>
+				</div>
+				<div class="loginRight">
+					<div class="rightContext">
+						<p>회원이 아니신가요?</p>
+						<button class="moveJoin" type="button" onclick="location.href='<%= request.getContextPath() %>/join'">회원가입</button>
+					</div>
 				</div>
 			</div>
-		</div>
+		</section>
 		<!-- bottom -->
 	</body>
 </html>

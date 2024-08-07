@@ -1,17 +1,9 @@
 @charset "UTF-8";
 
-* {
-	margin:0;
-	padding:0;
-}
-
 .login {
-	position: absolute;
+	height: 1000px;
 	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	background: #fff;
+	position: relative;
 }
 
 .loginTitle {
@@ -26,74 +18,107 @@
 	font-size: 3rem;
 }
 
-.loginPage {
-	width: 420px;
-	padding: 40px;
-	height: 500px;
+.loginBox {
+	width: 1050px;
+	height: 600px;
+	position: absolute;
 	top: 50%;
 	left: 50%;
-	position: absolute;
-	box-shadow: 0 0px 70px rgba(0, 0, 0, 0.1);
-	float: left;
-	background: cadetblue;
+	transform: translate(-50%,-50%);
+	background: #fff;
+	border-radius: 10px;
+	box-shadow: 1px 4px 22px -8px #0004;
+	display: flex;
+	overflow: hidden;
 }
 
 
-.loginPage form.wrapBox {
-	margin-top: 40px;
-	text-align: center;
+.loginBox .loginLeft {
+	width: 41%;
+	height: 100%;
+	padding: 25px 25px;
+	background: linear-gradient(-45deg, #dcd7e0, #fff);
 }
 
-.loginPage form.wrapBox input {
-	margin-top: 20px;
+.loginBox .loginRight {
+	width: 59%;
+	height: 100%;
+	background: linear-gradient(212.38deg, rgba(242, 57, 127, 0.7) 0%, rgba(175, 70, 189, 0.71) 100%);
+	color: #fff;
+	position: relative;
+}
+
+.loginLeft .leftContext {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	align-self: center;
+	height: 100%;
+	width: 73%;
+	margin: auto;
+}
+
+.loginLeft input {
 	border: none;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-	border-radius: 0;
-	padding-left: 0;
-	box-shadow: none;
+	width: 80%;
+	margin: 15px 0px;
+	border-bottom: 1px solid #4f30677d;
+	padding: 7px 9px;
+	width: 100%;
+	overflow: hidden;
+	background: transparent;
+	font-weight: 600;
+	font-size: 14px;
 }
 
-.loginPage form.wrapBox input:valid {
-  border-bottom: 1px solid #7ac142;
-}
-.loginPage form.wrapBox input:focus:invalid {
-  border-bottom: 1px solid #EF6161;
-}
-.loginPage form.wrapBox ::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.5);
-}
-.loginPage form.wrapBox :-moz-placeholder {
-  color: rgba(0, 0, 0, 0.5);
-}
-.loginPage form.wrapBox ::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.5);
-}
-.loginPage form.wrapBox :-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.loginPage form.wrapBox a {
-	
-}
-
-.loginPage form.wrapBox  button {
-	
-}
-
-.loginJoin {
-	width: 500px;
-	margin-left: 700px;
-	margin-bottom: 500px;
-	border-radius: 5px;
-	border-color: black;
-	background-color: yellow;
-	text-align: center;
-}
-
-.loginJoin p {
-	
-}
-
-.loginJoin button {
+.loginLeft a {
 	display: inline-block;
+	padding: 10px 30px;
+	color: black;
+	font-size: 16px;
+	text-decoration: none;
+	margin-top: 2px;
+	letter-spacing: 2px;
+}
+
+.loginBtn {
+	border: none;
+	padding: 15px 70px;
+	border-radius: 8px;
+	display: block;
+	margin: auto;
+	margin-top: 120px;
+	background: #583672;
+	color: #fff;
+	font-weight: bold;
+	-webkit-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+	-moz-box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+	box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
+
+.loginRight .rightContext {
+	height: 100%;
+	position: relative;
+	transform: translate(0%, 45%);
+}
+
+.rightContext p {
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 30px;
+	font-weight: 500;
+}
+
+.moveJoin {
+	border: none;
+	padding: 15px 70px;
+	border-radius: 8px;
+	display: block;
+	margin: auto;
+	margin-top: 100px;
+	background: #583672;
+	color: #fff;
+	font-weight: bold;
+	box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
 }
