@@ -30,5 +30,20 @@ public class TestController {
 	public String forgotPW() {
 		return "member/forgotPW";
 	}
+	
+	@RequestMapping("/test")
+	public String test() {
+		return "member/test";
+	}
+	
+	@RequestMapping("/test2")
+	public String test2() {
+		return "member/test2";
+	}
+	
+	@RequestMapping("/test3")
+	public String test3() {
+		return "member/test3";
+	}
 
 }
