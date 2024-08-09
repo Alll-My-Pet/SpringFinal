@@ -63,24 +63,27 @@
 					<a href="/mypage/bookmark_gallery"><div id="bookmark_galleries" class="mp_comm_div mp_div_list">북마크한 갤러리</div></a>
 					<a href="/mypage/my_post_commnet"><div id="my_post" class="mp_comm_div mp_div_list">내가 쓴 글/댓글</div></a>
 					<a href="/mypage/my_emoji"><div id="my_emoji" class="mp_comm_div mp_div_list">내 이모지</div></a>
+					<a href="/mypage/my_block_list"><div id="my_blocklist" class="mp_comm_div mp_div_list" >차단 목록</div></a>
 				</div>
 				<div id="mp_mk" class="mp_main_box">
 					<div class="myp_area_name">
 						<div>마켓</div>
 						<i class="fa-solid fa-cart-shopping"></i>
 					</div>
-					<a href="#"><div id="order_details" class="mp_mk_div mp_div_list">주문내역</div></a>
-					<a href="#"><div id="coupon_box" class="mp_mk_div mp_div_list">쿠폰함</div></a>
-					<a href="#"><div id="pet_goods" class="mp_mk_div mp_div_list">내 반려동물 굿즈</div></a>
+					<a href="/mypage/my_order_lists"><div id="order_details" class="mp_mk_div mp_div_list">주문내역</div></a>
+					<a href="/mypage/my_coupon_lists"><div id="coupon_box" class="mp_mk_div mp_div_list">쿠폰함</div></a>
+					<a href="/mypage/my_goods_lists"><div id="pet_goods" class="mp_mk_div mp_div_list">내 반려동물 굿즈</div></a>
 				</div>
 				<div id="mp_breeder" class="mp_main_box">
 					<div class="myp_area_name">
 						<div>브리더</div>
 						<i class="fa-solid fa-briefcase"></i>
 					</div>
-					<a href="#"><div id="breeder_regist" class="mp_brd_div mp_div_list">브리더 등록/취소</div></a>
-					<a href="#"><div id="breeder_inquiry" class="mp_brd_div mp_div_list">거래 내역 고지</div></a>
+					<a href="/mypage/breeder_regist"><div id="breeder_regist" class="mp_brd_div mp_div_list">브리더 등록/취소</div></a>
+					<a href="/mypage/inquiry_lists"><div id="breeder_inquiry" class="mp_brd_div mp_div_list">문의 내역</div></a>
 				</div>
+
+				
 			</div>
 		</section>
 	</body>

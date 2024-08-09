@@ -1,18 +1,5 @@
 @charset "UTF-8";
 
-html, body {
-	height: 100%;
-	margin: 0;
-   
-}
-#mypage_comm div{
-	box-sizing: border-box;
-}
-#mypage_comm a{
-	display: block;
-	text-decoration: none;
- 	color: inherit;
-}
 #mypage_comm{
 	display: flex;
 	flex-direction: row;
@@ -66,8 +53,6 @@ html, body {
 	width:100%;
 	display:flex;
 	box-shadow: 0 0 0 1px #ccc;
-	
-	
 }
 #config_name #mpc_type{
 	text-align:center;

@@ -6,10 +6,13 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>북마크 페이지</title>
+		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/mypagePublic.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/commBookMarkGallery.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/commControl.css'/>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/mypage/commBookMarkGallery.js'/>"></script>
 	</head>
 	<body>
 		<section id="mypage_comm">
@@ -20,6 +23,7 @@
 					<a href="/mypage/bookmark_gallery"><div id="control_bmg">북마크 갤러리</div></a>
 					<a href="/mypage/my_post_commnet"><div id="control_mpc">내가 쓴 글/댓글</div></a>
 					<a href="/mypage/my_emoji"><div id="control_mi">내 이모지 관리</div></a>
+					<a href="/mypage/my_block_list"><div id="control_bl">차단 목록</div></a>
 				</div>
 			</div>
 			
@@ -50,11 +54,11 @@
 									<img class="bmg_img_thumbnail" src="<c:url value='/image/testimg.jpg'/>">
 									<div class="bmg_img_overlay">
 										<div class="bmg_img_top">
-											<div class="bmg_like_area">❤ 00</div>
+											<div class="bmg_like_area inner_text_div">❤ 00</div>
 											<div class="bmg_profile_area"><img class="bmg_profile_img"src="<c:url value='/image/testimg2.jpg'/>"></div>
 										</div>
 										<div class="bmg_img_bottom">
-											<div class="bmg_title_area">제목</div>
+											<div class="bmg_title_area inner_text_div">제목</div>
 											<div class="bmg_comment_area">00 comment</div>
 										</div>
 									</div>

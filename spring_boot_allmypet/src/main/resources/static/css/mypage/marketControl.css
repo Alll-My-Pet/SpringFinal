@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
-#mypage_comm #mypage_l{
+#mypage_market #mypage_l{
 	width:30%;
 	display:flex;
 	flex-direction: column;
 	align-items: flex-end;
 }
-#mypage_comm #comm_control{
+#mypage_market #market_control{
 	width:40%;
-	height:350px;
+	height:200px;
 	margin-right:5%;
 	border: 1px solid #aaaaaa;
 	border-radius: 10px;
@@ -17,12 +17,13 @@
 	flex-direction:column;
 	justify-content: space-around;
 }
-#comm_control a{
+#market_control a{
 	display: flex;
     flex-direction: column; 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     transition: background-color 0.3s;
-    height:7%
+    height:7%;
+    justify-content: center;
 }

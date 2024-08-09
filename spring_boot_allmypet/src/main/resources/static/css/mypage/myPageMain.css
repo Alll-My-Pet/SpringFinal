@@ -6,6 +6,9 @@ html, body {
 }
 #mypage_main div{
 	box-sizing: border-box;
+	white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
 }
 #mypage_main a{
 	display: block;
@@ -38,6 +41,30 @@ html, body {
   border: 1px solid black;
   border-radius: 15px;
   padding: 10px;
+}
+
+/*공용*/
+
+button{
+	cursor:pointer;
+}
+
+#myp .mp_div_list{
+	display: flex;
+	align-items: center;
+	border: 1px solid black;
+	border-radius: 15px;
+	padding-left: 10px;
+	cursor:pointer;
+}
+.myp_area_name{
+	display:flex;
+	flex-direction: row;
+	height:10%;
+	align-items: center;
+}
+.myp_area_name >i{
+	padding-left:5px;
 }
 
 /*mp info 영역*/
@@ -165,7 +192,7 @@ html, body {
 }
 
 #mp_comm a {
-	height:20%;
+	height:15%;
 }
 #mp_comm a .mp_div_list{
 	height:100%;
@@ -201,27 +228,7 @@ html, body {
 #mp_breeder .mp_brd_div{
 	height:100%;
 }
-
-/*기타*/
-
-button{
-	cursor:pointer;
+#mp_breeder .myp_area_name{
+	height:20%
 }
 
-#myp .mp_div_list{
-	display: flex;
-	align-items: center;
-	border: 1px solid black;
-	border-radius: 15px;
-	padding-left: 10px;
-	cursor:pointer;
-}
-.myp_area_name{
-	display:flex;
-	flex-direction: row;
-	height:10%;
-	align-items: center;
-}
-.myp_area_name >i{
-	padding-left:5px;
-}

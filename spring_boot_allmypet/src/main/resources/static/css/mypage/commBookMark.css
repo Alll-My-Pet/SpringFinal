@@ -1,18 +1,5 @@
 @charset "UTF-8";
 
-html, body {
-	height: 100%;
-	margin: 0;
-   
-}
-#mypage_comm div{
-	box-sizing: border-box;
-}
-#mypage_comm a{
-	display: block;
-	text-decoration: none;
- 	color: inherit;
-}
 #mypage_comm{
 	display: flex;
 	flex-direction: row;

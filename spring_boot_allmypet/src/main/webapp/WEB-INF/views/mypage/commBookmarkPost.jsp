@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>북마크 페이지</title>
+		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/mypagePublic.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/commBookMark.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/commControl.css'/>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,6 +21,7 @@
 					<a href="/mypage/bookmark_gallery"><div id="control_bmg">북마크 갤러리</div></a>
 					<a href="/mypage/my_post_commnet"><div id="control_mpc">내가 쓴 글/댓글</div></a>
 					<a href="/mypage/my_emoji"><div id="control_mi">내 이모지 관리</div></a>
+					<a href="/mypage/my_block_list"><div id="control_bl">차단 목록</div></a>
 				</div>
 			</div>
 			
@@ -58,8 +60,8 @@
 						</div>
 						<div class="bmp_post_list"> <!-- db에서 값 추출 작업 필요 -->
 							<div class="bmp_list_type">구분</div>
-							<div class="bmp_list_title">제목</div>
-							<div class="bmp_list_writer">작성자</div>
+							<div class="bmp_list_title inner_text_div">제목</div>
+							<div class="bmp_list_writer inner_text_div">작성자</div>
 							<div class="bmp_list_post_date">작성일</div>
 							<div class="bmp_list_date">등록일</div>
 						</div>

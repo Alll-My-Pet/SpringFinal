@@ -1,18 +1,5 @@
 @charset "UTF-8";
 
-html, body {
-	height: 100%;
-	margin: 0;
-   
-}
-#mypage_comm div{
-	box-sizing: border-box;
-}
-#mypage_comm a{
-	display: block;
-	text-decoration: none;
- 	color: inherit;
-}
 #mypage_comm{
 	display: flex;
 	flex-direction: row;
@@ -88,7 +75,7 @@ html, body {
     width: 100%;
     height: 100%;
     color: white;
-    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경 마우스 오버시 0으로 만드는 js필요 */
+    background-color: rgba(0, 0, 0, 0.2); /* 반투명 배경 마우스 오버시 0으로 만드는 js필요 */
     font-size: 24px;
 }
 .bmg_profile_area{

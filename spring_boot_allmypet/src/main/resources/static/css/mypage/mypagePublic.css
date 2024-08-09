@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+html, body {
+	height: 100%;
+	margin: 0;
+   
+}
+section div{
+	box-sizing: border-box;
+}
+section .inner_text_div{
+	white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+section a{
+	display: block;
+	text-decoration: none;
+ 	color: inherit;
+}
