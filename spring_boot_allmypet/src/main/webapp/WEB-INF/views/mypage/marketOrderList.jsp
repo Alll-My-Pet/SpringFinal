@@ -31,10 +31,10 @@
 					</div>
 					<div id="mol_m">
 						<div id="mol_enter_date">
-							<div id="mol_date_total" class="div_cursor_pointer">전체보기</div>
-							<div id="mol_date_six_months" class="div_cursor_pointer">6개월</div>
-							<div id="mol_date_one_year" class="div_cursor_pointer">1년</div>
-							<div id="mol_date_two_year" class="div_cursor_pointer">2년</div>
+							<div id="mol_date_total" class="div_cursor_pointer btn_div">전체보기</div>
+							<div id="mol_date_six_months" class="div_cursor_pointer btn_div">6개월</div>
+							<div id="mol_date_one_year" class="div_cursor_pointer btn_div">1년</div>
+							<div id="mol_date_two_year" class="div_cursor_pointer btn_div" >2년</div>
 						</div>
 						<div id="mol_order_lists">
 							<div class="mol_order_list">
