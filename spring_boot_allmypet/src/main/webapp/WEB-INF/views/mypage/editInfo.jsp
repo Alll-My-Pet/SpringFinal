@@ -80,7 +80,7 @@
 						<div class="info_config_div">반려동물</div>
 						<div class="info_text_area">
 							<!-- 추후 db받을시 손봐야 할 부분 -->
-							<div class="info_pet_area">
+							<!-- <div class="info_pet_area">
 								<div class="pet_name_area">
 									<input type="radio" name="rep_pet_radio" class="pet_radio" checked>
 									<div class="pet_type">도마뱀</div>
@@ -99,8 +99,8 @@
 										<span>일</span>
 									</div>
 								</div>
-							</div>
-							<c:forEach var="i" begin="1" end="2">
+							</div> -->
+							<c:forEach var="i" begin="1" end="3">
 								<div class="info_pet_area div_display_none">
 									<div class="pet_name_area">
 										<input type="radio" name="rep_pet_radio" class="pet_radio">
