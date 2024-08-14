@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+#mypage_breeder{
+	display: flex;
+	flex-direction: row;
+	width:100%;
+	height:100%;
+}
+#mypage_breeder #mypage_r{
+	width:70%;
+}
+#mypage_r #mbr{
+	width:80%;
+	padding: 1%;
+}
+#mbr{
+	height:100%;
+}
+#mbr_t{
+	height:10%;
+}
+#mbr_m{
+	height:80%;
+	padding:5%;
+	width:80%;
+	margin:0 auto;
+	border:1px solid #ccc;
+}
+#mbr_b{
+	height:10%;
+}
+
+#mbr_t #first_name{
+	font-size:10px;
+}
+#mbr_t #second_name{
+	font-size:30px;
+	font-weight: bold;
+}
+
+#mbr{
+	box-shadow: 0 0 0 1px #aaaaaa;
+	border-radius: 10px;
+}

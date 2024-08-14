@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+
+
+#mp_points_details{
+	width:70%;
+	height:100%;
+	margin:auto;
+}
+#mp_pd_area{
+	display:flex;
+	flex-direction: column;
+	width:90%;
+	height:100;
+	padding: 2%;
+	margin: auto
+}
+.mp_cursor_pointer{
+	cursor: pointer;
+}
+
+/* 상단부분 */
+#mp_pd_t{
+	border:1px solid #ccc;
+	border-radius: 30px;
+	padding:2%;
+	display:flex;
+	justify-content: space-around;
+	width:100%;
+	height:250px;
+}
+#mp_pd_t_l{
+	width:40%;
+	height:100%;	
+	display:flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	
+}
+#mp_pd_name_area{
+	height:20%;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	font-size: 25px;
+	padding-left:20px;
+}
+#mp_pd_point_area{
+	height:80%;
+}
+
+#mp_pd_point_area img{
+	height:100%;
+}
+#mp_pd_point_total{
+	padding-left:30px;
+	font-size: 70px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#mp_pd_t > div:first-child {
+  width: 50%;
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+}
+#mp_pd_t > div:first-child::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1.5px; 
+  width: 5px; 
+  height: 70%; 
+  background-color: gray; 
+  transform: translateY(-50%); 
+}
+
+#mp_pd_point_area{
+	display:flex;
+}
+#mp_pd_t_r{
+	width:40%;
+	height:100%;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+#mp_pd_t_r>div{
+	height:25%;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	font-size: 25px;
+	font-weight: 500;
+	border-radius: 15px;
+	border : 1px solid #aaaaaa;
+	cursor: pointer;
+}
+/* 가운데 부분*/
+#mp_pd_m{
+	border:1px solid #ccc;
+	width:100%;
+	margin:3% auto;
+}
+#mp_pd_month_area{
+	height:50px;
+	display:flex;
+	justify-content: center;
+	border-bottom: 3px solid #ccc;
+}
+#mp_pd_month_area>div{
+	display:flex;
+	justify-content: center;
+	font-size: 30px;
+	margin: 0 1%;
+}
+#mp_pd_month_num_area{
+	display: flex;
+	width:80px;
+}
+#mp_pd_tbc{
+	padding: 5px;
+}
+#pd_tbc_plus_area, #pd_tbc_minus_area{
+	display: flex;
+}
+#pd_tbc_plus, #pd_tbc_minus{
+	padding-left:5px;
+}
+#mp_pd_point_history{
+	width:100%;
+	margin: 0 auto;
+	display:flex;
+	flex-direction: column;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	min-height: 300px;
+}
+.mp_point_history_div{
+	width:90%;
+	height:45px;
+	margin: 10px auto;
+	display:flex;
+	border: 1px solid #ccc;
+	border-radius: 15px;
+	padding: 0 30px;
+}
+.mp_point_history_div div{
+	display:flex;
+	align-items: center;
+	font-weight: 600;
+}
+.point_class{
+	width:50%;
+}
+.point_date{
+	width:30%;
+	justify-content: center;
+}
+.point_count {
+	width: 20%;
+	justify-content: flex-end;
+}
+.mp_point_plus>.point_count{
+	color: blue;
+}
+.mp_point_minus>.point_count{
+	color: red;
+}
+/* 하단 부분*/
+#mp_pd_b{
+	padding:2%;
+	border:1px solid #ccc;
+	border-radius: 30px;
+	width:100%;
+	padding: 20px 20%;
+}
+#mp_pd_b_t{
+	text-align: center;
+	font-size: 30px;
+	font-weight: 600;
+}
+#mp_pd_b_title{
+	display: flex;
+	justify-content:center;
+	align-items: center;
+	width:150px;
+	margin: 0 auto;
+}
+#mp_pd_b_im{
+	width: 30px;
+}
+
