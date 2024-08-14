@@ -20,7 +20,7 @@
 							<div id="info_pic">
 								<div id="info_mypic"><img id="my_profile_img"src="<c:url value='/image/testimg2.jpg'/>"></div>
 								<div id="info_mypic_btn">
-									<button>프로필 수정</button>
+									<button onClick="location.href='/mypage/edit_info'">프로필 수정</button>
 								</div>								
 							</div>
 							<div id="info_txt">
@@ -49,7 +49,7 @@
 								<div id="info_point_num">4500P</div>								
 							</div>
 							<div id="info_point_btn">
-								<button>포인트 내역 보기</button>
+								<button onClick="location.href='/mypage/point_detail'">포인트 내역 보기</button>
 							</div>
 						</div>
 					</div>

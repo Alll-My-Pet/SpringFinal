@@ -10,6 +10,16 @@ public class MyPageControlloer {
 		return "mypage/myPageMain";
 	}
 	
+	@RequestMapping("/mypage/point_detail")
+	public String mpPointDeatil() {
+		return "mypage/pointsDetails";
+	}
+	@RequestMapping("/mypage/edit_info")
+	public String mpEditInfo() {
+		return "mypage/editInfo";
+	}
+	
+	
 	/*마이페이지_커뮤니티*/
 	
 	@RequestMapping("/mypage/bookmark_post")
@@ -30,6 +40,16 @@ public class MyPageControlloer {
 	@RequestMapping("/mypage/my_emoji")
 	public String myEmoji() {
 		return "mypage/commMyEmoji";
+	}
+	
+	@RequestMapping("/mypage/my_emoji/made")
+	public String madeEmoji() {
+		return "mypage/commEmojiIMade";
+	}
+	
+	@RequestMapping("/mypage/my_emoji/have")
+	public String haveEmoji() {
+		return "mypage/commEmojiIHave";
 	}
 	
 	@RequestMapping("/mypage/my_block_list")

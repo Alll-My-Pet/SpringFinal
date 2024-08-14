@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>내 쿠폰함</title>
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/mypagePublic.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/marketCouponList.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/marketControl.css'/>">

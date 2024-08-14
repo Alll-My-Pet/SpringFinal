@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>내 주문내역</title>
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/mypagePublic.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/marketOrderList.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/marketControl.css'/>">
@@ -31,10 +31,10 @@
 					</div>
 					<div id="mol_m">
 						<div id="mol_enter_date">
-							<div id="mol_date_total">전체보기</div>
-							<div id="mol_date_six_months">6개월</div>
-							<div id="mol_date_one_year">1년</div>
-							<div id="mol_date_two_year">2년</div>
+							<div id="mol_date_total" class="div_cursor_pointer">전체보기</div>
+							<div id="mol_date_six_months" class="div_cursor_pointer">6개월</div>
+							<div id="mol_date_one_year" class="div_cursor_pointer">1년</div>
+							<div id="mol_date_two_year" class="div_cursor_pointer">2년</div>
 						</div>
 						<div id="mol_order_lists">
 							<div class="mol_order_list">
