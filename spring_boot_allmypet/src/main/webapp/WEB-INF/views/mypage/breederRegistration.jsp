@@ -17,8 +17,8 @@
 			<div id="mypage_l">
 				<div id="breeder_control">
 					<span>브리더</span>
-					<a href="/mypage/breeder_regist"><div id="control_mbr">등록 / 취소</div></a>
-					<a href="/mypage/inquiry_lists"><div id="control_mbi">문의 내역</div></a>
+					<a href="/mypage/breeder_regist" class="btn_div"><div id="control_mbr">등록 / 취소</div></a>
+					<a href="/mypage/inquiry_lists" class="btn_div"><div id="control_mbi">문의 내역</div></a>
 				</div>
 			</div>
 				

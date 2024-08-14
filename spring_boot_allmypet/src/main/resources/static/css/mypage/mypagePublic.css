@@ -21,3 +21,15 @@ section a{
 section .div_cursor_pointer{
 	cursor: pointer;
 }
+.btn_div{
+	cursor: pointer;
+	user-select: none;
+}
+.btn_div:active {
+	transform: scale(0.95);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.div_display_none{
+	display: none !important;
+	
+}

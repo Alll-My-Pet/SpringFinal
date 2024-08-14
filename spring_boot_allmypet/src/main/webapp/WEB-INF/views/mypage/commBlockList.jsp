@@ -17,11 +17,11 @@
 			<div id="mypage_l">
 				<div id="comm_control">
 					<span>커뮤니티</span>
-					<a href="/mypage/bookmark_post"><div id="control_mbl">북마크 게시글</div></a>
-					<a href="/mypage/bookmark_gallery"><div id="control_mbl">북마크 갤러리</div></a>
-					<a href="/mypage/my_post_commnet"><div id="control_mpc">내가 쓴 글/댓글</div></a>
-					<a href="/mypage/my_emoji"><div id="control_mi">내 이모지 관리</div></a>
-					<a href="/mypage/my_block_list"><div id="control_bl">차단 목록</div></a>
+					<a href="/mypage/bookmark_post" class="btn_div"><div id="control_mbl" >북마크 게시글</div></a>
+					<a href="/mypage/bookmark_gallery" class="btn_div"><div id="control_mbl">북마크 갤러리</div></a>
+					<a href="/mypage/my_post_commnet" class="btn_div"><div id="control_mpc">내가 쓴 글/댓글</div></a>
+					<a href="/mypage/my_emoji" class="btn_div"><div id="control_mi">내 이모지 관리</div></a>
+					<a href="/mypage/my_block_list" class="btn_div"><div id="control_bl">차단 목록</div></a>
 				</div>
 			</div>
 			

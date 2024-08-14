@@ -17,9 +17,9 @@
 			<div id="mypage_l">
 				<div id="market_control">
 					<span>마켓</span>
-					<a href="/mypage/my_order_lists"><div id="control_mol">주문내역</div></a>
-					<a href="/mypage/my_coupon_lists"><div id="control_mcl">쿠폰함</div></a>
-					<a href="/mypage/my_goods_lists"><div id="control_mgl">내 반려동물 굿즈</div></a>
+					<a href="/mypage/my_order_lists" class="btn_div"><div id="control_mol">주문내역</div></a>
+					<a href="/mypage/my_coupon_lists" class="btn_div"><div id="control_mcl">쿠폰함</div></a>
+					<a href="/mypage/my_goods_lists" class="btn_div"><div id="control_mgl">내 반려동물 굿즈</div></a>
 				</div>
 			</div>
 				

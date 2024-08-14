@@ -23,19 +23,19 @@
 						</div>
 					</div>
 					<div id="mp_pd_t_r">
-						<div id="mp_pd_total_btn">월간 전체 내역 보기</div>
-						<div id="mp_pd_plus_btn">월간 적립 내역 보기</div>
-						<div id="mp_pd_minus_btn">월간 사용 내역 보기</div>
+						<div id="mp_pd_total_btn" class="btn_div">월간 전체 내역 보기</div>
+						<div id="mp_pd_plus_btn" class="btn_div">월간 적립 내역 보기</div>
+						<div id="mp_pd_minus_btn" class="btn_div">월간 사용 내역 보기</div>
 					</div>
 				</div>
 				<div id="mp_pd_m">
 					<div id="mp_pd_month_area">
-						<div id="mp_pd_month_left_btn" class="mp_cursor_pointer">◀</div>
+						<div id="mp_pd_month_left_btn" class="mp_cursor_pointer btn_div">◀</div>
 						<div id="mp_pd_month_num_area">
 							<div id="mp_pd_month_num">12</div>
 							<div>월</div>
 						</div>
-						<div id="mp_pd_month_right_btn" class="mp_cursor_pointer">▶</div>
+						<div id="mp_pd_month_right_btn" class="mp_cursor_pointer btn_div">▶</div>
 					</div>
 					<!-- 추후 버튼기능 사용시 jsp 불리할 필요 있어 보임 -->
 					<div id="mp_pd_tbc">

@@ -21,9 +21,7 @@
 .ei_cursor_pointer{
 	cursor: pointer;
 }
-.disnon{
-	display: none;
-}
+
 
 /* 상단 부분 */
 
@@ -64,6 +62,7 @@
 	flex-direction:column;
 	justify-content: center;
 	margin-top:15px;
+	border:1px solid #ccc;
 }
 
 #edit_t_r{
@@ -220,6 +219,7 @@
 }
 .info_pet_addition{
 	display:flex;
+	margin-bottom:5%;
 }
 .info_pet_addition_btn{
 	height: 35px;
@@ -241,4 +241,14 @@
 
 .info_pet_area>div{
 	margin-bottom:5px;
+}
+.pet_cancel_btn{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color:#aaaaaa;
+	width:40px;
+	height:100%;
+	border:1px solid #aaaaaa;
+	border-radius: 10px;	
 }
