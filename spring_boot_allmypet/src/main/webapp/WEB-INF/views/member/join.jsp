@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>회원가입</title>
 		<!-- head -->
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/join.css">
-		<%-- <script src="<%= request.getContextPath() %>/js/join.js"></script>
+		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
+		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/member/join.css">
+		<script src="<%= request.getContextPath() %>/js/join.js"></script>
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-		<script src="<c:url value='/js/searchAddress.js'/> "></script> --%>
+		<script src="<c:url value='/js/searchAddress.js'/> "></script>
 	</head>
 	<body>
 		<!-- top -->
@@ -23,10 +25,10 @@
 			<div class="joinBox">
 				<div class="joinUpper">
 					<div class="upperContext">
-						<form id="joinForm" class="wrapJoin" method="post" action="#">
+						<form id="joinForm" class="joinForm" method="post" action="#">
 							<table>
 								<tr>
-									<td><label for="id">ID</label></td>
+									<td><label for="id">아이디</label></td>
 									<td><input type="text" id="id" name="id" class="id">
 										<input type="button" value="중복확인" class="checkBtn" onClick="checkId()">
 										<span class="error-message" id="idError"></span>
@@ -76,8 +78,8 @@
                         		 </tr>
 								<tr>
 									<td><label for="email">이메일</label></td>
-									<td><input type = "email" id="email" name="email" placeholder="이메일 주소 입력" class="text" required>
-										<input type="button" value="인증"   onClick="sendEmail()" class="checkBtn">
+									<td><input type = "email" id="email" name="email" placeholder="이메일 주소 입력" class="email" required>
+										<input type="button" value="인증"onClick="sendEmail()" class="checkBtn">
 										<span class="error-message" id="emailError"></span>
 									</td>
 								</tr>
@@ -89,13 +91,13 @@
 								</tr>
 								<tr>
 									<td></td>
-									<td><input type="text" id="adress2" name="adress2" class="text" readonly>
+									<td><input type="text" id="adress2" name="adress2" class="adress" readonly>
 										<span class="error-message" id="adressError"></span>
 									</td>
 								</tr>
 								<tr>
 									<td></td>
-									<td><input type="text" id="adress3" placeholder="상세주소 입력" name="adress3" class="text">
+									<td><input type="text" id="adress3" placeholder="상세주소 입력" name="adress3" class="adress">
 										<span class="error-message" id="adressError"></span>
 									</td>
 								</tr>

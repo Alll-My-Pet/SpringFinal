@@ -1,16 +1,16 @@
 @charset "UTF-8";
 
-.join {
+.changePW {
 	display: flex;
 	flex-direction: column;
 }
 
-.joinTitleWrap {
+.changePWTitleWrap {
 	display: flex;
 	justify-content: center;
 }
 
-.joinTitle {
+.changePWTitle {
 	width: 800px;
 	margin: 30px 0;
 	text-align: left;
@@ -18,33 +18,25 @@
 	font-weight: bold;
 }
 
-.joinTitle b {
+.changePWTitle b {
 	font-size: 50px;
 }
 
-.joinBox {
+.changePWBox {
 	width: 800px;
-	height: 1700px;
+	height: 400px;
 	margin: auto;
 }
 
-.joinUpper {
-	border: 2px solid #000000;
-	height: 45%;
-	padding: 30px;
-}
-
-.joinBottom {
+.changePWInput {
 	border: 2px solid #000000;
 	border-radius: 10px;
-	height: 45%;
 	padding: 30px;
 	margin-top: 30px;
 }
 
-.joinSubmit {
+.changePWSubmit {
 	margin: 30px;
-	height: 10%;
 }
 
 table {
@@ -101,7 +93,7 @@ input::placeholder {
 }
 
 .email {
-	width: 80%
+	width: 75%
 }
 
 .adress {
@@ -119,20 +111,7 @@ input::placeholder {
 	font-size: 15px;
 }
 
-.bottomContext {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: auto;
-	padding: 30px;
-}
-
-.bottomContext b {
-	font-size: 30px;
-	font-weight: bold;
-}
-
-.joinBtn {
+.changePWBtn {
 	border: none;
 	padding: 15px 70px;
 	border-radius: 10px;

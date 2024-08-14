@@ -1,48 +1,34 @@
 @charset "UTF-8";
 
-.join {
+.find {
 	display: flex;
 	flex-direction: column;
 }
 
-.joinTitleWrap {
+.findTitleWrap {
 	display: flex;
 	justify-content: center;
 }
 
-.joinTitle {
-	width: 800px;
+.findTitle {
+	width: 500px;
 	margin: 30px 0;
 	text-align: left;
 	letter-spacing: 2px;
 	font-weight: bold;
 }
 
-.joinTitle b {
-	font-size: 50px;
+.findTitle b {
+	font-size: 30px;
 }
 
-.joinBox {
-	width: 800px;
-	height: 1700px;
+.findInput {
+	width: 100%;
+	height: 300px;
 	margin: auto;
 }
 
-.joinUpper {
-	border: 2px solid #000000;
-	height: 45%;
-	padding: 30px;
-}
-
-.joinBottom {
-	border: 2px solid #000000;
-	border-radius: 10px;
-	height: 45%;
-	padding: 30px;
-	margin-top: 30px;
-}
-
-.joinSubmit {
+.findIDSubmit, .findPWSubmit {
 	margin: 30px;
 	height: 10%;
 }
@@ -101,7 +87,7 @@ input::placeholder {
 }
 
 .email {
-	width: 80%
+	width: 75%
 }
 
 .adress {
@@ -115,31 +101,17 @@ input::placeholder {
 .checkBtn, .addressBtn {
 	border: none;
 	padding: 5px 10px;
-	border-radius: 7px;
+	border-radius: 8px;
 	font-size: 15px;
 }
 
-.bottomContext {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	margin: auto;
-	padding: 30px;
-}
-
-.bottomContext b {
-	font-size: 30px;
-	font-weight: bold;
-}
-
-.joinBtn {
+.findBtn {
 	border: none;
 	padding: 15px 70px;
-	border-radius: 10px;
+	border-radius: 8px;
 	display: block;
 	margin: auto;
 	color: #fff;
-	font-size: 15px;
 	font-weight: bold;
 	background: #000000;
 }
