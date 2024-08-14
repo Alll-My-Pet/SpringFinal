@@ -23,6 +23,7 @@
 		$(this).parent().parent().find('input[type="text"]').val('');
 		$(this).parent().parent().addClass('div_display_none');
 		$(this).siblings('.pet_radio').prop('checked', false);
+		$(this).siblings('.representative_pet').addClass('div_display_none');
 		
 		const divs = $('div.info_pet_area.div_display_none');
 		if (0 < divs.length) {
