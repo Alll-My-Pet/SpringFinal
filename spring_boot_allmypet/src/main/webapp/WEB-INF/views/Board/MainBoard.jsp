@@ -25,8 +25,7 @@
 					placeholder="게시판 내 검색" />
 
 				<button class="BoardSearchBtn">
-					<img
-						src="<c:url value='/pet_images/free-icon-search-interface-symbol-54481.png'/>" />
+					<img src="<c:url value='/pet_images/free-icon-search-interface-symbol-54481.png'/>" />
 				</button>
 
 			</form>
@@ -51,58 +50,54 @@
 
 				<thead>
 					<tr>
-						<th>구분
-							<button class="TbDropdownBtn" onclick="toggleDropdown(this)">▼</button>
+						<th >
+						<form>
+							<!-- <button class="TbDropdownBtn" onclick="toggleDropdown(this)">▼</button> -->
+							<select id="BFilter2">
+							<option value="option1">구분</option>
+							<option value="option2">구분2</option>
+							<option value="option3">구분3</option>
+							<option value="option4">구분4</option>
+							
+							</select>
+						</form>
 						</th>
-						<th scope="col" class="th-title">글 제목</th>
-						<th scope="col" class="th-writer">작성자</th>
-						<th scope="col" class="th-date">날짜</th>
-						<th scope="col" class="th-view">조회</th>
-						<th scope="col" class="th-good">추천</th>
+						<th scope="col" class="th-title" >글 제목</th>
+						<th scope="col" class="th-writer" >작성자</th>
+						<th scope="col" class="th-date" >날짜</th>
+						<th scope="col" class="th-view" >조회</th>
+						<th scope="col" class="th-good" >추천</th>
 					</tr>
 				</thead>
 
-				<tbody>
-					    <c:forEach var="board" items="${boardList }">
-							<%-- <tr onclick="location.href='<c:url value='/customer/detailViewBoard/${board.bodNo}'/>'" id="boardRow"> --%>
-								<td>${board.bodNo}</td>
-								<td>${board.bodTitle}</td>
-								<td>${board.memId}</td>
-								<td><fmt:formatDate value="${board.bodDate }" pattern="YYYY-MM-dd" /></td>
-							</tr>
-						</c:forEach> 
-					
-
-					<tr>
-						<td>2</td>
-						<td><a href="#">아무거나아무거나1</a></td>
-						<td>작성자2</td>
-						<td>2017.07.14</td>
-						<td>32</td>
-						<td>7</td>
+				<tbody id="boardList">
+				 	<c:forEach var="board" items="${boardList }">
+				 	<tr>
+					    <td>${board.bodNo }</td> 
+					    <td>${board.bodTitle }</td> 
+					    <td>${board.memId }</td> 
+					    <td><fmt:formatDate value="${board.bodDate }" pattern="YYYY-MM-dd" /></td> 
+					    <td>${board.bodView }</td> 
+					    <td>${board.bodLike }</td> 
 					</tr>
-
-					<tr>
-						<td>3</td>
-						<td><a href="#">아무거나아무거나2</a></td>
-						<td>작성자3</td>
-						<td>2017.07.15</td>
-						<td>33</td>
-						<td>8</td>
-					</tr>
-
-					<tr>
-						<td>4</td>
-						<td><a href="#">아무거나아무거나3</a></td>
-						<td>작성자4</td>
-						<td>2017.07.16</td>
-						<td>34</td>
-						<td>9</td>
-					</tr>
+				    </c:forEach>
 				</tbody>
 			</table>
 
 		</section>
+		
+		<section class="page">
+          <ul class="page-list">
+            <li>
+            <button class="preButton"><</button>
+            </li>
+            <li><a href="#" class="page-link" data-page="1">1</a></li> 
+            <li>
+            <button class="nextButton">></button>
+            </li>
+          </ul>
+        </section>
+
 
 		<nav class="boardCtg">
 			<div class="PetCtgBrd">

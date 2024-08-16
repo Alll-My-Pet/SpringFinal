@@ -3,17 +3,23 @@ package com.spring_boot_allmypet.project.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import com.spring_boot_allmypet.project.dao.IBoardDAO;
 import com.spring_boot_allmypet.project.model.BoardVO;
 
 @Service
 public class BoardService implements IBoardService {
 
+	@Autowired
+	@Qualifier("IBoardDAO")
+	IBoardDAO dao;
+
 	@Override
 	public ArrayList<BoardVO> listAllBoard() {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.listAllBoard();
 	}
 
 	@Override

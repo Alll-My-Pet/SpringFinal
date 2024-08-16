@@ -23,6 +23,8 @@
 	border: 1px solid black;
 	margin: 0 auto;
 	margin-top: 50px;
+	height:900px;
+	overflow:hidden;
 }
 
 .boardTB td {
@@ -93,4 +95,31 @@
 	left: 200px;
 	text-align: center;
 }
+
+#BFilter2{
+	border:none;
+}
+
+.page-list {
+    
+    padding: 0;
+		margin-top: 13px;
+}
+
+.page-list li {
+    display: inline-block;
+    
+}
+
+.page-link {
+    color: black;
+    cursor: pointer;
+    font-size: 20px;
+	margin-left: 20px;
+}
+
+.page-link:hover {
+    background-color: #f2f2f2;
+}
+
 
