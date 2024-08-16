@@ -9,10 +9,10 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/member/join.css">
-		<script src="<%= request.getContextPath() %>/js/join.js"></script>
+		<script src="<%= request.getContextPath() %>/js/member/join.js"></script>
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/member/joinPage.js'/>"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-		<script src="<c:url value='/js/searchAddress.js'/> "></script>
 	</head>
 	<body>
 		<!-- top -->
@@ -30,7 +30,7 @@
 								<tr>
 									<td><label for="id">아이디</label></td>
 									<td><input type="text" id="id" name="id" class="id">
-										<input type="button" value="중복확인" class="checkBtn" onClick="checkId()">
+										<input type="button" value="중복확인" class="checkBtn"  id="searchId">
 										<span class="error-message" id="idError"></span>
 									</td>
 								</tr>

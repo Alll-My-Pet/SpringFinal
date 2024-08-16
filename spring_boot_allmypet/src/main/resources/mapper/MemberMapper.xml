@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.member.IMemberDAO">
+  	<resultMap id="memResult" type="com.spring_boot_allmypet.project.model.member.MemberVO" >
+  		<result property="memId" column="memId"  />
+  		<result property="memPw" column="memPw"  />
+  		<result property="memName" column="memName"  />
+  		<result property="memEmail" column="memEmail"  />
+  		<result property="memHP" column="memHP"  />
+  		<result property="memZipcode" column="memZipcode"  />
+  		<result property="memAddress1" column="memAddress1"  />
+  		<result property="memAddress2" column="memAddress2"  />
+  		<result property="memGen" column="memGen"  />
+  		<result property="memBirth" column="memBirth"  />
+  		<result property="filtering" column="filtering"  />
+  		
+  	</resultMap>
+  	
+  	<!-- 아이디 중복 확인 -->
+  	<select id="memIdCheck" parameterType="string" resultType="string">
+  		SELECT memId FROM member WHERE memId=#{memId}
+  	</select>
+  </mapper>
