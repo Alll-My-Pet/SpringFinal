@@ -24,7 +24,7 @@
 
 .joinBox {
 	width: 800px;
-	height: 1700px;
+	height: 2000px;
 	margin: auto;
 }
 
@@ -43,8 +43,9 @@
 }
 
 .joinSubmit {
-	margin: 30px;
-	height: 10%;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 50px;
 }
 
 table {
@@ -74,7 +75,7 @@ input::placeholder {
 	text-align: left;
 }
 
-.id, .text, .hp {
+.id, .text {
 	padding: 7px 0;
 	border: none;
 	border-bottom: 1px solid;
@@ -106,10 +107,6 @@ input::placeholder {
 
 .adress {
 	width: 100%;
-}
-
-.hp {
-	width: calc(25% - 10px);
 }
 
 .checkBtn, .addressBtn {

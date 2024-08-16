@@ -28,5 +28,15 @@ public class MemberService implements IMemberService {
 	public String memNNCheck(String nn) {
 		return dao.memNNCheck(nn);
 	}
+	
+	/*
+	 * public boolean isIdDuplicate(String memId) { return memDao.checkID(memId) >
+	 * 0; }
+	 * 
+	 * public String findPW(String memId) { return memDao.findPW(memId); }
+	 * 
+	 * public String findID(String memName, String memEmail, String memHP) { return
+	 * memDao.findID(memName, memEmail, memHP); }
+	 */
 
 }
