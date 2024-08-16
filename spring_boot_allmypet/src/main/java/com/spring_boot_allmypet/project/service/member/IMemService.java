@@ -1,16 +1,12 @@
-package com.spring_boot_allmypet.project.dao.member;
+package com.spring_boot_allmypet.project.service.member;
 
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Repository;
 
 import com.spring_boot_allmypet.project.model.member.MemVO;
 
-@Mapper
-@Repository
-public interface IMemDAO {
+public interface IMemService {
 	
-	void insertMem (MemVO memId);
+void insertMem (MemVO memId);
 	
 	MemVO getUserByUsername(String memId);
 	

@@ -2,8 +2,8 @@ package com.spring_boot_allmypet.project.model.member;
 
 public class MemVO {
 	
-	private String memID;
-	private String memPW;
+	private String memId;
+	private String memPwd;
 	private String memName;
 	private String memEmail;
 	private String memHP;
@@ -13,17 +13,17 @@ public class MemVO {
 	private String memGen;
 	private String memBirth;
 	
-	public String getMemID() {
-		return memID;
+	public String getMemId() {
+		return memId;
 	}
-	public void setMemID(String memID) {
-		this.memID = memID;
+	public void setMemId(String memId) {
+		this.memId = memId;
 	}
-	public String getMemPW() {
-		return memPW;
+	public String getMemPwd() {
+		return memPwd;
 	}
-	public void setMemPW(String memPW) {
-		this.memPW = memPW;
+	public void setMemPwd(String memPwd) {
+		this.memPwd = memPwd;
 	}
 	public String getMemName() {
 		return memName;

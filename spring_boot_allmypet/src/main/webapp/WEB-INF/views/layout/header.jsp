@@ -26,9 +26,9 @@
 			</div>
 			<div class="loginbox">
 				<ul class="login-bar">
-					<li><a href="<c:url value='/member/joinForm'/>" id="topMenu2">회원가입</a></li>
+					<li><a href="<c:url value='/join'/>" id="topMenu2">회원가입</a></li>
 					<li>|</li>
-					<li><a href="<c:url value='/member/loginForm'/>" id="topMenu1">로그인</a></li>
+					<li><a href="<c:url value='/login'/>" id="topMenu1">로그인</a></li>
 				</ul>
 			</div>
 		</div>
