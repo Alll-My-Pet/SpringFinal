@@ -97,7 +97,6 @@
 						</div>
 					</div>
 					<!-- 첫 번째 행 끝 -->
-					<!-- ㅁㄴㅇㄻㄴㅇㄹ -->
 					<div class="row">
 						<!-- 두 번째 행 시작 -->
 						<div class="col-sm-3 mb-3">
@@ -360,6 +359,7 @@
 				</div>
 			</div>
 			<!-- contents 끝 -->
+			<!-- 플로팅버튼(탑버튼 포함) -->
 			<div id="floatingBtn">
 				<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
 			</div>
