@@ -19,7 +19,7 @@
     /* 수직 정렬을 위해 column 방향으로 설정 */
     justify-content: center;
     /* 수평 정렬 유지 */
-    width: 1000px;
+    width: 1230px;
     /* 고정된 너비 */
     height: auto;
     /* 자식 요소에 맞춰 자동 조정 */
