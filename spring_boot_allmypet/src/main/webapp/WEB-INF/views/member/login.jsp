@@ -25,8 +25,8 @@
 				<div class="loginLeft">
 					<div class="leftContext">
 						<form id="loginForm" class="loginForm" method="post" action="#">
-							<input type="text" placeholder="아이디" required>
-							<input type="password" placeholder="비밀번호" required>
+							<input id="username" type="text" placeholder="아이디" required>
+							<input id="password" type="password" placeholder="비밀번호" required>
 							<!-- <div class="rememberId">
 								<label><input type="checkbox">아이디 저장</label>
 							</div> -->
