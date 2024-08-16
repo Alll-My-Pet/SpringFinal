@@ -11,7 +11,7 @@
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
-		<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
+		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		
 		<section id="mypage_main">
 			<div id ="myp">
