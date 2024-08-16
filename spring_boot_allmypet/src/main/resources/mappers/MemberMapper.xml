@@ -34,4 +34,14 @@
   	<select id="memNNCheck" parameterType="string" resultType="string">
   		SELECT memNickName FROM member WHERE memNickName=#{memNickName}
   	</select>
+  	
+  	<!-- 포지션 확인 -->
+  	<select id="memPosition" parameterType="string" resultType="int">
+  		SELECT position FROM member WHERE memId=#{memId}
+  	</select>
+  	
+  	<!-- 로그인 검사 -->
+  	<select id="loginCheck" parameterType="string" resultType="string">
+  		SELECT memPwd FROM member WHERE memId=#{id}
+  	</select>
   </mapper>
