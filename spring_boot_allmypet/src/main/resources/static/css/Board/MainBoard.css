@@ -1,100 +1,96 @@
 @charset "UTF-8";
 
-.All{
-	width:100%;
+.All {
+	width: 100%;
 }
 
-.BoardSearchBtn{
-	border:0px;
-	background-color:white;
-	
+.BoardSearchBtn {
+	border: 0px;
+	background-color: white;
 }
 
-.hotBoard{
-	border:1px solid black;
-	width:900px;
-	height:200px;
-	margin:0 auto;
-	margin-top:150px;
-}
-
-.boardTB{
+.hotBoard {
+	border: 1px solid black;
 	width: 900px;
-    border-collapse: collapse;
-    border: 1px solid black;
-    margin:0 auto;
-    margin-top: 50px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 150px;
 }
 
-.boardTB td{
-   	border-top: 1px solid black;
-   	border-bottom: 1px solid black;
-    padding: 8px;
-    text-align: center;
-    border-collapse: collapse;
+.boardTB {
+	width: 900px;
+	border-collapse: collapse;
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-top: 50px;
 }
 
-#SearchBox{
-	border-radius:5px;
-	border-color:#01bffe;
-	
+.boardTB td {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 8px;
+	text-align: center;
+	border-collapse: collapse;
 }
 
+#SearchBox {
+	border-radius: 5px;
+	border-color: #01bffe;
+}
 
-
-#MainFont{
-	font-size:50px;
-	margin-right:630px;
-	margin-top:150px;
+#MainFont {
+	font-size: 50px;
+	margin-right: 630px;
+	margin-top: 150px;
 	display: flex;
-    justify-content: center;
+	justify-content: center;
 }
 
-.TbDropdownBtn{
-	background:white;
-	border:none;
+.TbDropdownBtn {
+	background: white;
+	border: none;
 }
 
-.hot1{
+.hot1 {
 	border: 1px solid black;
-	width:90%;
-	height:25%;
+	width: 90%;
+	height: 25%;
 	border-radius: 6px;
-	margin:0 auto;	
-	display:flex;
+	margin: 0 auto;
+	display: flex;
 }
-.hot2{
+
+.hot2 {
 	border: 1px solid black;
-	width:90%;
-	height:25%;
+	width: 90%;
+	height: 25%;
 	border-radius: 6px;
-	margin:0 auto;
-	margin-top:10px;	
-	display:flex;
+	margin: 0 auto;
+	margin-top: 10px;
+	display: flex;
 }
 
-
-
-.MainBoard{
-	border:1px solid black;
-	width:100vh;
-	height:150vh;
-	margin:0 auto;
+.MainBoard {
+	border: 1px solid black;
+	width: 100vh;
+	height: 150vh;
+	margin: 0 auto;
 }
 
-#BoardSearchBar{
-	position:absolute;
-	width:300px;
-	margin-left:66vh;
-	margin-top:7vh;
-	display:flex;
+#BoardSearchBar {
+	position: absolute;
+	width: 300px;
+	margin-left: 66vh;
+	margin-top: 7vh;
+	display: flex;
 }
 
-.PetCtgBrd{
-	border:1px solid black;
-	width:250px;
-	position:absolute;
-	top:300px;
-	left:200px;
-	text-align:center;
+.PetCtgBrd {
+	border: 1px solid black;
+	width: 250px;
+	position: absolute;
+	top: 300px;
+	left: 200px;
+	text-align: center;
 }
+
