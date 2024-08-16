@@ -9,7 +9,7 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/login.css">
-		<script src="<%= request.getContextPath() %>/js/login.js"></script>
+		<script src="<%= request.getContextPath() %>/js/member/login.js"></script>
 	</head>
 	<body>
 		<!-- top -->

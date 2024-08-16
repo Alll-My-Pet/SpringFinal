@@ -17,7 +17,7 @@ public class TestController {
 	}
 	
 	@RequestMapping("/join")
-	public String join() {
+	public String joinForm() {
 		return "member/join";
 	}
 	
@@ -29,21 +29,6 @@ public class TestController {
 	@RequestMapping("/forgotPW")
 	public String forgotPW() {
 		return "member/forgotPW";
-	}
-	
-	@RequestMapping("/test")
-	public String test() {
-		return "member/test";
-	}
-	
-	@RequestMapping("/test2")
-	public String test2() {
-		return "member/test2";
-	}
-	
-	@RequestMapping("/test3")
-	public String test3() {
-		return "member/test3";
 	}
 
 }
