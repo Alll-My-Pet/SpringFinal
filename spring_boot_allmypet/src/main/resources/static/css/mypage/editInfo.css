@@ -1,0 +1,254 @@
+@charset "UTF-8";
+
+/* 지울부분 */
+
+
+/* ------ */
+
+#edit_info {
+	width:70%;
+	height:100%;
+	margin:auto;
+}
+#edit_info_area{
+	display:flex;
+	flex-direction: column;
+	height: 1500px;
+	width:90%;
+	padding: 5%;
+	margin: auto
+}
+.ei_cursor_pointer{
+	cursor: pointer;
+}
+
+
+/* 상단 부분 */
+
+#edit_t{
+	display:flex;
+	width:100%;
+	height: 250px;
+	margin-bottom:5%;
+}
+#edit_t_l{
+	width: 30%;
+	heigth:100%;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#edit_t_img_area{
+	width:190px;
+	height:190px;
+	border-radius: 50%;
+	overflow: hidden;
+	margin:0 auto;
+}
+#edit_img{
+	width:100%;
+	height:100%;
+	object-fit: cover; 
+}
+
+#edit_img_btn{
+	margin: 0 auto;
+	width:170px;
+	height:35px;
+	border-radius: 7px;
+	text-align: center;
+	display:flex;
+	flex-direction:column;
+	justify-content: center;
+	margin-top:15px;
+	border:1px solid #ccc;
+}
+
+#edit_t_r{
+	border:1px solid #ccc;
+	border-radius:20px;
+	width:70%;
+	padding :3%;
+}
+
+#my_nickname_area{
+	display:flex;
+	width:100%;
+}
+#nickname_check_btn{
+	border: 1px solid #aaaaaa;
+	border-radius: 5px;
+}
+#edit_b{
+	border: 1px solid #ccc;
+	min-height: 600px;
+}
+#edit_b>div{
+	display: flex;
+}
+.info_text_area{
+	padding-left:3%;
+	padding-top:3%;
+	width:75%;
+}
+.info_config_div{
+	display:flex;
+	justify-content: flex-end;
+	width:25%;
+	padding-top:3%;
+	font-weight: 500;
+	font-size: 30px;
+}
+#info_nickname_text_area{
+	display:flex;	
+}
+#info_nickname_area .info_text_area{
+	margin:auto 0;
+}
+#nickname_text_area{
+	width:40%;
+	margin-right: 5px;
+}
+.info_config_name{
+	margin:5px 0;
+}
+.info_text_list{
+	margin:10px 0;
+}
+.birth_inner_text{
+	width:80px;
+}
+#address_no_area{
+	display:flex;
+}
+#address_no{
+	width:20%;
+	margin-right: 5px;
+}
+#address_btn{
+	border: 1px solid #aaaaaa;
+	border-radius: 5px;
+}
+.address_inner_text{
+	width:400px;
+}
+.info_phone_text{
+	width:50px;
+}
+#edit_regis_btn{
+	width:150px;
+	margin: 0 auto;
+	margin-top:20px;
+	height:45px;
+	font-size:25px;
+	font-weight: 600;
+	border-radius: 10px;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #888888;
+	color: white;
+}
+.pet_name_area{
+	display: flex;
+	align-items: center;
+}
+.pet_type{
+	position: relative;
+	padding-right: 1%;
+}
+.pet_type::after {
+    content: '';
+    position: absolute;
+    top: 25%; 
+    transform: scaleX(0.5); 
+    right: -1%; 
+    width: 1px; 
+    height: 70%; 
+    background-color: #626262; 
+     width: 3px;
+}
+
+.pet_birth_area{
+	display:flex;
+	margin-top: 5px;
+}
+
+.info_pet_birth_div{
+	position: relative;
+	padding-right: 1%;
+}
+
+.info_pet_birth_div::after {
+    content: '';
+    position: absolute;
+    top: 25%; 
+    transform: scaleX(0.5); 
+    right: -1%; 
+    width: 1px; 
+    height: 70%; 
+    background-color: #626262; 
+     width: 3px;
+}
+
+.pet_birth_text{
+	display: flex;
+	justify-content: space-between;
+	width:250px;
+}
+.pet_birth_text input{
+	width:50px;
+}
+.representative_pet{
+	border: 1px solid #aaaaaa;
+	border-radius: 5px;
+	height: 20px;
+	font: 17px;
+	line-height: 20px;
+	margin-left:5px;
+}
+#info_mypet_area{
+	min-height: 200px;
+}
+.info_pet_area{
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+.info_pet_addition{
+	display:flex;
+	margin-bottom:5%;
+}
+.info_pet_addition_btn{
+	height: 35px;
+	width:80px;
+	border: 1px solid #aaaaaa;
+	border-radius: 5px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+.info_pet_addition_text{
+	display:flex;
+	align-items: center;
+	font-size: 10px;
+}
+.info_text_area div{
+	margin-right:5px;
+}
+
+.info_pet_area>div{
+	margin-bottom:5px;
+}
+.pet_cancel_btn{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	color:#aaaaaa;
+	width:40px;
+	height:100%;
+	border:1px solid #aaaaaa;
+	border-radius: 10px;	
+}

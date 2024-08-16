@@ -1,0 +1,252 @@
+@charset "UTF-8";
+
+/*********************/
+/* 네비게이션 바 시작 */
+/*********************/
+.nav-bar {
+    background: #CFFACE;
+    display: flex;
+    padding: 4px 41px;
+    width: 853px;
+    height: 40px;
+    box-sizing: border-box;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.navBarFixed {
+    position: fixed;
+    /* 스크롤 시 고정 */
+    top: 0;
+    /* 상단 고정 */
+    /* background-color: #fff; */
+    /* 배경색 설정 (필요에 따라 조정) */
+    z-index: 1000;
+    /* 다른 요소 위에 표시 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* 그림자 추가 */
+    transition: top 0.3s;
+    /* 부드러운 애니메이션 효과 */
+}
+
+.navigation-pill-list {
+    background: #FFFFFF;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    /* width: 720px; */
+    height: 100%;
+    min-width: 720px;
+    /* 최소 너비 설정 */
+    /* max-width: 710px; */
+    /* 최대 너비 설정 */
+
+    /* ************** */
+    position: relative;
+    /* 전체 드롭다운 위치를 이 요소를 기준으로 설정 */
+}
+
+.navigation-pill {
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    /* 세로 중앙 정렬 */
+    justify-content: center;
+    /* 가로 중앙 정렬 */
+    /* height: 34px; */
+    /* 높이 통일 */
+    margin: 0 10px;
+    /* 요소 간 간격 일정하게 */
+    padding: 5px;
+    position: relative;
+    /* 드롭다운 메뉴를 절대 위치로 설정하기 위해 부모를 상대 위치로 설정 */
+}
+
+/********************************************/
+/* 네비 바 드롭다운 관련 */
+
+.dropdown-menu {
+    display: none;
+    /* 기본적으로 숨김 */
+    position: absolute;
+    /* 부모 요소에 대해 절대 위치 */
+    background: #FFFFFF;
+    /* 배경색 */
+    border-radius: 8px;
+    /* 모서리 둥글게 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* 그림자 추가 */
+    z-index: 100;
+    /* 다른 요소 위에 표시 */
+
+    top: 100%;
+    /* 2차 메뉴를 1차 메뉴의 아래에 위치시킨다 */
+    left: 0;
+    /* 2차 메뉴를 1차 메뉴의 왼쪽 벽에 붙인다 */
+    width: auto;
+    /* 너비를 자동으로 설정 */
+    white-space: nowrap;
+    /* 텍스트가 줄 바꿈되지 않도록 설정 */
+    min-width: 100px;
+    /* 최소 너비를 설정하여 너무 작아지지 않도록 함 */
+}
+
+
+.navigation-pill:hover .dropdown-menu {
+    display: block;
+    /* 호버 시 드롭다운 메뉴 나타나기 */
+}
+
+
+.dropdown-menu a {
+    display: block;
+    /* 링크를 블록으로 설정하여 클릭 영역 확대 */
+    padding: 8px 16px;
+    /* 패딩 추가 */
+    color: #333;
+    /* 텍스트 색상 */
+    text-decoration: none;
+    /* 하이퍼링크 밑줄 제거 */
+    font-size: 10px;
+}
+
+.dropdown-menu a:hover {
+    background: #f0f0f0;
+    /* 마우스 오버 시 배경색 변경 */
+}
+
+/* 전체 드롭다운 */
+
+.overall-dropdown {
+    display: none;
+    /* 기본적으로 숨김 */
+    position: absolute;
+    /* 부모 요소에 대해 절대 위치 */
+    background: #FFFFFF;
+    /* 배경색 */
+    border-radius: 8px;
+    /* 모서리 둥글게 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* 그림자 추가 */
+    margin-top: 5px;
+    /* 간격 조정 */
+    padding: 5px;
+    /* 패딩 추가 */
+    z-index: 100;
+    /* 다른 요소 위에 표시 */
+
+    /* ********** */
+    width: 740px;
+    /* 너비 설정 */
+    top: 100%;
+    /* navigation-pill-list 아래에 위치 */
+    left: 0;
+    /* 네비게이션 바의 왼쪽에 붙도록 설정 */
+    flex-direction: row;
+    /* 내부요소 가로로 정렬 */
+    justify-content: space-between;
+    white-space: nowrap;
+    /* 텍스트가 줄 바꿈되지 않도록 설정 */
+}
+
+/* 드롭다운을 보이게 할 때 사용할 클래스 */
+.show {
+    display: flex;
+    /* 플렉스 박스 레이아웃으로 표시 */
+}
+
+.dropdown-section {
+    /* margin-bottom: 10px; */
+    /* 섹션 간격 */
+    margin-right: 10px;
+    /* 요소 간 간격 일정하게 */
+}
+
+.dropdown-section strong {
+    display: block;
+    /* 제목을 블록으로 설정 */
+    padding: 5px 10px;
+    /* 패딩 추가 */
+    font-weight: bold;
+    /* 강조 */
+    font-size: 14px;
+}
+
+.overall-dropdown a {
+    display: block;
+    /* 링크를 블록으로 설정하여 클릭 영역 확대 */
+    padding: 8px 10px;
+    /* 패딩 추가 */
+    color: #333;
+    /* 텍스트 색상 */
+    text-decoration: none;
+    /* 하이퍼링크 밑줄 제거 */
+    font-size: 13px;
+}
+
+.overall-dropdown a:hover {
+    background: #f0f0f0;
+    /* 마우스 오버 시 배경색 변경 */
+}
+
+/* 마우스를 menuBtn에 올리면 전체 카테고리가 보이게 하고싶으나 실행안됨 */
+/* .nav-bar .menu-icon:hover .overall-dropdown {
+    display: block;
+} */
+
+/********************************************/
+
+.navigation-pill a {
+    color: inherit;
+    /* 텍스트 색상을 상속하여 일반 텍스트처럼 보이게 함 */
+    text-decoration: none;
+    /* 기본 하이퍼링크 밑줄 제거 */
+    font-size: 14.5px;
+}
+
+/* 마우스 오버 시 폰트 굵기 변경 */
+.navigation-pill:hover a {
+    font-weight: bold;
+    /* 폰트를 굵게 설정 */
+    color: #000000af;
+    /* 마우스 오버 시 텍스트 색상 변경 (필요에 따라 조정) */
+}
+
+/* 검색 버튼 */
+/* 메뉴 버튼 */
+.nav-bar .menu-icon,
+.nav-bar .search-icon {
+    display: flex;
+    margin: 0 auto;
+}
+
+.nav-bar .search-icon {
+    margin-left: 10px;
+}
+
+.nav-bar .menu-icon {
+    margin-right: 10px;
+}
+
+.menu-icon button,
+.search-icon button {
+    width: 100%;
+    height: 100%;
+    background: none;
+    /* 배경 제거 */
+    border: none;
+    /* 경계선 제거 */
+    padding: 0;
+    /* 패딩 제거 */
+    cursor: pointer;
+    /* 마우스 커서를 포인터로 변경 */
+}
+
+.menu-icon img,
+.search-icon img {
+    height: 25px;
+    /* 이미지 높이 조정 (필요에 따라 조정) */
+    width: auto;
+    /* 비율 유지 */
+}

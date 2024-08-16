@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+#mypage_comm{
+	display: flex;
+	flex-direction: row;
+	width:100%;
+	height:100%;
+}
+#mypage_comm #mypage_r{
+	width:70%;
+}
+#mypage_r #bmg{
+	width:80%;
+	padding: 1%;
+}
+
+#bmg_t{
+	height: 10%;
+}
+#bmg_m{
+	height: 80%;
+}
+#bmg_b{
+	height:10%;
+}
+
+
+#bmg_t #first_name{
+	font-size:10px;
+}
+#bmg_t #second_name{
+	font-size:30px;
+	font-weight: bold;
+}
+#m_filter_search_div{
+	display:flex;
+	justify-content: flex-end;
+	padding-right:1%;
+}
+#bmg{
+	box-shadow: 0 0 0 1px #aaaaaa;
+	border-radius: 10px;
+	height:100%;
+}
+
+/* 갤러리 리스트 영역 */
+
+#bmg_gallery_lists{
+	height:90%;
+	width:100%;
+	margin-top:1%;
+}
+#bmg_gallery_lists td{
+	width: 20%; 
+    height: 33%; 
+    padding: 0;
+}
+.bmg_gallery_list{
+	position: relative;
+    width: 100%;
+    cursor:pointer;
+}
+.bmg_img_thumbnail{
+	width: 100%;
+    height: 100%;
+}
+.bmg_img_overlay{
+	display:flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.2); /* 반투명 배경 마우스 오버시 0으로 만드는 js필요 */
+    font-size: 24px;
+}
+.bmg_profile_area{
+	width:40px;
+	height:40px;
+	border-radius:50%;
+	box-shadow: 0 0 0 1px white;
+	overflow: hidden;
+}
+.bmg_profile_area .bmg_profile_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.bmg_img_overlay .bmg_img_top{
+	display:flex;
+	justify-content: space-between;
+	margin:3% 3% 0 3%;
+}
+.bmg_img_overlay .bmg_img_bottom{
+	margin:0 3% 3% 3%;
+}
+
+/* -------------------------------------------------------------- */
+
+#bmg_b{
+	display:flex;
+	flex-direction:column;
+}
+#bmg_b div{
+	display:flex;
+	flex-direction:row;
+	justify-content: center;
+}
+.bmg_filter_search i{
+	cursor: pointer;
+}

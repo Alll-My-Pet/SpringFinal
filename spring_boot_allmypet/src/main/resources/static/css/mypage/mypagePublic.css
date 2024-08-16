@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+html, body {
+	height: 100%;
+	margin: 0;
+   
+}
+section div{
+	box-sizing: border-box;
+}
+section .inner_text_div{
+	white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+section a{
+	display: block;
+	text-decoration: none;
+ 	color: inherit;
+}
+section .div_cursor_pointer{
+	cursor: pointer;
+}
+.btn_div{
+	cursor: pointer;
+	user-select: none;
+}
+.btn_div:active {
+	transform: scale(0.95);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.div_display_none{
+	display: none !important;
+	
+}

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+#mypage_market #mypage_l{
+	width:30%;
+	display:flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+#mypage_market #market_control{
+	width:40%;
+	height:200px;
+	margin-right:5%;
+	border: 1px solid #aaaaaa;
+	border-radius: 10px;
+	padding:5px;
+	display:flex;
+	flex-direction:column;
+	justify-content: space-around;
+}
+#market_control a{
+	display: flex;
+    flex-direction: column; 
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    height:7%;
+    justify-content: center;
+}
