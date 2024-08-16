@@ -88,7 +88,7 @@
 							<a href="#" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_파충양서류.png" class="card-img-top"
-										alt="..." style="width: 80px; height: 61.65px;">
+										alt="..." style="width: 80px; height: 61.65px;" />
 									<div class="card-body">
 										<h5 class="card-title">파충류/양서류</h5>
 									</div>
