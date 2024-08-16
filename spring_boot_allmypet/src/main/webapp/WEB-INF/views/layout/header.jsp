@@ -14,7 +14,7 @@
     <script src="<c:url value='/js/layout/header.js'/>"></script>
 </head>
 <body>
-	<div class="header">
+	<div id="header" class="header">
 		<div class="top-bar">
 		<!-- 로고 + 로그인 버튼라인 위치 -->
 		<a href="<c:url value='/'/>" class="logo">
@@ -37,7 +37,7 @@
 	<div class="nav-bar" id="navBar">
 		<div class="menu-icon">
 			<button class="menuBtn">
-				<img src="image/menu_twoline.svg" alt="메뉴" />
+				<img src="<c:url value='/image/menu_twoline.svg'/>" alt="메뉴" />
 			</button>
 		</div>
 		<div class="navigation-pill-list">

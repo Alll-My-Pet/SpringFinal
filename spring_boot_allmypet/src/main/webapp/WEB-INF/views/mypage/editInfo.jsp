@@ -16,6 +16,8 @@
 		<script src="<c:url value='/js/mypage/searchZip.js'/>"></script>
 	</head>
 	<body>
+		<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
+		
 		<section id="edit_info">
 			<div id="edit_info_area">
 				<div id="edit_t">
@@ -132,5 +134,7 @@
 				<div id="edit_regis_btn" class="ei_cursor_pointer btn_div">수정</div>
 			</div>
 		</section>
+		
+		<c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

@@ -2,7 +2,7 @@
 
 /* top-bar */
 
-.frame-1 .header {
+#header {
     margin: 0 auto;
     width: fit-content;
 }
@@ -34,7 +34,7 @@
     /* 비율 유지 */
 }
 
-.desktop-1 .top-bar {
+#header .top-bar {
     background: #FCD2D2;
     display: flex;
     flex-direction: row;

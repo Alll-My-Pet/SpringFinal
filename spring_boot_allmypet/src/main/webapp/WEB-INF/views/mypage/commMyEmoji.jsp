@@ -13,6 +13,8 @@
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
+		<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
+	
 		<section id="mypage_comm">
 			<div id="mypage_l">
 				<div id="comm_control">
@@ -142,5 +144,7 @@
 			</div>
 			
 		</section>
+		
+		<c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('loginForm');
     const errorMessage = document.createElement('p');
@@ -31,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+=======
+>>>>>>> develop
 function openForgotWindow(event, value) {
   event.preventDefault();
   const width = 700;

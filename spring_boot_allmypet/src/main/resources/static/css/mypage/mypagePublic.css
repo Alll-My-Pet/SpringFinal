@@ -21,6 +21,9 @@ section a{
 section .div_cursor_pointer{
 	cursor: pointer;
 }
+section{
+	padding-top:50px;
+}
 .btn_div{
 	cursor: pointer;
 	user-select: none;
