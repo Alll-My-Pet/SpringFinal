@@ -36,7 +36,7 @@
 	<div class="nav-bar" id="navBar">
 		<div class="menu-icon">
 			<button class="menuBtn">
-				<img src="image/menu_twoline.svg" alt="메뉴" />
+				<img src="<c:url value='/image/menu_twoline.svg'/>" alt="메뉴" />
 			</button>
 		</div>
 		<div class="navigation-pill-list">
