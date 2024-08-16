@@ -3,6 +3,8 @@ package com.spring_boot_allmypet.project.service.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_allmypet.project.dao.member.IMemberDAO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;

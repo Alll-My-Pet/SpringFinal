@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => {
         event.preventDefault(); // 폼의 기본 동작을 방지
 
-        const memID = form.elements['memID'].value.trim();
+        const memId = form.elements['memId'].value.trim();
         const memPwd = form.elements['memPwd'].value.trim();
 
-        if (validateLogin(memID, memPwd)) {
+        if (validateLogin(memId, memPwd)) {
             // 서버로 폼을 제출
             form.submit();
         } else {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function validateLogin(username, password) {
         // 기본적인 입력 검증 로직 (이곳에서 서버 검증을 대체할 수 없음)
-        if (memID === '' || memPwd === '') {
+        if (memId === '' || memPwd === '') {
             return false;
         }
 
