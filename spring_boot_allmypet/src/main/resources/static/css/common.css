@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+/* ******************** */
+/* 모든 페이지 공통 css */
+/* ******************** */
+
+.desktop-1 {
+    background-color: aqua;
+    width: 100%;
+    height: 100%;
+    min-height: 900px;
+}
+
+.desktop-1 .frame-1 {
+    background-color: beige;
+    display: flex;
+    /* flex 컨테이너로 설정 */
+    flex-direction: column;
+    /* 수직 정렬을 위해 column 방향으로 설정 */
+    justify-content: center;
+    /* 수평 정렬 유지 */
+    width: 1000px;
+    /* 고정된 너비 */
+    height: auto;
+    /* 자식 요소에 맞춰 자동 조정 */
+    margin: 0 auto;
+    /* 좌우 중앙 정렬 */
+    position: relative;
+}
+
+.contents {
+    background-color: rgb(183, 183, 215);
+    display: flex;
+    width: 853px;
+    /* 플렉스 박스 사용 */
+    /* justify-content: center; */
+    /* 상하 중앙 */
+    align-items: center;
+    /* 좌우 중앙 */
+    box-sizing: border-box;
+    flex-direction: column;
+    /* 세로 방향으로 정렬 */
+    min-height: 900px;
+    margin: 0 auto;
+}
