@@ -14,7 +14,8 @@
     <script src="<c:url value='/js/layout/header.js'/>"></script>
 </head>
 <body>
-	<div class="top-bar">
+	<div class="header">
+		<div class="top-bar">
 		<!-- 로고 + 로그인 버튼라인 위치 -->
 		<a href="<c:url value='/'/>" class="logo">
             <img src="/image/logo.png" alt="로고" />
@@ -113,5 +114,6 @@
 		</div>
 	</div>
 	<!-- nav바 끝 -->
+	</div>
 </body>
 </html>

@@ -2,10 +2,11 @@
 
 /* top-bar */
 
-.header-container {
+.frame-1 .header {
     margin: 0 auto;
     width: fit-content;
 }
+
 
 .logo {
     display: inline-flex;
