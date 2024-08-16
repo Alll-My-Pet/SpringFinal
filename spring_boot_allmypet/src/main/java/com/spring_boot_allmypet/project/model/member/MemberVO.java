@@ -8,6 +8,7 @@ public class MemberVO {
 	private String memId;
 	private String memPwd;
 	private String memName;
+	private String memNickName;
 	private String memEmail;
 	private String memHP;
 	private String memZipcode;
@@ -35,6 +36,12 @@ public class MemberVO {
 	}
 	public void setMemName(String memName) {
 		this.memName = memName;
+	}
+	public String getMemNickName() {
+		return memNickName;
+	}
+	public void setMemNickName(String memNickName) {
+		this.memNickName = memNickName;
 	}
 	public String getMemEmail() {
 		return memEmail;

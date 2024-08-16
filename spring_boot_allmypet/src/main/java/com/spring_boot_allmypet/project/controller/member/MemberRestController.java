@@ -14,12 +14,22 @@ public class MemberRestController {
 	
 	@RequestMapping("/member/idCheck")
 	public String idCheck(@RequestParam("memId") String memId) {
-		System.out.println(memId);
 		String memId_result=memService.memIdCheck(memId);
-		System.out.println(memId_result);
 		String result="fail";
 		
 		if(memId_result == null) {
+			result ="success";
+		}
+		
+		return result;
+	}
+	
+	@RequestMapping("/member/nnCheck")
+	public String NNCheck(@RequestParam("memNN") String memNN) {
+		String memNN_result=memService.memNNCheck(memNN);
+		String result="fail";
+		
+		if(memNN_result == null) {
 			result ="success";
 		}
 		
