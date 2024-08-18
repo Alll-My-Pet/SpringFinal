@@ -26,7 +26,6 @@ public class MemberRestController {
 			session.setAttribute("mid", param.get("id"));
 			session.setAttribute("mpos", mem_position);	
 		}
-		System.out.println("Session ID: " + session.getAttribute("mid"));
 		
 		return result;
 	}
