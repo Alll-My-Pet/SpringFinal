@@ -38,5 +38,4 @@ $(document).ready(function () {
             overallDropdown.classList.remove('show'); // show 클래스 제거하여 드롭다운 숨김
         }
     });
-
 }); 

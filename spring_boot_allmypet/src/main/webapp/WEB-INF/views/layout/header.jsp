@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/layout/nav.css'/>">
     <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
     <script src="<c:url value='/js/layout/header.js'/>"></script>
+    <script src="<c:url value='/js/layout/logout.js'/>"></script>
 </head>
 <body>
 	<div id="header" class="header">
@@ -26,9 +27,25 @@
 			</div>
 			<div class="loginbox">
 				<ul class="login-bar">
-					<li><a href="<c:url value='/join'/>" id="topMenu2">회원가입</a></li>
-					<li>|</li>
-					<li><a href="<c:url value='/login'/>" id="topMenu1">로그인</a></li>
+					<c:if test="${empty sessionScope.mid }">
+						<li><a href="<c:url value='/join'/>" id="topMenu2">회원가입</a></li>
+						<li>|</li>
+						<li><a href="<c:url value='/login'/>" id="topMenu1">로그인</a></li>
+					</c:if>
+					<c:if test="${not empty sessionScope.mid &&  sessionScope.mpos != 2}">
+						<li><a href="<c:url value='/mypage'/>" id="topMenu2">마이페이지</a></li>
+						<li>|</li>
+						<li><a href="<c:url value='/#'/>" id="topMenu1">장바구니</a></li>
+						<li>|</li>
+						<li><a href="<c:url value='/member/logout'/>" id="logout">로그아웃</a></li>
+					</c:if>
+					<c:if test="${not empty sessionScope.mid &&  sessionScope.mpos == 2}">
+						<li><a href="<c:url value='#'/>" id="topMenu2">관리자</a></li>
+						<li>|</li>
+						<li><a href="<c:url value='#'/>" id="topMenu1">장바구니</a></li>
+						<li>|</li>
+						<li><a href="<c:url value='/member/logout'/>" id="logout">로그아웃</a></li>
+					</c:if>
 				</ul>
 			</div>
 		</div>
