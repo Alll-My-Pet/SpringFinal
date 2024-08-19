@@ -5,7 +5,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>로그인</title>
+		<title>로그인</title><!-- 테스트 -->
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/login.css">
