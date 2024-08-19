@@ -26,9 +26,8 @@
 					<td><input type = "email" id="email" name="email" placeholder="이메일 주소 입력" class="email" required>
 					<input type="button" value="인증"onClick="sendEmail()" class="checkBtn">
 					<span class="error-message" id="emailError"></span></td></tr>
-				<tr><td><label for="hp1">연락처</label></td><td><input type="text" id="hp1" size="3" name="hp1" class="hp" required>
-									 - <input type="text" id="hp2" size="4" name="hp2" class="hp" required>
-									 - <input type="text" id="hp3" size="4" name="hp3" class="hp" required>
+				<tr><td><label for="hp1">연락처</label></td>
+					<td><input type="text" id="phone" name="memHP" class="email" size="11" placeholder="숫자만 입력" required>
 					<span class="error-message" id="hpError"></span></td></tr>
 			</table>
 			</form>
@@ -38,5 +37,6 @@
 			</div>
 		</section>
 		<!-- bottom -->
+		<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

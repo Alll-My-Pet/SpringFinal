@@ -98,13 +98,14 @@
 								</tr>
 								<tr>
 									<td></td>
-									<td><input type="text" id="adress3" placeholder="상세주소 입력" name="memAddress2" class="adress">
+									<td><input type="text" id="adress3" placeholder="상세주소 입력" name="memAddress2" class="email" required>
 										<span class="error-message" id="adressError"></span>
 									</td>
 								</tr>
 								<tr>
 									<td><label for="hp1">연락처</label></td>
-									<td><input type="text" id="phone" name="memHP" placeholder="전화번호" required>
+									<td><input type="text" id="phone" name="memHP" class="email" size="11" placeholder="전화번호는 숫자만 입력해주세요" required>
+										<span class="error-message" id="hpError"></span>
 						  			</td>
 						  		</tr>
 							</table>
@@ -123,5 +124,6 @@
 			</div>
 		</section>
 		<!-- bottom -->
+		<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

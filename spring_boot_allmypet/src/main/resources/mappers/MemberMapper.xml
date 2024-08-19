@@ -42,6 +42,6 @@
   	
   	<!-- 로그인 검사 -->
   	<select id="loginCheck" parameterType="string" resultType="string">
-  		SELECT memPwd FROM member WHERE memId=#{id}
+  		SELECT memPwd FROM member WHERE memId=#{memId}
   	</select>
   </mapper>

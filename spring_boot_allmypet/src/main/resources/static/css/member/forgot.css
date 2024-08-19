@@ -24,13 +24,15 @@
 
 .findInput {
 	width: 100%;
-	height: 300px;
+	height: 50%;
 	margin: auto;
+	margin-top: 50px;
 }
 
 .findIDSubmit, .findPWSubmit {
-	margin: 30px;
-	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 table {
@@ -60,7 +62,7 @@ input::placeholder {
 	text-align: left;
 }
 
-.id, .text, .hp {
+.id, .text {
 	padding: 7px 0;
 	border: none;
 	border-bottom: 1px solid;
@@ -94,10 +96,6 @@ input::placeholder {
 	width: 100%;
 }
 
-.hp {
-	width: calc(25% - 10px);
-}
-
 .checkBtn, .addressBtn {
 	border: none;
 	padding: 5px 10px;
@@ -114,4 +112,6 @@ input::placeholder {
 	color: #fff;
 	font-weight: bold;
 	background: #000000;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
