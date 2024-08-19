@@ -22,11 +22,25 @@
     width: 1230px;
     /* 고정된 너비 */
     height: auto;
-    /* 자식 요소에 맞춰 자동 조정 */
     margin: 0 auto;
-    /* 좌우 중앙 정렬 */
     position: relative;
 }
+
+.frame-2 {
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    /* flex 컨테이너로 설정 */
+    flex-direction: column;
+    /* 수직 정렬을 위해 column 방향으로 설정 */
+    justify-content: center;
+    /* 수평 정렬 유지 */
+    width: fit-content;
+    /* 고정된 너비 */
+    height: fit-content;
+    margin: 0 auto;
+    position: relative;
+} 
 
 .contents {
     background-color: white;
