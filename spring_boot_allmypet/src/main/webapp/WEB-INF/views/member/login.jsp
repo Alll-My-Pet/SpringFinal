@@ -9,7 +9,9 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/login.css">
-		<script src="<%= request.getContextPath() %>/js/login.js"></script>
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/member/loginPage.js'/>"></script>
+		<script src="<%= request.getContextPath() %>/js/member/login.js"></script>
 	</head>
 	<body>
 		<!-- top -->
@@ -23,14 +25,14 @@
 				<div class="loginLeft">
 					<div class="leftContext">
 						<form id="loginForm" class="loginForm" method="post" action="#">
-							<input type="text" placeholder="아이디" required>
-							<input type="password" placeholder="비밀번호" required>
+							<input id="username" type="text" placeholder="아이디" required>
+							<input id="password" type="password" placeholder="비밀번호" required>
 							<!-- <div class="rememberId">
 								<label><input type="checkbox">아이디 저장</label>
 							</div> -->
 							<a class="forgot" href="/forgotID" onclick="openForgotWindow(event, 0)">아이디 찾기</a><br>
 							<a class="forgot" href="/forgotPW" onclick="openForgotWindow(event, 1)">비밀번호 찾기</a>
-							<button class="loginBtn" type="submit">로그인</button>
+							<button id="login_btn" class="loginBtn" type="submit">로그인</button>
 						</form>
 					</div>
 				</div>
