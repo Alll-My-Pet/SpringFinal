@@ -7,6 +7,19 @@
 .BoardSearchBtn {
 	border: 0px;
 	background-color: white;
+	font-color: none;
+	background-image: url('/pet_images/free-icon-search-interface-symbol-54481.png');
+	background-size: cover; /* 이미지 크기를 버튼에 맞게 조정 */
+	background-repeat: no-repeat; /* 이미지 반복 방지 */
+	border: none; /* 버튼 테두리 제거 */
+	cursor: pointer; /* 클릭 가능한 커서 */
+	text-indent: -9999px; /* 버튼의 텍스트를 화면에서 숨김 */
+	overflow: hidden; /* 텍스트가 남는 것을 방지 */
+	width:20px;
+}
+
+.BoardSearchBtn:hover  {
+	opacity: 0.8; /* 호버 시 투명도 조정 */
 }
 
 .hotBoard {
@@ -23,9 +36,10 @@
 	border: 1px solid black;
 	margin: 0 auto;
 	margin-top: 50px;
-	height:900px;
-	overflow:hidden;
+	/* height: 900px; */
+	overflow: hidden;
 }
+
 
 .boardTB td {
 	border-top: 1px solid black;
@@ -33,7 +47,10 @@
 	padding: 8px;
 	text-align: center;
 	border-collapse: collapse;
+	height:20px;
 }
+
+
 
 #SearchBox {
 	border-radius: 5px;
@@ -96,30 +113,26 @@
 	text-align: center;
 }
 
-#BFilter2{
-	border:none;
+#BFilter2 {
+	border: none;
 }
 
 .page-list {
-    
-    padding: 0;
-		margin-top: 13px;
+	padding: 0;
+	margin-top: 13px;
 }
 
 .page-list li {
-    display: inline-block;
-    
+	display: inline-block;
 }
 
 .page-link {
-    color: black;
-    cursor: pointer;
-    font-size: 20px;
+	color: black;
+	cursor: pointer;
+	font-size: 20px;
 	margin-left: 20px;
 }
 
 .page-link:hover {
-    background-color: #f2f2f2;
+	background-color: #f2f2f2;
 }
-
-

@@ -7,8 +7,9 @@ import com.spring_boot_allmypet.project.model.BoardVO;
 
 public interface IBoardService {
 	
-public ArrayList<BoardVO> listAllBoard();
-	
+	/* public ArrayList<BoardVO> listAllBoard(); */
+	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map);
+    public int getBoardCount();
 
 	public void insertBoard(BoardVO vo);
 	

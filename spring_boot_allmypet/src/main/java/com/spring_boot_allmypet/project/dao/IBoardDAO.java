@@ -7,20 +7,23 @@ import com.spring_boot_allmypet.project.model.BoardVO;
 
 public interface IBoardDAO {
 	
-	public ArrayList<BoardVO> listAllBoard();
+	// 목록
+	/* public ArrayList<BoardVO> listAllBoard(); */
+	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map);
+	public int getBoardCount();
 	
-
+    // 글 쓰기
 	public void insertBoard(BoardVO vo);
 	
-
+    // 수정
 	public void updateBoard(BoardVO vo);
 
-	// 게시글 삭제
+	// 삭제
 	public void deleteBoard(String bodNo);
 
-	// 상세 게시글 조회
+	// 상세 조회
 	public BoardVO detailViewBoard(String bodNo);
 
-	// 상품 검색
+	// 검색
 	public ArrayList<BoardVO> boardSearch(HashMap<String, Object> map);
 }

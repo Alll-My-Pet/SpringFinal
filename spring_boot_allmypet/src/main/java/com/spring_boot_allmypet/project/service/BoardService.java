@@ -18,8 +18,15 @@ public class BoardService implements IBoardService {
 	IBoardDAO dao;
 
 	@Override
-	public ArrayList<BoardVO> listAllBoard() {
-		return dao.listAllBoard();
+	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map) {
+		// TODO Auto-generated method stub
+		return dao.listAllBoard(map);
+	}
+	
+	@Override
+	public int getBoardCount() {
+		// TODO Auto-generated method stub
+		return dao.getBoardCount();
 	}
 
 	@Override
@@ -48,8 +55,7 @@ public class BoardService implements IBoardService {
 
 	@Override
 	public ArrayList<BoardVO> boardSearch(HashMap<String, Object> map) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.boardSearch(map);
 	}
 
 }

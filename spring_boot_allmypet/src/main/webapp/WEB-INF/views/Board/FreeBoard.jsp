@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>자유 게시판</title>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/FreeBoard.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/FreeBoard.css'/>" />
 </head>
 <body>
 	<div class="All">

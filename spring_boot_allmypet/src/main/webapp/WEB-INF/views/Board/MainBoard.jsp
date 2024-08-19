@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>전체 게시판</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/MainBoard.css'/>" />
-<script src="/js/Board/paging.js"></script>
+<script src="/js/Board/MainBoard.js"></script>
 </head>
 <body>
 	<div class="All">
@@ -21,12 +21,13 @@
 					<option value="BWriter">작성자</option>
 					<option value="BTitle">글 제목</option>
 					<option value="BPlus">제목 + 내용</option>
-				</select> <input type="text" id="SearchBox" name="SearchBox"
-					placeholder="게시판 내 검색" />
-
-				<button class="BoardSearchBtn">
-					<img src="<c:url value='/pet_images/free-icon-search-interface-symbol-54481.png'/>" />
-				</button>
+				</select> 
+				<input type="text" id="SearchBox" name="SearchBox" placeholder="게시판 내 검색" />
+				
+				<label for="BoardSearchBtn">
+				<input type="submit" class="BoardSearchBtn">
+				</label>
+				
 
 			</form>
 			<!-- form 끝 -->
@@ -52,7 +53,6 @@
 					<tr>
 						<th >
 						<form>
-							<!-- <button class="TbDropdownBtn" onclick="toggleDropdown(this)">▼</button> -->
 							<select id="BFilter2">
 							<option value="option1">구분</option>
 							<option value="option2">구분2</option>
@@ -82,21 +82,56 @@
 					</tr>
 				    </c:forEach>
 				</tbody>
-			</table>
+			</table><br><br>
+			
+			<div style="text-align:center;">
+			<a  onclick="javascript:goPage(1)">&lt;&lt;</a>
+			<a onclick="javascript:goPage('prev')">이전</a>
+			
+			<c:forEach var="i" begin="${pageVo.startPage }" end="${pageVo.endPage }">
+				<a onclick="javascript:goPage('${i}')">${i }</a>
+			</c:forEach>			
+		
+			<a onclick="javascript:goPage('next')">다음</a>
+			<a onclick="javascript:goPage('${pageVo.totalPage }')"> &gt;&gt;</a>
+		</div>
+		<form name="pageFrm">
+			<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
+		</form>
+		<script>
+			function goPage(no) {
+				const frm = document.pageFrm;
+				//alert(frm.pageNo.value);
+				
+				if(no == "prev") {
+					no = frm.pageNo.value - 1;
+					if(no <= 0) no = 1;
+				} else if(no == "next") {
+					no = parseInt(frm.pageNo.value) + 1;					
+				}
+				
+				//alert(no);
+				
+				frm.action = "/board/listAllBoard";	
+				frm.pageNo.value=no;
+				frm.submit();
+			}
+		</script>
 
 		</section>
 		
-		<section class="page">
+		<!-- <section class="page">
           <ul class="page-list">
             <li>
             <button class="preButton"><</button>
             </li>
-            <li><a href="#" class="page-link" data-page="1">1</a></li> 
+            <li><a href="#">1</a></li> 
             <li>
             <button class="nextButton">></button>
             </li>
           </ul>
-        </section>
+        </section> -->
+        
 
 
 		<nav class="boardCtg">
