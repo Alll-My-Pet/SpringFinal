@@ -3,4 +3,16 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
+  
+<mapper namespace="com.spring_boot_allmypet.project.dao.animal.IAnimalDAO">
+	<resultMap id="petResult" type="com.spring_boot_allmypet.project.model.animal.AnimalCtgVO">
+        <result property="petCtgNo" column="petCtgNo" />
+        <result property="petCtgName" column="petCtgName" />        
+    </resultMap>
+    
+    <!-- 동물 카테고리별 커뮤니티 출력 -->
+    <select id="ctgListPet" parameterType="string" resultMap="petResult">
+  		SELECT * FROM animal_ctg WHERE petCtgNo=#{petCtgNo} 
+  </select>
+</mapper>
  

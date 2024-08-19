@@ -5,8 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>test</title>
-<link rel="icon" type="image/png" href="#" />
+<title>all my pet | home</title>
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;," >
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css"
@@ -46,7 +46,7 @@
 						<!-- 행 시작 -->
 						<div class="col-sm-3 mb-3">
 							<!-- 첫 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${1}'/>" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_강아지.png" class="card-img-top"
 										alt="..." style="width: 80px; height: 80px;">
@@ -59,7 +59,7 @@
 
 						<div class="col-sm-3 mb-3">
 							<!-- 두 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${2}'/>" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_고양이.png" class="card-img-top"
 										alt="..." style="width: 60px; height: 60px;">
@@ -72,7 +72,7 @@
 
 						<div class="col-sm-3 mb-3">
 							<!-- 세 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${3}'/>" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_기타포유류.png" class="card-img-top"
 										alt="..." style="width: 80px; height: 61.65px;">
@@ -85,7 +85,7 @@
 
 						<div class="col-sm-3 mb-3">
 							<!-- 네 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${4}'/>" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_파충양서류.png" class="card-img-top"
 										alt="..." style="width: 80px; height: 61.65px;" />
@@ -101,7 +101,7 @@
 						<!-- 두 번째 행 시작 -->
 						<div class="col-sm-3 mb-3">
 							<!-- 다섯 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${5}'/>" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_어류.png" class="card-img-top"
 										alt="..." style="width: 80px; height: 80px;">
@@ -114,7 +114,7 @@
 
 						<div class="col-sm-3 mb-3">
 							<!-- 여섯 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${6}'/>" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_조류.png" class="card-img-top"
 										alt="..." style="width: 55px; height: 55px;">
@@ -127,7 +127,7 @@
 
 						<div class="col-sm-3 mb-3">
 							<!-- 일곱 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${7}'/>" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_설치류.png" class="card-img-top"
 										alt="..." style="width: 70px; height: 70px;">
@@ -140,7 +140,7 @@
 
 						<div class="col-sm-3 mb-3">
 							<!-- 여덟 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${8}'/>" class="card-link">
 								<div class="card">
 									<img src="image/animal_ctg/ctg_절지곤충류.png" class="card-img-top"
 										alt="..." style="width: 80px; height: 65.34px;">

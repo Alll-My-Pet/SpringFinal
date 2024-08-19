@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>동물별 카테고리 메인</title>
-<link rel="icon" type="image/png" href="#" />
+<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;," >
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/animal/animal_index.css'/>">
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
@@ -25,7 +25,7 @@
 						<!-- 첫 번째 행 시작 -->
 						<div class="col-md-3">
 							<!-- 첫 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${1}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
 										<img src="image/animal_ctg/ctg_강아지.png" class="card-img" alt="..."
@@ -37,7 +37,7 @@
 						</div>
 						<div class="col-md-3">
 							<!-- 두 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${2}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
 										<img src="image/animal_ctg/ctg_고양이.png" class="card-img" alt="..."
@@ -49,7 +49,7 @@
 						</div>
 						<div class="col-md-3">
 							<!-- 세 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${3}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
 										<img src="image/animal_ctg/ctg_기타1.png" class="card-img" alt="..."
@@ -61,7 +61,7 @@
 						</div>
 						<div class="col-md-3">
 							<!-- 네 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${4}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
 										<img src="image/animal_ctg/ctg_파충류.png" class="card-img" alt="..."
@@ -78,7 +78,7 @@
 						<!-- 두 번째 행 시작 -->
 						<div class="col-md-3">
 							<!-- 첫 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${5}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
 										<img src="image/animal_ctg/ctg_어류.png" class="card-img" alt="..."
@@ -90,7 +90,7 @@
 						</div>
 						<div class="col-md-3">
 							<!-- 두 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${6}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
 										<img src="image/animal_ctg/ctg_조류.png" class="card-img" alt="..."
@@ -102,7 +102,7 @@
 						</div>
 						<div class="col-md-3">
 							<!-- 세 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${7}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
 										<img src="image/animal_ctg/ctg_설치류.png" class="card-img" alt="..."
@@ -114,7 +114,7 @@
 						</div>
 						<div class="col-md-3">
 							<!-- 네 번째 카드 -->
-							<a href="#" class="card-link">
+							<a href="<c:url value='/animal_home/${8}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
 										<img src="image/animal_ctg/ctg_절지류.png" class="card-img" alt="..."
@@ -131,7 +131,7 @@
 				<div class="pageInfo">
 					<div class="page-title">
 						<div class="titleInfo">동물별 커뮤니티</div>
-						<span class="ctgTitle"> 파충류/양서류 커뮤니티 </span>
+						<span class="ctgTitle"> ${petCtgName} 커뮤니티 </span>
 					</div>
 				</div>
 				<!-- pageInfo끝 -->
