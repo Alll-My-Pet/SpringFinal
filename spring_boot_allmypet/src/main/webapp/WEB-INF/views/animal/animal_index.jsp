@@ -28,7 +28,7 @@
 							<a href="<c:url value='/animal_home/${1}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
-										<img src="image/animal_ctg/ctg_강아지.png" class="card-img" alt="..."
+										<img src="/image/animal_ctg/ctg_강아지.png" class="card-img" alt="..."
 											style="width: 35px; height: 35px;">
 										<h5 class="card-title">강아지</h5>
 									</div>
@@ -40,7 +40,7 @@
 							<a href="<c:url value='/animal_home/${2}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
-										<img src="image/animal_ctg/ctg_고양이.png" class="card-img" alt="..."
+										<img src="/image/animal_ctg/ctg_고양이.png" class="card-img" alt="..."
 											style="width: 25px; height: 25px;">
 										<h5 class="card-title">고양이</h5>
 									</div>
@@ -52,7 +52,7 @@
 							<a href="<c:url value='/animal_home/${3}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
-										<img src="image/animal_ctg/ctg_기타1.png" class="card-img" alt="..."
+										<img src="/image/animal_ctg/ctg_기타1.png" class="card-img" alt="..."
 											style="width: 30px; height: 30px;">
 										<h5 class="card-title">기타 포유류</h5>
 									</div>
@@ -64,7 +64,7 @@
 							<a href="<c:url value='/animal_home/${4}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
-										<img src="image/animal_ctg/ctg_파충류.png" class="card-img" alt="..."
+										<img src="/image/animal_ctg/ctg_파충류.png" class="card-img" alt="..."
 											style="width: 30px; height: 30px;">
 										<h5 class="card-title">파충류/양서류</h5>
 									</div>
@@ -81,7 +81,7 @@
 							<a href="<c:url value='/animal_home/${5}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
-										<img src="image/animal_ctg/ctg_어류.png" class="card-img" alt="..."
+										<img src="/image/animal_ctg/ctg_어류.png" class="card-img" alt="..."
 											style="width: 30px; height: 30px;">
 										<h5 class="card-title">어류</h5>
 									</div>
@@ -93,7 +93,7 @@
 							<a href="<c:url value='/animal_home/${6}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
-										<img src="image/animal_ctg/ctg_조류.png" class="card-img" alt="..."
+										<img src="/image/animal_ctg/ctg_조류.png" class="card-img" alt="..."
 											style="width: 25px; height: 25px;">
 										<h5 class="card-title">조류</h5>
 									</div>
@@ -105,7 +105,7 @@
 							<a href="<c:url value='/animal_home/${7}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
-										<img src="image/animal_ctg/ctg_설치류.png" class="card-img" alt="..."
+										<img src="/image/animal_ctg/ctg_설치류.png" class="card-img" alt="..."
 											style="width: 30px; height: 30px;">
 										<h5 class="card-title">설치류</h5>
 									</div>
@@ -117,7 +117,7 @@
 							<a href="<c:url value='/animal_home/${8}'/>" class="card-link">
 								<div class="card">
 									<div class="card-content">
-										<img src="image/animal_ctg/ctg_절지류.png" class="card-img" alt="..."
+										<img src="/image/animal_ctg/ctg_절지류.png" class="card-img" alt="..."
 											style="width: 30px; height: 30px;">
 										<h5 class="card-title">절지류/곤충류</h5>
 									</div>
@@ -143,7 +143,7 @@
 						<div class="best-slideshow">
 							<!-- 베스트 사진 슬라이드쇼 -->
 							<button class="chevron-left">
-								<img class="icon" src="image/index/chevron_left.svg" alt="왼"
+								<img class="icon" src="/image/index/chevron_left.svg" alt="왼"
 									width="40px" height="45px" />
 							</button>
 							<div class="photo-container">
@@ -153,7 +153,7 @@
 									class="photo"></a>
 							</div>
 							<button class="chevron-right">
-								<img class="icon" src="image/index/chevron_right.svg" alt="오"
+								<img class="icon" src="/image/index/chevron_right.svg" alt="오"
 									width="40px" height="45px" />
 							</button>
 						</div>
@@ -222,7 +222,7 @@
 						</div>
 						<div class="board-container">
 							<div class="naming-board">
-								<img class="board-img" src="image/index/작명소.png" alt="작명소"
+								<img class="board-img" src="/image/index/작명소.png" alt="작명소"
 									style="width: 130px; height: 130px;" /> <a href="작명소.html"
 									class="naming-link">작명소로 이동🔜</a>
 							</div>
