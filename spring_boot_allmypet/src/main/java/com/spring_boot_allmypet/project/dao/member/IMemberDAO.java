@@ -5,6 +5,8 @@ import java.util.HashMap;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 
 public interface IMemberDAO {
+	//로그인
+	
 	// 회원가입
 	public void insertMember(MemberVO vo);
 	// 아이디 체크

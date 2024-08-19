@@ -22,11 +22,11 @@
 					<td><input type="text" id="name" name="name" class="id" required>
 					<span class="error-message" id="nameError"></span></td></tr>
 				<tr><td><label for="email">이메일</label></td>
-					<td><input type = "email" id="email" name="email" placeholder="이메일 주소 입력" class="email" required>
+					<td><input type = "email" id="email" name="email" class="email" placeholder="이메일 입력" required>
 					<input type="button" value="인증"onClick="sendEmail()" class="checkBtn">
 					<span class="error-message" id="emailError"></span></td></tr>
 				<tr><td><label for="hp1">연락처</label></td>
-					<td><input type="text" id="phone" name="memHP" class="email" size="11" placeholder="숫자만 입력" required>
+				<td><input type="text" id="phone" name="memHP" class="email" size="11" placeholder="숫자만 입력" required>
 					<span class="error-message" id="hpError"></span></td></tr>
 				</table>
 			</form>

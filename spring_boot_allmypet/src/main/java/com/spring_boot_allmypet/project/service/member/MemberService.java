@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_allmypet.project.dao.member.IMemberDAO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
@@ -36,6 +38,7 @@ public class MemberService implements IMemberService {
 	public String memNNCheck(String nn) {
 		return dao.memNNCheck(nn);
 	}
+
 	// 포지션 체크
 	@Override
 	public int memPosition(String id) {

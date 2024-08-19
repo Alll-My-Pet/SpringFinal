@@ -7,8 +7,8 @@
 		$.ajax({
 			type:"post",
 			url:"/memger/loggingIn",
-			data : {"id":$('#username').val(),
- 						"pwd": $('#password').val()}, 
+			data : {"id":$('#memId').val(),
+ 						"pwd": $('#memPwd').val()}, 
  			dataType:'text',
  			success:function(result) {
  				if(result == "success") {

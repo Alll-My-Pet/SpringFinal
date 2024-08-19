@@ -10,7 +10,6 @@
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/member/join.css">
 		<script src="<%= request.getContextPath() %>/js/member/join.js"></script>
-		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 		<script src="<c:url value='/js/member/joinPage.js'/>"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/member/searchAddress.js'/> "></script>

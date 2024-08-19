@@ -9,9 +9,8 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/login.css">
-		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/member/login.js'/>"></script>
 		<script src="<c:url value='/js/member/loginPage.js'/>"></script>
-		<script src="<%= request.getContextPath() %>/js/member/login.js"></script>
 	</head>
 	<body>
 		<!-- top -->

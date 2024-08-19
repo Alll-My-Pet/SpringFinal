@@ -13,7 +13,6 @@
 		<div class="findTitleWrap">
 			<div class="findTitle">
 				<b>비밀번호 찾기</b>
-				<!-- asdfasdf -->
 			</div>
 		</div>
 		<div class="findInput">
@@ -23,7 +22,7 @@
 					<td><input type="text" id="id" name="id" class="id" required>
 					<span class="error-message" id="idError"></span></td></tr>
 				<tr><td><label for="email">이메일</label></td>
-					<td><input type = "email" id="email" name="email" placeholder="이메일 주소 입력" class="email" required>
+					<td><input type = "email" id="email" name="email" class="email" placeholder="이메일 입력" required>
 					<input type="button" value="인증"onClick="sendEmail()" class="checkBtn">
 					<span class="error-message" id="emailError"></span></td></tr>
 				<tr><td><label for="hp1">연락처</label></td>

@@ -2,13 +2,20 @@ package com.spring_boot_allmypet.project.controller.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 import com.spring_boot_allmypet.project.service.member.MemberService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class MemberController {
+	
 	@Autowired
 	MemberService memService;
 	
