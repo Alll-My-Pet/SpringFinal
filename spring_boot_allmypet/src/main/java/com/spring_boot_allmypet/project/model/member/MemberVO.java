@@ -17,7 +17,10 @@ public class MemberVO {
 	private String memGen;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date memBirth;
-	private boolean filtering;
+	private String filtering;
+	private int position;
+	private String profile_image;
+	private int point;
 	
 	public String getMemId() {
 		return memId;
@@ -85,11 +88,28 @@ public class MemberVO {
 	public void setMemBirth(Date memBirth) {
 		this.memBirth = memBirth;
 	}
-	public boolean isFiltering() {
+	public String getFiltering() {
 		return filtering;
 	}
-	public void setFiltering(boolean filtering) {
+	public void setFiltering(String filtering) {
 		this.filtering = filtering;
 	}
-
+	public int getPosition() {
+		return position;
+	}
+	public void setPosition(int position) {
+		this.position = position;
+	}
+	public String getProfile_image() {
+		return profile_image;
+	}
+	public void setProfile_image(String profile_image) {
+		this.profile_image = profile_image;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
 }
