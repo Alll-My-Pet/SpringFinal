@@ -9,12 +9,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
+import com.spring_boot_allmypet.project.model.animal.BulletinBoardVO;
 import com.spring_boot_allmypet.project.service.animal.AnimalService;
+import com.spring_boot_allmypet.project.service.animal.BulletinService;
 
 @Controller
 public class AnimalController {
 	@Autowired
-	AnimalService animalService;
+	private AnimalService animalService;
+	
+	@Autowired
+    private BulletinService bulletinService;
 	
 	@RequestMapping("/animal_home/{petCtgNo}")
 	public String animalMain(@PathVariable String petCtgNo, Model model) {
@@ -30,13 +35,12 @@ public class AnimalController {
 	        model.addAttribute("petCtgName", "카테고리없음.");
 	    }
 	    
+	    // petCtgNo에 해당하는 게시글 목록 조회
+        ArrayList<BulletinBoardVO> bulletinList = bulletinService.getBulletinList(petCtgNo);
+        model.addAttribute("bulletinList", bulletinList); 
+        
 		return "animal/animal_index";
 	}
 	
-//	테스트용
-//	@RequestMapping("/animal_test")
-//	public String animalTest() {
-//		System.out.println("aa: ");
-//		return "animal/animal_index";
-//	}
+	
 }

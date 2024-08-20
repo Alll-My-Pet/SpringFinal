@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -168,59 +169,16 @@
 									<div>전체 게시판 +</div>
 								</a>
 								<div class="post-list">
-									<a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a> <a href="게시판_상세.html" class="post">
-										<div class="post-title">게시글제목게시글제목</div>
-										<div class="post-author">☆작성자★</div>
-										<div class="post-date">8/06 12:55</div>
-									</a>
+									<c:forEach var="bulletin" items="${bulletinList }">
+										<a href="게시판_상세.html" class="post">
+											<div class="post-title">${bulletin.postTitle}</div>
+											<div class="post-author">${bulletin.memId}</div>
+											<div class="post-date">
+												<fmt:formatDate value="${bulletin.postDate}"
+													pattern="M/dd HH:mm" />
+											</div>
+										</a>
+									</c:forEach>
 								</div>
 							</div>
 							<div class="board-container">
