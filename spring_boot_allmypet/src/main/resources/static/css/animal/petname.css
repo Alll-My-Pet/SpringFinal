@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+    display: flex;
+    flex-direction: column;
+    /* 수직으로 정렬 */
+    position: relative;
+    /* 자식 요소의 절대 위치에 필요 */
+    width: 689px;
+    /* 원하는 너비 설정 */
+    box-sizing: border-box;
+    margin: 0 auto;
+    /* 여백 설정 */
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+    background: #B5CCAB;
+    display: flex;
+    flex-direction: column;
+    padding: 18.5px 22px 11.5px 21px;
+    box-sizing: border-box;
+}
+
+.page-title .ctgTitle {
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: 43px;
+    line-height: 1;
+    color: #000000;
+}
+
+.page-title .titleInfo {
+    margin-bottom: 8px;
+    display: inline-block;
+    align-self: flex-start;
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.39);
+}

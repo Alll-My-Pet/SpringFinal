@@ -8,10 +8,8 @@
 <meta charset="UTF-8">
 <title>동물별 카테고리 메인</title>
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/common.css'/>">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/animal/animal_index.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/animal/animal_index.css'/>">
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/animal/animal_index.js'/>"></script>
 </head>

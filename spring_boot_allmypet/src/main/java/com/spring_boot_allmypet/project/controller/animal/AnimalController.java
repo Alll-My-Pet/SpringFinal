@@ -42,5 +42,9 @@ public class AnimalController {
 		return "animal/animal_index";
 	}
 	
+	@RequestMapping("/petname")
+	public String petNameGen() {
+		return "animal/petname_form";
+	}
 	
 }
