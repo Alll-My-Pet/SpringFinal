@@ -173,6 +173,7 @@
 										<a href="게시판_상세.html" class="post">
 											<div class="post-title">${bulletin.postTitle}</div>
 											<div class="post-author">${bulletin.memId}</div>
+											<!-- 시간 수정필요 -->
 											<div class="post-date">
 												<fmt:formatDate value="${bulletin.postDate}"
 													pattern="M/dd HH:mm" />
