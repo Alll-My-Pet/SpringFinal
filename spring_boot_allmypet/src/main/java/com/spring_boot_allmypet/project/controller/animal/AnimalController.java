@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
 import com.spring_boot_allmypet.project.model.animal.BulletinBoardVO;
+import com.spring_boot_allmypet.project.model.animal.MyTipBoardVO;
 import com.spring_boot_allmypet.project.service.animal.AnimalService;
 import com.spring_boot_allmypet.project.service.animal.BulletinService;
+import com.spring_boot_allmypet.project.service.animal.MyTipService;
 
 @Controller
 public class AnimalController {
@@ -20,6 +22,9 @@ public class AnimalController {
 	
 	@Autowired
     private BulletinService bulletinService;
+	
+	@Autowired
+	private MyTipService mytipService;
 	
 	@RequestMapping("/animal_home/{petCtgNo}")
 	public String animalMain(@PathVariable String petCtgNo, Model model) {
@@ -39,7 +44,11 @@ public class AnimalController {
         ArrayList<BulletinBoardVO> bulletinList = bulletinService.getBulletinList(petCtgNo);
         model.addAttribute("bulletinList", bulletinList); 
         
-		return "animal/animal_index";
+        // petCtgNo, headerNo=4(양육팁)인 게시글 목록 조회(양육 팁 게시판)
+        ArrayList<MyTipBoardVO> myTipList = mytipService.getTipList(petCtgNo);
+        model.addAttribute("myTipList", myTipList);
+        
+        return "animal/animal_index";		
 	}
 	
 	@RequestMapping("/petname")

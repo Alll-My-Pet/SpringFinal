@@ -8,8 +8,10 @@
 <meta charset="UTF-8">
 <title>동물별 카테고리 메인</title>
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/animal/animal_index.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/animal/animal_index.css'/>">
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/animal/animal_index.js'/>"></script>
 </head>
@@ -170,8 +172,7 @@
 									<c:forEach var="bulletin" items="${bulletinList }">
 										<a href="게시판_상세.html" class="post">
 											<div class="post-title">${bulletin.postTitle}</div>
-											<div class="post-author">${bulletin.memId}</div>
-											<!-- 시간 수정필요 -->
+											<div class="post-author">${bulletin.memId}</div> <!-- 시간 수정필요 -->
 											<div class="post-date">
 												<fmt:formatDate value="${bulletin.postDate}"
 													pattern="M/dd HH:mm" />
@@ -183,47 +184,25 @@
 							<div class="board-container">
 								<div class="naming-board">
 									<img class="board-img" src="/image/index/작명소.png" alt="작명소"
-										style="width: 130px; height: 130px;" /> 
-										<a href="<c:url value='/petname'/>" class="naming-link">작명소로 이동🔜</a>
+										style="width: 130px; height: 130px;" /> <a
+										href="<c:url value='/petname'/>" class="naming-link">작명소로
+										이동🔜</a>
 								</div>
 								<div class="mytip-board">
 									<a href="게시판_링크.html" class="board-title">
 										<div>양육 팁💡 게시판 +</div>
 									</a>
 									<div class="post-list">
-										<a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a> <a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a> <a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a> <a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a> <a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a> <a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a> <a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a> <a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a>
+										<c:forEach var="mytip" items="${myTipList }">
+											<a href="게시판_상세.html" class="post">
+												<div class="post-title">${mytip.postTitle}</div>
+												<div class="post-author">${mytip.memId}</div> <!-- 시간 수정필요 -->
+												<div class="post-date">
+													<fmt:formatDate value="${mytip.postDate}"
+														pattern="M/dd HH:mm" />
+												</div>
+											</a>
+										</c:forEach>
 									</div>
 								</div>
 							</div>
