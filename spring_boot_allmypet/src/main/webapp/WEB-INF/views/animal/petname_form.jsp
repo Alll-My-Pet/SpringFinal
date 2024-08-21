@@ -77,6 +77,33 @@
 								<button class="generateBtn btn-hover">작명 시작!</button>
 							</div>
 							<!-- formBtn 끝(form-container + generateBtn) -->
+							
+							<div class="spinner-container" id="spinnerContainer" style="display:none;">
+                                <div class="d-flex justify-content-center">
+                                    <div class="spinner-border text-secondary" role="status">
+                                        <span class="visually-hidden">Loading</span>
+                                    </div>
+                                </div>
+                                <br>
+                                <span>열심히 이름을 고르고 있어요!</span>
+                            </div>
+                            <!-- spinner-container 끝 -->
+                            
+                            <div class="resultContainer" id="resultContainer" style="display:none;">
+                                <!-- 작명소 결과 확인 -->
+                                <div class="nameOutput" id="nameOutput">
+                                    <span>✨ 이름 후보 ✨</span>
+                                    <div class="name-result">
+
+                                    </div>
+                                </div>
+                                <div class="btn-area">
+                                    <button class="resetBtn btn-hover">다시하기</button>
+                                    <button class="generateNewBtn btn-hover">새로운 작명
+                                        시작</button>
+                                </div>
+                            </div>
+                            <!-- resultContainer끝 -->
 						</div>
 						<!-- petname-genbox 끝 -->
 					</div>
