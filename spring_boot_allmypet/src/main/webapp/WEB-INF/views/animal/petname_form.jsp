@@ -111,8 +111,17 @@
 				</div>
 			</div>
 			<!-- frame-2끝 -->
+			<!-- 플로팅버튼(탑버튼 포함) -->
+			<div id="floatingBtn">
+				<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
+			</div>
 		</div>
 		<!-- frame-1끝  -->
+		<br> <br>
+		<!-- footer부착 -->
+		<div id="footer">
+			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+		</div>
 	</div>
 	<!-- desktop-1끝 -->
 </body>

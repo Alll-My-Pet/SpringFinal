@@ -183,8 +183,8 @@
 							<div class="board-container">
 								<div class="naming-board">
 									<img class="board-img" src="/image/index/작명소.png" alt="작명소"
-										style="width: 130px; height: 130px;" /> <a href="작명소.html"
-										class="naming-link">작명소로 이동🔜</a>
+										style="width: 130px; height: 130px;" /> 
+										<a href="<c:url value='/petname'/>" class="naming-link">작명소로 이동🔜</a>
 								</div>
 								<div class="mytip-board">
 									<a href="게시판_링크.html" class="board-title">
