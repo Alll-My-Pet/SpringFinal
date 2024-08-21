@@ -30,7 +30,7 @@ public class BoardCotroller {
 	
 	@RequestMapping("/board/listAllBoard")
 	public String  listAllProduct(@RequestParam(required=false, defaultValue="1") int pageNo,
-				Model model) {
+				                                Model model) {
 		
 		BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.getBoardCount());
 		
@@ -49,30 +49,48 @@ public class BoardCotroller {
 	}
 	
 	
-	@RequestMapping("/Protect")
+	@RequestMapping("/Board/Protect")
 	public String Protect() {
 		return "/Board/PetProtectBoard";
 	}
 	
-	@RequestMapping("/FreeBoard")
+	@RequestMapping("/Board/FreeBoard")
 	public String FreeBoard() {
 		return "/Board/FreeBoard";
 	}
 	
-	@RequestMapping("/PromoteBoard")
+	@RequestMapping("/Board/PromoteBoard")
 	public String PromoteBoard() {
 		return "/Board/PetPromoteBoard";
 	}
 	
-	@RequestMapping("/NoticeBoard")
+	@RequestMapping("/Board/NoticeBoard")
 	public String NoticeBoard() {
 		return "/Board/NoticeBoard";
 	}
 	
-	@RequestMapping("/FreeBoardDetail")
+	@RequestMapping("/Board/FreeBoardDetail")
 	public String FreeBoardDetail() {
 		return "/Board/FreeBoardDetail";
 	}
+	
+	@RequestMapping("/Board/MainDetail")
+	public String MainDetail() {
+		return "/Board/MainDetail";
+	}
+	
+	@RequestMapping("/Board/TipBoard")
+	public String TipBoard() {
+		return "/Board/TipBoard";
+	}
+	
+	@RequestMapping("/Board/TipDetail")
+	public String TipDetail() {
+		return "/Board/TipDetail";
+	}
+	
+	
+	
 	
 	// 게시글 검색
 	@ResponseBody
@@ -83,15 +101,16 @@ public class BoardCotroller {
 	}
 	
 	// 상세 조회
-	   @RequestMapping("/board/FreeBoardDetail/{bodNo}")
-	   public String FreeBoardDetail(@PathVariable String bodNo, Model model) {
+	   @RequestMapping("/board/listAllBoard/{bodNo}")
+	   public String detailViewBoard(@PathVariable String bodNo, Model model) {
 	     // 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
 	     BoardVO board = boardService.detailViewBoard(bodNo);
 	     
 	     // 뷰 페이지에 출력하기 위해 Model 설정
 	     model.addAttribute("board", board);
 	     
-	     return "board/FreeBoardDetail";
+	     return "/Board/MainDetail";
 	   }
+	   
 
 }

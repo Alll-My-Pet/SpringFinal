@@ -5,27 +5,48 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class BoardVO {
-	  private String bodNo;
-	  private String bodTitle;
-	  private String memId;
-	  private Date bodDate;
+	  private int postNo;
+	  private String petCtgNo;
+	  private int headerNo;
+	  private String postTitle;
+	  private Date postDate;
 	  @DateTimeFormat(pattern="yyyy-MM-dd")
-	  private String bodView;
-	  private String bodLike;
-	  private String bodText;
+	  private String memId;
+	  private String postContent;
+	  private String postLike;
+	  private String postView;
+	  private String postImg;
 	  
 	  
-	  public String getBodNo() {
-		return bodNo;
+	public int getPostNo() {
+		return postNo;
 	}
-	public void setBodNo(String bodNo) {
-		this.bodNo = bodNo;
+	public void setPostNo(int postNo) {
+		this.postNo = postNo;
 	}
-	public String getBodTitle() {
-		return bodTitle;
+	public String getPetCtgNo() {
+		return petCtgNo;
 	}
-	public void setBodTitle(String bodTitle) {
-		this.bodTitle = bodTitle;
+	public void setPetCtgNo(String petCtgNo) {
+		this.petCtgNo = petCtgNo;
+	}
+	public int getHeaderNo() {
+		return headerNo;
+	}
+	public void setHeaderNo(int headerNo) {
+		this.headerNo = headerNo;
+	}
+	public String getPostTitle() {
+		return postTitle;
+	}
+	public void setPostTitle(String postTitle) {
+		this.postTitle = postTitle;
+	}
+	public Date getPostDate() {
+		return postDate;
+	}
+	public void setPostDate(Date postDate) {
+		this.postDate = postDate;
 	}
 	public String getMemId() {
 		return memId;
@@ -33,30 +54,35 @@ public class BoardVO {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
-	public Date getBodDate() {
-		return bodDate;
+	public String getPostContent() {
+		return postContent;
 	}
-	public void setBodDate(Date bodDate) {
-		this.bodDate = bodDate;
+	public void setPostContent(String postContent) {
+		this.postContent = postContent;
 	}
-	public String getBodView() {
-		return bodView;
+	public String getPostLike() {
+		return postLike;
 	}
-	public void setBodView(String bodView) {
-		this.bodView = bodView;
+	public void setPostLike(String postLike) {
+		this.postLike = postLike;
 	}
-	public String getBodLike() {
-		return bodLike;
+	public String getPostView() {
+		return postView;
 	}
-	public void setBodLike(String bodLike) {
-		this.bodLike = bodLike;
+	public void setPostView(String postView) {
+		this.postView = postView;
 	}
-	public String getBodText() {
-		return bodText;
+	public String getPostImg() {
+		return postImg;
 	}
-	public void setBodText(String bodText) {
-		this.bodText = bodText;
+	public void setPostImg(String postImg) {
+		this.postImg = postImg;
 	}
+	  
+	  
 	
+	  
+	  
+	  
 
 }

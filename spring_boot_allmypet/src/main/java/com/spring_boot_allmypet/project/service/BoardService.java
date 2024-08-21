@@ -19,7 +19,6 @@ public class BoardService implements IBoardService {
 
 	@Override
 	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map) {
-		// TODO Auto-generated method stub
 		return dao.listAllBoard(map);
 	}
 	
@@ -46,11 +45,10 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 
 	}
-
+    // 상세 조회
 	@Override
 	public BoardVO detailViewBoard(String bodNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.detailViewBoard(bodNo);
 	}
 
 	@Override

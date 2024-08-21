@@ -1,14 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>전체 게시판</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/MainBoard.css'/>" />
-<script src="/js/Board/MainBoard.js"></script>
 </head>
 <body>
 	<div class="All">
@@ -73,12 +72,12 @@
 				<tbody id="boardList">
 				 	<c:forEach var="board" items="${boardList }">
 				 	<tr>
-					    <td>${board.bodNo }</td> 
-					    <td>${board.bodTitle }</td> 
+					    <td>${board.postNo }</td> 
+					    <td><a href="/Board/MainDetail?" onclick="fn_goView(${board.postNo})">${board.postTitle }</td> 
 					    <td>${board.memId }</td> 
-					    <td><fmt:formatDate value="${board.bodDate }" pattern="YYYY-MM-dd" /></td> 
-					    <td>${board.bodView }</td> 
-					    <td>${board.bodLike }</td> 
+					    <td><fmt:formatDate value="${board.postDate }" pattern="YYYY-MM-dd" /></td> 
+					    <td>${board.postView }</td> 
+					    <td>${board.postLike }</td> 
 					</tr>
 				    </c:forEach>
 				</tbody>
@@ -119,6 +118,8 @@
 		</script>
 
 		</section>
+		
+		
 		
 		<!-- <section class="page">
           <ul class="page-list">

@@ -5,13 +5,16 @@
   
   <mapper namespace="com.spring_boot_allmypet.project.dao.IBoardDAO">
    <resultMap id="boardResultMap" type="com.spring_boot_allmypet.project.model.BoardVO">
-	     <id property="bodNo" column="bodNo"/>
-	     <result property="bodTitle" column="bodTitle"/>
+	     <id property="postNo" column="postNo"/>
+	     <result property="petCtgNo" column="petCtgNo"/>
+	     <result property="headerNo" column="headerNo"/>
+	     <result property="postTitle" column="postTitle"/>
+	     <result property="postDate" column="postDate"/>
 	     <result property="memId" column="memId"/>
-	     <result property="bodDate" column="bodDate"/>
-	     <result property="bodView" column="bodView"/>
-	     <result property="bodLike" column="bodLike"/>
-	     <result property="bodText" column="bodText"/>
+	     <result property="postContent" column="postContent"/>
+	     <result property="postLike" column="postLike"/>
+	     <result property="postView" column="postView"/>
+	     <result property="postImg" column="postImg"/>
     </resultMap>
   
   
@@ -19,13 +22,14 @@
   <!-- 	<select id="listAllBoard" resultMap="boardResultMap">
   		SELECT * FROM board ORDER BY bodNo DESC
   	</select> -->
+  	
   	<select id="listAllBoard" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.BoardVO">
-  		SELECT * FROM board LIMIT #{startNo}, 15;  		
+  		SELECT * FROM bulletin_board LIMIT #{startNo}, 15;  		
   	</select>
   	
   	<!-- 페이징 -->
   	<select id="getBoardCount" resultType="int">
-  		SELECT count(*) FROM board
+  		SELECT count(*) FROM bulletin_board
   	</select>
   
    <!-- 게시글 검색 -->
@@ -47,7 +51,7 @@
   
   <!-- 게시글 조회 -->
   	<select id="detailViewBoard" parameterType="string" resultType="com.spring_boot_allmypet.project.model.BoardVO">
-  		SELECT bodNo, bodTitle, memId, bodText  FROM board WHERE bodNo = #{bodNo}
+  		SELECT bodNo, bodTitle, memId, bodText, bodLike  FROM board WHERE bodNo = #{bodNo}
   	</select>
   
   </mapper>
