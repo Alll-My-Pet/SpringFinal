@@ -46,4 +46,18 @@
 	    LEFT JOIN animal_ctg a ON p.petCtgNo = a.petCtgNo
 	    WHERE p.memId = #{memId}
   	</select>
+  	<!-- 포인트 내역 전부 출력 -->
+  	<select id="myPointList_total" parameterType="string" resultType="hashmap">
+  		SELECT *
+	    FROM member_point
+	    WHERE memId = #{memId}
+  	</select>
+  	<!-- 포인트 내역 조건 출력 -->
+  	<select id="myPointList" parameterType="map" resultType="com.spring_boot_allmypet.project.model.member.MemberPointVO">
+	    SELECT * 
+	    FROM member_point 
+	    WHERE memId = #{memId} 
+	    AND YEAR(change_date) = #{year} 
+	    AND MONTH(change_date) = #{month}
+	</select>
   </mapper>

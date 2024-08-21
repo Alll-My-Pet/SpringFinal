@@ -2,6 +2,7 @@ package com.spring_boot_allmypet.project.service.mypage;
 
 import java.util.ArrayList;
 
+import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 import com.spring_boot_allmypet.project.model.member.PetVO;
 
@@ -12,4 +13,8 @@ public interface IMypageService {
 	public void updateMyInfo(MemberVO vo);
 	// 팻정보 출력
 	public ArrayList<PetVO> myPetList(String mid);
+	// 포인트 내역 출력
+	public ArrayList<MemberPointVO> myPointList_total(String mid);
+	// 포인트 내역 조건 출력
+	public ArrayList<MemberPointVO> myPointList(String mid,int year,int month);
 }

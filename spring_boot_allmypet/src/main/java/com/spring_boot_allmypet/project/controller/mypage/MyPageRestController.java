@@ -2,12 +2,19 @@ package com.spring_boot_allmypet.project.controller.mypage;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.spring_boot_allmypet.project.model.member.MemberPointVO;
+import com.spring_boot_allmypet.project.service.mypage.MypageService;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpSession;
@@ -16,6 +23,9 @@ import jakarta.servlet.http.HttpSession;
 public class MyPageRestController {
 	@Autowired
     private ServletContext servletContext;
+	
+	@Autowired
+	MypageService mypageService;
 
     @PostMapping("/mypage/uploadImage")
     public String uploadImage(HttpSession session,@RequestParam("image") MultipartFile image) {
@@ -41,5 +51,61 @@ public class MyPageRestController {
         } else {
             return "{\"error\": \"No file uploaded\"}";
         }
+    }
+    
+    @PostMapping("/mypage/getMonthlyPoints")
+    public Map<String, Object> getMonthlyPoints(HttpSession session, @RequestParam("month") int month) {
+        String memId = (String) session.getAttribute("mid");
+        LocalDate currentDate = LocalDate.now();
+        int year = currentDate.getYear();
+
+        ArrayList<MemberPointVO> pointList = mypageService.myPointList(memId, year, month);
+
+        int positive = 0; 
+        int negative = 0;
+        for (MemberPointVO point : pointList) {
+            int change = point.getPoint_change();
+            if (change > 0) {
+                positive += change;
+            } else if (change < 0) {
+                negative += change;
+            }
+        }
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("pointList", pointList);
+        result.put("positive", positive);
+        result.put("negative", negative);
+
+        return result;
+    }
+    @PostMapping("/mypage/onlyPMclass")
+    public Map<String, Object> onlyPMclass(HttpSession session, @RequestParam("month") int month,@RequestParam("check") int check) {
+    	String memId = (String) session.getAttribute("mid");
+    	LocalDate currentDate = LocalDate.now();
+    	int year = currentDate.getYear();
+    	System.out.println(check);
+    	System.out.println(month);
+    	ArrayList<MemberPointVO> pointLists = mypageService.myPointList(memId, year, month);
+    	ArrayList<MemberPointVO> pointList = new ArrayList<>();
+    	int positive = 0; 
+    	int negative = 0;
+    	for (MemberPointVO point : pointLists) {
+    		int change = point.getPoint_change();
+    		if (check > 0 && change > 0) {
+    			pointList.add(point);
+    			positive += change;
+    		} else if (check < 0 && change < 0) {
+    			pointList.add(point);
+    			negative += change;
+    		}
+    	}
+
+    	Map<String, Object> result = new HashMap<>();
+    	result.put("pointList", pointList);
+    	result.put("positive", positive);
+    	result.put("negative", negative);
+    	
+    	return result;
     }
 }

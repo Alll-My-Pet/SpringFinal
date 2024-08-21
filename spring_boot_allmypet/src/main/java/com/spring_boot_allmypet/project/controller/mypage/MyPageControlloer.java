@@ -1,6 +1,7 @@
 package com.spring_boot_allmypet.project.controller.mypage;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 import com.spring_boot_allmypet.project.model.member.PetVO;
 import com.spring_boot_allmypet.project.service.mypage.MypageService;
@@ -42,9 +44,34 @@ public class MyPageControlloer {
 	}
 
 
-	
+	/* 포인트 정보 상세 */
 	@RequestMapping("/mypage/point_detail")
-	public String mpPointDeatil() {
+	public String mpPointDeatil(HttpSession session,Model model) {
+		LocalDate currentDate = LocalDate.now();
+	    int Year = currentDate.getYear();
+	    int Month = currentDate.getMonthValue();
+		String memId = (String) session.getAttribute("mid");
+		MemberVO memVO = mypageService.memInfoView(memId);
+		ArrayList<MemberPointVO> pointList_total=mypageService.myPointList_total(memId);
+		ArrayList<MemberPointVO> pointList = mypageService.myPointList(memId, Year, Month);
+		
+		int positive = 0; 
+	    int negative = 0;
+	    for (MemberPointVO point : pointList) {
+	        int change = point.getPoint_change();
+	        if (change > 0) {
+	        	positive += change; 
+	        } else if (change < 0) {
+	        	negative += change;
+	        }
+	    }
+		
+		model.addAttribute("memVO",memVO);
+		model.addAttribute("pointList_total",pointList_total);
+		model.addAttribute("pointList",pointList);
+		model.addAttribute("Month",Month);
+		model.addAttribute("positive",positive);
+		model.addAttribute("negative",negative);
 		return "mypage/pointsDetails";
 	}
 	
