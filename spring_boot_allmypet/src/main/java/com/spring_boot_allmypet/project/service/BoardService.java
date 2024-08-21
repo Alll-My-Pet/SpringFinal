@@ -41,14 +41,14 @@ public class BoardService implements IBoardService {
 	}
 
 	@Override
-	public void deleteBoard(String bodNo) {
+	public void deleteBoard(String postNo) {
 		// TODO Auto-generated method stub
 
 	}
     // 상세 조회
 	@Override
-	public BoardVO detailViewBoard(String bodNo) {
-		return dao.detailViewBoard(bodNo);
+	public BoardVO detailViewBoard(int postNo) {
+		return dao.detailViewBoard(postNo);
 	}
 
 	@Override

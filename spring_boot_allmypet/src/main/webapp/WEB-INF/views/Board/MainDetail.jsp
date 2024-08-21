@@ -15,29 +15,29 @@
 
 			<div class="title">
 				<label for="title">제목</label> 
-				<span id="bodTitle">${board.bodTitle}</span>
+				<span id="bodTitle">${board.postTitle}</span>
 			</div>
 			
 			<div class="author">
 				<label for="author">작성자</label> 
-				<span id="bodMemId">${board.memId}</span>
+				<span id="bodMemId">${board.postImg}</span>
 			</div>
 			
 			<div class="like">
-				<label for="like">추천수</label> 
-				<span id="bodlike">${board.memId}</span>
+				<label for="like">추천수:</label> 
+				<span id="bodlike">${board.postLike}</span>
 			</div>
 			
 			<div class="ctg">
-				<label for="ctg">분류</label> 
-				<span id="bodctg">${board.memId}</span>
+				<label for="ctg">분류:</label> 
+				<span id="bodctg">${board.headerNo}</span>
 			</div>
 			
 			
 			
 			<div class="content">
 				<label for="content">내용</label>
-				<pre id="bodText">${board.bodText}</pre>
+				<pre id="bodText">${board.postContent}</pre>
 			</div>
 			
 			<div class="comments">

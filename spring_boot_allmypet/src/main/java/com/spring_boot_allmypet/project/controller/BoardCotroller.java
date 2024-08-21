@@ -101,10 +101,10 @@ public class BoardCotroller {
 	}
 	
 	// 상세 조회
-	   @RequestMapping("/board/listAllBoard/{bodNo}")
-	   public String detailViewBoard(@PathVariable String bodNo, Model model) {
+	   @RequestMapping("/board/detailViewBoard/{postNo}")
+	   public String detailViewBoard(@PathVariable int postNo, Model model) {
 	     // 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
-	     BoardVO board = boardService.detailViewBoard(bodNo);
+	     BoardVO board = boardService.detailViewBoard(postNo);
 	     
 	     // 뷰 페이지에 출력하기 위해 Model 설정
 	     model.addAttribute("board", board);

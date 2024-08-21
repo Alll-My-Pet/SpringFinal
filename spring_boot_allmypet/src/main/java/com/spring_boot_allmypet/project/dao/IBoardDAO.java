@@ -22,7 +22,7 @@ public interface IBoardDAO {
 	public void deleteBoard(String bodNo);
 
 	// 상세 조회
-	public BoardVO detailViewBoard(String bodNo);
+	public BoardVO detailViewBoard(int postNo);
 
 	// 검색
 	public ArrayList<BoardVO> boardSearch(HashMap<String, Object> map);

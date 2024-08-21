@@ -5,7 +5,7 @@
   
   <mapper namespace="com.spring_boot_allmypet.project.dao.IBoardDAO">
    <resultMap id="boardResultMap" type="com.spring_boot_allmypet.project.model.BoardVO">
-	     <id property="postNo" column="postNo"/>
+	     <result property="postNo" column="postNo"/>
 	     <result property="petCtgNo" column="petCtgNo"/>
 	     <result property="headerNo" column="headerNo"/>
 	     <result property="postTitle" column="postTitle"/>
@@ -50,8 +50,8 @@
   	</select>
   
   <!-- 게시글 조회 -->
-  	<select id="detailViewBoard" parameterType="string" resultType="com.spring_boot_allmypet.project.model.BoardVO">
-  		SELECT bodNo, bodTitle, memId, bodText, bodLike  FROM board WHERE bodNo = #{bodNo}
+  	<select id="detailViewBoard" parameterType="int" resultType="com.spring_boot_allmypet.project.model.BoardVO">
+  		SELECT postNo, postTitle, memId, postContent, postLike, headerNo, postImg  FROM bulletin_board WHERE postNo = #{postNo}
   	</select>
   
   </mapper>

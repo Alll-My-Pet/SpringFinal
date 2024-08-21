@@ -20,7 +20,7 @@ public interface IBoardService {
 	public void deleteBoard(String bodNo);
 
 	// 상세 게시글 조회
-	public BoardVO detailViewBoard(String bodNo);
+	public BoardVO detailViewBoard(int postNo);
 
 	// 상품 검색
 	public ArrayList<BoardVO> boardSearch(HashMap<String, Object> map);

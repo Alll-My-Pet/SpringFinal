@@ -73,7 +73,7 @@
 				 	<c:forEach var="board" items="${boardList }">
 				 	<tr>
 					    <td>${board.postNo }</td> 
-					    <td><a href="/Board/MainDetail?" onclick="fn_goView(${board.postNo})">${board.postTitle }</td> 
+					    <td><a href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td> 
 					    <td>${board.memId }</td> 
 					    <td><fmt:formatDate value="${board.postDate }" pattern="YYYY-MM-dd" /></td> 
 					    <td>${board.postView }</td> 
