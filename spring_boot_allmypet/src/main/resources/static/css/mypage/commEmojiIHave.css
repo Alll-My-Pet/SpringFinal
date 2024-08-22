@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+#mypage_comm{
+	display: flex;
+	flex-direction: row;
+	width:100%;
+	height:1500px;
+}
+#mypage_comm #mypage_r{
+	width:70%;
+}
+#mypage_r #mej{
+	width:80%;
+	padding: 1%;
+}
+
+#mej_t{
+	height:5%;
+	margin-bottom: 7%;
+}
+#mej_t #first_name{
+	font-size:10px;
+}
+#mej_t #second_name{
+	font-size:30px;
+	font-weight: bold;
+}
+#mej{
+	box-shadow: 0 0 0 1px #aaaaaa;
+	border-radius: 10px;
+	min-height: 400px;
+}
+
+#parent_tab{
+	display: flex;
+}
+
+/* 구매한 이모지 */
+#mej_purchased{
+	height:25%;
+	width:95%;
+	margin:5% auto;
+}
+#mej_purchased #mej_purchased_t{
+	display:flex;
+	justify-content: space-between;
+	padding:0 1% 0 1%;
+}
+
+/* 공용 */
+.mej_list_more_name{
+	margin-bottom:10px;
+	font-weight: bold;
+}
+.mej_list_total, .mej_list_div{
+	border:1px solid #ccc;
+}
+.mej_list_div{
+	padding:0 1%;
+	height:30px;
+	width:100%;
+	display:flex;
+	font-weight: bold;
+	align-items: center;
+}
+.mej_div_title{
+	text-align:center;
+}
+.mej_content_area .mej_list_more{
+	display:flex;
+	align-items: flex-end;
+}
+.mej_list_more{
+	height:30px;
+}
+.mej_list_total{
+	height:90%;
+}
+.mej_list_post {
+    display: flex;
+    align-items: center;
+    width: 99%;
+    height:45px;
+    border: 1px solid #000;
+    border-radius: 15px;
+    padding: 5px;
+    box-sizing: border-box;
+    position: relative;
+    margin : 1.5% 0.5%;
+}
+.mej_img_preview {
+    width: 55px;
+    height: 55px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 75%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    z-index: 1;
+}
+.mej_list_no, .mej_div_no{
+	text-align:center;
+	width:10%;
+}
+.mej_div_preview{
+	text-align:center;
+	width:10%;
+}
+.mej_list_title, .mej_div_title{
+	padding-left:10px;
+	width:45%;
+}
+.mej_list_date, .mej_div_date{
+	text-align:center;
+	width:15%;
+}
+.mej_list_nou, .mej_list_check, .mej_div_check{
+	text-align:center;
+	width:10%;
+}
+.mej_list_favorites, .mej_div_favorites{
+	text-align:center;
+	width:10%;
+}
+.mej_list_favorites{
+	cursor: pointer;
+}
+.spacer {
+   width:5%;
+}

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.spring_boot_allmypet</groupId>
-	<artifactId>project</artifactId>
+	<artifactId>AllMyPet</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 	<name>spring_boot_allmypet</name>
@@ -89,12 +89,10 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>	
-         
         <dependency>
 	    	<groupId>org.springframework.boot</groupId>
 	    	<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		 
 	</dependencies>
 
 	<build>

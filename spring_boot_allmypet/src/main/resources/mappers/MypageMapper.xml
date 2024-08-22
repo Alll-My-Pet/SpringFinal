@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.mypage.IMypageDAO">
+  	<resultMap id="memResult" type="com.spring_boot_allmypet.project.model.member.MemberVO" >
+  		<result property="memId" column="memId"  />
+  		<result property="memPw" column="memPwd"  />
+  		<result property="memName" column="memName"  />
+  		<result property="memName" column="memNickName"  />
+  		<result property="memEmail" column="memEmail"  />
+  		<result property="memHP" column="memHP"  />
+  		<result property="memZipcode" column="memZipcode"  />
+  		<result property="memAddress1" column="memAddress1"  />
+  		<result property="memAddress2" column="memAddress2"  />
+  		<result property="memGen" column="memGen"  />
+  		<result property="memBirth" column="memBirth"  />
+  		<result property="filtering" column="filtering"  />
+  		<result property="position" column="position"  />
+  		<result property="profile_image" column="profile_image"  />
+  	</resultMap>
+  	
+ 	<!-- 상품 정보 상세 출력 -->
+  	<select id="memInfoView" parameterType="string" resultType="com.spring_boot_allmypet.project.model.member.MemberVO">
+  		SELECT * 
+  		FROM member
+  		WHERE memId=#{memId}
+  	</select>
+  	<!-- 내 정보 수정 -->
+  	<update id="updateMyInfo" parameterType="com.spring_boot_allmypet.project.model.member.MemberVO">
+  		UPDATE member
+		SET memNickName = #{memNickName},
+			memHP = #{memHP},
+		    memZipcode = #{memZipcode},
+		    memAddress1 = #{memAddress1},
+		    memAddress2 = #{memAddress2},
+		    filtering = #{filtering},
+		    profile_image=#{profile_image}
+		WHERE memId = #{memId};
+  	</update>
+  	<!-- 펫 정보 출력 -->
+  	<select id="myPetList" parameterType="string" resultType="hashmap">
+  		SELECT p.*, a.petCtgName
+	    FROM pet p
+	    LEFT JOIN animal_ctg a ON p.petCtgNo = a.petCtgNo
+	    WHERE p.memId = #{memId}
+  	</select>
+  	<!-- 포인트 내역 전부 출력 -->
+  	<select id="myPointList_total" parameterType="string" resultType="hashmap">
+  		SELECT *
+	    FROM member_point
+	    WHERE memId = #{memId}
+  	</select>
+  	<!-- 포인트 내역 조건 출력 -->
+  	<select id="myPointList" parameterType="map" resultType="com.spring_boot_allmypet.project.model.member.MemberPointVO">
+	    SELECT * 
+	    FROM member_point 
+	    WHERE memId = #{memId} 
+	    AND YEAR(change_date) = #{year} 
+	    AND MONTH(change_date) = #{month}
+	</select>
+	<!-- 북마크한 글 출력 -->
+  	<select id="bookMarkPostList" parameterType="string" resultType="hashmap">
+  		SELECT 
+	        bb.postTitle, 
+	        bb.postDate, 
+	        bb.memId AS author, 
+	        ph.headerName,
+	        bp.bookmarkDate
+	    FROM 
+	        bookmark_post bp
+	    INNER JOIN 
+	        bulletin_board bb ON bp.postNo = bb.postNo
+	    INNER JOIN 
+	        postheader ph ON bb.headerNo = ph.headerNo
+	    WHERE 
+        	bp.memId = #{memId}
+        ORDER BY 
+   			bp.bookmarkDate DESC;
+  	</select>
+  	<!-- 북마크 구분 조건 출력 -->
+  	<select id="bookMarkPostList_div" parameterType="map" resultType="hashmap">
+  		SELECT 
+	        bb.postTitle, 
+	        bb.postDate, 
+	        bb.memId AS author, 
+	        ph.headerName,
+	        bp.bookmarkDate
+	    FROM 
+	        bookmark_post bp
+	    INNER JOIN 
+	        bulletin_board bb ON bp.postNo = bb.postNo
+	    INNER JOIN 
+	        postheader ph ON bb.headerNo = ph.headerNo
+	    WHERE 
+        	bp.memId = #{memId}
+        AND bb.headerNo = #{headerNo}
+        ORDER BY 
+   			bp.bookmarkDate DESC;
+  	</select>
+  	<!-- 북마크 검색 조건 출력 -->
+  	<select id="bookMarkPostList_search" parameterType="map" resultType="hashmap">
+	    SELECT 
+	        bb.postTitle, 
+	        bb.postDate, 
+	        bb.memId AS author, 
+	        ph.headerName,
+	        bp.bookmarkDate
+	    FROM 
+	        bookmark_post bp
+	    INNER JOIN 
+	        bulletin_board bb ON bp.postNo = bb.postNo
+	    INNER JOIN 
+	        postheader ph ON bb.headerNo = ph.headerNo
+	    WHERE 
+	        bp.memId = #{memId}
+	    <if test="searchDiv != null and searchContents != null">
+	        <choose>
+	            <when test="searchDiv == 'title_content'">
+	                AND (bb.postTitle LIKE CONCAT('%', #{searchContents}, '%') 
+	                OR bb.postContent LIKE CONCAT('%', #{searchContents}, '%'))
+	            </when>
+	            <when test="searchDiv == 'title'">
+	                AND bb.postTitle LIKE CONCAT('%', #{searchContents}, '%')
+	            </when>
+	            <when test="searchDiv == 'content'">
+	                AND bb.postContent LIKE CONCAT('%', #{searchContents}, '%')
+	            </when>
+	            <when test="searchDiv == 'writer'">
+	                AND bb.memId LIKE CONCAT('%', #{searchContents}, '%')
+	            </when>
+	            <otherwise>
+	                AND 1=1
+	            </otherwise>
+	        </choose>
+	    </if>
+	    ORDER BY 
+	        bp.bookmarkDate DESC
+	</select>
+	<!-- 북마크 갤러리 출력 -->
+	<select id="bookMarkGalleryList" parameterType="string" resultType="hashmap">
+  		SELECT 
+	        pg.postTitle, 
+	        pg.postLike, 
+	        pg.postImg,
+	        pg.memId AS author, 
+	        mb.profile_image,
+	        bg.bookmarkDate
+	    FROM 
+	        bookmark_gallery bg
+	    INNER JOIN 
+	        pet_gallery pg ON bg.postNo = pg.postNo
+	    INNER JOIN
+	    	member mb ON pg.memId = mb.memId
+	    WHERE 
+        	bg.memId = #{memId}
+        ORDER BY 
+   			bg.bookmarkDate DESC;
+  	</select>
+  	<!-- 블락 리스트 출력 -->
+  	<select id="blockList" parameterType="string" resultType="hashmap">
+	    SELECT 
+	        bl.blocker_memId,
+	        bl.blocked_memId,
+	        bl.block_date,
+	        bl.block_reason,
+	        mb.memNickName
+	    FROM 
+	        block_list bl
+	    INNER JOIN
+	        member mb ON bl.blocked_memId = mb.memId
+	    WHERE 
+	        bl.blocker_memId = #{memId}
+	    ORDER BY 
+	        bl.block_date DESC;
+	</select>
+	<!-- 블락 리스트 삭제 -->
+	<delete id="blockList_delete" parameterType="map">
+		DELETE FROM block_list 
+	    WHERE blocker_memId = #{memId} 
+	    AND blocked_memId = #{blockedMemId}
+	</delete>
+	<!-- 블락 리스트 수정 -->
+	<update id="blockList_update" parameterType="map">
+		UPDATE block_list
+	    SET block_reason = #{block_reason}
+	    WHERE blocker_memId = #{memId}
+	    AND blocked_memId = #{blockedMemId}
+	</update>
+	<!-- 블락 리스트 검색 -->
+	<select id="blockList_search" parameterType="map" resultType="hashmap">
+	    SELECT 
+	        bl.blocker_memId,
+	        bl.blocked_memId,
+	        bl.block_date,
+	        bl.block_reason,
+	        mb.memNickName
+	    FROM 
+	        block_list bl
+	    INNER JOIN 
+	        member mb ON bl.blocked_memId = mb.memId
+	    WHERE 
+	        bl.blocker_memId = #{memId}
+	        AND bl.blocked_memId LIKE CONCAT('%', #{blockedMemId}, '%')
+	    ORDER BY 
+	        bl.block_date DESC;
+	</select>
+
+  </mapper>
