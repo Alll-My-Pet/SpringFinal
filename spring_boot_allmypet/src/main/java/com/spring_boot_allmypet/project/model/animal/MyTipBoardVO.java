@@ -5,9 +5,8 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 public class MyTipBoardVO {
-	private int tipNo;
-    private String petCtgNo;
     private int postNo;
+    private String petCtgNo;
     private String postTitle;
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm")
     private Date postDate;
@@ -16,12 +15,6 @@ public class MyTipBoardVO {
     private int postLike;
     private String postImg;
     
-	public int getTipNo() {
-		return tipNo;
-	}
-	public void setTipNo(int tipNo) {
-		this.tipNo = tipNo;
-	}
 	public String getPetCtgNo() {
 		return petCtgNo;
 	}

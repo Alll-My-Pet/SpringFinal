@@ -1,6 +1,7 @@
 package com.spring_boot_allmypet.project.dao.mypage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
@@ -31,5 +32,11 @@ public interface IMypageDAO {
 	public ArrayList<BookMarkGVO> bookMarkGalleryList(String mid);
 	// 블락 리스트 출력
 	public ArrayList<BlockListVO> blockList(String mid);
+	// 블락 리스트 삭제
+	public void blockList_delete(Map<String, Object>params);
+	// 블락 리스트 수정
+	public void blockList_update(Map<String, Object>params);
+	// 블락 리스트 검색
+	public ArrayList<HashMap<String, Object>>blockList_search(Map<String, Object> params);
 	
 }
