@@ -1,20 +1,24 @@
 package com.spring_boot_allmypet.project.model.animal;
 
 public class AnimalCtgVO {
-	private int petCtgNo;
+	private String petCtgNo;
 	private String petCtgName;
 	
-	public int getPetCtgNo() {
+	public String getPetCtgNo() {
 		return petCtgNo;
 	}
-	public void setPetCtgNo(int petCtgNo) {
+
+	public void setPetCtgNo(String petCtgNo) {
 		this.petCtgNo = petCtgNo;
 	}
+
 	public String getPetCtgName() {
 		return petCtgName;
 	}
+
 	public void setPetCtgName(String petCtgName) {
 		this.petCtgName = petCtgName;
 	}
+	
 	
 }
