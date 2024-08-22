@@ -20,7 +20,7 @@
 			
 			<div class="author">
 				<label for="author">작성자</label> 
-				<span id="bodMemId">${board.postImg}</span>
+				<span id="bodMemId"><img src="<c:url value='${board.postImg}'/>"></span>
 			</div>
 			
 			<div class="like">

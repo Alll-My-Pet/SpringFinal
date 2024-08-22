@@ -51,6 +51,7 @@ public class BoardService implements IBoardService {
 		return dao.detailViewBoard(postNo);
 	}
 
+	// 검색
 	@Override
 	public ArrayList<BoardVO> boardSearch(HashMap<String, Object> map) {
 		return dao.boardSearch(map);

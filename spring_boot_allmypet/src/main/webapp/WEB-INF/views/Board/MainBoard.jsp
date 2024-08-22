@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>전체 게시판</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/MainBoard.css'/>" />
+<script src="<c:url value='/js/Board/MainBoard.js'/>"></script>
 </head>
 <body>
 	<div class="All">
@@ -21,7 +22,7 @@
 					<option value="BTitle">글 제목</option>
 					<option value="BPlus">제목 + 내용</option>
 				</select> 
-				<input type="text" id="SearchBox" name="SearchBox" placeholder="게시판 내 검색" />
+				<input type="text" id="SearchBox" name="keyword" placeholder="게시판 내 검색" />
 				
 				<label for="BoardSearchBtn">
 				<input type="submit" class="BoardSearchBtn">

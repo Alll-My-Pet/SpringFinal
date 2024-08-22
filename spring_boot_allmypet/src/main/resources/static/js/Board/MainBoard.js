@@ -35,10 +35,10 @@ $('#BoardSearchBar').on('submit', function() {
  						let month = (board_date.getMonth() + 1).toString().padStart(2, '0');
  						let date = (board_date.getDate().toString().padStart(2, '0'));
  						let bodDate = `${year}-${month}-${date}`;	 							
-						$('#boardList').append('<tr><td>' + result[i].bodNo + '</td><td>'+
-												result[i].bodTitle + '</td><td>' +
+						$('#boardList').append('<tr><td>' + result[i].postNo + '</td><td>'+
+												result[i].postTitle + '</td><td>' +
 											    result[i].memId + '</td><td>' +
-											    bodDate + '</td><tr>');
+											    postDate + '</td><tr>');
 						
 	 					}
  				}
