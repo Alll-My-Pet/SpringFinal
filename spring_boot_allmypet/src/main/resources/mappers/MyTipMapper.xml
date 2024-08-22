@@ -6,9 +6,6 @@
 <mapper
 	namespace="com.spring_boot_allmypet.project.dao.animal.IMyTipDAO">
 	<select id="getTipList" parameterType="String" resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
-        SELECT mt.*
-        FROM mytip_board mt
-        JOIN bulletin_board bb ON mt.postNo = bb.postNo
-        WHERE mt.petCtgNo = #{petCtgNo} AND bb.headerNo = 4
+        SELECT * FROM mytip_board WHERE petCtgNo = #{petCtgNo}
     </select>
 </mapper>
