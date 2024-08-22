@@ -10,7 +10,7 @@
             success: function(response) {
                 if (response === 'success') {
                     alert("회원가입이 완료되었습니다.");
-                    location.href = '/login';
+                    location.href = "/login";
                 } else {
                     alert("회원가입에 실패했습니다.");
                 }

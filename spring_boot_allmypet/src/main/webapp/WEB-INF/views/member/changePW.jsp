@@ -8,7 +8,7 @@
 		<title>비밀번호 찾기</title>
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/change.css">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/change.css'/>">
 	</head>
 	<body>
 	<section class="changePW">

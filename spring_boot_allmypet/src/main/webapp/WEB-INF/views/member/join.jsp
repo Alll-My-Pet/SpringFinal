@@ -8,9 +8,9 @@
 		<title>회원가입</title>
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/member/join.css">
-		<script src="<%= request.getContextPath() %>/js/member/join.js"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/join.css'/>">
 		<script src="<c:url value='/js/member/joinPage.js'/>"></script>
+		<script src="<c:url value='/js/member/join.js'/>"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/member/searchAddress.js'/> "></script>
 	</head>
@@ -25,7 +25,7 @@
 			<div class="joinBox">
 				<div class="joinUpper">
 					<div class="upperContext">
-						<form id="joinForm" class="joinForm" method="post" action="/member/insertmem">
+						<form id="joinForm" class="joinForm" method="post" action=""<c:url value='/member/insertmem'/>">
 							<table>
 								<tr>
 									<td><label for="id">아이디</label></td>

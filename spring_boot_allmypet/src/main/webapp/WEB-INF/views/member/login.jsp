@@ -8,7 +8,7 @@
 		<title>로그인</title><!-- 테스트 -->
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/login.css">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/login.css'/>">
 		<script src="<c:url value='/js/member/login.js'/>"></script>
 		<script src="<c:url value='/js/member/loginPage.js'/>"></script>
 	</head>
@@ -23,7 +23,7 @@
 			<div class="loginBox">
 				<div class="loginLeft">
 					<div class="leftContext">
-						<form id="loginForm" class="loginForm" method="post" action="/member/loggingIn">
+						<form id="loginForm" class="loginForm" method="post">
 							<c:if test="${not empty memId}">
 								<input id="username" type="text" placeholder="아이디" value="${memId}" required>
 							</c:if>
