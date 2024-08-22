@@ -45,48 +45,48 @@ public class BoardCotroller {
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("pageVo", pageVo);
 		
-		return "/Board/MainBoard";
+		return "Board/MainBoard";
 	}
 	
 	
 	@RequestMapping("/Board/Protect")
 	public String Protect() {
-		return "/Board/PetProtectBoard";
+		return "Board/PetProtectBoard";
 	}
 	
 	@RequestMapping("/Board/FreeBoard")
 	public String FreeBoard() {
-		return "/Board/FreeBoard";
+		return "Board/FreeBoard";
 	}
 	
 	@RequestMapping("/Board/PromoteBoard")
 	public String PromoteBoard() {
-		return "/Board/PetPromoteBoard";
+		return "Board/PetPromoteBoard";
 	}
 	
 	@RequestMapping("/Board/NoticeBoard")
 	public String NoticeBoard() {
-		return "/Board/NoticeBoard";
+		return "Board/NoticeBoard";
 	}
 	
 	@RequestMapping("/Board/FreeBoardDetail")
 	public String FreeBoardDetail() {
-		return "/Board/FreeBoardDetail";
+		return "Board/FreeBoardDetail";
 	}
 	
 	@RequestMapping("/Board/MainDetail")
 	public String MainDetail() {
-		return "/Board/MainDetail";
+		return "Board/MainDetail";
 	}
 	
 	@RequestMapping("/Board/TipBoard")
 	public String TipBoard() {
-		return "/Board/TipBoard";
+		return "Board/TipBoard";
 	}
 	
 	@RequestMapping("/Board/TipDetail")
 	public String TipDetail() {
-		return "/Board/TipDetail";
+		return "Board/TipDetail";
 	}
 	
 	
@@ -109,7 +109,7 @@ public class BoardCotroller {
 	     // 뷰 페이지에 출력하기 위해 Model 설정
 	     model.addAttribute("board", board);
 	     
-	     return "/Board/MainDetail";
+	     return "Board/MainDetail";
 	   }
 	   
 
