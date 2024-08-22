@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+.All {
+	width: 100%;
+}
+
+.BoardSearchBtn {
+	border: 0px;
+	background-color: white;
+	font-color: none;
+	background-image:
+		url('/pet_images/free-icon-search-interface-symbol-54481.png');
+	background-size: cover; /* 이미지 크기를 버튼에 맞게 조정 */
+	background-repeat: no-repeat; /* 이미지 반복 방지 */
+	border: none; /* 버튼 테두리 제거 */
+	cursor: pointer; /* 클릭 가능한 커서 */
+	text-indent: -9999px; /* 버튼의 텍스트를 화면에서 숨김 */
+	overflow: hidden; /* 텍스트가 남는 것을 방지 */
+	width: 20px;
+}
+
+.BoardSearchBtn:hover {
+	opacity: 0.8; /* 호버 시 투명도 조정 */
+}
+
+.hotBoard {
+	border: 1px solid black;
+	width: 900px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+.boardTB {
+	width: 900px;
+	border-collapse: collapse;
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-top: 50px;
+	/* height: 900px; */
+	overflow: hidden;
+}
+
+.boardTB td {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 8px;
+	text-align: center;
+	border-collapse: collapse;
+	height: 20px;
+}
+/* tr에 대한 호버 효과 적용 */
+.boardTB tbody tr:hover {
+	background-color: #f0f0f0;
+}
+
+/* th에 대한 스타일 */
+.boardTB thead th {
+	background-color: skyblue;
+}
+
+#SearchBox {
+	border-radius: 5px;
+	border-color: #01bffe;
+}
+
+#MainFont {
+	font-size: 50px;
+	margin-right: 630px;
+	margin-top: 150px;
+	display: flex;
+	justify-content: center;
+}
+
+.TbDropdownBtn {
+	background: white;
+	border: none;
+}
+
+.hot1 {
+	border: 1px solid black;
+	width: 90%;
+	height: 25%;
+	border-radius: 6px;
+	margin: 0 auto;
+	display: flex;
+}
+
+.hot2 {
+	border: 1px solid black;
+	width: 90%;
+	height: 25%;
+	border-radius: 6px;
+	margin: 0 auto;
+	margin-top: 10px;
+	display: flex;
+}
+
+.MainBoard {
+	border: 1px solid black;
+	width: 100vh;
+	height: 150vh;
+	margin: 0 auto;
+}
+
+#BoardSearchBar {
+	position: absolute;
+	width: 300px;
+	margin-left: 66vh;
+	margin-top: 7vh;
+	display: flex;
+}
+
+.PetCtgBrd {
+	border: 1px solid black;
+	width: 250px;
+	position: absolute;
+	top: 300px;
+	left: 200px;
+	text-align: center;
+}
+
+#BFilter2 {
+	border: none;
+}
+
+.page-list {
+	padding: 0;
+	margin-top: 13px;
+}
+
+.page-list li {
+	display: inline-block;
+}
+
+.page-link {
+	color: black;
+	cursor: pointer;
+	font-size: 20px;
+	margin-left: 20px;
+}
+
+.page-link:hover {
+	background-color: #f2f2f2;
+}

@@ -22,7 +22,7 @@
                 <span class="fab-label">오늘의 운세보기</span>
                 <a href="link1.html">
                     <div class="icon-container">
-                        <img src="image/fab/fortuneteller.png" alt="운세보기" class="icon">
+                        <img src="/image/fab/fortuneteller.png" alt="운세보기" class="icon">
                     </div>
                 </a>
             </div>
@@ -30,7 +30,7 @@
                 <span class="fab-label">반려동물 지도</span>
                 <a href="link2.html">
                     <div class="icon-container">
-                        <img src="image/fab/animal-map.png" alt="동물지도" class="icon">
+                        <img src="/image/fab/animal-map.png" alt="동물지도" class="icon">
                     </div>
                 </a>
             </div>
@@ -38,7 +38,7 @@
                 <span class="fab-label">문의사항</span>
                 <a href="link3.html">
                     <div class="icon-container">
-                        <img src="image/fab/chat.png" alt="채팅" class="icon">
+                        <img src="/image/fab/chat.png" alt="채팅" class="icon">
                     </div>
                 </a>
             </div>
@@ -46,7 +46,7 @@
     </div>
     <!-- TOP버튼 -->
     <div class="top-button" id="topButton">
-        <img src="image/fab/paw_top.png" alt="Top" class="top-icon">
+        <img src="/image/fab/paw_top.png" alt="Top" class="top-icon">
     </div>
 	</div>
 </body>
