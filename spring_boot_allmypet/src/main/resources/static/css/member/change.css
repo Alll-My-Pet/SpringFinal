@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+.changePW {
+	display: flex;
+	flex-direction: column;
+}
+
+.changePWTitleWrap {
+	display: flex;
+	justify-content: center;
+}
+
+.changePWTitle {
+	width: 800px;
+	margin: 30px 0;
+	text-align: left;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+
+.changePWTitle b {
+	font-size: 50px;
+}
+
+.changePWBox {
+	width: 800px;
+	height: 400px;
+	margin: auto;
+}
+
+.changePWInput {
+	border: 2px solid #000000;
+	border-radius: 10px;
+	padding: 30px;
+	margin-top: 30px;
+}
+
+.changePWSubmit {
+	margin: 30px;
+}
+
+table {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	letter-spacing: 2px;
+}
+
+table th {
+	padding: 15px 0;
+	font-size: 30px;
+}
+
+table td {
+	font-size: 20px;
+	padding: 10px 20px;
+}
+
+table td:first-child, table th {
+	text-align: right;
+}
+
+input::placeholder {
+	font-style: italic;
+	font-size: 15px;
+	text-align: left;
+}
+
+.id, .text, .hp {
+	padding: 7px 0;
+	border: none;
+	border-bottom: 1px solid;
+	background: transparent;
+	font-size: 17px;
+	text-align: center;
+}
+
+.email, .adress {
+	padding: 7px 0;
+	border: none;
+	border-bottom: 1px solid;
+	background: transparent;
+	font-size: 15px;
+	text-align: left;
+}
+
+.id {
+	width: 50%;	
+}
+
+.text {
+	width: 70%;
+}
+
+.email {
+	width: 75%
+}
+
+.adress {
+	width: 100%;
+}
+
+.hp {
+	width: calc(25% - 10px);
+}
+
+.checkBtn, .addressBtn {
+	border: none;
+	padding: 5px 10px;
+	border-radius: 7px;
+	font-size: 15px;
+}
+
+.changePWBtn {
+	border: none;
+	padding: 15px 70px;
+	border-radius: 10px;
+	display: block;
+	margin: auto;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+	background: #000000;
+}

@@ -269,7 +269,7 @@
 	<br>
 	<div>
 		<button class="paument_button" type="submit">
-			<p>${total }원 결제하기</p>
+			<p><fmt:formatNumber value= "${total}" pattern="#,###" />원 결제하기</p>
 		</button>
 	</div>
 		</form>

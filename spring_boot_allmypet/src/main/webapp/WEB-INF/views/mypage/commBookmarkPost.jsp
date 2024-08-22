@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,8 +13,12 @@
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/commControl.css'/>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/mypage/commBookMarkPost.js'/>"></script>
 	</head>
 	<body>
+		<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
+	
 		<section id="mypage_comm">
 			<div id="mypage_l">
 				<div id="comm_control">
@@ -42,29 +48,38 @@
 							    <option value="writer">작성자</option>
 							</select>
 							<input type="text" class="bmp_search_text">
-							<i class="fa-solid fa-magnifying-glass search_btm"></i>
+							<i id="search_btn"class="fa-solid fa-magnifying-glass search_btm"></i>
 						</form>
 					</div>
 					<div id="bmp_post_lists">
 						<div id="config_name">
 							<select id="bmp_type" name="bmp_type" >
 						    	<option value="bmp_all_post" selected>구분</option>
-						    	<option value="bmp_type1">타입1</option>
-						    	<option value="bmp_type2">타입2</option>
-						    	<option value="bmp_type3">타입3</option>
+						    	<option value="1">공지</option>
+						    	<option value="2">QnA</option>
+						    	<option value="3">양육 팁</option>
+						    	<option value="4">리뷰</option>
 							</select>
 							<div id="bmp_title">제목</div>
 							<div id="bmp_writer">작성자</div>
 							<div id="bmp_post_date">작성일</div>
 							<div id="bmp_date">등록일</div>
 						</div>
-						<div class="bmp_post_list"> <!-- db에서 값 추출 작업 필요 -->
-							<div class="bmp_list_type">구분</div>
-							<div class="bmp_list_title inner_text_div">제목</div>
-							<div class="bmp_list_writer inner_text_div">작성자</div>
-							<div class="bmp_list_post_date">작성일</div>
-							<div class="bmp_list_date">등록일</div>
-						</div>
+						<c:if test="${not empty bookMarkList }">
+							<div id="bookMark_List">
+								<c:forEach var="bookMark" items="${bookMarkList }" end="${fn:length(bookMarkList) - 1}">
+									<div class="bmp_post_list">
+										<div class="bmp_list_type">${bookMark.headerName }</div>
+										<div class="bmp_list_title inner_text_div">${bookMark.postTitle }</div>
+										<div class="bmp_list_writer inner_text_div">${bookMark.profile_image }</div>
+										<div class="bmp_list_post_date">${bookMark.postDate }</div>
+										<div class="bmp_list_date">
+										    <fmt:formatDate value="${bookMark.bookmarkDate}" pattern="yyyy-MM-dd" />
+										</div>
+									</div>
+								</c:forEach>
+							</div>
+						</c:if>
 					</div>
 				</div>
 				<div id="bmp_b">
@@ -89,5 +104,7 @@
 			</div>
 			
 		</section>
+		
+		<c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

@@ -4,10 +4,9 @@
 
 
 /* ------ */
-
 #edit_info {
 	width:70%;
-	height:100%;
+	height:1100px;
 	margin:auto;
 }
 #edit_info_area{
@@ -21,7 +20,6 @@
 .ei_cursor_pointer{
 	cursor: pointer;
 }
-
 
 /* 상단 부분 */
 
@@ -75,6 +73,7 @@
 #my_nickname_area{
 	display:flex;
 	width:100%;
+	margin-bottom:40px;
 }
 #nickname_check_btn{
 	border: 1px solid #aaaaaa;
@@ -134,7 +133,7 @@
 	width:400px;
 }
 .info_phone_text{
-	width:50px;
+	width:150px;
 }
 #edit_regis_btn{
 	width:150px;
@@ -157,6 +156,9 @@
 .pet_type{
 	position: relative;
 	padding-right: 1%;
+}
+.pet_species{
+	margin-right:5px;
 }
 .pet_type::after {
     content: '';
@@ -191,7 +193,9 @@
     background-color: #626262; 
      width: 3px;
 }
-
+.pet_name{
+	margin-right:5px;
+}
 .pet_birth_text{
 	display: flex;
 	justify-content: space-between;
@@ -252,3 +256,45 @@
 	border:1px solid #aaaaaa;
 	border-radius: 10px;	
 }
+.non_btn{
+	color:gray !important;
+	user-select: none;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+}
+input[type=number] {
+            -moz-appearance: textfield;
+}
+#edit_nickname{
+	margin: 0 5px;
+}
+.mypet_lists{
+	margin-top:10px;
+}
+.mypet_list{
+	display:flex;
+}
+.myPet_Ctg {
+	width:120px;
+    display: inline-block;
+    padding-right: 10px;
+}
+
+.with-divider::before {
+    content: '';
+    display: inline-block;
+    width: 1px; 
+    height: 20px;
+    background-color: #000; 
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.myPet_Name {
+    display: inline-block;
+    padding-left: 10px; 
+    margin-right:5px;
+}	

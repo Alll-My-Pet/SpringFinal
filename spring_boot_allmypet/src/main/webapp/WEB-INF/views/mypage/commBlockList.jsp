@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,8 +13,12 @@
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/commControl.css'/>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/mypage/blockList.js'/>"></script>
 	</head>
 	<body>
+		<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
+		
 		<section id="mypage_comm">
 			<div id="mypage_l">
 				<div id="comm_control">
@@ -53,14 +59,19 @@
 								<div id="mbl_dates">차단일</div>
 							</div>
 							<div id="mbl_lists">
-								<!-- db에서 c:foreach 로 출력 -->
-								<div class="mbl_list">
-									<div class="list_checkbox_area"><input type="checkbox" class="mbl_checkbox"></div>
-									<div class="mbl_id">아이디</div>
-									<div class="mbl_name">닉네임</div>
-									<div class="mbl_reason_area"><input class="mbl_reason"type="text"></div>
-									<div class="mbl_date">0000.00.00</div>
-								</div>
+								<c:if test="${not empty blockList }">
+									<c:forEach var="blocked" items="${blockList }" >
+										<div class="mbl_list">
+											<div class="list_checkbox_area"><input type="checkbox" class="mbl_checkbox"></div>
+											<div class="mbl_id">${blocked.blocked_memId }</div>
+											<div class="mbl_name">${blocked.memNickName }</div>
+											<div class="mbl_reason_area"><input class="mbl_reason"type="text" value="${blocked.block_reason }"></div>
+											<div class="mbl_date">
+												<fmt:formatDate value="${blocked.block_date }" pattern="yyyy-MM-dd"/>
+											</div>
+										</div>
+									</c:forEach>
+								</c:if>
 							</div>
 						</div>
 					</div>
@@ -69,5 +80,7 @@
 			</div>
 			
 		</section>
+		
+		<c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <!DOCTYPE html>
 <html>
 	<head>
@@ -27,9 +28,9 @@
 		</div>
 		<div class="complete_s_box">
 			<p class="order_title">결제 정보</p><br><br>
-			주문금액 : ${ordVo.ordPrice}<br>
+			주문금액 : <fmt:formatNumber value= "${ordVo.ordPrice}" pattern="#,###" />원<br>
 			배송비 : 0원<br><br>
-			총 결제금액 : ${ordVo.ordPrice}
+			총 결제금액 : <fmt:formatNumber value= "${ordVo.ordPrice}" pattern="#,###" />원
 		</div>
 		
 		<div class="cart__mainbtns">

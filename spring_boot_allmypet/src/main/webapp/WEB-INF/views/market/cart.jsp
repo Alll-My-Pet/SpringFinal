@@ -38,7 +38,7 @@
                 <c:forEach items="${cartList }" var="car">
                     <tr class="cart__list__detail">
                         <td><input type="checkbox" class="select" data-cartno="${car.cartNo}"></td>
-                        <td><img src="<c:url value='/image/${car.product.prdImg }'/>"/></td>
+                        <td><img src="<c:url value='/image/market/${car.product.prdImg }'/>"/></td>
                         <td>${car.product.prdCompany }</a>
                             <p>${car.product.prdName }</p>
                             <sapn class="price"><fmt:formatNumber value= "${car.product.prdPrice}" pattern="#,###" />원</sapn>
