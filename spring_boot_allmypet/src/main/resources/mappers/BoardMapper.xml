@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.IBoardDAO">
+   <resultMap id="boardResultMap" type="com.spring_boot_allmypet.project.model.BoardVO">
+	     <result property="postNo" column="postNo"/>
+	     <result property="petCtgNo" column="petCtgNo"/>
+	     <result property="headerNo" column="headerNo"/>
+	     <result property="postTitle" column="postTitle"/>
+	     <result property="postDate" column="postDate"/>
+	     <result property="memId" column="memId"/>
+	     <result property="postContent" column="postContent"/>
+	     <result property="postLike" column="postLike"/>
+	     <result property="postView" column="postView"/>
+	     <result property="postImg" column="postImg"/>
+    </resultMap>
+  
+  
+  <!-- 전체 게시글 조회 --> 
+  <!-- 	<select id="listAllBoard" resultMap="boardResultMap">
+  		SELECT * FROM board ORDER BY bodNo DESC
+  	</select> -->
+  	
+  	<select id="listAllBoard" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.BoardVO">
+  		SELECT * FROM bulletin_board LIMIT #{startNo}, 15;  		
+  	</select>
+  	
+  	<!-- 페이징 -->
+  	<select id="getBoardCount" resultType="int">
+  		SELECT count(*) FROM bulletin_board
+  	</select>
+  
+   <!-- 게시글 검색 -->
+  	<select id="boardSearch" parameterType="hashmap" resultMap="boardResultMap">
+  		SELECT * FROM bulletin_board WHERE true
+  			<choose>
+  				<when test='option=="BWriter"'>
+  					AND postTitle LIKE CONCAT('%',#{keyword},'%')
+  				</when>
+  				<when test='option=="BTitle"'>
+  					AND memId LIKE CONCAT('%',#{keyword},'%')
+  				</when>
+  				<when test='option=="BPlus"'>
+  					AND memId LIKE CONCAT('%',#{keyword},'%')
+  					OR postTitle LIKE CONCAT('%',#{keyword},'%')
+  				</when>
+  			</choose>
+  	</select>
+  
+  <!-- 게시글 조회 -->
+  	<select id="detailViewBoard" parameterType="int" resultType="com.spring_boot_allmypet.project.model.BoardVO">
+  		SELECT postNo, postTitle, memId, postContent, postLike, headerNo, postImg  FROM bulletin_board WHERE postNo = #{postNo}
+  	</select>
+  
+  </mapper>
