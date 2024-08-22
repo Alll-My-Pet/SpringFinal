@@ -79,7 +79,7 @@
 								<tr>
 									<td><label for="email">이메일</label></td>
 									<td><input type = "email" id="email" name="memEmail" placeholder="이메일 주소 입력" class="email" required>
-										<input type="button" value="인증"onClick="sendEmail()" class="checkBtn">
+										<input type="button" value="인증" onClick="sendEmail()" class="checkBtn">
 										<span class="error-message" id="emailError"></span>
 									</td>
 								</tr>
@@ -114,7 +114,9 @@
 				<div class="joinBottom">
 					<div class="bottomContext">
 						<b>이용약관</b>
-						<!-- 이용 약관 -->
+						<div class="useterms">
+							<c:out value="${termsContent}"></c:out>
+						</div>
 					</div>
 				</div>
 			</div>

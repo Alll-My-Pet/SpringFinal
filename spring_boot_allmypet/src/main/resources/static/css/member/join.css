@@ -144,6 +144,15 @@ input[type="radio"]:checked {
 	padding: 5px 10px;
 	border-radius: 7px;
 	font-size: 15px;
+	margin: auto;
+	color: #fff;
+	background: #000000;
+}
+
+.checkBtn:hover, .addressBtn:hover {
+	background-color: #808080;
+    transform: scale(1.05);
+    cursor: pointer;
 }
 
 .bottomContext {
