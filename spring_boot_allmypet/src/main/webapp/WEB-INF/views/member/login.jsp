@@ -24,8 +24,8 @@
 				<div class="loginLeft">
 					<div class="leftContext">
 						<form id="loginForm" class="loginForm" method="post">
-							<input id="username" type="text" placeholder="아이디" value="${memId}" required>
-							<input id="password" type="password" placeholder="비밀번호" required>
+							<input id="memId" name="memId" type="text" placeholder="아이디" value="${memId}" required>
+							<input id="memPwd" name="memPwd" type="password" placeholder="비밀번호" required>
 							<!-- <div class="rememberId">
 								<label><input type="checkbox">아이디 저장</label>
 							</div> -->

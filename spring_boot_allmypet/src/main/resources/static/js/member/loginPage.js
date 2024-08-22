@@ -7,8 +7,8 @@
 		$.ajax({
 			type:"post",
 			url:"/member/loggingIn",
-			data : {"username":$('#memId').val(),
- 					"password": $('#memPwd').val()}, 
+			data : {"memId":$('#memId').val(),
+ 					"memPwd": $('#memPwd').val()}, 
  			dataType:'text',
  			success:function(result) {
  				if(result.trim() == "success") {

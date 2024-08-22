@@ -22,11 +22,11 @@ public class MemberRestController {
 	@RequestMapping("/member/loggingIn")
 	public String login(@RequestParam HashMap<String, Object>param,
 				HttpSession session) {
-		int mem_position = memService.memPosition((String)param.get("id"));
+		int mem_position = memService.memPosition((String)param.get("memId"));
 		String result = memService.loginCheck(param); 
 		
 		if(result.equals("success")) {
-			session.setAttribute("mid", param.get("id"));
+			session.setAttribute("mid", param.get("memId"));
 			session.setAttribute("mpos", mem_position);	
 		}
 		

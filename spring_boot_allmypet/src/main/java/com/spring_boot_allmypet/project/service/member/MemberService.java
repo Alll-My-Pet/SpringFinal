@@ -48,7 +48,7 @@ public class MemberService implements IMemberService {
 	public String loginCheck(HashMap<String, Object> map) {
 		String encodedPwd = dao.loginCheck(map);
 		String result = "fail";
-		if(encodedPwd != null && pwdEncoder.matches((String)map.get("pwd"), encodedPwd)){
+		if(encodedPwd != null && pwdEncoder.matches((String)map.get("memPwd"), encodedPwd)){
 			result ="success";
 		}
 		return result;
