@@ -158,6 +158,7 @@
 					<div class="all-board">
 						<div class="photo-Emoji">
 							<div class="best-photos">
+								<!-- 링크 삽입 -->
 								<a href="게시판_링크.html" class="board-title">
 									<div>이번달 BEST 📷 +</div>
 								</a>
@@ -172,7 +173,7 @@
                                     <div class="photo" id="photo2"></div>
                                     <div class="photo" id="photo3"></div>
                                     <div class="photo" id="photo4"></div> -->
-
+	
 										<a href="갤러리_상세.html" class="photo"></a> <a href="갤러리_상세.html"
 											class="photo"></a> <a href="갤러리_상세.html" class="photo"></a> <a
 											href="갤러리_상세.html" class="photo"></a>
@@ -186,6 +187,7 @@
 							</div>
 							<!-- best-photos 끝 -->
 							<div class="emoji-board">
+								<!-- 링크 삽입 -->
 								<a href="게시판_링크.html" class="board-title">
 									<div>최고의 이모지 +</div>
 								</a>
@@ -200,7 +202,8 @@
 
 						<div class="post-board">
 							<div class="notice-event-board">
-								<a href="게시판_링크.html" class="board-title">
+								<!-- 링크 삽입 -->
+								<a href="<c:url value='/Board/NoticeBoard'/>" class="board-title">
 									<div>공지/이벤트 +</div>
 								</a>
 								<!-- 공지사항 -->
@@ -279,6 +282,7 @@
 							<!-- notice-event board 끝 -->
 							<div class="community-board">
 								<div class="hot-board">
+									<!-- 링크 삽입 -->	
 									<a href="게시판_링크.html" class="board-title">
 										<div>핫한 게시글🔥 +</div>
 									</a>
@@ -302,7 +306,8 @@
 									</div>
 								</div>
 								<div class="general-board">
-									<a href="게시판_링크.html" class="board-title">
+									<!-- 링크 삽입 -->
+									<a href="<c:url value='/Board/FreeBoard'/>" class="board-title">
 										<div>자유게시판 +</div>
 									</a>
 									<div class="general-list">
