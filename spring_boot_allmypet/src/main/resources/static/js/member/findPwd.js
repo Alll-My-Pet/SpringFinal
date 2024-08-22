@@ -1,20 +1,16 @@
 $(function() {
-    $('#findIDForm').on('submit', function() {
+    $('#findPwd').on('submit', function() {
     	event.preventDefault();
         $.ajax({
-            url: '/member/findId',
+            url: '/member/findPwd',
             type: "post",
-            data: { "memName": $('#memName').val(),
-            		"memHP": $('#memHP').val(),
+            data: { "memId": $('#memId').val(),
             		"memEmail": $('#memEmail').val()},
             dataType: 'text',
             success: function(result) {
-                    if ( result != "") {
-                        alert('찾은 아이디: ' + result);
-						let username = window.opener.document.getElementById('username');
-                        username.value = result;
+                    if (result != null) {
+                        window.opener.location.href = "/changePW";
                         window.close();
-                        //location.href="/loginAfterFindId/" + result;
                     } else {
                         alert('아이디를 찾을 수 없습니다.');
                     }

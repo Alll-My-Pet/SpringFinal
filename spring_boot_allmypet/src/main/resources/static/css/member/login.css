@@ -3,6 +3,8 @@
 /* 반응형으로 너비 좁혔을 때에는 세로로 2개 보이도록 구현 예정
  */
  
+ * {margin:0;}
+ 
 .login {
 	height: 1000px;
 	width: 100%;
@@ -15,7 +17,7 @@
 }
 
 .loginTitle {
-	width: 1000px;
+	width: 853px;
 	margin: 70px 0;
 	text-align: left;
 	letter-spacing: 2px;
@@ -27,7 +29,7 @@
 }
 
 .loginBox {
-	width: 1000px;
+	width: 853px;
 	height: 600px;
 	position: absolute;
 	top: 50%;

@@ -17,4 +17,6 @@ public interface IMemberService {
 	public String loginCheck(HashMap<String, Object> map);
 	// 아이디 찾기
 	public String findId(HashMap<String, Object> map);
+	// 비밀번호 찾기
+	public String findPwd(HashMap<String, Object> map);
 }

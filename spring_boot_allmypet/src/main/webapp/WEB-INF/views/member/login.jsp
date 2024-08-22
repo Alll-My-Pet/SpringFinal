@@ -24,12 +24,7 @@
 				<div class="loginLeft">
 					<div class="leftContext">
 						<form id="loginForm" class="loginForm" method="post">
-							<c:if test="${not empty memId}">
-								<input id="username" type="text" placeholder="아이디" value="${memId}" required>
-							</c:if>
-							<c:if test="${empty memId}">
-								<input id="username" type="text" placeholder="아이디" required>
-							</c:if>
+							<input id="username" type="text" placeholder="아이디" value="${memId}" required>
 							<input id="password" type="password" placeholder="비밀번호" required>
 							<!-- <div class="rememberId">
 								<label><input type="checkbox">아이디 저장</label>

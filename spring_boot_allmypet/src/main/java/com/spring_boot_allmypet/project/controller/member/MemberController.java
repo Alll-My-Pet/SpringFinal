@@ -20,15 +20,6 @@ public class MemberController {
 		return "member/login";
 	}
 	
-	/*
-	 * @RequestMapping("/login2") public String login2() { return "member/login2"; }
-	 * 
-	 * @RequestMapping("/loginAfterFindId/{memId}") public String
-	 * loginAfterFindId(@PathVariable String memId, Model model) {
-	 * System.out.println(memId); model.addAttribute("memId", memId); return
-	 * "member/login2"; }
-	 */
-	
 	@RequestMapping("/join")
 	public String join() {
 		return "member/join";

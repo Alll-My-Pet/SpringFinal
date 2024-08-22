@@ -9,14 +9,14 @@
             data: formData,
             success: function(response) {
                 if (response === 'success') {
-                    alert("회원가입이 완료되었습니다.");
+                    alert('회원가입이 완료되었습니다.');
                     location.href = "/login";
                 } else {
-                    alert("회원가입에 실패했습니다.");
+                    alert('회원가입에 실패했습니다.');
                 }
             },
             error: function() {
-                alert("문제가 발생했습니다. 나중에 다시 시도해 주세요.");
+                alert('문제가 발생했습니다. 나중에 다시 시도해 주세요.');
             }
         });
     });

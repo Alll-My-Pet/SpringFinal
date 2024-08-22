@@ -59,5 +59,12 @@ public class MemberService implements IMemberService {
 	public String findId(HashMap<String, Object> map) {
         return dao.findId(map);
     }
+	
+	// 비밀번호 찾기
+	@Override
+	public String findPwd(HashMap<String, Object> map) {
+        System.out.println("asdf");
+		return dao.findPwd(map);
+    }
 
 }

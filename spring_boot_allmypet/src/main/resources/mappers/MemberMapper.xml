@@ -53,7 +53,12 @@
   	
   	<!-- 아이디 찾기 -->
   	<select id="findId" parameterType="map" resultType="string">
-  		SELECT memId FROM member WHERE memName=#{memName} AND memHP = #{memHP} AND memEmail = #{memEmail}
+  		SELECT memId FROM member WHERE memName=#{memName} AND memEmail = #{memEmail} AND memHP = #{memHP}
+  	</select>
+  	
+  	<!-- 비밀번호 찾기 -->
+  	<select id="findPwd" parameterType="map" resultType="string">
+  		SELECT findPwd FROM member WHERE memId=#{memId} AND memEmail = #{memEmail}
   	</select>
   	
   </mapper>

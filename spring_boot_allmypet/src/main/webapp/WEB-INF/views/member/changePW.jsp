@@ -31,11 +31,11 @@
 						<td><input type="password" id="pwcheck" name="pwcheck" class="text">
 						<span class="error-message" id="pwcheckError"></span></td></tr>
 				</table>
+				<div id="changePWsubmit">
+					<input type="submit" class="changePWBtn" value="변경">
+				</div>
 				</form>
 			</div>
-		</div>
-		<div id="changePWsubmit">
-			<button class="changePWBtn" type="submit">변경</button>
 		</div>
 	</section>
 	<!-- bottom -->

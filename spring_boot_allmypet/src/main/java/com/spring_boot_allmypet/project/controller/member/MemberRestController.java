@@ -63,4 +63,9 @@ public class MemberRestController {
         return memId;
     }
 	
+	@RequestMapping(value ="/member/findPwd", method = RequestMethod.POST)
+	 public String findPwd(@RequestParam HashMap<String, Object> param) {
+       String memPwd = memService.findPwd(param);
+       return memPwd;
+   }
 }

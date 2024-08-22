@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+* {margin:0;}
+
 .find {
 	display: flex;
 	flex-direction: column;
