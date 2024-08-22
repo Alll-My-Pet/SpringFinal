@@ -46,4 +46,133 @@
 	    LEFT JOIN animal_ctg a ON p.petCtgNo = a.petCtgNo
 	    WHERE p.memId = #{memId}
   	</select>
+  	<!-- 포인트 내역 전부 출력 -->
+  	<select id="myPointList_total" parameterType="string" resultType="hashmap">
+  		SELECT *
+	    FROM member_point
+	    WHERE memId = #{memId}
+  	</select>
+  	<!-- 포인트 내역 조건 출력 -->
+  	<select id="myPointList" parameterType="map" resultType="com.spring_boot_allmypet.project.model.member.MemberPointVO">
+	    SELECT * 
+	    FROM member_point 
+	    WHERE memId = #{memId} 
+	    AND YEAR(change_date) = #{year} 
+	    AND MONTH(change_date) = #{month}
+	</select>
+	<!-- 북마크한 글 출력 -->
+  	<select id="bookMarkPostList" parameterType="string" resultType="hashmap">
+  		SELECT 
+	        bb.postTitle, 
+	        bb.postDate, 
+	        bb.memId AS author, 
+	        ph.headerName,
+	        bp.bookmarkDate
+	    FROM 
+	        bookmark_post bp
+	    INNER JOIN 
+	        bulletin_board bb ON bp.postNo = bb.postNo
+	    INNER JOIN 
+	        postheader ph ON bb.headerNo = ph.headerNo
+	    WHERE 
+        	bp.memId = #{memId}
+        ORDER BY 
+   			bp.bookmarkDate DESC;
+  	</select>
+  	<!-- 북마크 구분 조건 출력 -->
+  	<select id="bookMarkPostList_div" parameterType="map" resultType="hashmap">
+  		SELECT 
+	        bb.postTitle, 
+	        bb.postDate, 
+	        bb.memId AS author, 
+	        ph.headerName,
+	        bp.bookmarkDate
+	    FROM 
+	        bookmark_post bp
+	    INNER JOIN 
+	        bulletin_board bb ON bp.postNo = bb.postNo
+	    INNER JOIN 
+	        postheader ph ON bb.headerNo = ph.headerNo
+	    WHERE 
+        	bp.memId = #{memId}
+        AND bb.headerNo = #{headerNo}
+        ORDER BY 
+   			bp.bookmarkDate DESC;
+  	</select>
+  	<!-- 북마크 검색 조건 출력 -->
+  	<select id="bookMarkPostList_search" parameterType="map" resultType="hashmap">
+	    SELECT 
+	        bb.postTitle, 
+	        bb.postDate, 
+	        bb.memId AS author, 
+	        ph.headerName,
+	        bp.bookmarkDate
+	    FROM 
+	        bookmark_post bp
+	    INNER JOIN 
+	        bulletin_board bb ON bp.postNo = bb.postNo
+	    INNER JOIN 
+	        postheader ph ON bb.headerNo = ph.headerNo
+	    WHERE 
+	        bp.memId = #{memId}
+	    <if test="searchDiv != null and searchContents != null">
+	        <choose>
+	            <when test="searchDiv == 'title_content'">
+	                AND (bb.postTitle LIKE CONCAT('%', #{searchContents}, '%') 
+	                OR bb.postContent LIKE CONCAT('%', #{searchContents}, '%'))
+	            </when>
+	            <when test="searchDiv == 'title'">
+	                AND bb.postTitle LIKE CONCAT('%', #{searchContents}, '%')
+	            </when>
+	            <when test="searchDiv == 'content'">
+	                AND bb.postContent LIKE CONCAT('%', #{searchContents}, '%')
+	            </when>
+	            <when test="searchDiv == 'writer'">
+	                AND bb.memId LIKE CONCAT('%', #{searchContents}, '%')
+	            </when>
+	            <otherwise>
+	                AND 1=1
+	            </otherwise>
+	        </choose>
+	    </if>
+	    ORDER BY 
+	        bp.bookmarkDate DESC
+	</select>
+	<!-- 북마크 갤러리 출력 -->
+	<select id="bookMarkGalleryList" parameterType="string" resultType="hashmap">
+  		SELECT 
+	        pg.postTitle, 
+	        pg.postLike, 
+	        pg.postImg,
+	        pg.memId AS author, 
+	        mb.profile_image,
+	        bg.bookmarkDate
+	    FROM 
+	        bookmark_gallery bg
+	    INNER JOIN 
+	        pet_gallery pg ON bg.postNo = pg.postNo
+	    INNER JOIN
+	    	member mb ON pg.memId = mb.memId
+	    WHERE 
+        	bg.memId = #{memId}
+        ORDER BY 
+   			bg.bookmarkDate DESC;
+  	</select>
+  	<!-- 블락 리스트 출력 -->
+  	<select id="blockList" parameterType="string" resultType="hashmap">
+	    SELECT 
+	        bl.blocker_memId,
+	        bl.blocked_memId,
+	        bl.block_date,
+	        bl.block_reason,
+	        mb.memNickName
+	    FROM 
+	        block_list bl
+	    INNER JOIN
+	        member mb ON bl.blocked_memId = mb.memId
+	    WHERE 
+	        bl.blocker_memId = #{memId}
+	    ORDER BY 
+	        bl.block_date DESC;
+	</select>
   </mapper>
