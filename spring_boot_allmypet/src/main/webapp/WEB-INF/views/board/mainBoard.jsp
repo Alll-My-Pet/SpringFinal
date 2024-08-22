@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>전체 게시판</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/MainBoard.css'/>" />
+<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/MainBoard.js'/>"></script>
 </head>
 <body>
@@ -116,6 +117,8 @@
 				frm.pageNo.value=no;
 				frm.submit();
 			}
+			
+			
 		</script>
 
 		</section>

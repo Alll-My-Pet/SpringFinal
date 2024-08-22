@@ -45,48 +45,48 @@ public class BoardCotroller {
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("pageVo", pageVo);
 		
-		return "Board/MainBoard";
+		return "board/mainBoard";
 	}
 	
 	
 	@RequestMapping("/Board/Protect")
 	public String Protect() {
-		return "Board/PetProtectBoard";
+		return "board/petProtectBoard";
 	}
 	
 	@RequestMapping("/Board/FreeBoard")
 	public String FreeBoard() {
-		return "Board/FreeBoard";
+		return "board/freeBoard";
 	}
 	
 	@RequestMapping("/Board/PromoteBoard")
 	public String PromoteBoard() {
-		return "Board/PetPromoteBoard";
+		return "board/petPromoteBoard";
 	}
 	
 	@RequestMapping("/Board/NoticeBoard")
 	public String NoticeBoard() {
-		return "Board/NoticeBoard";
+		return "board/noticeBoard";
 	}
 	
 	@RequestMapping("/Board/FreeBoardDetail")
 	public String FreeBoardDetail() {
-		return "Board/FreeBoardDetail";
+		return "board/freeBoardDetail";
 	}
 	
 	@RequestMapping("/Board/MainDetail")
 	public String MainDetail() {
-		return "Board/MainDetail";
+		return "board/mainDetail";
 	}
 	
 	@RequestMapping("/Board/TipBoard")
 	public String TipBoard() {
-		return "Board/TipBoard";
+		return "board/bestTipBoard";
 	}
 	
 	@RequestMapping("/Board/TipDetail")
 	public String TipDetail() {
-		return "Board/TipDetail";
+		return "board/bestTipDetail";
 	}
 	
 	
@@ -100,6 +100,9 @@ public class BoardCotroller {
 	   return boardList;
 	}
 	
+	
+	
+	
 	// 상세 조회
 	   @RequestMapping("/board/detailViewBoard/{postNo}")
 	   public String detailViewBoard(@PathVariable int postNo, Model model) {
@@ -109,7 +112,7 @@ public class BoardCotroller {
 	     // 뷰 페이지에 출력하기 위해 Model 설정
 	     model.addAttribute("board", board);
 	     
-	     return "Board/MainDetail";
+	     return "board/mainDetail";
 	   }
 	   
 

@@ -6,35 +6,29 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 public class BoardVO {
 	  private int postNo;
-	  private String petCtgNo;
-	  private int headerNo;
+	  private String boardCtgNo;
 	  private String postTitle;
 	  private Date postDate;
 	  @DateTimeFormat(pattern="yyyy-MM-dd")
 	  private String memId;
 	  private String postContent;
-	  private String postLike;
-	  private String postView;
+	  private int postLike;
 	  private String postImg;
+	  private String postTypeNo;
+	  private String postView;
 	  
 	  
-	public int getPostNo() {
+	  public int getPostNo() {
 		return postNo;
 	}
 	public void setPostNo(int postNo) {
 		this.postNo = postNo;
 	}
-	public String getPetCtgNo() {
-		return petCtgNo;
+	public String getBoardCtgNo() {
+		return boardCtgNo;
 	}
-	public void setPetCtgNo(String petCtgNo) {
-		this.petCtgNo = petCtgNo;
-	}
-	public int getHeaderNo() {
-		return headerNo;
-	}
-	public void setHeaderNo(int headerNo) {
-		this.headerNo = headerNo;
+	public void setBoardCtgNo(String boardCtgNo) {
+		this.boardCtgNo = boardCtgNo;
 	}
 	public String getPostTitle() {
 		return postTitle;
@@ -60,17 +54,11 @@ public class BoardVO {
 	public void setPostContent(String postContent) {
 		this.postContent = postContent;
 	}
-	public String getPostLike() {
+	public int getPostLike() {
 		return postLike;
 	}
-	public void setPostLike(String postLike) {
+	public void setPostLike(int postLike) {
 		this.postLike = postLike;
-	}
-	public String getPostView() {
-		return postView;
-	}
-	public void setPostView(String postView) {
-		this.postView = postView;
 	}
 	public String getPostImg() {
 		return postImg;
@@ -78,7 +66,21 @@ public class BoardVO {
 	public void setPostImg(String postImg) {
 		this.postImg = postImg;
 	}
+	public String getPostTypeNo() {
+		return postTypeNo;
+	}
+	public void setPostTypeNo(String postTypeNo) {
+		this.postTypeNo = postTypeNo;
+	}
+	public String getPostView() {
+		return postView;
+	}
+	public void setPostView(String postView) {
+		this.postView = postView;
+	}
+	
 	  
+	
 	  
 	
 	  
