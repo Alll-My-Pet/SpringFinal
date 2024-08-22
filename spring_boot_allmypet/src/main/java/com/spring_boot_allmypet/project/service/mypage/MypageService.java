@@ -12,6 +12,9 @@ import com.spring_boot_allmypet.project.dao.mypage.IMypageDAO;
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 import com.spring_boot_allmypet.project.model.member.PetVO;
+import com.spring_boot_allmypet.project.model.mypage.BlockListVO;
+import com.spring_boot_allmypet.project.model.mypage.BookMarkGVO;
+import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
 
 @Service
 public class MypageService implements IMypageService {
@@ -47,5 +50,35 @@ public class MypageService implements IMypageService {
         params.put("month", month);
         return dao.myPointList(params);
 	}
-
+	/* 북마크한 글 출력 */
+	@Override
+	public ArrayList<BookMarkVO> bookMarkPostList(String mid) {
+		return dao.bookMarkPostList(mid);
+	}
+	/* 북마크 구분 조건 출력 */
+	@Override
+	public ArrayList<BookMarkVO> bookMarkPostList_div(String mid, int selectedValue) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("memId", mid);
+        params.put("headerNo", selectedValue);
+		return dao.bookMarkPostList_div(params);
+	}
+	/* 북마크 검색 조건 출력*/
+	@Override
+	public ArrayList<BookMarkVO> bookMarkPostList_search(String mid, String searchDiv, String searchContents) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("memId", mid);
+        params.put("searchDiv", searchDiv);
+        params.put("searchContents", searchContents);
+		return dao.bookMarkPostList_search(params);
+	}
+	/* 북마크 갤러리 출력 */
+	@Override
+	public ArrayList<BookMarkGVO> bookMarkGalleryList(String mid) {
+		return dao.bookMarkGalleryList(mid);
+	}
+	@Override
+	public ArrayList<BlockListVO> blockList(String mid) {
+		return dao.blockList(mid);
+	}
 }

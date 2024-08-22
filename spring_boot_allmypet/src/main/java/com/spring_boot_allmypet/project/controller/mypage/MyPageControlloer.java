@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 import com.spring_boot_allmypet.project.model.member.PetVO;
+import com.spring_boot_allmypet.project.model.mypage.BlockListVO;
+import com.spring_boot_allmypet.project.model.mypage.BookMarkGVO;
+import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
 import com.spring_boot_allmypet.project.service.mypage.MypageService;
 
 import jakarta.servlet.http.HttpSession;
@@ -98,13 +101,23 @@ public class MyPageControlloer {
 	
 	/*마이페이지_커뮤니티*/
 	
+	/* 북마크 페이지 */
 	@RequestMapping("/mypage/bookmark_post")
-	public String bookMarkPost() {
+	public String bookMarkPost(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		ArrayList<BookMarkVO> bookMarkList = mypageService.bookMarkPostList(memId);
+		
+		model.addAttribute("bookMarkList",bookMarkList);
 		return "mypage/commBookmarkPost";
 	}
 	
+	/* 북마크 겔러리 */
 	@RequestMapping("/mypage/bookmark_gallery")
-	public String bookMarkGallery() {
+	public String bookMarkGallery(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		ArrayList<BookMarkGVO> bookMarkList=mypageService.bookMarkGalleryList(memId);
+		
+		model.addAttribute("bookMarkList", bookMarkList);
 		return "mypage/commBookmarkGallery";
 	}
 	
@@ -128,8 +141,13 @@ public class MyPageControlloer {
 		return "mypage/commEmojiIHave";
 	}
 	
+	/* 블락 리스트 */
 	@RequestMapping("/mypage/my_block_list")
-	public String myBlockList() {
+	public String myBlockList(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		ArrayList<BlockListVO> blockList=mypageService.blockList(memId);
+		
+		model.addAttribute("blockList", blockList);
 		return "mypage/commBlockList";
 	}
 	

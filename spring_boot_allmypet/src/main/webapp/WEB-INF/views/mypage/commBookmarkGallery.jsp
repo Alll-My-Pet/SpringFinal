@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -50,41 +52,33 @@
 						</form>
 					</div>
 					<table id="bmg_gallery_lists"><!-- db로 호출 -->
-						<tr>
-							<td>
-								<div class="bmg_gallery_list">
-									<img class="bmg_img_thumbnail" src="<c:url value='/image/testimg.jpg'/>">
-									<div class="bmg_img_overlay">
-										<div class="bmg_img_top">
-											<div class="bmg_like_area inner_text_div">❤ 00</div>
-											<div class="bmg_profile_area"><img class="bmg_profile_img"src="<c:url value='/image/testimg2.jpg'/>"></div>
+						<c:if test="${not empty bookMarkList}">
+						    <c:set var="count" value="0" />
+						    <tr>
+						        <c:forEach var="bookMark" items="${bookMarkList}">
+						            <td>
+						            	<div class="bmg_gallery_list">
+											<img class="bmg_img_thumbnail" src="<c:url value='/image/testimg.jpg'/>">
+											<div class="bmg_img_overlay">
+												<div class="bmg_img_top">
+													<div class="bmg_like_area inner_text_div">❤ ${bookMark.postLike }</div>
+													<div class="bmg_profile_area"><img class="bmg_profile_img" src="<c:url value='/project_images/profile_Img/${bookMark.profile_image }'/>"></div>
+												</div>
+												<div class="bmg_img_bottom">
+													<div class="bmg_title_area inner_text_div">${bookMark.postTitle }</div>
+													<div class="bmg_comment_area">00 comment</div>
+												</div>
+											</div>
 										</div>
-										<div class="bmg_img_bottom">
-											<div class="bmg_title_area inner_text_div">제목</div>
-											<div class="bmg_comment_area">00 comment</div>
-										</div>
-									</div>
-								</div>
-							</td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-						</tr>
-						<tr>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-						</tr>
-						<tr>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-							<td><div class="bmg_gallery_list"></div></td>
-						</tr>
+						            </td>
+						            <c:set var="count" value="${count + 1}" />
+						            <c:if test="${count % 5 == 0}">
+						                </tr><tr>
+						            </c:if>
+						        </c:forEach>
+						    </tr>
+						</c:if>
+						
 					</table>
 				</div>
 				<div id="bmg_b">

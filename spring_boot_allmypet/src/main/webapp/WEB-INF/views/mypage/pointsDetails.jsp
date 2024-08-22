@@ -42,7 +42,6 @@
 						</div>
 						<div id="mp_pd_month_right_btn" class="month_arrow_btn mp_cursor_pointer btn_div">▶</div>
 					</div>
-					<!-- 추후 버튼기능 사용시 jsp 불리할 필요 있어 보임 -->
 					<div id="mp_pd_tbc">
 						<div id="pd_tbc_plus_area">
 							<div>총 적립 포인트 : </div>
@@ -53,12 +52,12 @@
 							<div id="pd_tbc_minus">${negative } P</div>
 						</div>
 					</div>
-					<div id="mp_pd_point_history"> <!-- db값 사용 필 -->
+					<div id="mp_pd_point_history">
 						<c:if test="${not empty pointList }">
-							<c:forEach var="pointInfo" items="${pointList }" end="${fn:length(pointList) - 1}" >
+							<c:forEach var="pointInfo" items="${pointList }"  >
 								<c:set var="pointClass" value="${pointInfo.point_change > 0 ? 'mp_point_plus' : 'mp_point_minus'}" />
 								<c:set var="pointSign" value="${pointInfo.point_change > 0 ? '+' : ''}" />
-								<div class="mp_point_history_div ${pointClass}"> <!-- 플러스 또는 마이너스인 경우 -->
+								<div class="mp_point_history_div ${pointClass}">
 								    <div class="point_class">${pointInfo.reason}</div>
 								    <div class="point_date">${pointInfo.change_date}</div>
 								    <div class="point_count">${pointSign}${pointInfo.point_change}</div>                            

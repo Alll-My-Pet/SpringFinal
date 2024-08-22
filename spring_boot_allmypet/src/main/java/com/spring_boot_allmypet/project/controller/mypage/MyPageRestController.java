@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
+import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
 import com.spring_boot_allmypet.project.service.mypage.MypageService;
 
 import jakarta.servlet.ServletContext;
@@ -32,7 +33,7 @@ public class MyPageRestController {
         if (!image.isEmpty()) {
             try {
                 // 웹 애플리케이션 루트 경로 기준으로 파일 저장 경로 설정
-                String uploadDir = servletContext.getRealPath("/uploads/");
+                String uploadDir = servletContext.getRealPath("/uploads/profile_Img/");
                 String fileName = System.currentTimeMillis() + "_" + image.getOriginalFilename();
                 File destFile = new File(uploadDir, fileName);
                 
@@ -84,8 +85,6 @@ public class MyPageRestController {
     	String memId = (String) session.getAttribute("mid");
     	LocalDate currentDate = LocalDate.now();
     	int year = currentDate.getYear();
-    	System.out.println(check);
-    	System.out.println(month);
     	ArrayList<MemberPointVO> pointLists = mypageService.myPointList(memId, year, month);
     	ArrayList<MemberPointVO> pointList = new ArrayList<>();
     	int positive = 0; 
@@ -102,10 +101,37 @@ public class MyPageRestController {
     	}
 
     	Map<String, Object> result = new HashMap<>();
+    	
     	result.put("pointList", pointList);
     	result.put("positive", positive);
     	result.put("negative", negative);
     	
+    	return result;
+    }
+    /*북마크 포스트 구분*/
+    @PostMapping("/mypage/bookMark_post/updateDiv")
+    public Map<String, Object> bookMark_post_update_div(HttpSession session, @RequestParam("selectedValue") int selectedValue) {
+        String memId = (String) session.getAttribute("mid");
+        ArrayList<BookMarkVO> bookmarkList;
+
+        if (selectedValue == -1) {
+            bookmarkList = mypageService.bookMarkPostList(memId);
+        } else {
+            bookmarkList = mypageService.bookMarkPostList_div(memId, selectedValue);
+        }
+
+        Map<String, Object> result = new HashMap<>();
+        result.put("bookMarkList", bookmarkList);
+        return result;
+    }
+    /*북마크 포스트 검색*/
+    @PostMapping("/mypage/bookMark_post/updateSearch")
+    public Map<String, Object> bookMark_post_update_search(HttpSession session, @RequestParam("searchDiv") String searchDiv , @RequestParam("searchContents") String searchContents) {
+    	String memId = (String) session.getAttribute("mid");
+    	ArrayList<BookMarkVO> bookmarkList=mypageService.bookMarkPostList_search(memId, searchDiv, searchContents);
+    	
+    	Map<String, Object> result = new HashMap<>();
+    	result.put("bookMarkList", bookmarkList);
     	return result;
     }
 }
