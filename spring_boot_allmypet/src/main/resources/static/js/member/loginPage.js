@@ -6,9 +6,9 @@
 		event.preventDefault();
 		$.ajax({
 			type:"post",
-			url:"/memger/loggingIn",
-			data : {"id":$('#memId').val(),
- 						"pwd": $('#memPwd').val()}, 
+			url:"/member/loggingIn",
+			data : {"username":$('#memId').val(),
+ 						"password": $('#memPwd').val()}, 
  			dataType:'text',
  			success:function(result) {
  				if(result == "success") {
@@ -22,6 +22,6 @@
  			error:function() {
  				alert("실패");
  			}
-		})
+		});
 	});
 });

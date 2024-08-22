@@ -3,15 +3,11 @@ package com.spring_boot_allmypet.project.controller.member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 import com.spring_boot_allmypet.project.service.member.MemberService;
-
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -23,6 +19,15 @@ public class MemberController {
 	public String login() {
 		return "member/login";
 	}
+	
+	/*
+	 * @RequestMapping("/login2") public String login2() { return "member/login2"; }
+	 * 
+	 * @RequestMapping("/loginAfterFindId/{memId}") public String
+	 * loginAfterFindId(@PathVariable String memId, Model model) {
+	 * System.out.println(memId); model.addAttribute("memId", memId); return
+	 * "member/login2"; }
+	 */
 	
 	@RequestMapping("/join")
 	public String join() {
@@ -50,4 +55,5 @@ public class MemberController {
 		memService.insertMember(vo);
 		return "redirect:/login";
 	}
+	
 }

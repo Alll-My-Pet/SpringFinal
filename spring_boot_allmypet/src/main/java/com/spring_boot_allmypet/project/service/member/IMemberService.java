@@ -15,5 +15,6 @@ public interface IMemberService {
 	public int memPosition(String id);
 	// 로그인 체크
 	public String loginCheck(HashMap<String, Object> map);
-	
+	// 아이디 찾기
+	public String findId(HashMap<String, Object> map);
 }

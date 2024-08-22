@@ -23,15 +23,20 @@
 			<div class="loginBox">
 				<div class="loginLeft">
 					<div class="leftContext">
-						<form id="loginForm" class="loginForm" method="post" action="#">
-							<input id="username" type="text" placeholder="아이디" required>
+						<form id="loginForm" class="loginForm" method="post" action="/member/loggingIn">
+							<c:if test="${not empty memId}">
+								<input id="username" type="text" placeholder="아이디" value="${memId}" required>
+							</c:if>
+							<c:if test="${empty memId}">
+								<input id="username" type="text" placeholder="아이디" required>
+							</c:if>
 							<input id="password" type="password" placeholder="비밀번호" required>
 							<!-- <div class="rememberId">
 								<label><input type="checkbox">아이디 저장</label>
 							</div> -->
 							<a class="forgot" href="/forgotID" onclick="openForgotWindow(event, 0)">아이디 찾기</a><br>
 							<a class="forgot" href="/forgotPW" onclick="openForgotWindow(event, 1)">비밀번호 찾기</a>
-							<button id="login_btn" class="loginBtn" type="submit">로그인</button>
+							<input type="submit" id="loginBtn" class="loginBtn" value="로그인">
 						</form>
 					</div>
 				</div>

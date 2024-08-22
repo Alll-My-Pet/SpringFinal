@@ -7,6 +7,9 @@
 		<meta charset="UTF-8">
 		<title>아이디 찾기</title>
 		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/forgot.css">
+		
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/member/findId.js'/>"></script>
 	</head>
 	<body>
 	<section class="find">
@@ -16,24 +19,23 @@
 			</div>
 		</div>
 		<div class="findInput">
-		<form id="findIDForm" class="findIDForm" method="post" action="#">
+		<form id="findIDForm" class="findIDForm" method="post">
 			<table>
-				<tr><td><label for="name">성명</label></td>
-					<td><input type="text" id="name" name="name" class="id" required>
+				<tr><td><label for="memName">성명</label></td>
+					<td><input type="text" id="memName" name="memName" class="id" required>
 					<span class="error-message" id="nameError"></span></td></tr>
-				<tr><td><label for="email">이메일</label></td>
-					<td><input type = "email" id="email" name="email" class="email" placeholder="이메일 입력" required>
-					<input type="button" value="인증"onClick="sendEmail()" class="checkBtn">
+				<tr><td><label for="memEmail">이메일</label></td>
+					<td><input type = "email" id="memEmail" name="memEmail" class="email" placeholder="이메일 입력" required>
 					<span class="error-message" id="emailError"></span></td></tr>
-				<tr><td><label for="hp1">연락처</label></td>
-				<td><input type="text" id="phone" name="memHP" class="email" size="11" placeholder="숫자만 입력" required>
+				<tr><td><label for="memHP">연락처</label></td>
+				<td><input type="text" id="memHP" name="memHP" class="email" size="11" placeholder="숫자만 입력" required>
 					<span class="error-message" id="hpError"></span></td></tr>
 				</table>
-			</form>
-			</div>
 			<div id="findIDsubmit">
-				<button class="findBtn" type="submit">확인</button>
+				<input type="submit" id="findBtn" class="findBtn" value="확인">
 			</div>
+		</form>
+		</div>
 		</section>
 		<!-- bottom -->
 		<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>

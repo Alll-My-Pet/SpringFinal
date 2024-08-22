@@ -6,8 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_allmypet.project.dao.member.IMemberDAO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
@@ -44,6 +42,7 @@ public class MemberService implements IMemberService {
 	public int memPosition(String id) {
 		return dao.memPosition(id);
 	}
+	
 	// 로그인 체크
 	@Override
 	public String loginCheck(HashMap<String, Object> map) {
@@ -54,5 +53,11 @@ public class MemberService implements IMemberService {
 		}
 		return result;
 	}
+	
+	// 아이디 찾기
+	@Override
+	public String findId(HashMap<String, Object> map) {
+        return dao.findId(map);
+    }
 
 }

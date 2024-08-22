@@ -30,7 +30,7 @@
 								<tr>
 									<td><label for="id">아이디</label></td>
 									<td><input type="text" id="id" name="memId" class="id">
-										<input type="button" value="중복확인" class="checkBtn"  id="searchId">
+										<input type="button" value="중복확인" class="checkBtn" id="searchId">
 										<span class="error-message" id="idError"></span>
 									</td>
 								</tr>
@@ -119,7 +119,7 @@
 				</div>
 			</div>
 			<div class="joinSubmit">
-				<div id="submitBtn" class="joinBtn" >완료</button>
+				<button id="submitBtn" class="joinBtn" >완료</button>
 			</div>
 		</section>
 		<!-- bottom -->
