@@ -42,7 +42,7 @@
 						<div id="mbl_search_delete">
 							<div id="mbl_seachbox">
 								<input type="text" id="mbl_search_text">
-								<i id="mbl_searchIcon"class="fa-solid fa-magnifying-glass"></i>
+								<i id="mbl_searchIcon"class="div_cursor_pointer fa-solid fa-magnifying-glass"></i>
 							</div>
 							<div id="mbl_btns">
 								<button id="mbl_delete_btn">삭제</button>

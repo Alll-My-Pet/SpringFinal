@@ -77,8 +77,36 @@ public class MypageService implements IMypageService {
 	public ArrayList<BookMarkGVO> bookMarkGalleryList(String mid) {
 		return dao.bookMarkGalleryList(mid);
 	}
+	/* 블락 리스트 출력 */
 	@Override
 	public ArrayList<BlockListVO> blockList(String mid) {
 		return dao.blockList(mid);
+	}
+	/* 블락 리스트 삭제 */
+	@Override
+	public void blockList_delete(String mid, String blockedMemId) {
+		Map<String, Object> params = new HashMap<>();
+        params.put("memId", mid);
+        params.put("blockedMemId", blockedMemId);
+		dao.blockList_delete(params);
+	}
+	/* 블락 리스트 수정 */
+	@Override
+	public void blockList_update(String mid, String blockedMemId, String block_reason) {
+		Map<String,Object> params = new HashMap<>();
+		params.put("memId", mid);
+		params.put("blockedMemId", blockedMemId);
+		params.put("block_reason", block_reason);
+		
+		dao.blockList_update(params);
+	}
+	/* 블락 리스트 검색 */
+	@Override
+	public ArrayList<HashMap<String, Object>> blockList_search(String mid, String blockedMemId) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("memId", mid);
+		params.put("blockedMemId", blockedMemId);
+		
+		return dao.blockList_search(params);
 	}
 }

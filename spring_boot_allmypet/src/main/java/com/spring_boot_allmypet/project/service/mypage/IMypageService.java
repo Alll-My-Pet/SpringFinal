@@ -1,6 +1,7 @@
 package com.spring_boot_allmypet.project.service.mypage;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
@@ -30,4 +31,10 @@ public interface IMypageService {
 	public ArrayList<BookMarkGVO> bookMarkGalleryList(String mid);
 	// 블락 리스트 출력
 	public ArrayList<BlockListVO> blockList(String mid);
+	// 블락 리스트 삭제
+	public void blockList_delete(String mid,String blockedMemId);
+	// 블락 리스트 수정
+	public void blockList_update(String mid,String blockedMemId, String block_reason);
+	// 블락 리스트 검색
+	public ArrayList<HashMap<String, Object>>blockList_search(String mid,String blockedMemId);
 }
