@@ -71,7 +71,7 @@
 									<div class="bmp_post_list">
 										<div class="bmp_list_type">${bookMark.headerName }</div>
 										<div class="bmp_list_title inner_text_div">${bookMark.postTitle }</div>
-										<div class="bmp_list_writer inner_text_div">${bookMark.profile_image }</div>
+										<div class="bmp_list_writer inner_text_div">${bookMark.author }</div>
 										<div class="bmp_list_post_date">
 											<fmt:formatDate value="${bookMark.bookmarkDate}" pattern="yyyy-MM-dd" />
 										</div>
