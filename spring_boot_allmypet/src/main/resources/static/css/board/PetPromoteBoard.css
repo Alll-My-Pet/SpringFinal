@@ -1,0 +1,137 @@
+@charset "UTF-8";
+
+.promoteBoardSearchBtn{
+	background-color:white;
+	border:none;
+	height:20px;
+	position:absolute;
+	margin-top:35px;
+}
+
+.promoteBrdBtn{
+	background-color:white;
+	border-radius:10px;
+	width:150px;
+	height:30px;
+	margin-top:20px;
+	margin-left:800px;
+}
+
+.All{
+	border:1px solid black;
+	width:1000px;
+	height:100%;
+	margin:0 auto;
+}
+
+
+#titleFont{
+	font-size:50px;
+	margin-left:50px;
+	top:120px;
+	position:absolute;
+}
+
+#titleFont2{
+	margin-left:50px;
+	top:230px;
+	position:absolute;
+}
+
+
+.promoteHotBoard{
+	border:1px solid black;
+	width:900px;
+	height:200px;
+	margin:0 auto;
+	margin-top:300px;
+}
+
+.hot1{
+	border: 1px solid black;
+	width:90%;
+	height:25%;
+	border-radius: 6px;
+	margin:0 auto;	
+	display:flex;
+}
+.hot2{
+	border: 1px solid black;
+	width:90%;
+	height:25%;
+	border-radius: 6px;
+	margin:0 auto;
+	margin-top:10px;	
+	display:flex;
+}
+
+.promoteSearch{
+	border:1px solid black;
+	border-radius:10px;
+	width:900px;
+	height:120px;
+	margin:0 auto;
+	margin-top:50px;
+}
+
+#PSearchFont{
+	width:100px;
+	margin:0 auto;
+}
+
+#ctgFont{
+	width:40px;
+	margin-left:180px;
+	margin-top:32px;
+	position:absolute;
+}
+
+.promotePetCtg{
+	width:150px;
+	height:30px;
+	margin-left:230px;
+	margin-top:30px;
+}
+
+.promotePic{
+	border:1px solid black;
+	width:150px;
+	height:250px;
+    display: inline-block;
+    padding: 10px;
+    margin-right: 20px; /* 아이템 사이의 간격 */
+    background-color:#01cbfe;
+}
+
+.promoteFont{
+	border:1px solid black;
+	position:absolute;
+	height:150px;
+	width:147px;
+	background-color:white;
+}
+
+.promoteDescription{
+	width:147px;
+	height:90px;
+	border:1px solid black;
+    margin-top:160px;
+    background-color:white;
+}
+
+.promotePicBox{
+	margin:0 auto;
+	margin-top:50px;
+	border:1px solid black;
+	width:900px;
+	height:700px;
+}
+
+.boardCtg{
+	border:1px solid black;
+	width:250px;
+	position:absolute;
+	top:300px;
+	left:180px;
+	text-align:center;
+}
