@@ -11,15 +11,17 @@
 <body>
 	<div class="All">
 		<section class="MainText">
+		<!-- header -->
+			<div id="header">
+				<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
+			</div>
 		<div class="PostBox">
 
-			<div class="title">
-				<label for="title">제목</label> 
+			<div class="detailTitle">
 				<span id="bodTitle">${board.postTitle}</span>
 			</div>
 			
 			<div class="author">
-				<label for="author">작성자</label> 
 				<span id="bodMemId"><img src="<c:url value='${board.postImg}'/>"></span>
 			</div>
 			
@@ -36,18 +38,28 @@
 			
 			
 			<div class="content">
-				<label for="content">내용</label>
 				<pre id="bodText">${board.postContent}</pre>
 			</div>
 			
 			<div class="comments">
-				<label for="Comments">댓글</label> 
 				<span id="bodComments">${board.memId}</span>
 			</div>
 			
 		</div>
 
 		</section>
+		
+		<div id="floatingBtn">
+			<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
+		</div>
+		<!-- sidebar 부착 -->
+		<div id="sidebar">
+			<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
+		</div>
+
+		<div id="footer">
+			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+		</div>
 
 	</div>
 </body>
