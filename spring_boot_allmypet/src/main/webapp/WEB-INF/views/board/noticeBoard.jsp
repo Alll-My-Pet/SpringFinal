@@ -23,8 +23,7 @@
 					<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 				</div>
 				<div class="contents">
-					<br>
-					<br>
+					<br> <br>
 					<div class="pageInfo">
 						<div class="page-title">
 							<div class="titleInfo">&nbsp;공지/이벤트</div>
@@ -32,32 +31,74 @@
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
-					<div class="NBoardBox">
-						<table class="noticeBoardTB">
+					<div class="notice-box">
+						<table class="notice-table">
+							<thead>
+								<tr>
+									<th>글 제목</th>
+									<th>작성자</th>
+									<th>날짜</th>
+									<th>조회</th>
+									<th>추천</th>
+								</tr>
+							</thead>
 							<tbody>
+								<!-- tbody와 thead간의 공백 -->
+								<tr>
+									<td colspan="5"
+										style="height: 3px; background-color: transparent;"></td>
+								</tr>
 								<tr>
 									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
 									<td>작성자1</td>
 									<td>2017.07.13</td>
+									<td>300</td>
+									<td>100</td>
 								</tr>
+								<td colspan="5">
+									<div class="separator"></div>
+								</td>
 
 								<tr>
-									<td><a href="#">아무거나아무거나1</a></td>
-									<td>작성자2</td>
-									<td>2017.07.14</td>
+									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+									<td>작성자1</td>
+									<td>2017.07.13</td>
+									<td>300</td>
+									<td>100</td>
 								</tr>
-
+								<td colspan="5">
+									<div class="separator"></div>
+								</td>
 								<tr>
-									<td><a href="#">아무거나아무거나2</a></td>
-									<td>작성자3</td>
-									<td>2017.07.15</td>
+									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+									<td>작성자1</td>
+									<td>2017.07.13</td>
+									<td>300</td>
+									<td>100</td>
 								</tr>
-
+								<td colspan="5">
+									<div class="separator"></div>
+								</td>
 								<tr>
-									<td><a href="#">아무거나아무거나3</a></td>
-									<td>작성자4</td>
-									<td>2017.07.16</td>
+									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+									<td>작성자1</td>
+									<td>2017.07.13</td>
+									<td>300</td>
+									<td>100</td>
 								</tr>
+								<td colspan="5">
+									<div class="separator"></div>
+								</td>
+								<tr>
+									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+									<td>작성자1</td>
+									<td>2017.07.13</td>
+									<td>300</td>
+									<td>100</td>
+								</tr>
+								<td colspan="5">
+									<div class="separator"></div>
+								</td>
 							</tbody>
 						</table>
 					</div>
@@ -65,8 +106,21 @@
 				<!-- contents 끝 -->
 			</div>
 			<!-- frame-2 끝 -->
+			<!-- 플로팅버튼(탑버튼 포함) -->
+			<div id="floatingBtn">
+				<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
+			</div>
+			<!-- sidebar 부착 -->
+			<div id="sidebar">
+				<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
+			</div>
 		</div>
 		<!-- frame-1끝 -->
+		<br> <br>
+		<!-- footer부착 -->
+		<div id="footer">
+			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+		</div>
 	</div>
 	<!-- desktop-1 끝 -->
 </body>
