@@ -13,7 +13,12 @@
 </head>
 <body>
 	<div class="All">
+	
 		<section class="MainBoard">
+				<!-- header -->
+				<div id="header">
+					<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
+				</div>
 			<h1 id="MainFont">전체 게시판</h1>
 
 
@@ -85,12 +90,13 @@
 				</tbody>
 			</table><br><br>
 			
-			<div style="text-align:center;">
+			<div class="paging"style="text-align:center;">
 			<a  onclick="javascript:goPage(1)">&lt;&lt;</a>
 			<a onclick="javascript:goPage('prev')">이전</a>
 			
 			<c:forEach var="i" begin="${pageVo.startPage }" end="${pageVo.endPage }">
-				<a onclick="javascript:goPage('${i}')">${i }</a>
+				<%-- <a onclick="javascript:goPage('${i}')">${i }</a> --%>
+				<a onclick="javascript:goPage('${i}')" class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
 			</c:forEach>			
 		
 			<a onclick="javascript:goPage('next')">다음</a>
@@ -100,23 +106,20 @@
 			<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 		</form>
 		<script>
-			function goPage(no) {
-				const frm = document.pageFrm;
-				//alert(frm.pageNo.value);
-				
-				if(no == "prev") {
-					no = frm.pageNo.value - 1;
-					if(no <= 0) no = 1;
-				} else if(no == "next") {
-					no = parseInt(frm.pageNo.value) + 1;					
-				}
-				
-				//alert(no);
-				
-				frm.action = "/board/listAllBoard";	
-				frm.pageNo.value=no;
-				frm.submit();
-			}
+		function goPage(no) {
+		    const frm = document.pageFrm;
+		    
+		    if(no == "prev") {
+		        no = frm.pageNo.value - 1;
+		        if(no <= 0) no = 1;
+		    } else if(no == "next") {
+		        no = parseInt(frm.pageNo.value) + 1;                    
+		    }
+		    
+		    frm.action = "/board/listAllBoard";    
+		    frm.pageNo.value = no;
+		    frm.submit();
+		}
 			
 			
 		</script>
@@ -139,23 +142,17 @@
         
 
 
-		<nav class="boardCtg">
-			<div class="PetCtgBrd">
-				<p>카테고리별</p>
-				<p>▶전체게시판</p>
-				<p>▶양육 팁 게시판</p>
-				<p>▶반려동물 갤러리</p>
-				<br>
-				<p>전체 커뮤니티</p>
-				<p>▶자유게시판</p>
-				<p>▶분양홍보 게시판</p>
-				<p>▶반려동물 보호 게시판</p>
-				<p>▶이모지 게시판</p>
-				<br>
-				<p>반려동물 이름짓기가 어렵다면?</p>
-				<a href="#">작명소</a>
+		<div id="floatingBtn">
+			<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
+		</div>
+		<!-- sidebar 부착 -->
+			<div id="sidebar">
+				<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
 			</div>
-		</nav>
+			
+			<div id="footer">
+			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+		</div>
 
 
 
