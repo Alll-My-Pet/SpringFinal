@@ -64,9 +64,9 @@
 								</tr>
 								<tr>
 									<td><label>성별</label></td>
-									<td><input type="radio" id="gender1" value="male" name="memGen">남
-										<input type="radio" id="gender2" value="female" name="memGen">여
-										<input type="radio" id="gender3" value="not" name="memGen">해당 없음
+									<td><input type="radio" id="gender1" value="male" name="memGen"> 남
+										<input type="radio" id="gender2" value="female" name="memGen"> 여
+										<input type="radio" id="gender3" value="not" name="memGen"> 해당 없음
 										<span class="error-message" id="genderError"></span>
 									</td>
 								</tr>

@@ -77,6 +77,34 @@ input::placeholder {
 	text-align: left;
 }
 
+input[type="text"]:active, 
+input[type="text"]:focus, 
+input[type="text"]:hover, 
+input[type="password"]:active, 
+input[type="password"]:focus, 
+input[type="password"]:hover, 
+input[type="email"]:active, 
+input[type="email"]:focus, 
+input[type="email"]:hover, 
+input[type="date"]:active, 
+input[type="date"]:focus, 
+input[type="date"]:hover {
+	outline: none;
+	border-bottom: 2px solid;
+	border-bottom-color: #000000;
+}
+
+input[type="radio"] {
+	width: 1.25em;
+	height: 1.25em;
+	border: max(2px, 0.1em) solid gray;
+	cursor: pointer;
+}
+
+input[type="radio"]:checked {
+	border: 0.5rem solid;
+}
+
 .id, .text {
 	padding: 7px 0;
 	border: none;
@@ -141,4 +169,10 @@ input::placeholder {
 	font-size: 15px;
 	font-weight: bold;
 	background: #000000;
+}
+
+.joinBtn:hover {
+	background-color: #808080;
+    transform: scale(1.05);
+    cursor: pointer;
 }
