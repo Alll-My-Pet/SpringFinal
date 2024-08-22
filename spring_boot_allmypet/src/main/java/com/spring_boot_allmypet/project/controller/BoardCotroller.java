@@ -49,42 +49,42 @@ public class BoardCotroller {
 	}
 	
 	
-	@RequestMapping("/Board/Protect")
+	@RequestMapping("/board/protect")
 	public String Protect() {
 		return "board/petProtectBoard";
 	}
 	
-	@RequestMapping("/Board/FreeBoard")
+	@RequestMapping("/board/freeBoard")
 	public String FreeBoard() {
 		return "board/freeBoard";
 	}
 	
-	@RequestMapping("/Board/PromoteBoard")
+	@RequestMapping("/board/promoteBoard")
 	public String PromoteBoard() {
 		return "board/petPromoteBoard";
 	}
 	
-	@RequestMapping("/Board/NoticeBoard")
+	@RequestMapping("/board/noticeBoard")
 	public String NoticeBoard() {
 		return "board/noticeBoard";
 	}
 	
-	@RequestMapping("/Board/FreeBoardDetail")
+	@RequestMapping("/board/freeBoardDetail")
 	public String FreeBoardDetail() {
 		return "board/freeBoardDetail";
 	}
 	
-	@RequestMapping("/Board/MainDetail")
+	@RequestMapping("/board/mainDetail")
 	public String MainDetail() {
 		return "board/mainDetail";
 	}
 	
-	@RequestMapping("/Board/TipBoard")
+	@RequestMapping("/board/tipBoard")
 	public String TipBoard() {
 		return "board/bestTipBoard";
 	}
 	
-	@RequestMapping("/Board/TipDetail")
+	@RequestMapping("/board/tipDetail")
 	public String TipDetail() {
 		return "board/bestTipDetail";
 	}

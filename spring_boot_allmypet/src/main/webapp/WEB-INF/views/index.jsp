@@ -203,7 +203,7 @@
 						<div class="post-board">
 							<div class="notice-event-board">
 								<!-- 링크 삽입 -->
-								<a href="<c:url value='/Board/NoticeBoard'/>" class="board-title">
+								<a href="<c:url value='/board/noticeBoard'/>" class="board-title">
 									<div>공지/이벤트 +</div>
 								</a>
 								<!-- 공지사항 -->
@@ -307,7 +307,7 @@
 								</div>
 								<div class="general-board">
 									<!-- 링크 삽입 -->
-									<a href="<c:url value='/Board/FreeBoard'/>" class="board-title">
+									<a href="<c:url value='/board/freeBoard'/>" class="board-title">
 										<div>자유게시판 +</div>
 									</a>
 									<div class="general-list">
