@@ -5,15 +5,18 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
+import com.spring_boot_allmypet.project.model.mypage.BlockListVO;
 import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
 import com.spring_boot_allmypet.project.service.mypage.MypageService;
 
@@ -133,5 +136,43 @@ public class MyPageRestController {
     	Map<String, Object> result = new HashMap<>();
     	result.put("bookMarkList", bookmarkList);
     	return result;
+    }
+    
+    /* 블락리스트 삭제 */
+    @PostMapping("/blockList/delete")
+    public Boolean blockList_delete(HttpSession session, @RequestBody Map<String, List<String>> data) {
+    	String memId = (String) session.getAttribute("mid");
+    	List<String> ids = data.get("ids");
+    	Boolean check=false; 
+    	if (ids != null && !ids.isEmpty()) {
+            for (String id : ids) {
+            	mypageService.blockList_delete(memId, id);
+            	check = true;
+            }
+        }
+    	return check;
+    }
+    /* 블락리스트 수정 */
+    @PostMapping("/blockList/update")
+    public Boolean blockList_update(HttpSession session, @RequestBody Map<String, List<List<String>>> data) {
+    	String memId = (String) session.getAttribute("mid");
+    	 List<List<String>> lists = data.get("lists");
+    	    Boolean check = false; 
+    	    if (lists != null && !lists.isEmpty()) {
+    	        for (List<String> list : lists) {
+    	        	mypageService.blockList_update(memId, list.get(0), list.get(1));
+    	        }
+    	        check = true; 
+    	    }
+    	return check;
+    }
+    /* 블라리스트 검색 */
+    @PostMapping("/blockList/search")
+    public Map<String, Object> blockList_search(HttpSession session, @RequestParam("searchValue") String searchValue ) {
+        String memId = (String) session.getAttribute("mid");
+        ArrayList<HashMap<String, Object>> blockLists = mypageService.blockList_search(memId, searchValue);
+        Map<String, Object> result = new HashMap<>();
+        result.put("blockLists", blockLists);
+        return result;
     }
 }
