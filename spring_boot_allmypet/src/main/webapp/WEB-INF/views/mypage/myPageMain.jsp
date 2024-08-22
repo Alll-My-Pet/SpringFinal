@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,7 +21,7 @@
 						<span>내 정보</span>
 						<div id="info_pic_area">
 							<div id="info_pic">
-								<div id="info_mypic"><img id="my_profile_img"src="<c:url value='/image/testimg2.jpg'/>"></div>
+								<div id="info_mypic"><img id="my_profile_img" src="<c:url value='/project_images/profile_Img/${memVO.profile_image }'/>"></div>
 								<div id="info_mypic_btn">
 									<button onClick="location.href='/mypage/edit_info'">프로필 수정</button>
 								</div>								
@@ -29,14 +30,18 @@
 								<table>
 									<tr>
 										<td>닉네임</td>
-										<td>닉네임</td>
-										<td>아이콘</td>
+										<td>${memVO.memNickName }</td>
+										<td><img src="#"></td>
 									</tr>
-									<tr><td>반려동물</td></tr>
-									<tr>
-										<td>종</td>
-										<td>이름</td>
-									</tr>
+									<tr><td colspan="3">반려동물</td></tr>
+									<c:if test="${not empty petList }">
+										<c:forEach var="pet" items="${petList}" begin="0" end="${fn:length(petList) - 1}">
+											<tr>
+												<td>${pet.petCtgName }</td>
+												<td colspan="2">${pet.petName }</td>
+											</tr>
+										</c:forEach>
+									</c:if>
 								</table>
 							</div>
 						</div>
@@ -48,7 +53,7 @@
 								<div id="info_point_img">
 									<img id="myp_point" src="image/point.png">
 								</div>
-								<div id="info_point_num">4500P</div>								
+								<div id="info_point_num">${memVO.point }P</div>								
 							</div>
 							<div id="info_point_btn">
 								<button onClick="location.href='/mypage/point_detail'">포인트 내역 보기</button>

@@ -75,5 +75,74 @@
             });
         }
     });
- })
+    /*회원 정보 수정*/
+    $('#phone_num').on('input', function() {
+        // 숫자 이외의 문자를 제거
+        this.value = this.value.replace(/[^0-9]/g, '');
+    });
+    let nickname_check=true;
+    var default_nickname = $('#nickname_text_area').data('nickname');
+    
+    $('#nickname_text_area').on('change',function(){
+    	nickname_check=false;
+    });
+    $('#nickname_check_btn').on('click',function(){
+    	event.preventDefault();
+    	var nickname = $('#nickname_text_area').val();
+    	if(nickname == ""){
+			alert("닉네임을 입력 하세요.");
+		}else if(nickname.length > 10){
+			alert("닉네임은 10글자를 초과하실 수 없습니다.");
+		}else{
+			$.ajax({
+	 			type:"post",
+	 			url:"/member/nnCheck", 
+	 			data : {"memNN": nickname}, 
+	 			dataType:'text', 
+	 			success:function(result) {
+	 				if(result == "success"|| nickname==default_nickname) {
+	 					alert("사용 가능한 닉네임 입니다");
+	 					nickname_check = true;
+	 				} else {
+	 					alert("사용할 수 없는 닉네임 입니다.");
+	 				}
+	 			},
+	 			error:function() {
+	 				alert("실패");
+	 			}
+	 		});
+	 	};
+    });
+    
+    $('#edit_regis_btn').on('click',function(){
+    	//e.preventDefault();
+    	var file = $('#imageInput')[0].files[0];
+    	if(!nickname_check){
+    		alert("닉네임 중복체크를 해주세요");
+    	}else if (file) {
+            var formData = new FormData();
+            formData.append('image', file);
+
+            $.ajax({
+                url: '/mypage/uploadImage', // 서버에 파일을 업로드할 경로
+                type: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                	console.log(response);
+                    // 서버에서 반환한 이미지 파일명을 hidden input에 설정
+                    $('#profileImage').val(response);
+                    // 나머지 폼 데이터를 서버로 전송
+                    $('#edit_info_area').off('submit').submit();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('File upload failed', textStatus, errorThrown);
+                }
+            });
+        } else{
+    		$('#edit_info_area').off('submit').submit();
+    	}
+    });
+ });
  
