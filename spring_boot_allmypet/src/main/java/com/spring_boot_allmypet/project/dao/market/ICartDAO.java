@@ -9,7 +9,7 @@ import com.spring_boot_allmypet.project.model.market.OrderInfoVO;
 
 public interface ICartDAO {
 	public void insertCart(CartVO vo);	// 장바구니에 추가
-//	public int checkPrdInCart(HashMap<String, Object> map);	// 동일 상품 존재 여부 확인 (반환값 : 동일 상품 개수)
+	public int checkPrdInCart(HashMap<String, Object> map);	// 동일 상품 존재 여부 확인 (반환값 : 동일 상품 개수)
 	public void updateQtyInCart(CartVO vo);	// 동일 상품이 존재하면 수량만 변경
 	public ArrayList<CartVO> cartList(String memId);	// 장바구니 조회 : 현재 회원의 장바구니 목록 반환
 	public void deleteCart(ArrayList<String> chkArr);	// 장바구니에서 상품 삭제

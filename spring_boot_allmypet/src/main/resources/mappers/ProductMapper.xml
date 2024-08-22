@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring_boot_allmypet.project.dao.market.IProductDAO">
+    
+    <!-- ProductVO와 데이터베이스의 product 테이블의 매핑 정보를 정의 -->
+    <resultMap id="productResult" type="com.spring_boot_allmypet.project.model.market.ProductVO">
+        <result property="prdNo" column="prdNo"/>
+        <result property="petCtgNo" column="petCtgNo"/>
+        <result property="prdCtgNo" column="prdCtgNo"/>
+        <result property="prdName" column="prdName"/>
+        <result property="prdPrice" column="prdPrice"/>
+        <result property="prdCompany" column="prdCompany"/>
+        <result property="prdStock" column="prdStock"/>
+        <result property="prdImg" column="prdImg"/>
+        <result property="prdDescript" column="prdDescript"/>
+    </resultMap>
+    
+    <!-- 전체 상품 조회 쿼리 -->
+    <select id="listAllProduct" resultMap="productResult">
+        SELECT p.*, pc.prdCtgName 
+        FROM product p 
+        JOIN prd_ctg pc ON p.prdCtgNo = pc.prdCtgNo 
+        ORDER BY CAST(p.prdNo AS UNSIGNED);
+    </select>
+    
+    <!-- 상품 상세 정보 조회 쿼리 -->
+    <!-- 상품번호(string)를 전달받아 해당 상품의 상세 정보를 반환 -->
+    <select id="detailViewProduct" parameterType="string"
+            resultType="com.spring_boot_allmypet.project.model.market.ProductVO">
+        SELECT * FROM product WHERE prdNo = #{prdNo}
+    </select>
+    
+    <!-- 상품 검색 쿼리 -->
+    <!-- 해시맵을 전달받아 prdName 컬럼에서 검색어를 포함한 상품을 조회 -->
+    <select id="productSearch" parameterType="hashmap" resultMap="productResult">
+        SELECT p.*, pc.prdCtgName 
+        FROM product p 
+        JOIN prd_ctg pc ON p.prdCtgNo = pc.prdCtgNo 
+        WHERE p.prdName LIKE CONCAT('%', #{search_keyword}, '%')
+        ORDER BY CAST(p.prdNo AS UNSIGNED);
+    </select>
+    
+    <!-- 상품 카테고리별 필터 쿼리 -->
+    <!-- 특정 카테고리 이름을 포함하는 상품을 조회 -->
+    <select id="prdCtgSearch" parameterType="hashmap" resultMap="productResult">
+        SELECT p.*, pc.prdCtgName 
+        FROM product p 
+        JOIN prd_ctg pc ON p.prdCtgNo = pc.prdCtgNo 
+        WHERE pc.prdCtgName LIKE CONCAT('%', #{prdCtgName}, '%')
+    </select>
+
+</mapper>

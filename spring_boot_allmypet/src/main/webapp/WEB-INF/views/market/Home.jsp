@@ -7,9 +7,10 @@
 		<meta charset="UTF-8">
 		<title>반려동물 페이지</title>
   		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-    	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market_home.css'/>" />
+    	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/market_home.css'/>" />
 </head>
 <body>
+<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
     <section class="market_home">
         <p class="home_title">반려동물 용품</p>
             <div class="card-container">
@@ -17,7 +18,7 @@
             <div class="col-sm-3 mb-3"> <!-- 첫 번째 카드 -->
                 <a href="<c:url value='/market/product'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/ctg_강아지.png'/>" class="card-img-top" alt="..." width="80px" height="80px">
+                        <img src="<c:url value='/image/market/ctg_강아지.png'/>" class="card-img-top" alt="..." width="80px" height="80px">
                         <div class="card-body">
                             <h5 class="card-title">강아지</h5>
                         </div>
@@ -28,7 +29,7 @@
             <div class="col-sm-3 mb-3"> <!-- 두 번째 카드 -->
                 <a href="<c:url value='/market/product'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/ctg_고양이.png'/>" class="card-img-top" alt="..." width="60px" height="60px">
+                        <img src="<c:url value='/image/market/ctg_고양이.png'/>" class="card-img-top" alt="..." width="60px" height="60px">
                         <div class="card-body">
                             <h5 class="card-title">고양이</h5>
                         </div>
@@ -39,7 +40,7 @@
             <div class="col-sm-3 mb-3"> <!-- 세 번째 카드 -->
                 <a href="<c:url value='/market/product'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/ctg_기타포유류.png'/>" class="card-img-top" alt="..." width="80px">
+                        <img src="<c:url value='/image/market/ctg_기타포유류.png'/>" class="card-img-top" alt="..." width="80px">
                         <div class="card-body">
                             <h5 class="card-title">기타 포유류</h5>
                         </div>
@@ -50,7 +51,7 @@
             <div class="col-sm-3 mb-3"> <!-- 네 번째 카드 -->
                 <a href="<c:url value='/market/product'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/ctg_파충양서류.png'/>" class="card-img-top" alt="..." width="80px">
+                        <img src="<c:url value='/image/market/ctg_파충양서류.png'/>" class="card-img-top" alt="..." width="80px">
                         <div class="card-body">
                             <h5 class="card-title">파충류/양서류</h5>
                         </div>
@@ -63,7 +64,7 @@
             <div class="col-sm-3 mb-3"> <!-- 다섯 번째 카드 -->
                 <a href="<c:url value='/market/product'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/ctg_어류.png'/>" class="card-img-top" alt="..." width="80px">
+                        <img src="<c:url value='/image/market/ctg_어류.png'/>" class="card-img-top" alt="..." width="80px">
                         <div class="card-body">
                             <h5 class="card-title">어류</h5>
                         </div>
@@ -74,7 +75,7 @@
             <div class="col-sm-3 mb-3"> <!-- 여섯 번째 카드 -->
                 <a href="<c:url value='/market/product'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/ctg_조류.png'/>" class="card-img-top" alt="..." width="55px">
+                        <img src="<c:url value='/image/market/ctg_조류.png'/>" class="card-img-top" alt="..." width="55px">
                         <div class="card-body">
                             <h5 class="card-title">조류</h5>
                         </div>
@@ -85,7 +86,7 @@
             <div class="col-sm-3 mb-3"> <!-- 일곱 번째 카드 -->
                 <a href="<c:url value='/market/product'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/ctg_설치류.png'/>" class="card-img-top" alt="..." width="70px">
+                        <img src="<c:url value='/image/market/ctg_설치류.png'/>" class="card-img-top" alt="..." width="70px">
                         <div class="card-body">
                             <h5 class="card-title">설치류</h5>
                         </div>
@@ -96,7 +97,7 @@
             <div class="col-sm-3 mb-3"> <!-- 여덟 번째 카드 -->
                 <a href="<c:url value='/market/product'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/ctg_절지곤충류.png'/>" class="card-img-top" alt="..." width="80px">
+                        <img src="<c:url value='/image/market/ctg_절지곤충류.png'/>" class="card-img-top" alt="..." width="80px">
                         <div class="card-body">
                             <h5 class="card-title">절지류/곤충류</h5>
                         </div>
@@ -110,7 +111,7 @@
             <div class="col-sm-3 mb-3"> <!-- 첫 번째 카드 -->
                 <a href="<c:url value='/market/goods'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/앨범.png'/>" class="card-img-top" alt="..." width="80px" height="80px">
+                        <img src="<c:url value='/image/market/앨범.png'/>" class="card-img-top" alt="..." width="80px" height="80px">
                         <div class="card-body">
                             <h5 class="card-title">앨범</h5>
                         </div>
@@ -122,7 +123,7 @@
             <div class="col-sm-3 mb-3"> <!-- 두 번째 카드 -->
                 <a href="<c:url value='/market/goods'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/액자.png'/>" class="card-img-top" alt="..." width="60px" height="60px">
+                        <img src="<c:url value='/image/market/액자.png'/>" class="card-img-top" alt="..." width="60px" height="60px">
                         <div class="card-body">
                             <h5 class="card-title">액자</h5>
                         </div>
@@ -133,7 +134,7 @@
             <div class="col-sm-3 mb-3"> <!-- 세 번째 카드 -->
                 <a href="<c:url value='/market/goods'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/키링.png'/>" class="card-img-top" alt="..." width="80px">
+                        <img src="<c:url value='/image/market/키링.png'/>" class="card-img-top" alt="..." width="80px">
                         <div class="card-body">
                             <h5 class="card-title">키링</h5>
                         </div>
@@ -144,7 +145,7 @@
             <div class="col-sm-3 mb-3"> <!-- 네 번째 카드 -->
                 <a href="<c:url value='/market/goods'/>" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/달력.png'/>" class="card-img-top" alt="..." width="80px">
+                        <img src="<c:url value='/image/market/달력.png'/>" class="card-img-top" alt="..." width="80px">
                         <div class="card-body">
                             <h5 class="card-title">달력</h5>
                         </div>
@@ -156,6 +157,6 @@
     </div>
         
     </section>
-    
+    <c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 </body>
 </html>

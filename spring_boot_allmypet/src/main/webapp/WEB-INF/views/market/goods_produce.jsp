@@ -6,11 +6,12 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>굿즈 제작 페이지</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/goods_produce.css'/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/market/goods_produce.css'/>" />
     <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-    <script src="<c:url value='/js/goods_produce.js'/>"></script>
+    <script src="<c:url value='/js/market/goods_produce.js'/>"></script>
 </head>
 <body>
+<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
     <div class="container">
         <h1>굿즈 제작하기</h1>
         
@@ -40,5 +41,6 @@
             <button id="createButton">굿즈 만들기</button>
         </div>
     </div>
+    <c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 </body>
 </html>

@@ -6,9 +6,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>굿즈 상세 페이지</title>
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/product_detail.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product_detail.css'/>" />
 </head>
 <body>
+<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
     <div class="container">
         <div class="product-detail">
             <img class="product-image" src="<c:url value='/image/logo.png'/>"/>
@@ -40,6 +41,7 @@
             <a id="#2">이용후기</a> 내용</div>
         </div>
     </div>
+    <c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 </body>
 <script type="text/javascript">
 const increaseButtons = document.querySelectorAll('.quantity-btn.increase');

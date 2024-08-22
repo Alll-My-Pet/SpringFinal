@@ -6,9 +6,10 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/product.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product.css'/>" />
 </head>
 <body>
+<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
     <div class="product">
         <div class="section">
             <div class="card-container">
@@ -17,7 +18,7 @@
             <div class="col-sm-3 mb-3"> <!-- 첫 번째 카드 -->
                 <a href="#" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/앨범.png'/>" class="card-img-top" alt="..." width="80px" height="80px">
+                        <img src="<c:url value='/image/market/앨범.png'/>" class="card-img-top" alt="..." width="80px" height="80px">
                         <div class="card-body">
                             <h5 class="card-title">앨범</h5>
                         </div>
@@ -29,7 +30,7 @@
             <div class="col-sm-3 mb-3"> <!-- 두 번째 카드 -->
                 <a href="#" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/액자.png'/>" class="card-img-top" alt="..." width="60px" height="60px">
+                        <img src="<c:url value='/image/market/액자.png'/>" class="card-img-top" alt="..." width="60px" height="60px">
                         <div class="card-body">
                             <h5 class="card-title">액자</h5>
                         </div>
@@ -40,7 +41,7 @@
             <div class="col-sm-3 mb-3"> <!-- 세 번째 카드 -->
                 <a href="#" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/키링.png'/>" class="card-img-top" alt="..." width="80px">
+                        <img src="<c:url value='/image/market/키링.png'/>" class="card-img-top" alt="..." width="80px">
                         <div class="card-body">
                             <h5 class="card-title">키링</h5>
                         </div>
@@ -51,7 +52,7 @@
             <div class="col-sm-3 mb-3"> <!-- 네 번째 카드 -->
                 <a href="#" class="card-link">
                     <div class="card">
-                        <img src="<c:url value='/image/달력.png'/>" class="card-img-top" alt="..." width="80px">
+                        <img src="<c:url value='/image/market/달력.png'/>" class="card-img-top" alt="..." width="80px">
                         <div class="card-body">
                             <h5 class="card-title">달력</h5>
                         </div>
@@ -112,5 +113,6 @@
             </div>
         </div>
     </div>
+    <c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 </body>
 </html>
