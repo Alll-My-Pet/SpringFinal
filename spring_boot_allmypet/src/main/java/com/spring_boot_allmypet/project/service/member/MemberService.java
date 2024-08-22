@@ -36,20 +36,35 @@ public class MemberService implements IMemberService {
 	public String memNNCheck(String nn) {
 		return dao.memNNCheck(nn);
 	}
+
 	// 포지션 체크
 	@Override
 	public int memPosition(String id) {
 		return dao.memPosition(id);
 	}
+	
 	// 로그인 체크
 	@Override
 	public String loginCheck(HashMap<String, Object> map) {
 		String encodedPwd = dao.loginCheck(map);
 		String result = "fail";
-		if(encodedPwd != null && pwdEncoder.matches((String)map.get("pwd"), encodedPwd)){
+		if(encodedPwd != null && pwdEncoder.matches((String)map.get("memPwd"), encodedPwd)){
 			result ="success";
 		}
 		return result;
 	}
+	
+	// 아이디 찾기
+	@Override
+	public String findId(HashMap<String, Object> map) {
+        return dao.findId(map);
+    }
+	
+	// 비밀번호 찾기
+	@Override
+	public String findPwd(HashMap<String, Object> map) {
+        System.out.println("asdf");
+		return dao.findPwd(map);
+    }
 
 }

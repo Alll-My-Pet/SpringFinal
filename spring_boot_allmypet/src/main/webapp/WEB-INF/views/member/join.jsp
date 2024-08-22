@@ -8,10 +8,9 @@
 		<title>회원가입</title>
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
-		<link rel="stylesheet" type="text/css" href="<%= request.getContextPath() %>/css/member/join.css">
-		<script src="<%= request.getContextPath() %>/js/member/join.js"></script>
-		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/join.css'/>">
 		<script src="<c:url value='/js/member/joinPage.js'/>"></script>
+		<script src="<c:url value='/js/member/join.js'/>"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/member/searchAddress.js'/> "></script>
 	</head>
@@ -26,12 +25,12 @@
 			<div class="joinBox">
 				<div class="joinUpper">
 					<div class="upperContext">
-						<form id="joinForm" class="joinForm" method="post" action="/member/insertmem">
+						<form id="joinForm" class="joinForm" method="post" action=""<c:url value='/member/insertmem'/>">
 							<table>
 								<tr>
 									<td><label for="id">아이디</label></td>
 									<td><input type="text" id="id" name="memId" class="id">
-										<input type="button" value="중복확인" class="checkBtn"  id="searchId">
+										<input type="button" value="중복확인" class="checkBtn" id="searchId">
 										<span class="error-message" id="idError"></span>
 									</td>
 								</tr>
@@ -65,9 +64,9 @@
 								</tr>
 								<tr>
 									<td><label>성별</label></td>
-									<td><input type="radio" id="gender1" value="male" name="memGen">남
-										<input type="radio" id="gender2" value="female" name="memGen">여
-										<input type="radio" id="gender3" value="not" name="memGen">해당 없음
+									<td><input type="radio" id="gender1" value="male" name="memGen"> 남
+										<input type="radio" id="gender2" value="female" name="memGen"> 여
+										<input type="radio" id="gender3" value="not" name="memGen"> 해당 없음
 										<span class="error-message" id="genderError"></span>
 									</td>
 								</tr>
@@ -80,7 +79,7 @@
 								<tr>
 									<td><label for="email">이메일</label></td>
 									<td><input type = "email" id="email" name="memEmail" placeholder="이메일 주소 입력" class="email" required>
-										<input type="button" value="인증"onClick="sendEmail()" class="checkBtn">
+										<input type="button" value="인증" onClick="sendEmail()" class="checkBtn">
 										<span class="error-message" id="emailError"></span>
 									</td>
 								</tr>
@@ -98,13 +97,14 @@
 								</tr>
 								<tr>
 									<td></td>
-									<td><input type="text" id="adress3" placeholder="상세주소 입력" name="memAddress2" class="adress">
+									<td><input type="text" id="adress3" placeholder="상세주소 입력" name="memAddress2" class="email" required>
 										<span class="error-message" id="adressError"></span>
 									</td>
 								</tr>
 								<tr>
 									<td><label for="hp1">연락처</label></td>
-									<td><input type="text" id="phone" name="memHP" placeholder="전화번호" required>
+									<td><input type="text" id="phone" name="memHP" class="email" size="11" placeholder="전화번호는 숫자만 입력해주세요" required>
+										<span class="error-message" id="hpError"></span>
 						  			</td>
 						  		</tr>
 							</table>
@@ -114,14 +114,17 @@
 				<div class="joinBottom">
 					<div class="bottomContext">
 						<b>이용약관</b>
-						<!-- 이용 약관 -->
+						<div class="useterms">
+							<c:out value="${termsContent}"></c:out>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div class="joinSubmit">
-				<div id="submitBtn" class="joinBtn" >완료</button>
+				<button id="submitBtn" class="joinBtn" >완료</button>
 			</div>
 		</section>
 		<!-- bottom -->
+		<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

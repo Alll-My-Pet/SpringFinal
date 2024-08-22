@@ -3,6 +3,8 @@
 /* 반응형으로 너비 좁혔을 때에는 세로로 2개 보이도록 구현 예정
  */
  
+ * {margin:0;}
+ 
 .login {
 	height: 1000px;
 	width: 100%;
@@ -15,7 +17,7 @@
 }
 
 .loginTitle {
-	width: 1000px;
+	width: 853px;
 	margin: 70px 0;
 	text-align: left;
 	letter-spacing: 2px;
@@ -27,7 +29,7 @@
 }
 
 .loginBox {
-	width: 1000px;
+	width: 853px;
 	height: 600px;
 	position: absolute;
 	top: 50%;
@@ -45,7 +47,7 @@
 	width: 50%;
 	height: 100%;
 	padding: 25px 25px;
-	background: linear-gradient(-45deg, #dcd7e0, #fff);
+	background: linear-gradient(-45deg, #C0C0C0, #fff);
 }
 
 .loginBox .loginRight {
@@ -66,17 +68,28 @@
 	margin: auto;
 }
 
-.loginLeft input {
+.loginLeft input[type="text"], input[type="password"] {
 	border: none;
 	width: 80%;
 	margin: 15px 0px;
-	border-bottom: 1px solid #4f30677d;
+	border-bottom: 1px solid #808080;
 	padding: 7px 9px;
 	width: 100%;
 	overflow: hidden;
 	background: transparent;
 	font-weight: 600;
 	font-size: 14px;
+}
+
+.loginLeft input[type="text"]:active, 
+.loginLeft input[type="text"]:focus, 
+.loginLeft input[type="text"]:hover, 
+.loginLeft input[type="password"]:active, 
+.loginLeft input[type="password"]:focus, 
+.loginLeft input[type="password"]:hover {
+	outline: none;
+	border-bottom: 2px solid;
+	border-bottom-color: #000000;
 }
 
 .loginLeft a {
@@ -90,7 +103,7 @@
 	letter-spacing: 2px;
 }
 
-.loginBtn {
+.loginLeft input[type="submit"] {
 	border: none;
 	padding: 15px 70px;
 	border-radius: 10px;
@@ -102,6 +115,11 @@
 	font-size: 15px;
 	font-weight: bold;
 	box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
+
+.loginLeft input[type="submit"]:hover {
+    background-color: #808080;
+    transform: scale(1.05);
 }
 
 .loginRight .rightContext {
@@ -132,4 +150,10 @@
 	font-size: 15px;
 	font-weight: bold;
 	box-shadow: 0px 9px 15px -11px rgba(88,54,114,1);
+}
+
+.moveJoin:hover {
+    background-color: #808080;
+    transform: scale(1.05);
+    cursor: pointer;
 }
