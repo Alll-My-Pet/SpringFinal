@@ -2,6 +2,7 @@ package com.spring_boot_allmypet.project.service.mypage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -108,5 +109,29 @@ public class MypageService implements IMypageService {
 		params.put("blockedMemId", blockedMemId);
 		
 		return dao.blockList_search(params);
+	}
+	/* 내가 쓴 글 댓글 출력 */
+	@Override
+	public List<Map<String, Object>> myPosts_Comments(String memId) {
+		return dao.myPosts_Comments(memId);
+	}
+	/* 내가 쓴 글만 출력 */
+	@Override
+	public List<Map<String, Object>> myPosts_only(String memId) {
+		return dao.myPosts_only(memId);
+	}
+	/* 내가 쓴 댓글만 출력 */
+	@Override
+	public List<Map<String, Object>> myComments_only(String memId) {
+		return dao.myComments_only(memId);
+	}
+	// 북마크 검색 조건 출력
+	@Override
+	public List<Map<String, Object>> myPosts_Comments_search(String mid, String searchDiv, String searchContents) {
+		Map<String, Object> params = new HashMap<>();
+		params.put("memId", mid);
+        params.put("searchDiv", searchDiv);
+        params.put("searchContents", searchContents);
+		return dao.myPosts_Comments_search(params);
 	}
 }

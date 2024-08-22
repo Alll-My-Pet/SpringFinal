@@ -2,6 +2,8 @@ package com.spring_boot_allmypet.project.service.mypage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
@@ -37,4 +39,12 @@ public interface IMypageService {
 	public void blockList_update(String mid,String blockedMemId, String block_reason);
 	// 블락 리스트 검색
 	public ArrayList<HashMap<String, Object>>blockList_search(String mid,String blockedMemId);
+	// 내가 쓴 글 댓글 출력
+	public List<Map<String, Object>> myPosts_Comments(String memId);
+	// 내가 쓴 글만 출력
+	public List<Map<String, Object>> myPosts_only(String memId);
+	// 내가 쓴 댓글만 출력
+	public List<Map<String, Object>> myComments_only(String memId);
+	// 북마크 검색 조건 출력
+	public List<Map<String, Object>> myPosts_Comments_search(String mid,String searchDiv,String searchContents);
 }

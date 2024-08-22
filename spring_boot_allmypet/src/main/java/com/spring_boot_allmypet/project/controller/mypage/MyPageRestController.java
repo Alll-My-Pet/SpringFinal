@@ -2,7 +2,9 @@ package com.spring_boot_allmypet.project.controller.mypage;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -174,5 +176,51 @@ public class MyPageRestController {
         Map<String, Object> result = new HashMap<>();
         result.put("blockLists", blockLists);
         return result;
+    }
+    /* 내글/내댓글 포스트 구분*/
+    @PostMapping("/mypage/post_comment/updateDiv")
+    public Map<String, Object> post_comment_update_div(HttpSession session, @RequestParam("selectedValue") String selectedValue) {
+        String memId = (String) session.getAttribute("mid");
+        List<Map<String, Object>> postsComments = new ArrayList<>();;
+
+        if (selectedValue.equals("-1")) {
+        	postsComments = mypageService.myPosts_Comments(memId);
+        	for (Map<String, Object> postComment : postsComments) {
+    	        if (postComment.get("date") instanceof LocalDateTime) {
+    	            LocalDateTime localDateTime = (LocalDateTime) postComment.get("date");
+    	            postComment.put("date", Timestamp.valueOf(localDateTime));
+    	        }
+    	    }
+        } else if(selectedValue.equals("mpc_type2")){
+        	postsComments = mypageService.myComments_only(memId);
+        	for (Map<String, Object> postComment : postsComments) {
+    	        if (postComment.get("date") instanceof LocalDateTime) {
+    	            LocalDateTime localDateTime = (LocalDateTime) postComment.get("date");
+    	            postComment.put("date", Timestamp.valueOf(localDateTime));
+    	        }
+    	    }
+        }else {
+        	postsComments = mypageService.myPosts_only(memId);
+        	for (Map<String, Object> postComment : postsComments) {
+    	        if (postComment.get("date") instanceof LocalDateTime) {
+    	            LocalDateTime localDateTime = (LocalDateTime) postComment.get("date");
+    	            postComment.put("date", Timestamp.valueOf(localDateTime));
+    	        }
+    	    }
+        }
+        	
+        Map<String, Object> result = new HashMap<>();
+        result.put("postsComments", postsComments);
+        return result;
+    }
+    /* 내글/ 내댓글 검색*/
+    @PostMapping("/mypage/post_comment/updateSearch")
+    public Map<String, Object> post_comment_update_search(HttpSession session, @RequestParam("searchDiv") String searchDiv , @RequestParam("searchContents") String searchContents) {
+    	String memId = (String) session.getAttribute("mid");
+    	 List<Map<String, Object>> postsComments = mypageService.myPosts_Comments_search(memId, searchDiv, searchContents);
+    	
+    	Map<String, Object> result = new HashMap<>();
+    	result.put("postsComments", postsComments);
+    	return result;
     }
 }

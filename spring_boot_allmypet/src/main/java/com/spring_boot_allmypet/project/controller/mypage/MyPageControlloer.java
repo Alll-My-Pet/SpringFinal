@@ -1,8 +1,12 @@
 package com.spring_boot_allmypet.project.controller.mypage;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -120,9 +124,22 @@ public class MyPageControlloer {
 		model.addAttribute("bookMarkList", bookMarkList);
 		return "mypage/commBookmarkGallery";
 	}
-	
+	/* 내가쓴 글/댓글 */
 	@RequestMapping("/mypage/my_post_commnet")
-	public String myPostCommnet() {
+	public String myPostCommnet(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		List<Map<String, Object>> postsComments = mypageService.myPosts_Comments(memId);
+	    
+		
+	    for (Map<String, Object> postComment : postsComments) {
+	        if (postComment.get("date") instanceof LocalDateTime) {
+	            LocalDateTime localDateTime = (LocalDateTime) postComment.get("date");
+	            postComment.put("date", Timestamp.valueOf(localDateTime));
+	        }
+	    }
+
+	    model.addAttribute("postsComments", postsComments);
+		
 		return "mypage/commMyPostComment";
 	}
 	
