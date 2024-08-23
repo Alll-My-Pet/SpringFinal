@@ -60,7 +60,7 @@
 }
 #config_name #mpc_title{
 	padding-left:1%;
-	width:60%;
+	width:70%;
 }
 #config_name #mpc_writer{
 	text-align:center;
@@ -72,7 +72,7 @@
 }
 #config_name #mpc_date{
 	text-align:center;
-	width:10%;
+	width:20%;
 }
 
 /* 북마크 리스트 */
@@ -83,7 +83,7 @@
 }
 .mpc_post_list .mpc_list_title{
 	padding-left:1%;
-	width:60%;
+	width:70%;
 }
 .mpc_post_list .mpc_list_type{
 	text-align:center;
@@ -99,7 +99,7 @@
 }
 .mpc_post_list .mpc_list_date{
 	text-align:center;
-	width:10%;
+	width:20%;
 }
 
 

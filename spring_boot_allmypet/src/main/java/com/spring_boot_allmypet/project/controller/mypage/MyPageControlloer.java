@@ -1,8 +1,13 @@
 package com.spring_boot_allmypet.project.controller.mypage;
 
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -120,14 +125,45 @@ public class MyPageControlloer {
 		model.addAttribute("bookMarkList", bookMarkList);
 		return "mypage/commBookmarkGallery";
 	}
-	
+	/* 내가쓴 글/댓글 */
 	@RequestMapping("/mypage/my_post_commnet")
-	public String myPostCommnet() {
+	public String myPostCommnet(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		List<Map<String, Object>> postsComments = mypageService.myPosts_Comments(memId);
+	    
+		
+	    for (Map<String, Object> postComment : postsComments) {
+	        if (postComment.get("date") instanceof LocalDateTime) {
+	            LocalDateTime localDateTime = (LocalDateTime) postComment.get("date");
+	            postComment.put("date", Timestamp.valueOf(localDateTime));
+	        }
+	    }
+
+	    model.addAttribute("postsComments", postsComments);
+		
 		return "mypage/commMyPostComment";
 	}
-	
+	/* 이모지 페이지 */
 	@RequestMapping("/mypage/my_emoji")
-	public String myEmoji() {
+	public String myEmoji(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		List<Map<String, Object>> emj_f = mypageService.emoji_favorites(memId);
+		List<Map<String, Object>> emj_e = mypageService.emoji_my_edit(memId);
+		List<Map<String, Object>> emj_p_list = mypageService.emoji_my_purch(memId);	
+		
+		for (Map<String, Object> emj_p : emj_p_list) {
+		    if (emj_p.get("purchaseDate") instanceof LocalDateTime) {
+		        LocalDateTime localDateTime = (LocalDateTime) emj_p.get("purchaseDate");
+		        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		        String formattedDate = localDateTime.format(formatter);
+		        emj_p.put("purchaseDate", formattedDate);
+		    }
+	    }
+		
+		model.addAttribute("emj_f_List",emj_f);
+		model.addAttribute("emj_e_List",emj_e);
+		model.addAttribute("emj_p_List",emj_p_list);
+		
 		return "mypage/commMyEmoji";
 	}
 	
