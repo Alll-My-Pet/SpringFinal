@@ -21,7 +21,7 @@
 
 .best-photos .board-title {
     border-radius: 5px;
-    background: #F4BAD2;
+    background: #F2F2F2;
     margin: 0 auto;
     margin-bottom: 15px;
     padding: 8px 8px 7px 8px;
@@ -30,7 +30,7 @@
 }
 
 .best-photos .best-slideshow {
-    background-color: #d1a7f3;
+    /* background-color: #d1a7f3; */
     margin: 0 auto;
     /* 중앙 정렬 */
     width: 100%;
@@ -81,7 +81,7 @@
 }
 
 .best-slideshow .photo-container {
-    background-color: blueviolet;
+   /*  background-color: white; */
     width: 413px;
     height: 110px;
     position: absolute;

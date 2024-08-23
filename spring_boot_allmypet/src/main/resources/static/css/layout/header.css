@@ -46,7 +46,7 @@
 
 /* 지금 회원 가입시 1000P 지급 */
 .top-bar .promotion {
-    background: #C4F7DE;
+    /* background: #C4F7DE; */
     display: flex;
     padding: 5px 3px;
     /* width: fit-content; */
