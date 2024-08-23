@@ -90,6 +90,10 @@ public class CartService implements ICartService {
 	public void updateCart(CartVO vo) {
 		dao.updateCart(vo);
 	}
+	
+	public void deleteCartItem(String memId, String prdNo) {
+	    dao.deleteCartItem(memId, prdNo);
+	}
 
 	/*
 	 * @Override public MemberVO getMemberInfo(String memId) { // TODO

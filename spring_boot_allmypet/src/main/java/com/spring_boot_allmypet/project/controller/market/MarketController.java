@@ -53,7 +53,9 @@ public class MarketController {
     public String product(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
                           @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
                           Model model) {
-        ArrayList<ProductVO> prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNo, 1, 4);
+        ArrayList<ProductVO> prdList;
+        prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNo, 1, 4);
+        
         model.addAttribute("prdList", prdList);
         return "market/product";
     }
@@ -196,6 +198,11 @@ public class MarketController {
 	        orderProduct.setOrdQty(ordQtys.get(i));
 
 	        orderService.insertOrderProduct(orderProduct);
+	    }
+	    
+	    // 3. 주문된 품목을 장바구니에서 삭제
+	    for (String prdNo : prdNos) {
+	        cartService.deleteCartItem(memId, prdNo);
 	    }
 
 	    return "redirect:/market/order_summary";  // 주문 요약 페이지로 리다이렉트

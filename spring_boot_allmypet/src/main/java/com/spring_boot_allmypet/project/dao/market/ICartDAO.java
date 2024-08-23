@@ -20,4 +20,5 @@ public interface ICartDAO {
 	public void insertOrderInfo(OrderInfoVO ordInfoVo);	// 주문 정보 저장
 	public void insertOrderProduct(HashMap<String, Object> map);	// 주문 상품 정보 저장
 	public void deleteCartAfterOrder(String memId);	// 주문 후 장바구니 내용 비우기(삭제)
+	public void deleteCartItem(String memId, String prdNo);
 }

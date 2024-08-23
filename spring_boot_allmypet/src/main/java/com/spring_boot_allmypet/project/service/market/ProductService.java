@@ -69,4 +69,5 @@ public class ProductService implements IProductService {
 	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, String prdCtgNo, int startRange, int endRange) {
         return dao.listProductsByCtg(petCtgNo, prdCtgNo, startRange, endRange);
     }
+	
 }

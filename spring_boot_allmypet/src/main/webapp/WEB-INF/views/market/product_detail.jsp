@@ -19,7 +19,7 @@
             <img class="product-image" src="<c:url value='/image/market/${prd.prdImg }'/>"/>
             <div class="product-info">
                 <div class="info-item">${prd.prdName }</div>
-                <div class="info-item"><fmt:formatNumber value= "${prdVo.prdPrice}" pattern="#,###" />원</div>
+                <div class="info-item"><fmt:formatNumber value= "${prd.prdPrice}" pattern="#,###" />원</div>
                 <div class="info-item">${prd.prdCompany }</div>
                 <div class="info-item">
                     <div class="quantity-control">수량 &nbsp;&nbsp; 
@@ -29,7 +29,6 @@
                 	</div>
                 </div><br>
                 
-                <div class="info-item">총 가격</div><br>
                 <div class="info-item">
                 	<input class="detail_btn" type="submit" id="insertCart" value="장바구니 담기"><br>
                 	<input class="detail_btn" type="submit" id="insertOrder" value="즉시 구매"

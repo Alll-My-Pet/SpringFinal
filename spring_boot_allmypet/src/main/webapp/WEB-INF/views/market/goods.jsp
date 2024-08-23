@@ -61,6 +61,7 @@
                 </a>
             </div>
             </div>
+             <button onclick="showAllProducts()">전체목록 보기</button>
             <br><br><br>
         </div> <!-- 첫 번째 행 끝 -->
             
@@ -90,6 +91,12 @@ function filterProducts() {
         url += '?prdCtgNo=' + prdCtgNo;
     }
     window.location.href = url;
+}
+
+function showAllProducts() {
+    let url = '/market/goods';
+    
+    window.location.href = url; 
 }
 </script>
 </html>

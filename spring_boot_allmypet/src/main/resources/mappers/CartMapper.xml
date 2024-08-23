@@ -65,6 +65,11 @@
     <delete id="deleteCartAfterOrder" parameterType="string">
         DELETE FROM cart WHERE memId = #{memId}
     </delete>
+    
+    <delete id="deleteCartItem">
+    DELETE FROM Cart
+    WHERE memId = #{memId} AND prdNo = #{prdNo}
+	</delete>
 </mapper>
 
   

@@ -9,7 +9,6 @@
 		<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product.css'/>" />
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-	<!--<script src="<c:url value='/js/list.js'/>"></script> -->
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -114,6 +113,7 @@
                 <label><input type="checkbox" name="prdCtgNo" value="3" onchange="filterProducts()">목욕용품</label>
                 <label><input type="checkbox" name="prdCtgNo" value="4" onchange="filterProducts()">사육장</label>
                 
+                 <button onclick="showAllProducts()">전체목록 보기</button>
             </div>
             <p class="product_total">전체상품 000개</p>
             
@@ -144,6 +144,12 @@ function filterProducts() {
         url += (petCtgNo ? '&' : '?') + 'prdCtgNo=' + prdCtgNo;
     }
     window.location.href = url;
+}
+
+function showAllProducts() {
+    let url = '/market/product';
+    
+    window.location.href = url; 
 }
 </script>
 </html>
