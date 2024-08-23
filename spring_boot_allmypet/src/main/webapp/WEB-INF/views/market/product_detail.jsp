@@ -43,7 +43,9 @@
         </div>
         <div class="product-description">
             <div class="description-item">
-            <a id="#1">상세정보</a> 내용</div>
+            <a id="#1">
+            <img class="product-image" src="<c:url value='/image/market/${prd.prdDescript }'/>"/>
+			</a></div>
             <div class="description-item">
             <a id="#2">이용후기</a> 내용</div>
         </div>
