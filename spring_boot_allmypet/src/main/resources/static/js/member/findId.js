@@ -4,14 +4,14 @@ $(function() {
         $.ajax({
             url: '/member/findId',
             type: "post",
-            data: { "memName": $('#memName').val(),
-            		"memHP": $('#memHP').val(),
-            		"memEmail": $('#memEmail').val()},
+            data: { "memName": $('#memName').val(), 
+            		"memEmail": $('#memEmail').val(), 
+            		"memHP": $('#memHP').val()},
             dataType: 'text',
             success: function(result) {
                     if ( result != "") {
                         alert('찾은 아이디: ' + result);
-						let username = window.opener.document.getElementById('username');
+						let username = window.opener.document.getElementById('memId');
                         username.value = result;
                         window.close();
                         //location.href="/loginAfterFindId/" + result;

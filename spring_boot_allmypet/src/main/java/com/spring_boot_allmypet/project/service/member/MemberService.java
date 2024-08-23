@@ -26,6 +26,7 @@ public class MemberService implements IMemberService {
 		vo.setMemPwd(encodedPwd);
 		dao.insertMember(vo);
 	}
+	
 	// 아이디 확인
 	@Override
 	public String memIdCheck(String id) {

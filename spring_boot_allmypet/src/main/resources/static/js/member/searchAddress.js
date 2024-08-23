@@ -16,11 +16,11 @@
   				}
   			
   				// 입력란에 우편번호, 주소1 출력 
-  				document.getElementById('adress1').value = data.zonecode;
-  				document.getElementById('adress2').value = address1;
+  				document.getElementById('memZipcode').value = data.zonecode;
+  				document.getElementById('memAddress1').value = address1;
   				
   				// address2에 입력 시 이미 입력되어 있는 값 삭제하고 포커스
-  				let address2 = document.getElementById('adress3');
+  				let address2 = document.getElementById('memAddress2');
   				address2.value = "";
   				address2.focus();
   			}  		

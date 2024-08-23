@@ -46,11 +46,11 @@ public class MemberRestController {
 	}
 	
 	@RequestMapping("/member/nnCheck")
-	public String NNCheck(@RequestParam("memNN") String memNN) {
-		String memNN_result=memService.memNNCheck(memNN);
+	public String NNCheck(@RequestParam("memNickName") String memNickName) {
+		String memNickName_result=memService.memNNCheck(memNickName);
 		String result="fail";
 		
-		if(memNN_result == null) {
+		if(memNickName_result == null) {
 			result ="success";
 		}
 		

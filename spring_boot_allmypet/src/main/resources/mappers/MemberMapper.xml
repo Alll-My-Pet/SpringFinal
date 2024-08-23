@@ -8,7 +8,7 @@
   		<result property="memId" column="memId"  />
   		<result property="memPw" column="memPwd"  />
   		<result property="memName" column="memName"  />
-  		<result property="memName" column="memNickName"  />
+  		<result property="memNickName" column="memNickName"  />
   		<result property="memEmail" column="memEmail"  />
   		<result property="memHP" column="memHP"  />
   		<result property="memZipcode" column="memZipcode"  />

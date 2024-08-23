@@ -117,7 +117,7 @@ input::placeholder {
 .findBtn {
 	border: none;
 	padding: 15px 70px;
-	border-radius: 8px;
+	border-radius: 10px;
 	display: block;
 	margin: auto;
 	color: #fff;
