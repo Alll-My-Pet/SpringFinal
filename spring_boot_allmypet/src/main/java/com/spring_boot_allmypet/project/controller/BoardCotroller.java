@@ -51,32 +51,32 @@ public class BoardCotroller {
 	}
 	
 	
-	@RequestMapping("/board/protect")
+	@RequestMapping("/Board/Protect")
 	public String Protect() {
 		return "board/petProtectBoard";
 	}
 	
-	@RequestMapping("/board/freeBoard")
+	@RequestMapping("/Board/FreeBoard")
 	public String FreeBoard() {
 		return "board/freeBoard";
 	}
 	
-	@RequestMapping("/board/promoteBoard")
+	@RequestMapping("/Board/PromoteBoard")
 	public String PromoteBoard() {
 		return "board/petPromoteBoard";
 	}
 	
-	@RequestMapping("/board/noticeBoard")
+	@RequestMapping("/Board/NoticeBoard")
 	public String NoticeBoard() {
 		return "board/noticeBoard";
 	}
 	
-	@RequestMapping("/board/freeBoardDetail")
+	@RequestMapping("/Board/FreeBoardDetail")
 	public String FreeBoardDetail() {
 		return "board/freeBoardDetail";
 	}
 	
-	@RequestMapping("/board/mainDetail")
+	@RequestMapping("/Board/MainDetail")
 	public String MainDetail() {
 		return "board/mainDetail";
 	}
