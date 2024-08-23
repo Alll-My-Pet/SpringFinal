@@ -91,7 +91,7 @@
 				<a href="#">정보게시판</a>
 				<div class="dropdown-menu">
 					<a href="#">사육 기본정보</a> 
-					<a href="<c:url value='/board/tipBoard'/>">베스트 양육팁</a>
+					<a href="<c:url value='/board/bestTipBoard'/>">베스트 양육팁</a>
 				</div>
 			</div>
 			<div class="navigation-pill">

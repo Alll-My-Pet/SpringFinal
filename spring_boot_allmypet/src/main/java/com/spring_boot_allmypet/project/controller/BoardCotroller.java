@@ -81,12 +81,12 @@ public class BoardCotroller {
 		return "board/mainDetail";
 	}
 	
-	@RequestMapping("/board/tipBoard")
+	@RequestMapping("/board/bestTipBoard")
 	public String TipBoard() {
 		return "board/bestTipBoard";
 	}
 	
-	@RequestMapping("/board/tipDetail")
+	@RequestMapping("/board/bestTipDetail")
 	public String TipDetail() {
 		return "board/bestTipDetail";
 	}
