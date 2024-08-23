@@ -7,16 +7,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>상품 상세 페이지</title>
-	<link rel="stylesheet" type="text/css" href="<c:url value='/css/product_detail.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product_detail.css'/>" />
+	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+	<script src="<c:url value='/js/market/product_detail.js'/>"></script>
 </head>
 <body>
+<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
 	<form method="post" action="<c:url value='/market/product/insertCart'/>">
     <div class="container">
         <div class="product-detail">
-            <img class="product-image" src="<c:url value='/image/${prd.prdImg }'/>"/>
+            <img class="product-image" src="<c:url value='/image/market/${prd.prdImg }'/>"/>
             <div class="product-info">
                 <div class="info-item">${prd.prdName }</div>
-                <div class="info-item"><fmt:formatNumber value= "${prdVo.prdPrice}" pattern="#,###" />원</div>
+                <div class="info-item"><fmt:formatNumber value= "${prd.prdPrice}" pattern="#,###" />원</div>
                 <div class="info-item">${prd.prdCompany }</div>
                 <div class="info-item">
                     <div class="quantity-control">수량 &nbsp;&nbsp; 
@@ -26,14 +29,13 @@
                 	</div>
                 </div><br>
                 
-                <div class="info-item">총 가격</div><br>
                 <div class="info-item">
                 	<input class="detail_btn" type="submit" id="insertCart" value="장바구니 담기"><br>
                 	<input class="detail_btn" type="submit" id="insertOrder" value="즉시 구매"
                 	 onclick="location.href='<c:url value='/market/order'/>'">
                 </div>
             </div>
-            <input type="hidden" name="memId" value="abcd">
+            <input type="hidden" name="memId" value="${memVo.memId}">
             <input type="hidden" name="prdNo" value="${prd.prdNo}">
         </div>
         <div class="product-tabs">
@@ -47,36 +49,6 @@
         </div>
     </div>
     </form>
+    <c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 </body>
-<script type="text/javascript">
-const increaseButtons = document.querySelectorAll('.quantity-btn.increase');
-const decreaseButtons = document.querySelectorAll('.quantity-btn.decrease');
-
-increaseButtons.forEach(button => {
-    button.addEventListener('click', function () {
-        const quantityInput = this.previousElementSibling;
-        let quantity = parseInt(quantityInput.value);
-        quantityInput.value = quantity + 1;
-    });
-});
-
-decreaseButtons.forEach(button => {
-    button.addEventListener('click', function () {
-        const quantityInput = this.nextElementSibling;
-        let quantity = parseInt(quantityInput.value);
-        if (quantity > 1) {
-            quantityInput.value = quantity - 1;
-        }
-    });
-});
-
-document.querySelector('.detail_btn').addEventListener('click', function() {
-    // Confirm dialog
-    let confirmMove = confirm("장바구니 담기 완료. 장바구니로 이동하시겠습니까?");
-    if (confirmMove) {
-        // If the user clicks "예", redirect to /market/cart
-        window.location.href = '/market/cart/${prd.prdNo}';
-    }
-});
-</script>
 </html>

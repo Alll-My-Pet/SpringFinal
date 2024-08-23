@@ -32,9 +32,15 @@
 				<div class="contents">
 					<br><br>
 					<div class="pageInfo">
+						<div class="bracket">
+							<img src="/image/index/bracket-light-left.svg" class="bLeft" alt="..." style="height: 128px;">
+						</div>
 						<div class="page-title">
 							<div class="titleInfo">반려동물 이름짓기 어려울땐?</div>
 							<span class="ctgTitle"> 반려동물 작명소 </span>
+						</div>
+						<div class="bracket">
+							<img src="/image/index/bracket-light-right.svg" class="bRight" alt="..." style="height: 128px;">
 						</div>
 					</div>
 					<!-- pageInfo끝 -->

@@ -17,21 +17,22 @@ public class CartService implements ICartService {
 	@Autowired
 	@Qualifier("ICartDAO")
 	ICartDAO dao;
-	
+
 	@Override
 	public void insertCart(CartVO vo) {
 		dao.insertCart(vo);
 	}
 
-	/*
-	 * @Override public int checkPrdInCart(String prdNo, String memId) { // 장바구니에 동일
-	 * 상품이 존재하는지 여부 확인 // 존재하면 mapper로부터 동일 상품 개수 반환 받아서 컨트롤러에게 반환 // mapper에게는
-	 * 매개변수가 2개인 경우에는 HashMap으로 전달해야 하기 때문에 // prdNo와 memId를 HashMap에 넣음
-	 * HashMap<String, Object> map = new HashMap<String, Object>(); map.put("prdNo",
-	 * prdNo); map.put("memId", memId);
-	 * 
-	 * return dao.checkPrdInCart(map); }
-	 */
+	
+	  @Override public int checkPrdInCart(String prdNo, String memId) { 
+		  // 장바구니에 동일  상품이 존재하는지 여부 확인 // 존재하면 mapper로부터 동일 상품 개수 반환 받아서 컨트롤러에게 반환 
+		  // mapper에게는 매개변수가 2개인 경우에는 HashMap으로 전달해야 하기 때문에 prdNo와 memId를 HashMap에 넣음
+	  HashMap<String, Object> map = new HashMap<String, Object>(); map.put("prdNo", prdNo); 
+	  map.put("memId", memId);
+	  
+	  return dao.checkPrdInCart(map); 
+	  }
+	 
 
 	@Override
 	public void updateQtyInCart(CartVO vo) {
@@ -39,7 +40,7 @@ public class CartService implements ICartService {
 	}
 
 	@Override
-	public ArrayList<CartVO> cartList(String memId) {		
+	public ArrayList<CartVO> cartList(String memId) {
 		return dao.cartList(memId);
 	}
 
@@ -47,22 +48,24 @@ public class CartService implements ICartService {
 	public void deleteCart(ArrayList<String> chkArr) {
 		dao.deleteCart(chkArr);
 	}
-	
+
 	@Override
 	public void deleteCartAfterOrder(String memId) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
 	
-	/*
-	 * @Override public MemberVO getMemberInfo(String memId) { return
-	 * dao.getMemberInfo(memId); }
-	 */	
+	  @Override 
+	  public MemberVO getMemberInfo(String memId) { 
+		  return dao.getMemberInfo(memId); 
+	  }
+	 
 	@Override
 	public void insertOrderInfo(OrderInfoVO ordInfoVo) {
 		// (1) 주문 정보 저장 (order_info 테이블에 저장)
 		dao.insertOrderInfo(ordInfoVo);
-		
+
 		// (2) 주문 상품 내용 저장 (order_product 테이블에 저장
 		// mapper에서 cart 테이블에서 order_product 테이블로 저장
 		// cart에서 가져오기 위해 memId와 주문번호(ordNo) 필요
@@ -70,29 +73,31 @@ public class CartService implements ICartService {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("ordNo", ordInfoVo.getOrdNo());
 		map.put("memId", ordInfoVo.getMemId());
-		dao.insertOrderProduct(map); // mapper에게 전달
 		
-		// (3) 주문 완료 후 장바구니 비우기 : memId 전달 
+		dao.insertOrderProduct(map); // mapper에게 전달
+
+		// (3) 주문 완료 후 장바구니 비우기 : memId 전달
 		dao.deleteCartAfterOrder(ordInfoVo.getMemId());
 	}
-	
+
 	@Override
 	public void insertOrderProduct(HashMap<String, Object> map) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	@Override
 	public void updateCart(CartVO vo) {
-		dao.updateCart(vo);		
+		dao.updateCart(vo);
+	}
+	
+	public void deleteCartItem(String memId, String prdNo) {
+	    dao.deleteCartItem(memId, prdNo);
 	}
 
-	@Override
-	public MemberVO getMemberInfo(String memId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
+	/*
+	 * @Override public MemberVO getMemberInfo(String memId) { // TODO
+	 * Auto-generated method stub return null; }
+	 */
 
 }

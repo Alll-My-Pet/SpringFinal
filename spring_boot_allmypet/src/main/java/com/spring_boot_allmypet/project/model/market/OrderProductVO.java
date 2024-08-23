@@ -1,14 +1,28 @@
 package com.spring_boot_allmypet.project.model.market;
 
 public class OrderProductVO {
-	public String ordNo;
+	public int ordProductNo;
+	public int ordNo;
 	public String prdNo;
 	public int ordQty;
+	public ProductVO productDetails;
 	
-	public String getOrdNo() {
+	public ProductVO getProductDetails() {
+		return productDetails;
+	}
+	public void setProductDetails(ProductVO productDetails) {
+		this.productDetails = productDetails;
+	}
+	public int getOrdProductNo() {
+		return ordProductNo;
+	}
+	public void setOrdProductNo(int ordProductNo) {
+		this.ordProductNo = ordProductNo;
+	}
+	public int getOrdNo() {
 		return ordNo;
 	}
-	public void setOrdNo(String ordNo) {
+	public void setOrdNo(int ordNo) {
 		this.ordNo = ordNo;
 	}
 	public String getPrdNo() {
@@ -23,4 +37,7 @@ public class OrderProductVO {
 	public void setOrdQty(int ordQty) {
 		this.ordQty = ordQty;
 	}
+	
+	
+	
 }

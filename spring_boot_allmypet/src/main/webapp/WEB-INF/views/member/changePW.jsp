@@ -8,7 +8,7 @@
 		<title>비밀번호 찾기</title>
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/change.css">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/change.css'/>">
 	</head>
 	<body>
 	<section class="changePW">
@@ -31,13 +31,14 @@
 						<td><input type="password" id="pwcheck" name="pwcheck" class="text">
 						<span class="error-message" id="pwcheckError"></span></td></tr>
 				</table>
+				<div id="changePWsubmit">
+					<input type="submit" class="changePWBtn" value="변경">
+				</div>
 				</form>
 			</div>
 		</div>
-		<div id="changePWsubmit">
-			<button class="changePWBtn" type="submit">변경</button>
-		</div>
 	</section>
 	<!-- bottom -->
+	<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

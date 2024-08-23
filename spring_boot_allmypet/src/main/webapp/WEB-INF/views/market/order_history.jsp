@@ -1,59 +1,68 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 <title>주문/결제</title>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/order_history.css'/>" />
-	</head>
-	<body>
-		<section class="">
-		    <div class="container">
-        <div class="header">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/order_history.css'/>" />
+</head>
+<body>
+<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
+    <div class="order-container">
+    	<div class="header">
             <h1>주문 내역</h1>
         </div>
-        <div class="filter-grid">
-                <input type="checkbox" name="total">전체
-                <input type="checkbox" name="1">6개월 이내
-                <input type="checkbox" name="2">1년 이내
-                <input type="checkbox" name="3">2년 이내
+		<div class="filter-grid">
+    			<form id="filterForm" method="get" action="<c:url value='/market/order/history'/>">
+        		<input type="radio" name="filter" value="all" checked>전체
+        		<input type="radio" name="filter" value="6months">6개월 이내
+        		<input type="radio" name="filter" value="1year">1년 이내
+        		<input type="radio" name="filter" value="2years">2년 이내
+        		<button type="submit">조회</button>
+    			</form>
+		</div>
+		
+		<c:forEach var="order" items="${orderList}">
+        <div class="order">
+            <h3>${order.ordDate} 주문</h3>
+           	 <c:forEach var="product" items="${order.orderProducts}">
+            <div class="order-item">
+            	<div class="status">
+              	<c:choose>
+                	<c:when test="${order.ordState}">배송완료</c:when>
+                	<c:otherwise>배송중</c:otherwise>
+				</c:choose>  
+				</div>
+                <div class="product-info">
+                <img class="order_image" src="<c:url value='/image/market/${product.productDetails.prdImg}'/>"/>
+                     <p>${product.productDetails.prdName}
+                    <br>
+                    <fmt:formatNumber value= "${product.productDetails.prdPrice}" pattern="#,###" />원
+                    <br>
+                    ${product.ordQty}개</p>
+                </div>
+                <div class="order_buttons">
+                    <button>배송조회</button>
+ 	                <c:choose>
+	                	<c:when test="${order.ordState}">
+                            <button>교환/반품 신청</button>
+                            <button>리뷰 작성</button>
+                        </c:when>
+                        <c:otherwise>
+                            <button>주문취소</button>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
                 
             </div>
-
-        <div class="order">
-            <img src="<c:url value='/image/logo.png'/>"/>
-            <div class="order-details">
-                <p>주문일자: ${ordVo.ordData}</p>
-                <p>상품명: ${prdVo.prdName}</p>
-                <p>가격: ${prdVo.prdPrice}*${cartVo.cartQty}</p>
-                <p>수량: ${ordVo.ordQty}개</p>
-            </div>
-            <div class="order-status">
-                <p>배송상태: ${ordVo.ordState}(배송중일 경우)</p>
-                <button>배송조회</button>
-                <button>주문취소</button>
-            </div>
+            </c:forEach>
         </div>
-
-        <div class="order">
-            <img src="<c:url value='/image/logo.png'/>"/>
-            <div class="order-details">
-                <p>주문일자: ${ordVo.ordData}</p>
-                <p>상품명: ${prdVo.prdName}</p>
-                <p>가격: ${prdVo.prdPrice}*${cartVo.cartQty}</p>
-                <p>수량: ${ordVo.ordQty}개</p>
-            </div>
-            <div class="order-status">
-                <p>배송상태: ${ordVo.ordState}(배송완료일 경우)</p>
-                <button>교환/반품 신청</button>
-                <button>리뷰 작성</button>
-            </div>
-        </div>
-
-
+        </c:forEach>
+	<c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
     </div>
-    </section>
-	</body>
+</body>
 </html>

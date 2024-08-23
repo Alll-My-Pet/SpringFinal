@@ -19,11 +19,17 @@
   		<result property="filtering" column="filtering"  />
   		
   	</resultMap>
+  	
   	<!-- 회원 가입 -->
   	<insert id="insertMember" parameterType="com.spring_boot_allmypet.project.model.member.MemberVO">
   		INSERT INTO member (memId, memPwd, memNickName, memName, memGen, memBirth, memEmail, memHP, memZipcode, memAddress1, memAddress2)
   		VALUES(#{memId},#{memPwd},#{memNickName},#{memName},#{memGen},#{memBirth},#{memEmail},#{memHP},#{memZipcode},#{memAddress1},#{memAddress2})
   	</insert>
+  	
+  	<!-- 로그인 -->
+  	<select id="login" parameterType="map" resultType="com.spring_boot_allmypet.project.model.member.MemberVO">
+  		SELECT * FROM member WHERE memId = #{memId} AND memPwd = #{memPwd}
+  	</select>
   	
   	<!-- 아이디 중복 확인 -->
   	<select id="memIdCheck" parameterType="string" resultType="string">
@@ -42,6 +48,17 @@
   	
   	<!-- 로그인 검사 -->
   	<select id="loginCheck" parameterType="string" resultType="string">
-  		SELECT memPwd FROM member WHERE memId=#{id}
+  		SELECT memPwd FROM member WHERE memId=#{memId}
   	</select>
+  	
+  	<!-- 아이디 찾기 -->
+  	<select id="findId" parameterType="map" resultType="string">
+  		SELECT memId FROM member WHERE memName=#{memName} AND memEmail = #{memEmail} AND memHP = #{memHP}
+  	</select>
+  	
+  	<!-- 비밀번호 찾기 -->
+  	<select id="findPwd" parameterType="map" resultType="string">
+  		SELECT findPwd FROM member WHERE memId=#{memId} AND memEmail = #{memEmail}
+  	</select>
+  	
   </mapper>
