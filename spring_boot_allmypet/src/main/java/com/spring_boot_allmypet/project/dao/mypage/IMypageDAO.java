@@ -47,5 +47,14 @@ public interface IMypageDAO {
 	public List<Map<String, Object>> myComments_only(String memId);
 	// 북마크 검색 조건 출력
 	public List<Map<String, Object>> myPosts_Comments_search(Map<String, Object> params);
-	
+	// 즐겨찾기 이모지 출력
+	public List<Map<String, Object>> emoji_favorites(String memId);
+	// 즐겨찾기 삭제
+	public void emoji_favorites_delete(Map<String, Object> params);
+	// 즐겨찾기 추가
+	public	void emoji_favorites_insert(Map<String, Object> params);
+	// 제작한 이모지 
+	public List<Map<String, Object>> emoji_my_edit(String memId);
+	// 구매한 이모지
+	public List<Map<String, Object>> emoji_my_purch(String memId);
 }

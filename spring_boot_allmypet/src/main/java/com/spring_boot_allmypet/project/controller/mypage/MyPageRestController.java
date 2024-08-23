@@ -217,10 +217,34 @@ public class MyPageRestController {
     @PostMapping("/mypage/post_comment/updateSearch")
     public Map<String, Object> post_comment_update_search(HttpSession session, @RequestParam("searchDiv") String searchDiv , @RequestParam("searchContents") String searchContents) {
     	String memId = (String) session.getAttribute("mid");
-    	 List<Map<String, Object>> postsComments = mypageService.myPosts_Comments_search(memId, searchDiv, searchContents);
+    	List<Map<String, Object>> postsComments = mypageService.myPosts_Comments_search(memId, searchDiv, searchContents);
     	
     	Map<String, Object> result = new HashMap<>();
     	result.put("postsComments", postsComments);
     	return result;
+    }
+    /* 즐겨찾기 추가 */
+    @PostMapping("/mypage/emoji/updateFavorites")
+    public Boolean updateFavorites(HttpSession session, @RequestParam("purchaseId") int purchaseId) {
+    	String memId = (String) session.getAttribute("mid");
+    	List<Map<String, Object>> emj_f_list = mypageService.emoji_favorites(memId);
+    	Boolean check=false; 
+    	Boolean fav = true;
+    	for (Map<String, Object> emj_f : emj_f_list) {
+        	if(purchaseId == (int) emj_f.get("purchaseId")) {
+        		fav=false;
+        	}
+        }
+    	if(fav) {
+    		mypageService.emoji_favorites_insert(memId, purchaseId);
+    		check = true;
+    	}
+    	return check;
+    }
+    /* 즐겨찾기 삭제 */
+    @PostMapping("/mypage/emoji/deleteFavorites")
+    public void deleteFavorites(HttpSession session, @RequestParam("purchaseId") int purchaseId) {
+    	String memId = (String) session.getAttribute("mid");
+    	mypageService.emoji_favorites_delete(memId, purchaseId);
     }
 }

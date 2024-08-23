@@ -15,7 +15,7 @@ import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
 public interface IMypageService {
 	// 내정보 출력
 	public MemberVO memInfoView(String mid);
-	// 내정보 수정
+	// 내정보 수정	// 구매한 이모지
 	public void updateMyInfo(MemberVO vo);
 	// 팻정보 출력
 	public ArrayList<PetVO> myPetList(String mid);
@@ -47,4 +47,14 @@ public interface IMypageService {
 	public List<Map<String, Object>> myComments_only(String memId);
 	// 북마크 검색 조건 출력
 	public List<Map<String, Object>> myPosts_Comments_search(String mid,String searchDiv,String searchContents);
+	// 즐겨찾기 이모지 출력
+	public List<Map<String, Object>> emoji_favorites(String memId);
+	// 즐겨찾기 이모지 삭제
+	public void emoji_favorites_delete(String mid, int purchaseId);
+	// 즐겨찾기 이모지 추가
+	public void emoji_favorites_insert(String mid, int purchaseId);
+	// 제작한 이모지
+	public List<Map<String, Object>> emoji_my_edit(String memId);
+	// 구매한 이모지
+	public List<Map<String, Object>> emoji_my_purch(String memId);
 }

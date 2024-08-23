@@ -134,4 +134,35 @@ public class MypageService implements IMypageService {
         params.put("searchContents", searchContents);
 		return dao.myPosts_Comments_search(params);
 	}
+	// 이모지 즐겨찾기 출력
+	@Override
+	public List<Map<String, Object>> emoji_favorites(String memId) {
+		return dao.emoji_favorites(memId);
+	}
+	// 이모지 즐겨찾기 삭제
+	@Override
+	public void emoji_favorites_delete(String mid, int purchaseId) {
+		Map<String, Object> params = new HashMap<>();
+	    params.put("memId", mid);
+	    params.put("purchaseId", purchaseId);
+		dao.emoji_favorites_delete(params);
+	}
+	// 이모지 즐겨찾기 추가
+	@Override
+	public void emoji_favorites_insert(String mid, int purchaseId) {
+		Map<String, Object> params = new HashMap<>();
+	    params.put("memId", mid);
+	    params.put("purchaseId", purchaseId);
+	    dao.emoji_favorites_insert(params);
+	}
+	// 제작한 이모지
+	@Override
+	public List<Map<String, Object>> emoji_my_edit(String memId) {
+		return dao.emoji_my_edit(memId);
+	}
+	// 구매한 이모지
+	@Override
+	public List<Map<String, Object>> emoji_my_purch(String memId) {
+		return dao.emoji_my_purch(memId);
+	}
 }
