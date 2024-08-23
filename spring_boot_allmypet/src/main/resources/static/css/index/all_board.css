@@ -10,12 +10,12 @@
     width: 713px;
     height: 770px;
     margin: 0 auto;
-    background-color: #a1d5e3;
+    /* background-color: #a1d5e3; */
 }
 
 /* 이번달 BEST 사진 + 최고의 이모지 */
 .all-board .photo-Emoji {
-    background-color: rgb(170, 242, 218);
+   /*  background-color: rgb(170, 242, 218); */
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
@@ -50,7 +50,7 @@
 /**************************************/
 /* post-board : 공지 / 핫한 게시글 / 자유게시판 전부 포함한 컨테이너 */
 .all-board .post-board {
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
     display: flex;
     flex-direction: row;
     margin: 0 auto;
@@ -65,7 +65,7 @@
 .general-board .board-title,
 .hot-board .board-title {
     border-radius: 2px;
-    background: #F4BAD2;
+    background: #F2F2F2;
     margin: 0 auto;
     margin-bottom: 2px;
     padding: 8px 8px 7px 8px;
@@ -98,7 +98,7 @@
 
 /* 공지 사항 */
 .notice-event-board .notice-zone {
-    background: rgb(191, 171, 212);
+    /* background: rgb(191, 171, 212); */
     margin-top: 5px;
     margin-bottom: 10px;
     display: flex;
@@ -110,7 +110,7 @@
 }
 
 .notice-zone .board-header {
-    background: #A5C6E6;
+    /* background: #A5C6E6; */
     margin: 0 auto;
     padding: 4px 4px;
     width: 100%;
@@ -144,18 +144,18 @@
     /* Flexbox로 설정 */
     align-items: center;
     /* 수직 중앙 정렬 */
-    border: 1px solid #010000;
-    border-radius: 5px;
+    border-bottom: 1px solid #BDBDBD;
+    /* border-radius: 5px; */
     /* 각 게시글 구분을 위한 하단 테두리 */
     padding: 5px 0;
     /* 게시글 간의 패딩 */
     width: 319px;
-    height: 23px;
+   /*  height: 23px; */
 }
 
 .post .post-title {
     width: 185px;
-    background-color: #A5C6E6;
+   /*  background-color: #A5C6E6; */
     margin-left: 2px;
     font-size: 14px;
     white-space: nowrap;
@@ -167,7 +167,7 @@
 }
 
 .post .post-author {
-    background-color: #d1a7f3;
+    /* background-color: #d1a7f3; */
     text-align: center;
     width: 68px;
     font-size: 12px;
@@ -181,7 +181,7 @@
 }
 
 .post .post-date {
-    background-color: aquamarine;
+   /*  background-color: aquamarine; */
     text-align: center;
     margin-right: 2px;
     width: 63px;
@@ -198,7 +198,7 @@
 
 /* 다가오는 행사 및 이벤트 */
 .notice-event-board .event-zone {
-    background: rgb(191, 171, 212);
+    /* background: rgb(191, 171, 212); */
     display: flex;
     flex-direction: column;
     padding: 3px 2px 2px 2px;
@@ -208,7 +208,7 @@
 }
 
 .event-zone .board-header {
-    background: #A5C6E6;
+    /* background: #A5C6E6; */
     margin: 0 auto;
     padding: 4px 4px;
     width: 100%;
@@ -223,7 +223,9 @@
     width: 324px;
     height: 100%;
     box-sizing: border-box;
-    background-color: rgb(241, 250, 192);
+    /* background-color: rgb(241, 250, 192); */
+    border: 1px solid #F2F2F2;
+    border-radius: 10px;
 }
 
 /* 이벤트 상세 페이지로 이동하는 링크 */
@@ -238,7 +240,7 @@
 /* 카드 간의 간격 10px */
 .event-content .event-info-2,
 .event-content .event-info-1 {
-    background: rgb(112, 233, 96);
+    /* background: rgb(112, 233, 96); */
     width: 157px;
     height: 105px;
     padding: 1px 1px;
@@ -280,7 +282,7 @@
 .post-board .community-board {
     display: flex;
     flex-direction: column;
-    background-color: rgb(245, 210, 231);
+    /* background-color: rgb(245, 210, 231); */
     width: 326px;
     align-items: center;
     box-sizing: border-box;

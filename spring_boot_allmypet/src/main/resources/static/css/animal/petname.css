@@ -5,6 +5,7 @@
 /* ********************* */
 /* pageInfo: 페이지 설명 + 페이지 제목*/
 .contents .pageInfo {
+	/* background: #B5CCAB; */
     display: flex;
     flex-direction: column;
     /* 수직으로 정렬 */
@@ -14,12 +15,12 @@
     /* 원하는 너비 설정 */
     box-sizing: border-box;
     margin: 0 auto;
+    margin-bottom: 40px;
     /* 여백 설정 */
 }
 
 /* page-title: 페이지 설명 + 페이지 제목 만 포함 */
 .pageInfo .page-title {
-    background: #B5CCAB;
     display: flex;
     flex-direction: column;
     padding: 18.5px 22px 11.5px 21px;
@@ -32,6 +33,7 @@
     font-size: 43px;
     line-height: 1;
     color: #000000;
+    margin: 0 auto;
 }
 
 .page-title .titleInfo {
@@ -43,6 +45,34 @@
     font-size: 15px;
     line-height: 1;
     color: rgba(0, 0, 0, 0.39);
+    margin: 10px auto;
+}
+
+.bracket {
+	width: fit-content;
+	height: fit-content;	
+}
+
+.bLeft {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    left: -50px;
+    /* 부모의 왼쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
+}
+
+.bRight {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    right: -50px;
+    /* 부모의 오른쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
 }
 
 /* ************** */
@@ -123,7 +153,7 @@ input:hover::placeholder {
 .form-container {
     width: fit-content;
     height: fit-content;
-    background-color: #B5CCAB;
+   /*  background-color: #B5CCAB; */
     margin: 20px auto;
 }
 
@@ -198,7 +228,7 @@ input:hover::placeholder {
 }
 
 .resultContainer .nameOutput {
-    background: #B5CCAB;
+    /* background: #B5CCAB; */
     margin: 30px auto;
     width: 310px;
     height: 172px;

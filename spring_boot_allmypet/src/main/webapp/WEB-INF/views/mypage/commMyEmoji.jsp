@@ -11,6 +11,8 @@
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/commControl.css'/>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/mypage/commMyEmoji.js'/>"></script>
 	</head>
 	<body>
 		<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -42,36 +44,66 @@
 					<!-- 추후 c:foreach 로 가능할지 봐야 할 부분 tr별로 5개씩 가능할 꺼로 보임-->
 					<div id="mej_favorites_b">
 						<table id="mej_favorites_table">
-							<tr class="mej_favorites_tr">
-								<c:forEach var="i" begin="1" end="5">
-									<td class="mej_favorites_td">
-									<div class="mej_favorites_mdiv">
-										<div class="mej_favorites_cancel"><i class="fa-duotone fa-solid fa-xmark"></i></div>
-										<div class="mej_favorites_img"><img src=""></div>
-										<div class="mej_favorites_info">
-											<div class="mej_favorites_name">이름</div>
-											<div class="mej_favorites_prod">제작자</div>
-											<div class="mej_favorites_count">사용 횟수</div>
-										</div>
-									</div>
-								</td>
-								</c:forEach>
-							</tr>
-							<tr class="mej_favorites_tr">
-								<c:forEach var="i" begin="1" end="5">
-									<td class="mej_favorites_td">
-										<div class="mej_favorites_mdiv">
-											<div class="mej_favorites_cancel"><i class="fa-duotone fa-solid fa-xmark"></i></div>
-											<div class="mej_favorites_img"><img src=""></div>
-											<div class="mej_favorites_info">
-												<div class="mej_favorites_name">이름</div>
-												<div class="mej_favorites_prod">제작자</div>
-												<div class="mej_favorites_count">사용 횟수</div>
-											</div>
-										</div>
-									</td>
-								</c:forEach>
-							</tr>
+						    <c:if test="${not empty emj_f_List}">
+						        <c:set var="count" value="0" />
+						        <tr>
+						            <c:forEach var="emj_f" items="${emj_f_List}">
+						                <td class="mej_favorites_td">
+						                    <div class="mej_favorites_mdiv">
+						                        <div class="mej_favorites_cancel" data-emjno ="${emj_f.purchaseId }"><i class="fa-duotone fa-solid fa-xmark"></i></div>
+						                        <div class="mej_favorites_img emj_div" ><img class="emj_img" src="<c:url value='/image/emoji/${emj_f.emoImg}'/>" alt="Emoji Image"></div>
+						                        <div class="mej_favorites_info">
+						                            <div class="mej_favorites_name inner_text_div">${emj_f.emoName}</div>
+						                            <div class="mej_favorites_prod inner_text_div">제작자 ${emj_f.emojiMemId}</div>
+						                            <div class="mej_favorites_count">사용 횟수 ${emj_f.useCount}회</div>
+						                        </div>
+						                    </div>
+						                </td>
+						                <c:set var="count" value="${count + 1}" />
+						                <c:if test="${count % 5 == 0}">
+						                    </tr><tr>
+						                </c:if>
+						            </c:forEach>
+						            
+						            <!-- 남은 셀을 빈 셀로 채우기 -->
+						            <c:if test="${count < 10}">
+						                <c:forEach var="i" begin="${count + 1}" end="10">
+						                    <td class="mej_favorites_td">
+						                        <div class="mej_favorites_mdiv">
+						                            <div class="mej_favorites_img"><img src="" ></div>
+						                            <div class="mej_favorites_info">
+						                                <div class="mej_favorites_name">이름</div>
+						                                <div class="mej_favorites_prod">제작자</div>
+						                                <div class="mej_favorites_count">사용 횟수</div>
+						                            </div>
+						                        </div>
+						                    </td>
+						                    <c:if test="${i % 5 == 0}">
+						                        </tr><tr>
+						                    </c:if>
+						                </c:forEach>
+						            </c:if>
+						        </tr>
+						    </c:if>
+					        <c:if test="${empty emj_f_List}">
+						        <tr>
+						            <c:forEach var="i" begin="1" end="10">
+						                <td class="mej_favorites_td">
+						                    <div class="mej_favorites_mdiv">
+						                        <div class="mej_favorites_img"><img src="" ></div>
+						                        <div class="mej_favorites_info">
+						                            <div class="mej_favorites_name">이름</div>
+						                            <div class="mej_favorites_prod">제작자</div>
+						                            <div class="mej_favorites_count">사용 횟수</div>
+						                        </div>
+						                    </div>
+						                </td>
+						                <c:if test="${i % 5 == 0}">
+						                    </tr><tr>
+						                </c:if>
+						            </c:forEach>
+						        </tr>
+						    </c:if>
 						</table>
 					</div>
 				</div>
@@ -86,23 +118,23 @@
 					</div>
 					<div id="mej_made_b" class="mej_list_total">
 						<div class="mej_list_div" class="mej_list_div">
-							<div class="mej_div_no">게시글 번호</div>
+							<div class="mej_div_no">바로가기</div>
 							<div class="mej_div_title">제목</div>
 							<div class="mej_div_date">등록일</div>
 							<div class="mej_div_preview">미리보기</div>
 							<div class="mej_div_check">승인여부</div>
 							<div class="mej_div_favorites">즐겨찾기</div>
 						</div>
-						<c:forEach var="i" begin="1" end="3"><!-- 추후 db값으로 변경 -->
+						<c:forEach var="emj_e" items="${emj_e_List }" end="2">
 							<div class="mej_list_post">
-						        <div class="mej_list_no">게시글 번호</div>
-						        <div class="mej_list_title">제목</div>
-						        <div class="mej_list_date">등록일</div>
+						        <div class="mej_list_no">${emj_e.emoNo }</div>
+						        <div class="mej_list_title">${emj_e.emoName }</div>
+						        <div class="mej_list_date">${emj_e.emoDate }</div>
 						        <div class="spacer"></div>
-						        <div class="mej_img_preview">사진</div>
+						        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/image/emoji/${emj_e.emoImg}'/>" alt="Emoji Image"></div>
 						        <div class="spacer"></div>
-						        <div class="mej_list_check">승인여부</div>
-						        <div class="mej_list_favorites">즐겨찾기</div>
+						        <div class="mej_list_check" >${emj_e.approvalStatus }</div>
+						        <div class="mej_list_favorites my_favorites_btn" data-emj-check ="${emj_e.approvalStatus }"  data-emo-no="${emj_e.purchaseId}">즐겨찾기</div>
 						    </div>
 						</c:forEach>
 					</div>
@@ -115,27 +147,25 @@
 					</div>
 					<div id="mej_purchased_b" class="mej_list_total">
 						<div class="mej_list_div">
-							<div class="mej_div_no">게시글 번호</div>
+							<div class="mej_div_no">바로가기</div>
 							<div class="mej_div_title">제목</div>
 							<div class="mej_div_date">구매일</div>
 							<div class="mej_div_preview">미리보기</div>
 							<div class="mej_div_check">사용 횟수</div>
 							<div class="mej_div_favorites">즐겨찾기</div>
 						</div>
-					<!-- 추후 c:foreach 로 변환 -->
-						<c:forEach var="i" begin="1" end="5" >
+						<c:forEach var="emj_p" items="${emj_p_List }" end="4" >
 							<div class="mej_list_post">
-						        <div class="mej_list_no">게시글 번호</div>
-						        <div class="mej_list_title">제목</div>
-						        <div class="mej_list_date">구매일</div>
+						        <div class="mej_list_no">${emj_p.emoNo }</div>
+						        <div class="mej_list_title">${emj_p.emoName }</div>
+						        <div class="mej_list_date">${emj_p.purchaseDate }</div>
 						        <div class="spacer"></div>
-						        <div class="mej_img_preview">사진</div>
+						        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/image/emoji/${emj_p.emoImg}'/>" alt="Emoji Image"></div>
 						        <div class="spacer"></div>
-						        <div class="mej_list_nou">사용횟수</div>
-						        <div class="mej_list_favorites">즐겨찾기</div>
+						        <div class="mej_list_nou">${emj_p.useCount }</div>
+						        <div class="mej_list_favorites purch_favorites_btn" data-emo-no="${emj_p.purchaseId}">즐겨찾기</div>
 						    </div>
 						</c:forEach>
-				    	<!-- 추후 변경  -->
 					</div>
 				</div>
 				

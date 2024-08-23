@@ -2,6 +2,7 @@ package com.spring_boot_allmypet.project.dao.mypage;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
@@ -38,5 +39,22 @@ public interface IMypageDAO {
 	public void blockList_update(Map<String, Object>params);
 	// 블락 리스트 검색
 	public ArrayList<HashMap<String, Object>>blockList_search(Map<String, Object> params);
-	
+	// 내가 쓴 글 댓글 출력
+	public List<Map<String, Object>> myPosts_Comments(String memId);
+	// 내가 쓴 글만 출력
+	public List<Map<String, Object>> myPosts_only(String memId);
+	// 내가 쓴 댓글만 출력
+	public List<Map<String, Object>> myComments_only(String memId);
+	// 북마크 검색 조건 출력
+	public List<Map<String, Object>> myPosts_Comments_search(Map<String, Object> params);
+	// 즐겨찾기 이모지 출력
+	public List<Map<String, Object>> emoji_favorites(String memId);
+	// 즐겨찾기 삭제
+	public void emoji_favorites_delete(Map<String, Object> params);
+	// 즐겨찾기 추가
+	public	void emoji_favorites_insert(Map<String, Object> params);
+	// 제작한 이모지 
+	public List<Map<String, Object>> emoji_my_edit(String memId);
+	// 구매한 이모지
+	public List<Map<String, Object>> emoji_my_purch(String memId);
 }

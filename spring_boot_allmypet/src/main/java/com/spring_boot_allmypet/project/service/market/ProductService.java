@@ -58,4 +58,16 @@ public class ProductService implements IProductService {
 	public ArrayList<ProductVO> ctgListProduct(String ctgId) {		
 		return dao.ctgListProduct(ctgId);
 	}
+	
+	public ArrayList<ProductVO> listProductsByCtgRange(int startCtg, int endCtg) {
+	    HashMap<String, Integer> ctgRange = new HashMap<>();
+	    ctgRange.put("startCtg", startCtg);
+	    ctgRange.put("endCtg", endCtg);
+	    return dao.listProductsByCtgRange(ctgRange);
+	}
+	
+	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, String prdCtgNo, int startRange, int endRange) {
+        return dao.listProductsByCtg(petCtgNo, prdCtgNo, startRange, endRange);
+    }
+	
 }

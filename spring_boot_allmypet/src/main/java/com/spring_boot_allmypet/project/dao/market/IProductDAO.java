@@ -28,4 +28,8 @@ public interface IProductDAO {
 	
 	// 새로 추가 : 카테고리별 상품 조회
 	public ArrayList<ProductVO> ctgListProduct(String prdCtgId);
+
+	public ArrayList<ProductVO> listProductsByCtgRange(HashMap<String, Integer> ctgRange);
+
+	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, String prdCtgNo, int startRange, int endRange);
 }

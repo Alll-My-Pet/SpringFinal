@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring_boot_allmypet.project.dao.market.IOrderDAO">
+
+    <select id="getMemberInfo" parameterType="java.lang.String"
+            resultType="com.spring_boot_allmypet.project.model.market.MemberVO">
+        SELECT memId, memName, memHP
+        FROM member
+        WHERE memId = #{memId}	
+    </select>
+ 	
+    <select id="getProductInfo" parameterType="java.lang.String"
+            resultType="com.spring_boot_allmypet.project.model.market.ProductVO">
+        SELECT *
+        FROM product
+        WHERE prdNo = #{prdNo}	
+    </select>
+  	
+    <insert id="insertOrderInfo" parameterType="com.spring_boot_allmypet.project.model.market.OrderInfoVO">
+        INSERT INTO order_info(ordNo, ordDate, memId, ordName, ordReceiver,
+                               ordAddress, ordHP, ordMsg, ordPay, ordPrice,
+                               ordState)
+        VALUES(#{ordNo}, #{ordDate}, #{memId}, #{ordName}, #{ordReceiver},
+               #{ordAddress}, #{ordHP}, #{ordMsg}, #{ordPay}, #{ordPrice},
+               #{ordState})
+    </insert>
+  	
+    <select id="getCartListByMemId" parameterType="java.lang.String" 
+            resultType="com.spring_boot_allmypet.project.model.market.CartVO">
+        SELECT * 
+        FROM cart
+        WHERE memId = #{memId}
+    </select>
+	
+    <select id="getLastOrderInfo" parameterType="java.lang.String" 
+            resultType="com.spring_boot_allmypet.project.model.market.OrderInfoVO">
+        SELECT *
+        FROM order_info
+        WHERE memId = #{memId}
+        ORDER BY ordNo DESC
+        LIMIT 1
+    </select>
+
+    <select id="getOrderHistory" parameterType="java.lang.String" 
+            resultType="com.spring_boot_allmypet.project.model.market.OrderInfoVO">
+        SELECT *
+        FROM order_info
+        WHERE memId = #{memId}
+        ORDER BY ordNo DESC
+    </select>
+    
+    <insert id="insertOrderProduct" parameterType="com.spring_boot_allmypet.project.model.market.OrderProductVO">
+        INSERT INTO order_product (ordNo, prdNo, ordQty)
+        VALUES (#{ordNo}, #{prdNo}, #{ordQty})
+    </insert>
+
+<select id="getLastOrderNoByMemId" parameterType="java.lang.String" 
+        resultType="java.lang.Integer">
+    SELECT ordNo
+    FROM order_info
+    WHERE memId = #{memId}
+    ORDER BY ordNo DESC
+    LIMIT 1
+</select>
+
+    <select id="getOrderProductsByOrderNo" parameterType="java.lang.Integer" 
+            resultType="com.spring_boot_allmypet.project.model.market.OrderProductVO">
+        SELECT op.*, p.prdName, p.prdImg
+        FROM order_product op
+        JOIN product p ON op.prdNo = p.prdNo
+        WHERE op.ordNo = #{ordNo}
+    </select>
+    
+<select id="getOrderHistoryByPeriod" parameterType="map" resultType="com.spring_boot_allmypet.project.model.market.OrderInfoVO">
+    SELECT *
+    FROM order_info
+    WHERE memId = #{memId}
+    AND ordDate >= #{startDate}
+    ORDER BY ordNo DESC
+</select>
+</mapper>

@@ -8,10 +8,12 @@
 		<meta charset="UTF-8">
 		<title>장바구니</title>
 		
-		<link rel="stylesheet" type="text/css" href="<c:url value='/css/cart.css'/>" />
-		
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/cart.css'/>" />
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/market/cart.js'/>"></script>
 	</head>
 	<body>
+	<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
 		<section class="cart">
         <div class="cart__information">
             <ul>
@@ -20,11 +22,11 @@
                 <li>오늘출발 상품은 판매자 설정 시점에 따라 오늘출발 여부가 변경될 수 있으니 주문 시 꼭 다시 확인해 주시기 바랍니다.</li>
             </ul>
         </div>
+        <form action="/market/order/" method="get">
         <table class="cart__list">
-            <form>
                 <thead>
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" class="select_all"></td>
                         <td colspan="2">상품정보</td>
                         <td>옵션</td>
                         <td>상품금액</td>
@@ -32,38 +34,39 @@
                     </tr>
                 </thead>
                 <tbody>
+                <c:set var = "total" value = "0" />
                 <c:forEach items="${cartList }" var="car">
                     <tr class="cart__list__detail">
-                        <td><input type="checkbox"></td>
-                        <td><img src="<c:url value='/image/logo.png'/>"/></td>
-                        <td><a href="#">${prd.prdCompany }</a><span class="cart__list__smartstore"> 스마트스토어</span>
-                            <p>${prd.prdName }</p>
-                            <sapn class="price"><fmt:formatNumber value= "${prdVo.prdPrice}" pattern="#,###" />원</sapn>
-                            <span style="text-decoration: line-through; color: lightgray;">119,000</span>
+                        <td><input type="checkbox" class="select" data-cartno="${car.cartNo}"></td>
+                        <td><img src="<c:url value='/image/market/${car.product.prdImg }'/>"/></td>
+                        <td>${car.product.prdCompany }</a>
+                            <p>${car.product.prdName }</p>
+                            <sapn class="price"><fmt:formatNumber value= "${car.product.prdPrice}" pattern="#,###" />원</sapn>
                         </td>
                         <td class="cart__list__option">
-                            <p>모델명 : 키보드 - 한국어 MK2A3KH/A / 1개</p>
+                            <p>제품명 : ${car.product.prdName} / ${car.cartQty}개</p>
                             <button class="cart__list__optionbtn" onclick="location.href='<c:url value='/market/product/detail'/>'">주문조건 추가/변경</button>
                         </td>
-                        <td><span class="price">116,620원</span><br>
-                            <button class="cart__list__orderbtn" onclick="location.href='<c:url value='/market/order'/>'">주문하기</button>
+                        <td><span class="price"><fmt:formatNumber value= "${car.product.prdPrice *car.cartQty}" pattern="#,###" />원</span><br>
+                        <c:set var= "total" value="${total + (car.product.prdPrice *car.cartQty)}"/>
+                            <button class="cart__list__orderbtn" onclick="location.href='<c:url value='/market/order'/>'">즉시구매</button>
                         </td>
                         <td>무료</td>
                     </tr>
                     </c:forEach>
-                    a
+                    
+                    
                 </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="3"><input type="checkbox"> <button class="cart__list__optionbtn">선택상품 삭제</button>
-                            <button class="cart__list__optionbtn">선택상품 찜</button>
+                        <td colspan="3">
+                        <button class="cart__list__optionbtn" name="del">선택상품 삭제</button>
                         </td>
                         <td></td>
                         <td></td>
                         <td></td>
                     </tr>
                 </tfoot>
-            </form>
         </table>
         <br>
         <br>
@@ -82,9 +85,11 @@
         </thead>
         <tbody>
             <tr>
-                <td class="order_kind">상품 가격</td>
+                <td class="order_kind">총 상품 가격</td>
                 <td>
-                    <div class=order_Pirce>0원</div>
+                    <div class=order_Pirce>
+                    	<fmt:formatNumber value= "${total}" pattern="#,###" />원
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -96,12 +101,20 @@
         
             <tr>
                 <td class="order_kind">적립 포인트</td>
-                <td><div class=order_Pirce>+0p</div></td>
+                <td>
+                	<div class=order_Pirce>
+						+<fmt:formatNumber value= "${total*0.02}" pattern="#,###" />p
+					</div>
+				</td>
             </tr>
             
             <tr>
                 <td class="order_kind">합계</td>
-                <td><div class=order_Pirce>0p원</div></td>
+                <td>
+					<div class=order_Pirce>
+                    	<fmt:formatNumber value= "${total}" pattern="#,###" />원
+                    </div>
+				</td>
             </tr>
           </tbody>
 		</table>
@@ -109,8 +122,10 @@
         
         <div class="cart__mainbtns">
             <button class="cart__bigorderbtn left" onclick="location.href='<c:url value='/market/home'/>'">쇼핑 계속하기</button>
-            <button class="cart__bigorderbtn right"  onclick="location.href='<c:url value='/market/order'/>'">주문하기</button>
+            <button class="cart__bigorderbtn right" type="submit">주문하기</button>
         </div>
+        </form>
     </section>
+    <c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

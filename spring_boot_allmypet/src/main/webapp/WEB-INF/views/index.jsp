@@ -29,6 +29,9 @@
 				</div>
 				<div class="contents">
 					<div class="pageInfo">
+						<div class="bracket">
+							<img src="image/index/bracket-light-left.svg" class="bLeft" alt="..." style="height: 128px;">
+						</div>
 						<div class="page-title">
 							<div class="titleInfo">다양한 반려동물 커뮤니티를 한 눈에!</div>
 							<span class="ctgTitle"> 동물별 커뮤니티 </span>
@@ -39,6 +42,9 @@
 						<!-- Modal 부착 -->
 						<div id="modal">
 							<c:import url="/WEB-INF/views/layout/modal.jsp"></c:import>
+						</div>
+						<div class="bracket">
+							<img src="image/index/bracket-light-right.svg" class="bRight" alt="..." style="height: 128px;">
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
@@ -208,7 +214,7 @@
 								</a>
 								<!-- 공지사항 -->
 								<div class="notice-zone">
-									<div class="board-header">공지사항</div>
+									<div class="board-header">[ 공지사항 ]</div>
 									<div class="notice-list">
 										<!-- post 디폴트: 링크 걸어둔 것 -->
 										<a href="게시판_상세.html" class="post">
@@ -256,7 +262,7 @@
 								</div>
 								<!-- 이벤트 게시판 -->
 								<div class="event-zone">
-									<div class="board-header">다가오는 행사 & 이벤트🎉</div>
+									<div class="board-header">[ 다가오는 행사 & 이벤트🎉 ]</div>
 									<div class="event-content">
 										<a href="이벤트_상세.html" class="event-info-1"> <img
 											src="image/index/event_img.jpg" class="event-img" alt="..."

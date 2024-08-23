@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,6 +13,8 @@
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/commControl.css'/>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/mypage/commMyPostComment.js'/>"></script>
 	</head>
 	<body>
 		<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -44,7 +48,7 @@
 							    <option value="writer">작성자</option>
 							</select>
 							<input type="text" class="mpc_search_text">
-							<i class="fa-solid fa-magnifying-glass search_btm"></i>
+							<i id="search_btn" class="fa-solid fa-magnifying-glass search_btm"></i>
 						</form>
 					</div>
 					<div id="mpc_post_lists">
@@ -54,17 +58,22 @@
 						    	<option value="mpc_type1">내 게시글</option>
 						    	<option value="mpc_type2">내 댓글</option>
 							</select>
-							<div id="mpc_title">제목</div>
-							<div id="mpc_writer" >작성자</div>
-							<div id="mpc_post_date">작성일</div>
+							<div id="mpc_title">제목/내용</div>
 							<div id="mpc_date">등록일</div>
 						</div>
-						<div class="mpc_post_list"> <!-- db에서 값 추출 작업 필요 -->
-							<div class="mpc_list_type">구분</div>
-							<div class="mpc_list_title inner_text_div">제목</div>
-							<div class="mpc_list_writer inner_text_div">작성자</div>
-							<div class="mpc_list_post_date">작성일</div>
-							<div class="mpc_list_date">등록일</div>
+						<div id="mpc_lists">
+							<c:if test="${not empty postsComments }">
+								<c:forEach var="pC" items="${postsComments }">
+									<c:set var="config" value="${pC.source_table=='comment'?'댓글':'게시글' }"/>
+									<div class="mpc_post_list"> <!-- db에서 값 추출 작업 필요 -->
+										<div class="mpc_list_type">${config }</div>
+										<div class="mpc_list_title inner_text_div">${pC.content }</div>
+										<div class="mpc_list_date">
+											<fmt:formatDate value="${pC.date}" pattern="yyyy-MM-dd HH:mm:ss"/>
+										</div>
+									</div>
+								</c:forEach>
+							</c:if>
 						</div>
 					</div>
 				</div>

@@ -6,6 +6,15 @@ public class CartVO {
 	public String prdNo;
 	public int cartQty;
 	
+	public ProductVO product;
+	
+	public ProductVO getProduct() {
+		return product;
+	}
+	public void setProduct(ProductVO product) {
+		this.product = product;
+	}
+	
 	public int getCartNo() {
 		return cartNo;
 	}

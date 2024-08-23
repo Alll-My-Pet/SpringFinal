@@ -9,7 +9,7 @@
 	background-color: white;
 	font-color: none;
 	background-image:
-		url('/pet_images/free-icon-search-interface-symbol-54481.png');
+		url('/project_images/free-icon-search-interface-symbol-54481.png');
 	background-size: cover; /* 이미지 크기를 버튼에 맞게 조정 */
 	background-repeat: no-repeat; /* 이미지 반복 방지 */
 	border: none; /* 버튼 테두리 제거 */
@@ -21,6 +21,19 @@
 
 .BoardSearchBtn:hover {
 	opacity: 0.8; /* 호버 시 투명도 조정 */
+}
+
+.mainWriteBtn{
+	width:150px;
+	height:30px;
+	background-color:white;
+	border-radius:5px;
+	margin-left:780px;
+	margin-top:40px;
+}
+
+.mainWriteBtn:hover{
+	background-color:skyblue;
 }
 
 .hotBoard {
@@ -59,7 +72,7 @@
 	background-color: skyblue;
 }
 
-#SearchBox {
+#keyword {
 	border-radius: 5px;
 	border-color: #01bffe;
 }
@@ -124,22 +137,26 @@
 	border: none;
 }
 
-.page-list {
-	padding: 0;
-	margin-top: 13px;
-}
 
-.page-list li {
-	display: inline-block;
-}
 
-.page-link {
-	color: black;
-	cursor: pointer;
-	font-size: 20px;
-	margin-left: 20px;
-}
+.paging a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px 10px;
+        margin: 0 5px;
+    }
 
-.page-link:hover {
-	background-color: #f2f2f2;
-}
+    /* 현재 페이지 강조 스타일 */
+.paging a.current {
+        font-weight: bold;
+        color: #ff5722; /* 강조 색상 */
+        border: 1px solid #ff5722; /* 강조 테두리 색상 */
+        border-radius: 5px;
+    }
+
+    /* 마우스 호버 효과 */
+.paging a:hover {
+        background-color: #e0e0e0; /* 호버 시 배경색 */
+        color: #333; /* 호버 시 텍스트 색상 */
+        border-radius: 5px; /* 호버 시 테두리 반경 */
+    }

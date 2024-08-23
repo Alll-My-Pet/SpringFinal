@@ -6,13 +6,26 @@
 	background-color:white;
 	border-radius:7px;
 	margin-top:30px;
-	margin-left:880px;
+	margin-left:380px;
 	
 }
 
-.FPhotoBtn{
+.MPhotoBtn{
 	 display: flex; /* 아이콘과 텍스트 정렬을 위해 flexbox 사용 */
      align-items: center; /* 세로 중앙 정렬 */
+}
+
+#mainWriteFont{
+	font-size:50px;
+	margin-left:500px;
+}
+
+.writeBox{
+	border:1px solid black;
+	width:900px;
+	height:900px;
+	margin:0 auto;
+	
 }
 
 .FreeDetail{
@@ -24,15 +37,7 @@
 	
 }
 
-.FreeDetailFont{
-	font-size:25px;
-	width:400px;
-	position:absolute;
-	top:90px;
-	left:510px;
-}
-
-.FreeDetailTitle{
+.MainDetailTitle{
 	width:800px;
 	height:30px;
 	border:1px solid black;
@@ -41,15 +46,35 @@
 	margin-top:50px;
 }
 
-.FreeDetailBody{
+.mainDetailBody{
     width:800px;
-    height:400px;
+    height:600px;
     border:1px solid black;
     margin-left:45px;
     margin-top:50px;
+}
+
+.mainPhotoBox{
+	width:100px;
+	margin-left:770px;
+	margin-top:40px;
 }
 
 #fileUpload {
    display: none;
 }
 
+.mainWriteFilter{
+	position:absolute;
+	width:120px;
+	height:30px;
+	top:330px;
+	left:550px;
+}
+
+.author{
+	width:200px;
+	position:absolute;
+	top:300px;
+	left:550px;
+}

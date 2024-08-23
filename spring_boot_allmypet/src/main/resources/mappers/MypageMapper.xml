@@ -206,5 +206,123 @@
 	    ORDER BY 
 	        bl.block_date DESC;
 	</select>
+	<!-- 내가 쓴 글 댓글 출력 -->
+	<select id="myPosts_Comments" parameterType="string" resultType="hashmap">
+		(
+        SELECT postNo AS id, postTitle AS content, postDate AS date, memId, 'bulletin_board' AS source_table
+        FROM bulletin_board
+        WHERE memId = #{memId}
+	    )
+	    UNION ALL
+	    (
+	        SELECT postNo AS id, postTitle AS content, postDate AS date, memId, 'post' AS source_table
+	        FROM post
+	        WHERE memId = #{memId}
+	    )
+	    UNION ALL
+	    (
+	        SELECT commentId AS id, commentText AS content, commentDate AS date, memId, 'comment' AS source_table
+	        FROM comment
+	        WHERE memId = #{memId}
+	    )
+	    ORDER BY date DESC;
+	</select>
+	<!-- 내가 쓴 글만 출력 -->
+	<select id="myPosts_only" parameterType="string" resultType="hashmap">
+		(
+        SELECT postNo AS id, postTitle AS content, postDate AS date, memId, 'bulletin_board' AS source_table
+        FROM bulletin_board
+        WHERE memId = #{memId}
+	    )
+	    UNION ALL
+	    (
+	        SELECT postNo AS id, postTitle AS content, postDate AS date, memId, 'post' AS source_table
+	        FROM post
+	        WHERE memId = #{memId}
+	    )
+	    ORDER BY date DESC;
+	</select>
+	<!-- 내가 쓴 댓글만 출력 -->
+	<select id="myComments_only" parameterType="string" resultType="hashmap">
+		SELECT commentId AS id, commentText AS content, commentDate AS date, memId, 'comment' AS source_table
+        FROM comment
+        WHERE memId = #{memId}
+	    ORDER BY date DESC;
+	</select>
+	<select id="myPosts_Comments_search" parameterType="string" resultType="hashmap">
+		    SELECT id, content, date, memId, source_table FROM (
+	        SELECT postNo AS id, postTitle AS content, postDate AS date, memId, 'bulletin_board' AS source_table
+	        FROM bulletin_board
+	        WHERE memId = #{memId}
+	        
+	        UNION ALL
+	        
+	        SELECT postNo AS id, postTitle AS content, postDate AS date, memId, 'post' AS source_table
+	        FROM post
+	        WHERE memId = #{memId}
+	        
+	        UNION ALL
+	        
+	        SELECT commentId AS id, commentText AS content, commentDate AS date, memId, 'comment' AS source_table
+	        FROM comment
+	        WHERE memId = #{memId}
+	    ) AS combined
+	    WHERE
+	    <if test="searchDiv != null and searchContents != null">
+	        <choose>
+	            <when test="searchDiv == 'title_content'">
+	                (content LIKE CONCAT('%', #{searchContents}, '%'))
+	            </when>
+	            <when test="searchDiv == 'title'">
+	                (source_table != 'comment' AND content LIKE CONCAT('%', #{searchContents}, '%'))
+	            </when>
+	            <when test="searchDiv == 'content'">
+	                (content LIKE CONCAT('%', #{searchContents}, '%'))
+	            </when>
+	            <when test="searchDiv == 'writer'">
+	                (memId LIKE CONCAT('%', #{searchContents}, '%'))
+	            </when>
+	            <otherwise>
+	                1=1
+	            </otherwise>
+	        </choose>
+	    </if>
+	    ORDER BY date DESC;
+	</select>
+	<!-- 즐겨찾기한 이모지 -->
+	<select id="emoji_favorites" parameterType="string" resultType="hashmap">
+		SELECT ef.favoriteId, ef.addedDate, ep.purchaseDate, ep.useCount, e.memId AS emojiMemId, e.emoImg, e.emoName,e.emoNo,ef.purchaseId
+		FROM emoji_favorites ef
+		JOIN emoji_purchase ep ON ef.purchaseId = ep.purchaseId
+		JOIN emoji e ON ep.emoNo = e.emoNo
+		WHERE ef.memId = #{memId};
+	</select>
+	<!-- 즐겨찾기 추가 -->
+	<insert id="emoji_favorites_insert" parameterType="map">
+	    INSERT INTO emoji_favorites (purchaseId, memId, addedDate)
+	    VALUES (#{purchaseId}, #{memId}, NOW());
+	</insert>
+	<!-- 즐겨찾기 삭제 -->
+	<delete id="emoji_favorites_delete" parameterType="map">
+	    DELETE FROM emoji_favorites 
+	    WHERE memId = #{memId} 
+	    AND purchaseId = #{purchaseId}
+	</delete>
+	<!-- 제작한 이모지 -->
+	<select id="emoji_my_edit" parameterType="string" resultType="hashmap">
+		SELECT e.*, ep.purchaseId
+	    FROM emoji e
+	    LEFT JOIN emoji_purchase ep ON e.emoNo = ep.emoNo
+	    WHERE e.memId = #{memId}
+	    ORDER BY e.emoDate DESC;
+	</select>
+	<!-- 구매한 이모지 -->
+	<select id="emoji_my_purch" parameterType="string" resultType="hashmap">
+		SELECT ep.purchaseId, ep.purchaseDate, ep.useCount, e.emoName, e.emoImg, e.emoNo
+		FROM emoji_purchase ep
+		JOIN emoji e ON ep.emoNo = e.emoNo
+		WHERE ep.memId = #{memId}
+		ORDER BY  ep.useCount DESC;
 
+	</select>
   </mapper>
