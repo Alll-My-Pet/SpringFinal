@@ -58,7 +58,7 @@ public class BoardCotroller {
 	
 	@RequestMapping("/board/freeBoard")
 	public String FreeBoard() {
-		return "board/freeBoard";
+		return "board/mainBoard";
 	}
 	
 	@RequestMapping("/board/promoteBoard")
@@ -95,7 +95,6 @@ public class BoardCotroller {
 	 * @RequestMapping("/Board/MainBoardTextForm") public String MainBoardText() {
 	 * return "board/mainBoardText"; }
 	 */
-	
 	
 	
 	
