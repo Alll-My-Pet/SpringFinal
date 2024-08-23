@@ -27,10 +27,10 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 		return dao.getBoardCount();
 	}
-
+	// 작성
 	@Override
 	public void insertBoard(BoardVO vo) {
-		// TODO Auto-generated method stub
+		dao.insertBoard(vo);
 
 	}
 

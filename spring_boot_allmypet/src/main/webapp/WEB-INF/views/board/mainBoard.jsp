@@ -79,8 +79,7 @@
 					<c:forEach var="board" items="${boardList }">
 						<tr>
 							<td>${board.postNo }</td>
-							<td><a
-								href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td>
+							<td><a href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td>
 							<td>${board.memId }</td>
 							<td><fmt:formatDate value="${board.postDate }"
 									pattern="YYYY-MM-dd" /></td>
@@ -90,8 +89,7 @@
 					</c:forEach>
 				</tbody>
 			</table>
-			<br>
-			<br>
+			<br> <br>
 
 			<div class="paging" style="text-align: center;">
 				<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
@@ -110,27 +108,46 @@
 			<form name="pageFrm">
 				<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 			</form>
-			<script>
-				function goPage(no) {
-					const frm = document.pageFrm;
 
-					if (no == "prev") {
-						no = frm.pageNo.value - 1;
-						if (no <= 0)
-							no = 1;
-					} else if (no == "next") {
-						no = parseInt(frm.pageNo.value) + 1;
-					}
 
-					frm.action = "/board/listAllBoard";
-					frm.pageNo.value = no;
-					frm.submit();
-				}
-			</script>
+			<div class="mainWriteBox">
+				<!-- <button class="mainWriteBtn">글 작성</button> -->
+				<!-- 로그인 한 경우  -->
+				<c:if test="${not empty sessionScope.mid }">
+					<button class="mainWriteBtn">
+						<a href="<c:url value='/Board/MainBoardText'/>">글 작성</a>
+					</button>
+				</c:if>
+
+
+				<!-- 로그인 하지 않은 경우-->
+				<c:if test="${empty sessionScope.mid }">
+					<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
+				</c:if>
+			</div>
 
 		</section>
 
+		<script>
+			function goPage(no) {
+				const frm = document.pageFrm;
 
+				if (no == "prev") {
+					no = frm.pageNo.value - 1;
+					if (no <= 0)
+						no = 1;
+				} else if (no == "next") {
+					no = parseInt(frm.pageNo.value) + 1;
+				}
+
+				frm.action = "/board/listAllBoard";
+				frm.pageNo.value = no;
+				frm.submit();
+			}
+
+			// 로그인 여부를 세션에서 가져오기
+			/* var isLoggedIn = <c:out value="${not empty sessionScope.sid}"/>; */
+		</script>
 
 		<!-- <section class="page">
           <ul class="page-list">
@@ -154,7 +171,7 @@
 			<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
 		</div>
 
-		<div id="footer" >
+		<div id="footer">
 			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 		</div>
 
