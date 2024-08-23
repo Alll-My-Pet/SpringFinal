@@ -15,6 +15,8 @@ import com.spring_boot_allmypet.project.model.BoardPagingVO;
 import com.spring_boot_allmypet.project.model.BoardVO;
 import com.spring_boot_allmypet.project.service.BoardService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class BoardCotroller {
 
@@ -89,6 +91,11 @@ public class BoardCotroller {
 		return "board/bestTipDetail";
 	}
 	
+	/*
+	 * @RequestMapping("/Board/MainBoardTextForm") public String MainBoardText() {
+	 * return "board/mainBoardText"; }
+	 */
+	
 	
 	
 	
@@ -115,5 +122,31 @@ public class BoardCotroller {
 	     return "board/mainDetail";
 	   }
 	   
+	   // 글 등록
+	   @RequestMapping("/board/insertBoard")
+	   public String insertBoard(BoardVO vo, HttpSession session) {
+	     // 세션에서 로그인한 사용자 아이디 가져오기
+	     String logInUser = (String) session.getAttribute("mid");
+	     
+	     // BoardVO 객체에 사용자 아이디 설정
+	     vo.setMemId(logInUser);
+	     
+	     boardService.insertBoard(vo);   
+	     
+	     return "redirect:board/listAllBoard";
+	   } 
+	   
+	   // 게시글 작성 폼 열기
+	   @RequestMapping("/Board/MainBoardText")
+	   public String boardWrite(HttpSession session, Model model) {
+	     // 세션에서 사용자 정보 가져오기
+	     String userId = (String) session.getAttribute("mid");
 
+	     
+
+	     // 사용자 정보가 있으면, 필요한 데이터를 모델에 추가
+	     model.addAttribute("userId", userId);
+
+	     return "board/mainBoardText";
+	   }
 }

@@ -54,4 +54,12 @@
   		SELECT postNo, postTitle, memId, postContent, postLike, postImg, postView, boardCtgNo  FROM post WHERE postNo = #{postNo}
   	</select>
   
+  <!-- 글 작성 -->
+  <insert id="insertBoard" parameterType="com.spring_boot_allmypet.project.model.BoardVO">
+       <!--  INSERT INTO board (bodTitle, memId, bodDate, bodText)
+        VALUES (#{bodTitle}, #{memId}, #{bodDate}, #{bodText}) -->
+				INSERT INTO post (postTitle, memId, postDate, postContent, boardCtgNo)
+        VALUES (#{postTitle}, #{memId}, NOW(), #{postContent}, #{boardCtgNo})
+    </insert>
+  
   </mapper>
