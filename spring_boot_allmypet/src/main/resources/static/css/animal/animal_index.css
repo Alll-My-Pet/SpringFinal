@@ -98,7 +98,7 @@
 	box-sizing: border-box;
 }
 
-/* 동물별 커뮤니티 */
+/* 파충류/양서류 커뮤니티 */
 .page-title .ctgTitle {
 	overflow-wrap: break-word;
 	font-weight: 400;
@@ -108,7 +108,7 @@
 	margin: 0 auto;
 }
 
-/* 파충류/양서류 커뮤니티 */
+/* 동물별 커뮤니티 */
 .page-title .titleInfo {
 	margin: 0 auto;
 	margin-bottom: 8px;
