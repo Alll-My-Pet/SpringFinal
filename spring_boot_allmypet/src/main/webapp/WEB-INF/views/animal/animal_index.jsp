@@ -133,9 +133,15 @@
 					</div>
 					<!-- 동물별 카테고리 끝 -->
 					<div class="pageInfo">
+						<div class="bracket">
+							<img src="/image/index/bracket-light-left.svg" class="bLeft" alt="..." style="height: 128px;">
+						</div>
 						<div class="page-title">
 							<div class="titleInfo">동물별 커뮤니티</div>
 							<span class="ctgTitle"> ${petCtgName} 커뮤니티 </span>
+						</div>
+						<div class="bracket">
+							<img src="/image/index/bracket-light-right.svg" class="bRight" alt="..." style="height: 128px;">
 						</div>
 					</div>
 					<!-- pageInfo끝 -->
