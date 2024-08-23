@@ -4,14 +4,15 @@
 /* 네비게이션 바 시작 */
 /*********************/
 .nav-bar {
-    background: #CFFACE;
+    background: white;
+    border-bottom: 2px solid #BDBDBD;
     display: flex;
     padding: 4px 41px;
     width: 853px;
     height: 40px;
     box-sizing: border-box;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 3px;
 }
 
 .navBarFixed {
