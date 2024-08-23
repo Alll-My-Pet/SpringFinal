@@ -22,9 +22,16 @@
             <img src="/image/logo.png" alt="로고" />
         </a>
 		<div>
+			<c:if test="${empty sessionScope.mid }">
 			<div class="promotion">
 				<span> 지금 회원 가입 시 1000P 지급! </span>
 			</div>
+			</c:if>
+			<c:if test="${not empty sessionScope.mid &&  sessionScope.mpos != 2}">
+			<div class="promotion">
+				<!-- <span> 첫 게시글 작성 시 500P 지급! </span> -->
+			</div>
+			</c:if>
 			<div class="loginbox">
 				<ul class="login-bar">
 					<c:if test="${empty sessionScope.mid }">
@@ -34,7 +41,7 @@
 					</c:if>
 					<c:if test="${not empty sessionScope.mid &&  sessionScope.mpos != 2}">
 						<li>${sessionScope.mid}님🐢</li>
-						<li>&nbsp;</li>
+						<li>|</li>
 						<li><a href="<c:url value='/mypage'/>" id="topMenu2">마이페이지</a></li>
 						<li>|</li>
 						<li><a href="<c:url value='/market/cart'/>" id="topMenu1">장바구니</a></li>

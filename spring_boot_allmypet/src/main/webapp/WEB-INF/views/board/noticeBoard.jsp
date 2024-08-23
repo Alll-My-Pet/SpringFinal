@@ -25,9 +25,15 @@
 				<div class="contents">
 					<br> <br>
 					<div class="pageInfo">
+						<div class="bracket">
+							<img src="/image/index/bracket-light-left.svg" class="bLeft" alt="..." style="height: 128px;">
+						</div>
 						<div class="page-title">
 							<div class="titleInfo">&nbsp;공지/이벤트</div>
 							<span class="ctgTitle">공지사항</span>
+						</div>
+						<div class="bracket">
+							<img src="/image/index/bracket-light-right.svg" class="bRight" alt="..." style="height: 128px;">
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->

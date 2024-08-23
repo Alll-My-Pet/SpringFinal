@@ -6,12 +6,15 @@
 	width:900px;
 	height:100%;
 } */
-
+.contents{
+	min-height: 1000px;
+}
 /* ********************* */
 /*      페이지 정보 및 제목    */
 /* ********************* */
 /* pageInfo: 페이지 설명 + 페이지 제목*/
 .contents .pageInfo {
+	/* background: #B5CCAB; */
 	display: flex;
 	flex-direction: column;
 	/* 수직으로 정렬 */
@@ -20,13 +23,12 @@
 	width: 689px;
 	/* 원하는 너비 설정 */
 	box-sizing: border-box;
-	margin: 0 auto;
+	margin: 40px auto;
 	/* 여백 설정 */
 }
 
 /* page-title: 페이지 설명 + 페이지 제목 만 포함 */
 .pageInfo .page-title {
-	background: #B5CCAB;
 	display: flex;
 	flex-direction: column;
 	padding: 18.5px 22px 11.5px 21px;
@@ -40,6 +42,7 @@
 	font-size: 43px;
 	line-height: 1;
 	color: #000000;
+	margin: 10px auto;
 }
 
 /* 공지사항 */
@@ -52,6 +55,34 @@
 	font-size: 15px;
 	line-height: 1;
 	color: rgba(0, 0, 0, 0.39);
+	margin: 0 auto;
+}
+
+.bracket {
+	width: fit-content;
+	height: fit-content;	
+}
+
+.bLeft {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    left: -50px;
+    /* 부모의 왼쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
+}
+
+.bRight {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    right: -50px;
+    /* 부모의 오른쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
 }
 
 /* ***************** */
@@ -97,4 +128,10 @@ thead th {
 
 tbody td {
 	border: none; /* tbody 셀 테두리 제거 */
+	
+}
+
+td a {
+	text-decoration: none;
+	color: inherit;
 }
