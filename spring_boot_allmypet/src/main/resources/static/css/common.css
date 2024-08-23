@@ -30,14 +30,10 @@
 	background-color: white;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
-    /* flex 컨테이너로 설정 */
     flex-direction: column;
-    /* 수직 정렬을 위해 column 방향으로 설정 */
     justify-content: center;
-    /* 수평 정렬 유지 */
     width: fit-content;
-    /* 고정된 너비 */
-    height: fit-content;
+    height: 150%;
     margin: 0 auto;
     position: relative;
 } 

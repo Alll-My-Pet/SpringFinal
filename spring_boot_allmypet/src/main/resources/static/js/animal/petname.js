@@ -10,6 +10,7 @@ $(document).ready(function() {
 
         // genderOutput div의 텍스트를 업데이트
         const genderOutput = document.getElementById('genderOutput');
+        console.log('genderOutput');
 
         // genderValue에 색상을 적용한 HTML 생성
         let colorClass = '';

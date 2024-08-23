@@ -175,4 +175,36 @@
 	    ORDER BY 
 	        bl.block_date DESC;
 	</select>
+	<!-- 블락 리스트 삭제 -->
+	<delete id="blockList_delete" parameterType="map">
+		DELETE FROM block_list 
+	    WHERE blocker_memId = #{memId} 
+	    AND blocked_memId = #{blockedMemId}
+	</delete>
+	<!-- 블락 리스트 수정 -->
+	<update id="blockList_update" parameterType="map">
+		UPDATE block_list
+	    SET block_reason = #{block_reason}
+	    WHERE blocker_memId = #{memId}
+	    AND blocked_memId = #{blockedMemId}
+	</update>
+	<!-- 블락 리스트 검색 -->
+	<select id="blockList_search" parameterType="map" resultType="hashmap">
+	    SELECT 
+	        bl.blocker_memId,
+	        bl.blocked_memId,
+	        bl.block_date,
+	        bl.block_reason,
+	        mb.memNickName
+	    FROM 
+	        block_list bl
+	    INNER JOIN 
+	        member mb ON bl.blocked_memId = mb.memId
+	    WHERE 
+	        bl.blocker_memId = #{memId}
+	        AND bl.blocked_memId LIKE CONCAT('%', #{blockedMemId}, '%')
+	    ORDER BY 
+	        bl.block_date DESC;
+	</select>
+
   </mapper>

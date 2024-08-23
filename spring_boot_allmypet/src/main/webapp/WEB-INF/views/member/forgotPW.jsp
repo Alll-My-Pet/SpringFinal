@@ -6,37 +6,38 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>비밀번호 찾기</title>
-		<link rel="stylesheet" href="<%= request.getContextPath() %>/css/member/forgot.css">
+		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/forgot.css'/>">
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/member/findPwd.js'/>"></script>
 	</head>
 	<body>
 	<section class="find">
 		<div class="findTitleWrap">
 			<div class="findTitle">
 				<b>비밀번호 찾기</b>
-				<!-- asdfasdf -->
 			</div>
 		</div>
 		<div class="findInput">
-		<form id="findPWForm" class="findPWForm" method="post" action="#">
+		<form id="findPWForm" class="findPWForm" method="post">
 			<table>
-				<tr><td><label for="id">아이디</label></td>
-					<td><input type="text" id="id" name="id" class="id" required>
+				<tr><td><label for="memId">아이디</label></td>
+					<td><input type="text" id="memId" name="memId" class="id" required>
 					<span class="error-message" id="idError"></span></td></tr>
-				<tr><td><label for="email">이메일</label></td>
-					<td><input type = "email" id="email" name="email" placeholder="이메일 주소 입력" class="email" required>
-					<input type="button" value="인증"onClick="sendEmail()" class="checkBtn">
+				<tr><td><label for="memEmail">이메일</label></td>
+					<td><input type="email" id="memEmail" name="memEmail" class="email" placeholder="이메일 입력" required>
+					<!-- <input type="button" value="인증" onClick="sendEmail()" class="checkBtn"> -->
 					<span class="error-message" id="emailError"></span></td></tr>
-				<tr><td><label for="hp1">연락처</label></td><td><input type="text" id="hp1" size="3" name="hp1" class="hp" required>
-									 - <input type="text" id="hp2" size="4" name="hp2" class="hp" required>
-									 - <input type="text" id="hp3" size="4" name="hp3" class="hp" required>
-					<span class="error-message" id="hpError"></span></td></tr>
+				<!-- <tr><td><label for="chnum">인증번호</label></td>
+					<td><input type="text" id="chnum" name="chnum" class="email" required>
+					<span class="error-message" id="chnumError"></span></td></tr> -->
 			</table>
-			</form>
-			</div>
 			<div id="findPWsubmit">
-				<button class="findBtn" type="submit">확인</button>
+				<input type="submit" class="findBtn" type="submit" value="확인">
 			</div>
+		</form>
+		</div>
 		</section>
 		<!-- bottom -->
+		<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 	</body>
 </html>

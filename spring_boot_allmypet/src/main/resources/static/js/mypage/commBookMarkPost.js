@@ -14,11 +14,12 @@
                 var bookMarkHtml='';
                 $.each(response.bookMarkList, function(index, bookMark) {
                     var bmd = bookMark.bookmarkDate.split('T')[0];
+                    var bmp = bookMark.postDate.split('T')[0];
                     bookMarkHtml += '<div class="bmp_post_list">' +
                         '<div class="bmp_list_type">'+ bookMark.headerName + '</div>' +
                         '<div class="bmp_list_title inner_text_div">' + bookMark.postTitle + '</div>' +
                         '<div class="bmp_list_writer inner_text_div">' + bookMark.author + '</div>' +
-                        '<div class="bmp_list_post_date">' +bookMark.postDate + '</div>' +
+                        '<div class="bmp_list_post_date">' +bmp + '</div>' +
                         '<div class="bmp_list_date">' + bmd +
                         '</div></div>';
                 });
@@ -40,11 +41,12 @@
             	var bookMarkHtml='';
                 $.each(response.bookMarkList, function(index, bookMark) {
                     var bmd = bookMark.bookmarkDate.split('T')[0];
+                    var bmp = bookMark.postDate.split('T')[0];
                     bookMarkHtml += '<div class="bmp_post_list">' +
                         '<div class="bmp_list_type">'+ bookMark.headerName + '</div>' +
                         '<div class="bmp_list_title inner_text_div">' + bookMark.postTitle + '</div>' +
                         '<div class="bmp_list_writer inner_text_div">' + bookMark.author + '</div>' +
-                        '<div class="bmp_list_post_date">' +bookMark.postDate + '</div>' +
+                        '<div class="bmp_list_post_date">' +bmp + '</div>' +
                         '<div class="bmp_list_date">' + bmd +
                         '</div></div>';
                 });
