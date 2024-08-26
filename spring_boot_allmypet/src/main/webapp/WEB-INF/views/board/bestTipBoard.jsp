@@ -7,8 +7,10 @@
 <meta charset="UTF-8">
 <title>양육팁 게시판</title>
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/bestTipBoard.css'/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/Board/bestTipBoard.css'/>" />
 </head>
 <body>
 	<div class="desktop-1">
@@ -38,119 +40,105 @@
 					<!-- pageInfo 끝 -->
 					<section class="bestTip">
 						<div class="bestBox">
-							<!-- <div class="bestPhoto"></div>
-							<div class="bestPhoto"></div>
-							<div class="bestPhoto"></div>
-							<div class="bestPhoto"></div>
-							<div class="bestPhoto"></div> -->
 							<div class="card-container">
-						<div class="row">
-							<!-- 첫 번째 행 시작 -->
-							<div class="col-md-3">
-								<!-- 첫 번째 카드 -->
-								<a href="<c:url value='/animal_home/${1}'/>" class="card-link">
-									<div class="card">
-										<div class="card-content">
-											<img src="/image/animal_ctg/ctg_강아지.png" class="card-img"
-												alt="..." style="width: 35px; height: 35px;">
-											<h5 class="card-title">강아지</h5>
-										</div>
+								<div class="row">
+									<!-- 첫 번째 행 시작 -->
+									<div class="col-md-3">
+										<!-- 첫 번째 카드 -->
+										<a href="<c:url value='/animal_home/${1}'/>" class="card-link">
+											<div class="card">
+												<div class="card-content">
+													<img src="/image/animal_ctg/ctg_강아지.png" class="card-img"
+														alt="..." style="width: 35px; height: 35px;">
+													<h5 class="card-title">강아지</h5>
+												</div>
+											</div>
+										</a>
 									</div>
-								</a>
-							</div>
-							<div class="col-md-3">
-								<!-- 두 번째 카드 -->
-								<a href="<c:url value='/animal_home/${2}'/>" class="card-link">
-									<div class="card">
-										<div class="card-content">
-											<img src="/image/animal_ctg/ctg_고양이.png" class="card-img"
-												alt="..." style="width: 25px; height: 25px;">
-											<h5 class="card-title">고양이</h5>
-										</div>
+									<div class="col-md-3">
+										<!-- 두 번째 카드 -->
+										<a href="<c:url value=''/>" class="card-link">
+											<div class="card-post">
+												<img src="/image/board/noimg_2.jpg" class="post-img" alt="게시글 사진" >
+												<div class="post-body">
+													<h5 class="post-title">게시글 제목(댓글수)</h5>
+													<p class="post-text">추천수 | 작성자</p>
+													<p class="post-text">
+														<small class="text-muted">20XX.XX.XX</small>
+													</p>
+												</div>
+											</div>
+										</a>
 									</div>
-								</a>
-							</div>
-							<div class="col-md-3">
-								<!-- 세 번째 카드 -->
-								<a href="<c:url value='/animal_home/${3}'/>" class="card-link">
-									<div class="card">
-										<div class="card-content">
-											<img src="/image/animal_ctg/ctg_기타1.png" class="card-img"
-												alt="..." style="width: 30px; height: 30px;">
-											<h5 class="card-title">기타 포유류</h5>
-										</div>
+									<div class="col-md-3">
+										<!-- 두 번째 카드 -->
+										<a href="<c:url value=''/>" class="card-link">
+											<div class="card-post">
+												<img src="/image/board/noimg_2.jpg" class="post-img" alt="게시글 사진">
+												<div class="post-body">
+													<h5 class="post-title">게시글 제목(댓글수)</h5>
+													<p class="post-text">추천수 | 작성자</p>
+													<p class="post-text">
+														<small class="text-muted">20XX.XX.XX</small>
+													</p>
+												</div>
+											</div>
+										</a>
 									</div>
-								</a>
-							</div>
-							<div class="col-md-3">
-								<!-- 네 번째 카드 -->
-								<a href="<c:url value='/animal_home/${4}'/>" class="card-link">
-									<div class="card">
-										<div class="card-content">
-											<img src="/image/animal_ctg/ctg_파충류.png" class="card-img"
-												alt="..." style="width: 30px; height: 30px;">
-											<h5 class="card-title">파충류/양서류</h5>
-										</div>
+									<div class="col-md-3">
+										<!-- 두 번째 카드 -->
+										<a href="<c:url value=''/>" class="card-link">
+											<div class="card-post">
+												<img src="/image/board/noimg_2.jpg" class="post-img" alt="게시글 사진">
+												<div class="post-body">
+													<h5 class="post-title">게시글 제목(댓글수)</h5>
+													<p class="post-text">추천수 | 작성자</p>
+													<p class="post-text">
+														<small class="text-muted">20XX.XX.XX</small>
+													</p>
+												</div>
+											</div>
+										</a>
 									</div>
-								</a>
-							</div>
-						</div>
-						<!-- 첫 번째 행 끝 -->
+									<div class="col-md-3">
+										<!-- 두 번째 카드 -->
+										<a href="<c:url value=''/>" class="card-link">
+											<div class="card-post">
+												<img src="/image/board/noimg_2.jpg" class="post-img" alt="게시글 사진">
+												<div class="post-body">
+													<h5 class="post-title">게시글 제목(댓글수)</h5>
+													<p class="post-text">추천수 | 작성자</p>
+													<p class="post-text">
+														<small class="text-muted">20XX.XX.XX</small>
+													</p>
+												</div>
+											</div>
+										</a>
+									</div>
+									<div class="col-md-3">
+										<!-- 두 번째 카드 -->
+										<a href="<c:url value=''/>" class="card-link">
+											<div class="card-post">
+												<img src="/image/board/noimg_2.jpg" class="post-img" alt="게시글 사진">
+												<div class="post-body">
+													<h5 class="post-title">게시글 제목(댓글수)</h5>
+													<p class="post-text">추천수 | 작성자</p>
+													<p class="post-text">
+														<small class="text-muted">20XX.XX.XX</small>
+													</p>
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<!-- 첫 번째 행 끝 -->
 
-						<div class="row">
-							<!-- 두 번째 행 시작 -->
-							<div class="col-md-3">
-								<!-- 첫 번째 카드 -->
-								<a href="<c:url value='/animal_home/${5}'/>" class="card-link">
-									<div class="card">
-										<div class="card-content">
-											<img src="/image/animal_ctg/ctg_어류.png" class="card-img"
-												alt="..." style="width: 30px; height: 30px;">
-											<h5 class="card-title">어류</h5>
-										</div>
-									</div>
-								</a>
+								<div class="row">
+									<!-- 두 번째 행 시작 -->
+								</div>
+								<!-- 두 번째 행 끝 -->
 							</div>
-							<div class="col-md-3">
-								<!-- 두 번째 카드 -->
-								<a href="<c:url value='/animal_home/${6}'/>" class="card-link">
-									<div class="card">
-										<div class="card-content">
-											<img src="/image/animal_ctg/ctg_조류.png" class="card-img"
-												alt="..." style="width: 25px; height: 25px;">
-											<h5 class="card-title">조류</h5>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3">
-								<!-- 세 번째 카드 -->
-								<a href="<c:url value='/animal_home/${7}'/>" class="card-link">
-									<div class="card">
-										<div class="card-content">
-											<img src="/image/animal_ctg/ctg_설치류.png" class="card-img"
-												alt="..." style="width: 30px; height: 30px;">
-											<h5 class="card-title">설치류</h5>
-										</div>
-									</div>
-								</a>
-							</div>
-							<div class="col-md-3">
-								<!-- 네 번째 카드 -->
-								<a href="<c:url value='/animal_home/${8}'/>" class="card-link">
-									<div class="card">
-										<div class="card-content">
-											<img src="/image/animal_ctg/ctg_절지류.png" class="card-img"
-												alt="..." style="width: 30px; height: 30px;">
-											<h5 class="card-title">절지류/곤충류</h5>
-										</div>
-									</div>
-								</a>
-							</div>
-						</div>
-						<!-- 두 번째 행 끝 -->
-					</div>
-					<!-- 동물별 카테고리 끝 -->
+							<!-- 동물별 카테고리 끝 -->
 						</div>
 					</section>
 

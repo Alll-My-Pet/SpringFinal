@@ -101,6 +101,16 @@
     /* 전체 너비를 사용 */
 }
 
+/* 수정중 */
+.row {
+    display: flex; /* 플렉스 박스 사용 */
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    overflow-x: auto; /* 가로 스크롤 추가 */
+    white-space: nowrap; /* 자식 요소가 한 줄로 표시되도록 설정 */
+    width: 100%; /* 전체 너비 사용 */
+}
+
+
 .row .col-sm-3 {
     flex: 0 0 25% !important;
     /* 각 카드가 25% 너비를 차지하도록 설정 */
@@ -109,6 +119,7 @@
     padding: 10px !important;
     /* 카드 간격 */
 }
+
 
 .card {
     width: 120px !important;
@@ -184,4 +195,59 @@
 }
 
 
+/* ************************* */
+/* 베스트양육팁 게시글 목록 카드 */
 
+.card-post {
+	width: 170px !important;
+	height: 190px !important; 
+	
+	display: flex;
+    /* 플렉스 박스로 설정 */
+    flex-direction: column;
+    /* 세로 방향으로 정렬 */
+    justify-content: center;
+    /* 수직 중앙 정렬 */
+    align-items: center;
+    /* 수평 중앙 정렬 */
+    margin: 4px;
+    /* 카드 간의 여백 */
+    padding: 10px !important;
+    background-color: #f8f9fa !important;
+    /* 카드 배경색 설정 */
+    border: 1px solid #ccc;
+    /* 카드 테두리 설정 */
+    border-radius: 8px;
+    /* 모서리 둥글게 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 그림자 추가 */
+    position: relative;
+    /* 자식 요소의 위치 조정을 위해 relative 설정 */
+    cursor: pointer;
+	box-sizing: border-box;
+}
+.post-body {
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items : center;
+}
+.post-img {
+    /* max-width: 70%; */
+    /* 이미지 너비 최대 80% */
+    /* max-height: 70%; */
+    /* 이미지 높이 최대 80% */
+    width: 100px !important; 
+    object-fit: cover !important;
+    /* 이미지 비율 유지 */
+   /*  margin-bottom: 10px !important; */
+}
+
+.post-title{
+	font-size: 15px !important;
+}
+
+.post-text{
+	font-size: 12px !important;
+}
