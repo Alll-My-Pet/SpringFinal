@@ -99,7 +99,8 @@
 	box-sizing: border-box;
 	text-decoration: none;
 	color: inherit;
-	border-radius: 5px;
+	align-items: center;
+	justify-content: center;
 }
 
 .card-container {
@@ -179,21 +180,21 @@
 	width: 120%;
 	background-color: skyblue;
 	position: relative;
-	margin-top: 20px;
-	overflow: hidden;
-	background-color: skyblue;
+	margin-top: 10px;
+	overflow: hidden !important;
 	/* 넘치는 콘텐츠 숨김 */
 }
 
 .row {
 	display: flex;
 	flex-direction: row;
-	/* width: fit-content; */
+	margin: 10px auto;
+	width: fit-content;
 }
 
 .carousel-inner {
 	background-color: violet;
-	width: 90%;
+	width: 745px;
 	display: flex;
 	/* 플렉스 박스 사용 */
 	transition: transform 0.5s ease;
@@ -207,6 +208,7 @@
 	box-sizing: border-box;
 	/* 패딩과 테두리를 포함한 박스 모델 */
 }
+
 
 /* Carousel 버튼 스타일 */
 .chevron-left {

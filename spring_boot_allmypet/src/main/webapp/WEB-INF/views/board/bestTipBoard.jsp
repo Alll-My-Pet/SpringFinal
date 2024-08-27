@@ -49,7 +49,7 @@
 							<div class="card-container">
 							<!-- 첫번째 동물군 베스트팁 -->
 								<a href="<c:url value=''/>" class="board-title">
-									<div>강아지 팁🐕 +</div>
+									<div>강아지 양육팁🐕 +</div>
 								</a>
 								<div class="carousel-container">
 									<div class="carousel-inner">
