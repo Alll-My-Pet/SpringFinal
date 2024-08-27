@@ -30,10 +30,8 @@
 		frm.pageNo.value = no;
 		frm.submit();
 	}
-
-	// 로그인 여부를 세션에서 가져오기
-	/* var isLoggedIn = <c:out value="${not empty sessionScope.sid}"/>; */
 </script>
+
 </head>
 <body>
 	<div class="desktop-1">
@@ -63,12 +61,14 @@
 					<section class="MainBoard">
 						<form id="BoardSearchBar">
 							<select id="type" name="type">
-								<option value="BWriter" selected>작성자</option>
-								<option value="BTitle">글 제목</option>
-								<option value="BPlus">제목 + 내용</option>
-							</select> <input type="text" id="keyword" name="keyword"
-								placeholder="게시판 내 검색" /> <label for="BoardSearchBtn">
-								<input type="submit" class="BoardSearchBtn">
+								<option value="memId" selected>작성자</option>
+								<option value="postTitle">글 제목</option>
+								<option value="postTitleAndpostContent">제목 + 내용</option>
+							</select> 
+							<input type="text" id="keyword" name="keyword" placeholder="게시판 내 검색" /> 
+							
+							<label for="BoardSearchBtn">
+						    <input type="submit" class="BoardSearchBtn">
 							</label>
 
 
@@ -77,23 +77,33 @@
 						<div class="hotBoard">
 							<h3 style="margin-left: 2%;">실시간 인기글</h3>
 							<div class="post-list">
-								<a href="게시판_상세.html" class="post">
+							<c:forEach items="${hopTopic}" var="hot" begin="0" end="1">
+								<tr>
+									<td>${hot.postTitle }</td>
+									<td>${hot.memId }</td>
+									<td>${hot.postDate }</td>
+								
+								</tr>
+							</c:forEach>
+							
+							
+								<!-- <a href="게시판_상세.html" class="post">
 									<div class="post-title">제목</div>
-									<div class="post-author">닉네임</div> <!-- 시간 수정필요 -->
+									<div class="post-author">닉네임</div> 시간 수정필요
 									<div class="post-date">2021-10-12</div>
 								</a> <a href="게시판_상세.html" class="post">
 									<div class="post-title">제목</div>
-									<div class="post-author">닉네임</div> <!-- 시간 수정필요 -->
+									<div class="post-author">닉네임</div> 시간 수정필요
 									<div class="post-date">2021-10-12</div>
 								</a> <a href="게시판_상세.html" class="post">
 									<div class="post-title">제목</div>
-									<div class="post-author">닉네임</div> <!-- 시간 수정필요 -->
+									<div class="post-author">닉네임</div> 시간 수정필요
 									<div class="post-date">2021-10-12</div>
 								</a> <a href="게시판_상세.html" class="post">
 									<div class="post-title">제목</div>
-									<div class="post-author">닉네임</div> <!-- 시간 수정필요 -->
+									<div class="post-author">닉네임</div> 시간 수정필요
 									<div class="post-date">2021-10-12</div>
-								</a>
+								</a> -->
 							</div>
 
 						</div>
@@ -104,11 +114,16 @@
 								<tr>
 									<th>
 										<form>
-											<select id="BFilter2">
-												<option value="option1">구분</option>
-												<option value="option2">구분2</option>
-												<option value="option3">구분3</option>
-												<option value="option4">구분4</option>
+											<select id="BFilter2" style="width:100%; height:25px;">
+												<option value="All">구분</option>
+												<option value="dog">강아지</option>
+												<option value="cat">고양이</option>
+												<option value="Mammal">기타 포유류</option>
+												<option value="Reptiles">파충류/양서류</option>
+												<option value="fish">어류</option>
+												<option value="bird">조류</option>
+												<option value="rodents">설치류</option>
+												<option value="Insects">절지류/곤충류</option>
 
 											</select>
 										</form>
@@ -125,8 +140,7 @@
 								<c:forEach var="board" items="${boardList }">
 									<tr>
 										<td>${board.postNo }</td>
-										<td><a
-											href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td>
+										<td><a href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />[${postTypeNo}]${board.postTitle }</td>
 										<td>${board.memId }</td>
 										<td><fmt:formatDate value="${board.postDate }"
 												pattern="YYYY-MM-dd" /></td>

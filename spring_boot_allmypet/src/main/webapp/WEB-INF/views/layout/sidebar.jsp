@@ -24,7 +24,7 @@
                 </a>
             </div>
             <div class="menu-item">
-                <a href="#" class="menu-link">
+                <a href="/board/listAllBoard" class="menu-link">
                     <span>
                         전체게시판
                     </span>

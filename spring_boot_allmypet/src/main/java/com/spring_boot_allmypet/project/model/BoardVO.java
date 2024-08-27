@@ -78,13 +78,4 @@ public class BoardVO {
 	public void setPostView(String postView) {
 		this.postView = postView;
 	}
-	
-	  
-	
-	  
-	
-	  
-	  
-	  
-
 }

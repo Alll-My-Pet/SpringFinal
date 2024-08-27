@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -99,12 +100,12 @@ public class BoardCotroller {
 	
 	
 	// 게시글 검색
-	@ResponseBody
-	@RequestMapping("/board/boardSearch") 
-	public ArrayList<BoardVO> boardSearch(@RequestParam HashMap<String, Object> param) {
-	  ArrayList<BoardVO> boardList = boardService.boardSearch(param);
-	   return boardList;
-	}
+	 @ResponseBody
+	  @RequestMapping("/board/boardSearch") 
+	 public ArrayList<BoardVO> boardSearch(@RequestParam HashMap<String, String> param) {
+		    ArrayList<BoardVO> boardList = boardService.boardSearch(param);
+		    return boardList;
+		}
 	
 	
 	
