@@ -236,6 +236,7 @@
    /*  margin-bottom: 10px !important; */
 }
 
+wh
 .post-title{
 	font-size: 15px !important;
 }
@@ -243,3 +244,27 @@
 .post-text{
 	font-size: 12px !important;
 }
+
+/* ************************* */
+/* Carousel 컨테이너 스타일 */
+/* ************************* */
+
+.carousel-container {
+    position: relative;
+    margin-top: 20px;
+    overflow: hidden; /* 넘치는 콘텐츠 숨김 */
+}
+
+.carousel-inner {
+    display: flex; /* 플렉스 박스 사용 */
+    transition: transform 0.5s ease; /* 부드러운 전환 효과 */
+}
+
+.carousel-item {
+    min-width: 100%; /* 각 아이템의 최소 너비를 100%로 설정 */
+    box-sizing: border-box; /* 패딩과 테두리를 포함한 박스 모델 */
+}
+
+/* Carousel 버튼 스타일 */
+
+
