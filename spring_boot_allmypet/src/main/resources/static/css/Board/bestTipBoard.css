@@ -84,7 +84,7 @@
 
 .card-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     /* 카드들을 수직 방향으로 정렬 */
     align-items: center;
     /* 카드들을 중앙 정렬 */
@@ -94,19 +94,14 @@
 
 .card-container .row {
     display: flex;
-    /* 플렉스 박스 사용 */
     justify-content: center;
-    /* 카드들을 중앙 정렬 */
     width: 100% !important;
-    /* 전체 너비를 사용 */
 }
 
 /* 수정중 */
 .row {
     display: flex; /* 플렉스 박스 사용 */
     justify-content: flex-start; /* 왼쪽 정렬 */
-    overflow-x: auto; /* 가로 스크롤 추가 */
-    white-space: nowrap; /* 자식 요소가 한 줄로 표시되도록 설정 */
     width: 100%; /* 전체 너비 사용 */
 }
 
@@ -203,13 +198,10 @@
 	height: 190px !important; 
 	
 	display: flex;
-    /* 플렉스 박스로 설정 */
     flex-direction: column;
-    /* 세로 방향으로 정렬 */
     justify-content: center;
-    /* 수직 중앙 정렬 */
     align-items: center;
-    /* 수평 중앙 정렬 */
+    
     margin: 4px;
     /* 카드 간의 여백 */
     padding: 10px !important;
