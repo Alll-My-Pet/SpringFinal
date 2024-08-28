@@ -30,8 +30,11 @@
     <select id="getStationsByBounds" resultMap="petResult" parameterType="map">
     SELECT *
     FROM `한국문화정보원_전국 반려동물 동반 가능 문화시설 위치 데이터_20221130`
-    WHERE `위도` BETWEEN #{swLat} AND #{neLat}
-    AND `경도` BETWEEN #{swLng} AND #{neLng}
-    ORDER BY `시설명`
+    WHERE 위도 BETWEEN #{swLat} AND #{neLat}
+    AND 경도 BETWEEN #{swLng} AND #{neLng}
+    <if test="category != null and category != ''">
+        AND 카테고리3 = #{category}
+    </if>
+    ORDER BY 시설명
 </select>
 </mapper>

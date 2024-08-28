@@ -35,17 +35,20 @@ public class MapRestController {
 
     @RequestMapping("/petmap")
     public ArrayList<PetMapVO> getStationsByBounds(
-        @RequestParam double swLat,
-        @RequestParam double swLng,
-        @RequestParam double neLat,
-        @RequestParam double neLng) {
+    		 @RequestParam double swLat, 
+    	     @RequestParam double swLng, 
+    	     @RequestParam double neLat, 
+    	     @RequestParam double neLng,
+    	     @RequestParam(required = false) String category
+    	    ) {
         
         // 경계 정보를 담은 Map 객체 생성
-        Map<String, Object> bounds = new HashMap<>();
+    	HashMap<String, Object> bounds = new HashMap<>();
         bounds.put("swLat", swLat);
         bounds.put("swLng", swLng);
         bounds.put("neLat", neLat);
         bounds.put("neLng", neLng);
+        bounds.put("category", category);
 
         // 경계 내의 시설들 조회
         ArrayList<PetMapVO> petList = petservice.getStationsByBounds(bounds);
