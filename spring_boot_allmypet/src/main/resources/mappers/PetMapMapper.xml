@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.map.IPetMapDAO">
+  	<resultMap id="petResult" type="com.spring_boot_allmypet.project.model.map.PetMapVO" >
+  		<result property="facilityName" column="시설명"  />
+  		<result property="cityName" column="시도 명칭"  />
+  		<result property="districtName" column="시군구 명칭"  />
+  		<result property="latitude" column="위도"  />
+  		<result property="longitude" column="경도"  />
+  		<result property="placeDescription" column="기본 정보_장소 설명"  />
+  	</resultMap>
+  	<!-- 전체 시설 조회 -->
+    <select id="getAllStationList" resultMap="petResult">
+        SELECT * 
+        FROM `한국문화정보원_전국 반려동물 동반 가능 문화시설 위치 데이터_20221130`
+        ORDER BY `시설명`
+    </select>
+
+    <!-- 특정 시도명에 해당하는 시설 조회 -->
+    <select id="getStationsByCity" resultMap="petResult" parameterType="string">
+        SELECT * 
+        FROM `한국문화정보원_전국 반려동물 동반 가능 문화시설 위치 데이터_20221130`
+        WHERE `시도 명칭` = '서울특별시'
+        ORDER BY `시설명`
+    </select>
+    
+    <select id="getStationsByBounds" resultMap="petResult" parameterType="map">
+    SELECT *
+    FROM `한국문화정보원_전국 반려동물 동반 가능 문화시설 위치 데이터_20221130`
+    WHERE `위도` BETWEEN #{swLat} AND #{neLat}
+    AND `경도` BETWEEN #{swLng} AND #{neLng}
+    ORDER BY `시설명`
+</select>
+</mapper>

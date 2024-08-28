@@ -122,7 +122,7 @@
             <a class="product-item" data-type="${prd.prdCtgNo}" href="<c:url value='/market/product/detail/${prd.prdNo}'/>">
                     <img class="product-image" src="<c:url value='/image/market/${prd.prdImg }'/>"/>
                     <div class="product-name">${prd.prdName }</div>
-                    <div class="product-price"><fmt:formatNumber value= "${prdVo.prdPrice}" pattern="#,###" />원</div>
+                    <div class="product-price"><fmt:formatNumber value= "${prd.prdPrice}" pattern="#,###" />원</div>
             </a>
             </c:forEach>
             </div>
