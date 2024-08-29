@@ -334,3 +334,27 @@
         color: #333; /* 호버 시 텍스트 색상 */
         border-radius: 5px; /* 호버 시 테두리 반경 */
     }
+    
+.hotTable{
+	width:800px;
+	margin-top:65px;
+	border-collapse: collapse;
+	border:1px solid black;
+	border-radius:10px;
+	border-color:#8000ff;
+	
+}
+
+.hotTable td {
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	padding: 8px;
+	text-align: center;
+	height: 40px;
+	border-collapse: collapse;
+	border-color:#8000ff;
+}
+
+.hotTable tr:hover{
+	background-color: #f0f0f0;
+}

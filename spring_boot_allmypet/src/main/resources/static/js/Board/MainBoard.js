@@ -10,6 +10,9 @@ $(document).ready(function() {
             }
     });
 
+
+    
+
     $('#BoardSearchBar').on('submit', function(event) {
         event.preventDefault();
         
@@ -36,7 +39,7 @@ $(document).ready(function() {
                         let date = board_date.getDate().toString().padStart(2, '0');
                         let postDate = `${year}-${month}-${date}`;
                         
-                        $('#boardList').append('<tr><td>' + boardList[i].postNo + '</td><td>' + boardList[i].postTitle + '</td><td>' + boardList[i].memId + '</td><td>' + postDate + '</td><td>' + boardList[i].postView + '</td><td>' + boardList[i].postLike + '</td></tr>');
+                        $('#boardList').append('<tr><td>' + boardList[i].boardCthNo + '</td><td>' + boardList[i].postNo + '</td><td>' + boardList[i].postTitle + '</td><td>' + boardList[i].memId + '</td><td>' + postDate + '</td><td>' + boardList[i].postView + '</td><td>' + boardList[i].postLike + '</td></tr>');
                     }
                 }
             },
@@ -46,3 +49,4 @@ $(document).ready(function() {
         }); // ajax끝
 }); // BoardSearchBar 끝
 }); // ready 끝
+

@@ -24,4 +24,7 @@ public interface IBoardService {
 
 	// 상품 검색
 	public ArrayList<BoardVO> boardSearch(HashMap<String, String> map);
+	
+	// 인기글
+	public ArrayList<BoardVO> listHotTopics();
 }

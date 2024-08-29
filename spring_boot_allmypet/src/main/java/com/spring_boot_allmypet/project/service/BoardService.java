@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring_boot_allmypet.project.dao.IBoardDAO;
 import com.spring_boot_allmypet.project.model.BoardVO;
+import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
 
 @Service
 public class BoardService implements IBoardService {
@@ -57,6 +58,11 @@ public class BoardService implements IBoardService {
 	    return dao.boardSearch(param);
 	  }
 
+	//인기글
+	@Override
+    public ArrayList<BoardVO> listHotTopics() {
+        return dao.listHotTopics();
+    }
 	
 
 	

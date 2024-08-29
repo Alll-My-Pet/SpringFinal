@@ -69,8 +69,14 @@
 		INSERT INTO post (postTitle, memId, postDate, postContent, boardCtgNo)
 		VALUES (#{postTitle}, #{memId}, NOW(), #{postContent}, #{boardCtgNo})
 	</insert>
-
-
+	
+	<!-- 인기글 -->
+	<select id="listHotTopics" resultMap="boardResultMap">
+    SELECT * FROM post
+    WHERE postLike > 50
+    ORDER BY postLike DESC
+    LIMIT 2
+	</select>
 
 
 </mapper>

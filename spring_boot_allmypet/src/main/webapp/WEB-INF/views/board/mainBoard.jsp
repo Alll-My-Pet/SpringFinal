@@ -30,6 +30,33 @@
 		frm.pageNo.value = no;
 		frm.submit();
 	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var selectElement = document.getElementById('BFilter2');
+
+		// 버튼 클릭처럼 폼을 제출
+		selectElement.addEventListener('change', function() {
+			var form = document.getElementById('BoardSearchBar');
+			if (form) {
+				form.submit();
+			} else {
+				console.error('Form not found');
+			}
+		});
+	});
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var selectElement = document.getElementById('BFilter2');
+
+		selectElement.addEventListener('change', function() {
+			var form = document.getElementById('boardCtg');
+			if (form) {
+				form.submit();
+			} else {
+				console.error('폼을 찾을 수 없습니다');
+			}
+		});
+	});
 </script>
 
 </head>
@@ -64,29 +91,45 @@
 								<option value="memId" selected>작성자</option>
 								<option value="postTitle">글 제목</option>
 								<option value="postTitleAndpostContent">제목 + 내용</option>
-							</select> 
-							<input type="text" id="keyword" name="keyword" placeholder="게시판 내 검색" /> 
-							
-							<label for="BoardSearchBtn">
-						    <input type="submit" class="BoardSearchBtn">
+							</select> <input type="text" id="keyword" name="keyword"
+								placeholder="게시판 내 검색" /> <label for="BoardSearchBtn">
+								<input type="submit" class="BoardSearchBtn">
 							</label>
 
 
 						</form>
 						<!-- form 끝 -->
 						<div class="hotBoard">
-							<h3 style="margin-left: 2%;">실시간 인기글</h3>
+							<h3 style="margin-left: 2%; margin-top:30px; position:absolute;">실시간 인기글🔥</h3>
 							<div class="post-list">
-							<c:forEach items="${hopTopic}" var="hot" begin="0" end="1">
-								<tr>
-									<td>${hot.postTitle }</td>
-									<td>${hot.memId }</td>
-									<td>${hot.postDate }</td>
+							  <table class="hotTable">
+							  <!-- <thead>
+							  <tr>
+							  <th>제목</th>
+							  <th>작성자</th>
+							  <th>작성일</th>
+							  <th>좋아요</th>
+							  <th>조회수</th>
+							  
+							  </tr>
+							  </thead> -->
+							  
+							  <tbody>
+								<c:forEach items="${hotTopics}" var="hot">
+									<tr>
+										<td><a href="<c:url value='/board/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
+										<td>${hot.memId}</td>
+										<td><fmt:formatDate value="${hot.postDate}" pattern="yyyy-MM-dd" /></td>
+										<td>${hot.postLike }</td>
+										<td>${hot.postView }</td>
+									</tr>
+								</c:forEach>
 								
-								</tr>
-							</c:forEach>
-							
-							
+							  </tbody>
+								
+							  </table>
+
+
 								<!-- <a href="게시판_상세.html" class="post">
 									<div class="post-title">제목</div>
 									<div class="post-author">닉네임</div> 시간 수정필요
@@ -112,22 +155,24 @@
 
 							<thead>
 								<tr>
+									<th>글 번호</th>
 									<th>
-										<form>
-											<select id="BFilter2" style="width:100%; height:25px;">
+										<form id="boardCtg" name="boardCtg" method="get"
+											action="<c:url value='/board/listAllBoard'/>">
+											<select id="BFilter2" name="boardCtgNo"
+												style="height: 25px; margin-left: 30px;">
 												<option value="All">구분</option>
-												<option value="dog">강아지</option>
-												<option value="cat">고양이</option>
-												<option value="Mammal">기타 포유류</option>
-												<option value="Reptiles">파충류/양서류</option>
-												<option value="fish">어류</option>
-												<option value="bird">조류</option>
-												<option value="rodents">설치류</option>
-												<option value="Insects">절지류/곤충류</option>
-
+												<option value="1">자유</option>
+												<option value="2">분양홍보</option>
+												<option value="3">반려동물 보호</option>
+												<option value="4">소모임</option>
+												<option value="5">중고거래</option>
+												<option value="6">정보제공</option>
+												<option value="7">QnA</option>
 											</select>
 										</form>
 									</th>
+
 									<th scope="col" class="th-title">글 제목</th>
 									<th scope="col" class="th-writer">작성자</th>
 									<th scope="col" class="th-date">날짜</th>
@@ -140,7 +185,8 @@
 								<c:forEach var="board" items="${boardList }">
 									<tr>
 										<td>${board.postNo }</td>
-										<td><a href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />[${postTypeNo}]${board.postTitle }</td>
+										<td>${board.boardCtgNo }</td>
+										<td><a href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td>
 										<td>${board.memId }</td>
 										<td><fmt:formatDate value="${board.postDate }"
 												pattern="YYYY-MM-dd" /></td>
@@ -148,49 +194,6 @@
 										<td>${board.postLike }</td>
 									</tr>
 								</c:forEach>
-								<!-- <tr>
-									<td><a href="#">[공지사항] 커뮤니티 가이드 필독!</a></td>
-									<td>관리자</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-									<td>100</td>
-								</tr>
-								<tr>
-									<td><a href="#">인기글1인기글1인기글1인기글1</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<tr>
-									<td><a href="#">인기글1인기글1인기글1인기글1</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<tr>
-									<td><a href="#">인기글1인기글1인기글1인기글1</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<tr>
-									<td><a href="#">인기글1인기글1인기글1인기글1</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<tr>
-									<td><a href="#">인기글1인기글1인기글1인기글1</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr> -->
 							</tbody>
 
 						</table>

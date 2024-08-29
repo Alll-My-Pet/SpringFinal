@@ -32,24 +32,25 @@ public class BoardCotroller {
 	 */
 	
 	@RequestMapping("/board/listAllBoard")
-	public String  listAllProduct(@RequestParam(required=false, defaultValue="1") int pageNo,
-				                                Model model) {
-		
-		BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.getBoardCount());
-		
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("startNo", (pageVo.getStartNo()-1));
-		map.put("endNo", pageVo.getEndNo());
-		
-		System.out.println(pageVo.getStartNo());
-		System.out.println(pageVo.getEndNo());
-		
-		ArrayList<BoardVO> boardList = boardService.listAllBoard(map);
-		model.addAttribute("boardList", boardList);
-		model.addAttribute("pageVo", pageVo);
-		
-		return "board/mainBoard";
-	}
+    public String listAllBoard(@RequestParam(required=false, defaultValue="1") int pageNo,
+                               Model model) {
+
+        BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.getBoardCount());
+
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("startNo", (pageVo.getStartNo() - 1));
+        map.put("endNo", pageVo.getEndNo());
+
+        ArrayList<BoardVO> boardList = boardService.listAllBoard(map);
+        model.addAttribute("boardList", boardList);
+        model.addAttribute("pageVo", pageVo);
+
+        // 인기글 조회
+        ArrayList<BoardVO> hotTopics = boardService.listHotTopics();
+        model.addAttribute("hotTopics", hotTopics);
+
+        return "board/mainBoard";
+    }
 	
 	
 	@RequestMapping("/board/protect")
@@ -90,6 +91,21 @@ public class BoardCotroller {
 	@RequestMapping("/board/bestTipDetail")
 	public String TipDetail() {
 		return "board/bestTipDetail";
+	}
+	
+	@RequestMapping("/board/freeDetail")
+	public String freeDetail() {
+		return "board/freeDetail";
+	}
+	
+	@RequestMapping("/board/promoteWrite")
+	public String promoteWrite() {
+		return "board/promoteWrite";
+	}
+	
+	@RequestMapping("/board/protectDetail")
+	public String protectDetail() {
+		return "board/protectDetail";
 	}
 	
 	/*
