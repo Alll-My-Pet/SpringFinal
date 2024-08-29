@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>간단한 지도 표시하기</title>
+    <title>반려동물 지도</title>
 	<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=p8d8z1bubk&submodules=geocoder"></script>
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 </head>
@@ -115,8 +115,32 @@
                         position: new naver.maps.LatLng(petList[i].latitude, petList[i].longitude)
                     });
 
+                    var infowindowContent = '<div>';
+
+                    if (petList[i].facilityName != '정보없음') {
+                        infowindowContent += '<b>' + petList[i].facilityName + '</b><br>';
+                    }
+
+                    if (petList[i].placeDescription != '정보없음') {
+                        infowindowContent += petList[i].placeDescription + '<br>';
+                    }
+
+                    if (petList[i].phoneNum != '정보없음') {
+                        infowindowContent += petList[i].phoneNum + '<br>';
+                    }
+
+                    if (petList[i].openHours != '정보없음') {
+                        infowindowContent += petList[i].openHours + '<br>';
+                    }
+
+                    if (petList[i].homepage != '정보없음') {
+                        infowindowContent += '<a href="' + petList[i].homepage + '" target="_blank">' + petList[i].homepage + '</a><br>';
+                    }
+
+                    infowindowContent += '</div>';
+
                     var infowindow = new naver.maps.InfoWindow({
-                        content: '<div><b>' + petList[i].facilityName + '</b></div>'
+                        content: infowindowContent
                     });
 
                     markerArr.push(marker);
