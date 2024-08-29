@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/mainBoardText.css' />" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/mainBoardText.js'/>"></script>
-<%-- <script src="<c:url value='/js/Board/mainBoardWrite.js'/>"></script> --%>
 </head>
 <body>
 	<div class="All">
@@ -20,16 +19,32 @@
 			</div>
 			<h1 id="mainWriteFont">게시글 작성</h1>
 			
-			<form id="mainSubmitFrm" method="post" action="<c:url value='/board/insertBoard'/>">
+			<form id="mainSubmitFrm" method="post" action="<c:url value='/insertBoard'/>">
 				<div class="writeBox">
 				<!-- select 필드 -->
-					<select class="mainWriteFilter" name="boardCtgNo">
-						<option value="1">[QnA]</option>
-						<option value="2">[자유게시판]</option>
-						<option value="3">[양육 팁]</option>
-						<option value="4">[분양홍보]</option>
-						<option value="5">[반려동물 보호]</option>
-						<option value="6">[이모지]</option>
+					
+					<select class="mainWriteFilter" name="boardCtgNo" id="boardCtgNo">
+						<option value="0">게시판 종류</option>
+						<option value="1">자유 게시판</option>
+						<option value="2">분양홍보 게시판</option>
+						<option value="3">반려동물 보호게시판</option>
+						<option value="4">소모임 게시판</option>
+						<option value="5">양육팁 게시판</option>
+						<option value="6">갤러리 게시판</option>
+						<option value="7">이모지 제작게시판</option>
+						<option value="8">중고거래 게시판</option>
+					</select>
+					
+					<select class="postTypeFilter" name="postTypeNo" id="postTypeNo">
+						<option value="0">[머리글]</option>
+						<option value="1">[자유]</option>
+						<option value="2">[분양홍보 게시판]</option>
+						<option value="3">[반려동물 보호게시판]</option>
+						<option value="4">[소모임 게시판]</option>
+						<option value="5">[양육팁 게시판]</option>
+						<option value="6">[갤러리 게시판]</option>
+						<option value="7">[이모지 제작게시판]</option>
+						<option value="8">[중고거래 게시판]</option>
 					</select>
 					
 					<!-- 작성자 필드 -->
@@ -50,13 +65,13 @@
 					
 				<!-- 제목 입력 필드 -->
 				<div class="mainDetailTitleBox">
-					<input type="text" class="MainDetailTitle" name="postTitle" placeholder="글 제목">
+					<input type="text" class="MainDetailTitle" id="postTitle"name="postTitle" placeholder="글 제목">
 				</div>
 
 
 				<!-- 내용 입력 필드 -->
 				<div class="mainDetailBodyBox">
-					<textarea class="mainDetailBody" name="postContent"placeholder="글 내용"></textarea>
+					<textarea class="mainDetailBody" id="postContent" name="postContent"placeholder="글 내용"></textarea>
 				</div>
 				
 				<!-- 작성 버튼 -->

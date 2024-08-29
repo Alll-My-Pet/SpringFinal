@@ -63,6 +63,8 @@ public class BoardService implements IBoardService {
     public ArrayList<BoardVO> listHotTopics() {
         return dao.listHotTopics();
     }
+
+	
 	
 
 	

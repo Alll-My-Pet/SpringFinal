@@ -27,4 +27,5 @@ public interface IBoardService {
 	
 	// 인기글
 	public ArrayList<BoardVO> listHotTopics();
+	
 }

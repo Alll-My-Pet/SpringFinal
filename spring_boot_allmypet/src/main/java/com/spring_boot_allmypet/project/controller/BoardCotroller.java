@@ -31,26 +31,26 @@ public class BoardCotroller {
 	 * model.addAttribute("boardList", boardList); return "/Board/MainBoard"; }
 	 */
 	
-	@RequestMapping("/board/listAllBoard")
-    public String listAllBoard(@RequestParam(required=false, defaultValue="1") int pageNo,
-                               Model model) {
+	 @RequestMapping("/board/listAllBoard")
+	    public String listAllBoard(@RequestParam(required=false, defaultValue="1") int pageNo,
+	                               Model model) {
 
-        BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.getBoardCount());
+	        BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.getBoardCount());
 
-        HashMap<String, Integer> map = new HashMap<>();
-        map.put("startNo", (pageVo.getStartNo() - 1));
-        map.put("endNo", pageVo.getEndNo());
+	        HashMap<String, Integer> map = new HashMap<>();
+	        map.put("startNo", (pageVo.getStartNo() - 1));
+	        map.put("endNo", pageVo.getEndNo());
 
-        ArrayList<BoardVO> boardList = boardService.listAllBoard(map);
-        model.addAttribute("boardList", boardList);
-        model.addAttribute("pageVo", pageVo);
+	        ArrayList<BoardVO> boardList = boardService.listAllBoard(map);
+	        model.addAttribute("boardList", boardList);
+	        model.addAttribute("pageVo", pageVo);
 
-        // 인기글 조회
-        ArrayList<BoardVO> hotTopics = boardService.listHotTopics();
-        model.addAttribute("hotTopics", hotTopics);
+	        // 인기글 조회
+	        ArrayList<BoardVO> hotTopics = boardService.listHotTopics();
+	        model.addAttribute("hotTopics", hotTopics);
 
-        return "board/mainBoard";
-    }
+	        return "board/mainBoard";
+	    }
 	
 	
 	@RequestMapping("/board/protect")
@@ -139,7 +139,7 @@ public class BoardCotroller {
 	   }
 	   
 	   // 글 등록
-	   @RequestMapping("/board/insertBoard")
+	   @RequestMapping("/insertBoard")
 	   public String insertBoard(BoardVO vo, HttpSession session) {
 	     // 세션에서 로그인한 사용자 아이디 가져오기
 	     String logInUser = (String) session.getAttribute("mid");

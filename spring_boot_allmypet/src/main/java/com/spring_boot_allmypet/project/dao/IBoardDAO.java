@@ -31,6 +31,7 @@ public interface IBoardDAO {
 	public ArrayList<BoardVO> listHotTopics();
 	
 	
+	
 
 }
 

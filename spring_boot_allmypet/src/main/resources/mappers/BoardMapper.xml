@@ -20,10 +20,8 @@
 	</resultMap>
 
 
-	<!-- 전체 게시글 조회 -->
-	<!-- <select id="listAllBoard" resultMap="boardResultMap"> SELECT * FROM 
-		board ORDER BY bodNo DESC </select> -->
 
+	<!-- 전체 게시글 -->
 	<select id="listAllBoard" parameterType="hashmap"
 		resultType="com.spring_boot_allmypet.project.model.BoardVO">
 		SELECT * FROM post LIMIT #{startNo}, 15;
@@ -56,18 +54,15 @@
 	<!-- 게시글 조회 -->
 	<select id="detailViewBoard" parameterType="int"
 		resultType="com.spring_boot_allmypet.project.model.BoardVO">
-		SELECT postNo, postTitle, memId, postContent, postLike,
-		postImg, postView,
-		boardCtgNo FROM post WHERE postNo = #{postNo}
+		SELECT postNo, postTitle, memId, postContent, postLike, postImg, postView, boardCtgNo 
+		FROM post 
+		WHERE postNo = #{postNo}
 	</select>
 
 	<!-- 글 작성 -->
-	<insert id="insertBoard"
-		parameterType="com.spring_boot_allmypet.project.model.BoardVO">
-		<!-- INSERT INTO board (bodTitle, memId, bodDate, bodText) VALUES (#{bodTitle}, 
-			#{memId}, #{bodDate}, #{bodText}) -->
-		INSERT INTO post (postTitle, memId, postDate, postContent, boardCtgNo)
-		VALUES (#{postTitle}, #{memId}, NOW(), #{postContent}, #{boardCtgNo})
+	<insert id="insertBoard" parameterType="com.spring_boot_allmypet.project.model.BoardVO">
+		INSERT INTO post (postTitle, memId, postDate, postContent,postTypeNo, boardCtgNo)
+		VALUES (#{postTitle}, #{memId}, NOW(), #{postContent},#{postTypeNo}, #{boardCtgNo})
 	</insert>
 	
 	<!-- 인기글 -->
@@ -77,6 +72,8 @@
     ORDER BY postLike DESC
     LIMIT 2
 	</select>
+	
+	
 
 
 </mapper>

@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
 .FreeBoardBtn{
-	width:100px;
+	width:140px;
 	height:30px;
 	background-color:white;
 	border-radius:7px;
-	margin-top:30px;
-	margin-left:380px;
+	margin-top:20px;
+	margin-left:360px;
+	
 	
 }
 
@@ -43,7 +44,7 @@
 	border:1px solid black;
 	border-radius:7px;
 	margin-left:45px;
-	margin-top:50px;
+	margin-top:70px;
 }
 
 .mainDetailBody{
@@ -68,13 +69,22 @@
 	position:absolute;
 	width:120px;
 	height:30px;
-	top:330px;
+	top:310px;
 	left:550px;
 }
 
 .author{
 	width:200px;
 	position:absolute;
-	top:300px;
+	top:280px;
 	left:550px;
+}
+
+.postTypeFilter{
+	position:absolute;
+	width:120px;
+	height:30px;
+	top:345px;
+	left:550px;
+	
 }
