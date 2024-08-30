@@ -13,7 +13,10 @@
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/animal/tipBoard.css'/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/Board/paging.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+<script src="<c:url value='/js/Board/paging.js'/>"></script>
 </head>
 <body>
 	<div class="desktop-1">
@@ -124,6 +127,42 @@
 									</c:forEach>
 								</tbody>
 							</table>
+						</div>
+						<!-- noticebox 끝 -->
+						<br>
+						<div class="bottom-box">
+							<!-- 페이징 -->
+							<div class="paging" style="text-align: center;">
+								<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
+									onclick="javascript:goPage('prev')">이전</a>
+
+								<c:forEach var="i" begin="${pageVo.startPage }"
+									end="${pageVo.endPage }">
+									<%-- <a onclick="javascript:goPage('${i}')">${i }</a> --%>
+									<a onclick="javascript:goPage('${i}')"
+										class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
+								</c:forEach>
+
+								<a onclick="javascript:goPage('next')">다음</a> <a
+									onclick="javascript:goPage('${pageVo.totalPage }')">
+									&gt;&gt;</a>
+							</div>
+							<form name="pageFrm">
+								<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
+							</form>
+
+							<br>
+
+							<div class="searchBar">
+								<form action="${pageContext.request.contextPath}/search"
+									method="get">
+									<input type="text" name="keyword" placeholder="게시글 검색" required />
+									<button class="searchBtn" type="submit">
+										<img src="/image/search.png" alt="검색" />
+									</button>
+								</form>
+							</div>
+							<!-- searchBar 끝 -->
 						</div>
 					</div>
 					<!-- board-contents끝 -->
