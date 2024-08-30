@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import com.spring_boot_allmypet.project.model.animal.MyTipBoardVO;
 
 public interface IMyTipDAO {
-    // 특정 petCtgNo에 해당하는 양육 팁(headerNo가 4인 경우) 조회 
-    public ArrayList<MyTipBoardVO> getTipList(String petCtgNo);
+	// 양육팁 게시판 목록 출력
+	public ArrayList<MyTipBoardVO> getTipList(String petCtgNo);
+
+	// 베스트 양육팁 top 3
+	public ArrayList<MyTipBoardVO> getTop3List(String petCtgNo);
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -56,33 +56,19 @@
 						<div class="bestTip-box">
 							<span>베스트 양육 팁🌟</span>
 							<table class="bestTip-table">
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
+								<c:forEach var="top3" items="${topLikedTips }">
+									<tr>
+										<td><a href="#">${top3.postTitle}</a></td>
+										<td>${top3.memId}</td>
+										<td><fmt:formatDate value="${top3.postDate}"
+												pattern="M/dd HH:mm" /></td>
+										<td>${top3.postView}</td>
+										<td>${top3.postLike}</td>
+									</tr>
+									<td colspan="5">
+										<div class="separator"></div>
+									</td>
+								</c:forEach>
 							</table>
 						</div>
 						<!-- bestTip-box끝 -->
@@ -107,10 +93,8 @@
 										<tr>
 											<td><a href="#">${mytip.postTitle}</a></td>
 											<td>${mytip.memId}</td>
-											<td>
-												<fmt:formatDate value="${mytip.postDate}"
-														pattern="M/dd HH:mm" />
-											</td>
+											<td><fmt:formatDate value="${mytip.postDate}"
+													pattern="M/dd HH:mm" /></td>
 											<td>${mytip.postView}</td>
 											<td>${mytip.postLike}</td>
 										</tr>

@@ -74,6 +74,10 @@ public class AnimalController {
 		// petCtgNo에 해당하는 양육팁 게시글 목록 조회
 		ArrayList<MyTipBoardVO> myTipList = mytipService.getTipList(petCtgNo);
 		model.addAttribute("myTipList", myTipList);
+		
+		// petCtgNo에 해당하는 상위 3개의 좋아요 수 기준 양육팁 게시글 목록 조회
+	    ArrayList<MyTipBoardVO> topLikedTips = mytipService.getTop3List(petCtgNo);
+	    model.addAttribute("topLikedTips", topLikedTips);
 
 		return "animal/tipBoard";
 	}

@@ -20,4 +20,9 @@ public class MyTipService implements IMyTipService {
 		return dao.getTipList(petCtgNo);
 	}
 
+	@Override
+	public ArrayList<MyTipBoardVO> getTop3List(String petCtgNo) {
+		return dao.getTop3List(petCtgNo);
+	}
+
 }
