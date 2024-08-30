@@ -201,7 +201,7 @@
 										<c:forEach var="mytip" items="${myTipList }">
 											<a href="게시판_상세.html" class="post">
 												<div class="post-title">${mytip.postTitle}</div>
-												<div class="post-author">${mytip.memId}</div> <!-- 시간 수정필요 -->
+												<div class="post-author">${mytip.memId}</div>
 												<div class="post-date">
 													<fmt:formatDate value="${mytip.postDate}"
 														pattern="M/dd HH:mm" />

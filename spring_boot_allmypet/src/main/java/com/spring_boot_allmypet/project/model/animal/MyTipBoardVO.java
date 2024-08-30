@@ -13,6 +13,15 @@ public class MyTipBoardVO {
     private String memId;
     private String postContent;
     private int postLike;
+    private int postView;
+    
+    
+    public int getPostView() {
+		return postView;
+	}
+	public void setPostView(int postView) {
+		this.postView = postView;
+	}
     private String postImg;
     
 	public String getPetCtgNo() {
