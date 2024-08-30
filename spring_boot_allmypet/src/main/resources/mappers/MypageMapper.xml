@@ -46,6 +46,22 @@
 	    LEFT JOIN animal_ctg a ON p.petCtgNo = a.petCtgNo
 	    WHERE p.memId = #{memId}
   	</select>
+  	<!-- 펫 정보 삭제 -->
+  	<delete id="myPetDelete" parameterType="string">
+  		DELETE FROM pet 
+	    WHERE memId = #{mid}
+  	</delete>
+  	<!-- 펫 정보 추가 -->
+  	<insert id="myPetUpdate" parameterType="com.spring_boot_allmypet.project.model.member.PetVO">
+ 		INSERT INTO pet (petSpecies, petName, birth, petCtgNo, memId, representative)
+		VALUES 
+		(#{petSpecies}, #{petName}, #{birth}, #{petCtgNo}, #{memId}, 
+			 <choose>
+	            <when test="rep_pet == true">1</when>
+	            <otherwise>0</otherwise>
+	        </choose>
+		); 
+  	</insert>
   	<!-- 포인트 내역 전부 출력 -->
   	<select id="myPointList_total" parameterType="string" resultType="hashmap">
   		SELECT *
@@ -323,6 +339,63 @@
 		JOIN emoji e ON ep.emoNo = e.emoNo
 		WHERE ep.memId = #{memId}
 		ORDER BY  ep.useCount DESC;
-
 	</select>
+	<select id="myCouponList" parameterType="string" resultType="hashmap">
+		SELECT 
+		    uc.memId,
+		    uc.valid_until,
+		    c.discount_percent,
+		    c.valid_items
+		FROM 
+		    user_coupons uc
+		JOIN 
+		    coupons c ON uc.coupon_id = c.coupon_id
+		WHERE 
+		    uc.memId = #{memId};
+	</select>
+	<!-- 브리더 등록 -->
+	<insert id="breederInsert" parameterType="com.spring_boot_allmypet.project.model.mypage.BreederInfoVO">
+	    INSERT INTO breeder_info
+	    <trim prefix="(" suffix=")" suffixOverrides=",">
+	        <if test="mgtNo != null">mgtNo,</if>
+	        <if test="memId != null">memId,</if>
+	        <if test="apvPermYmd != null">apvPermYmd,</if>
+	        <if test="apvCancelYmd != null">apvCancelYmd,</if>
+	        <if test="bplcNm != null">bplcNm,</if>
+	        <if test="siteTel != null">siteTel,</if>
+	        <if test="rdnPostNo != null">rdnPostNo,</if>
+	        <if test="rdnWhlAddr != null">rdnWhlAddr,</if>
+	        <if test="rdnWhlAddrdetail != null">rdnWhlAddrdetail,</if>
+	    </trim>
+	    <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+	        <if test="mgtNo != null">#{mgtNo},</if>
+	        <if test="memId != null">#{memId},</if>
+	        <if test="apvPermYmd != null">#{apvPermYmd},</if>
+	        <if test="apvCancelYmd != null">#{apvCancelYmd},</if>
+	        <if test="bplcNm != null">#{bplcNm},</if>
+	        <if test="siteTel != null">#{siteTel},</if>
+	        <if test="rdnPostNo != null">#{rdnPostNo},</if>
+	        <if test="rdnWhlAddr != null">#{rdnWhlAddr},</if>
+	        <if test="rdnWhlAddrdetail != null">#{rdnWhlAddrdetail},</if>
+	    </trim>
+	</insert>
+	<update id="breederUpdate" parameterType="com.spring_boot_allmypet.project.model.mypage.BreederInfoVO">
+		UPDATE breeder_info
+		<set>
+	        <if test="apvPermYmd != null">apvPermYmd = #{apvPermYmd},</if>
+	        <if test="apvCancelYmd != null">apvCancelYmd = #{apvCancelYmd},</if>
+	        <if test="bplcNm != null">bplcNm = #{bplcNm},</if>
+	        <if test="siteTel != null">siteTel = #{siteTel},</if>
+	        <if test="rdnPostNo != null">rdnPostNo = #{rdnPostNo},</if>
+	        <if test="rdnWhlAddr != null">rdnWhlAddr = #{rdnWhlAddr},</if>
+	        <if test="rdnWhlAddrdetail != null">rdnWhlAddrdetail = #{rdnWhlAddrdetail},</if>
+    	</set>
+		WHERE mgtNo = #{mgtNo};
+	</update>
+	<!-- 브리더 회원으로 전환 -->
+	<update id="updateBreeder" parameterType="string">
+		UPDATE member
+		SET position = 1
+		WHERE memId = #{mid};
+	</update>
   </mapper>

@@ -16,6 +16,7 @@ import com.spring_boot_allmypet.project.model.member.PetVO;
 import com.spring_boot_allmypet.project.model.mypage.BlockListVO;
 import com.spring_boot_allmypet.project.model.mypage.BookMarkGVO;
 import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
+import com.spring_boot_allmypet.project.model.mypage.BreederInfoVO;
 
 @Service
 public class MypageService implements IMypageService {
@@ -37,6 +38,16 @@ public class MypageService implements IMypageService {
 	@Override
 	public ArrayList<PetVO> myPetList(String mid) {
 		return dao.myPetList(mid);
+	}
+	/* 펫 정보 삭제 */
+	@Override
+	public void myPetDelete(String mid) {
+		dao.myPetDelete(mid);
+	}
+	/* 펫 정보 추가*/
+	@Override
+	public void myPetUpdate(PetVO petvo) {
+		dao.myPetUpdate(petvo);
 	}
 	/* 포인트 내역 출력*/
 	@Override
@@ -164,5 +175,25 @@ public class MypageService implements IMypageService {
 	@Override
 	public List<Map<String, Object>> emoji_my_purch(String memId) {
 		return dao.emoji_my_purch(memId);
+	}
+	// 쿠폰 리스트
+	@Override
+	public List<Map<String, Object>> myCouponList(String memId) {
+		return dao.myCouponList(memId);
+	}
+	// 브리더 등록
+	@Override
+	public void breederInsert(BreederInfoVO vo) {
+		dao.breederInsert(vo);
+	}
+	// 브리더 수정
+	@Override
+	public void breederUpdate(BreederInfoVO vo) {
+		dao.breederUpdate(vo);
+	}
+	// 회원정보 브리더로 수정
+	@Override
+	public void updateBreeder(String mid) {
+		dao.updateBreeder(mid);
 	}
 }

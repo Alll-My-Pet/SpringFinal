@@ -32,22 +32,50 @@
 						<a href="/mypage/my_coupon_lists"><div id="second_name">쿠폰함</div></a>
 					</div>
 					<div id="mcl_m">
-						<div class="mcl_coupon all_coupon_R">
-						  <div class="left-section all_coupon_L">
-						    <span>DISCOUNT</span>
-						  </div>
-						  <div class="right-section">
-						    <div class="mcl_discount">32%</div>
-						    <div class="mcl_expiration">유효기한<br><span class="mcl_exp_date">0000.00.00</span></div>
-						    <div class="mcl_use_availabe">
-						    	<span>품목</span>
-						    	<span class="mcl_availabe">전체</span>
-							</div>
-						    <div class="mcl_actions">
-						      <a href="#">사용하기</a>
-						    </div>
-						  </div>
-						</div>
+ 						<c:if test="${not empty coupon_list }">
+							<c:forEach var="coupon" items="${coupon_list }">
+							
+								<c:choose>
+								    <c:when test="${coupon.valid_items == '반려동물용품'}">
+								        <c:set var="couponTypeR" value="pet_coupon_R" />
+								        <c:set var="couponTypeL" value="pet_coupon_L" />
+								    </c:when>
+								    <c:when test="${coupon.valid_items == '굿즈'}">
+								        <c:set var="couponTypeR" value="goods_coupon_R" />
+								        <c:set var="couponTypeL" value="goods_coupon_L" />
+								    </c:when>
+								    <c:otherwise>
+								        <c:set var="couponTypeR" value="all_coupon_R" />
+								        <c:set var="couponTypeL" value="all_coupon_L" />
+								    </c:otherwise>
+								</c:choose>
+								
+								<div class="mcl_coupon ${couponTypeR }">
+									<div class="left-section ${couponTypeL }">
+									   <span>DISCOUNT</span>
+									</div>
+									<div class="right-section">
+									   <c:choose>
+										    <c:when test="${coupon.valid_until == null}">
+										    	<div class="mcl_discount">${coupon.discount_percent }&nbsp%</div>
+									   			<div class="mcl_expiration">유효기한<br><span class="mcl_exp_date">무제한</span></div>
+										    </c:when>
+										    <c:otherwise>
+										    	<div class="mcl_discount">${coupon.discount_percent }&nbsp%</div>
+									   			<div class="mcl_expiration">유효기한<br><span class="mcl_exp_date">${coupon.valid_until }</span></div>
+										    </c:otherwise>
+										</c:choose>
+									   <div class="mcl_use_availabe">
+									   <span>품목</span>
+									   <span class="mcl_availabe">${coupon.valid_items }</span>
+									</div>
+									   <div class="mcl_actions">
+									     <a href="#">사용하기</a>
+									   </div>
+									</div>
+								</div>							
+							</c:forEach>
+						</c:if> 
 					</div>
 				</div>
 			</div>

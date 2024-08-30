@@ -15,12 +15,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring_boot_allmypet.project.model.market.OrderInfoVO;
+import com.spring_boot_allmypet.project.model.market.OrderProductVO;
+import com.spring_boot_allmypet.project.model.market.ProductVO;
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 import com.spring_boot_allmypet.project.model.member.PetVO;
 import com.spring_boot_allmypet.project.model.mypage.BlockListVO;
 import com.spring_boot_allmypet.project.model.mypage.BookMarkGVO;
 import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
+import com.spring_boot_allmypet.project.model.mypage.BreederInfoVO;
+import com.spring_boot_allmypet.project.service.market.OrderService;
+import com.spring_boot_allmypet.project.service.market.ProductService;
+import com.spring_boot_allmypet.project.service.member.MemberService;
 import com.spring_boot_allmypet.project.service.mypage.MypageService;
 
 import jakarta.servlet.http.HttpSession;
@@ -29,16 +36,25 @@ import jakarta.servlet.http.HttpSession;
 public class MyPageControlloer {
 	@Autowired
 	MypageService mypageService;
+	@Autowired
+	MemberService memService;
+	@Autowired
+	OrderService orderService;
+	@Autowired
+	ProductService prdService;
+
 	
 	@RequestMapping("/mypage")
 	public String mpMain(HttpSession session,Model model) {
 		String memId = (String) session.getAttribute("mid");
+		session.setAttribute("mpos", memService.memPosition(memId));	
+		String mpos = String.valueOf(session.getAttribute("mpos")) ;
 		MemberVO memVO = mypageService.memInfoView(memId);
 		ArrayList<PetVO> petVoList = mypageService.myPetList(memId);
 		
 		model.addAttribute("memVO", memVO);
 		model.addAttribute("petList",petVoList);
-		
+		model.addAttribute("mpos",mpos);
 		return "mypage/myPageMain";
 	}
 	
@@ -168,12 +184,18 @@ public class MyPageControlloer {
 	}
 	
 	@RequestMapping("/mypage/my_emoji/made")
-	public String madeEmoji() {
+	public String madeEmoji(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		List<Map<String, Object>> emj_e = mypageService.emoji_my_edit(memId);
+		model.addAttribute("emj_e_List",emj_e);
 		return "mypage/commEmojiIMade";
 	}
 	
 	@RequestMapping("/mypage/my_emoji/have")
-	public String haveEmoji() {
+	public String haveEmoji(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		List<Map<String, Object>> emj_p_list = mypageService.emoji_my_purch(memId);	
+		model.addAttribute("emj_p_List",emj_p_list);
 		return "mypage/commEmojiIHave";
 	}
 	
@@ -190,7 +212,37 @@ public class MyPageControlloer {
 	/*마이페이지_마켓*/
 	
 	@RequestMapping("/mypage/my_order_lists")
-	public String orderList() {
+	public String orderList(@RequestParam(value = "filter", required = false) String filter, Model model, HttpSession session) {
+		
+	    String memId = (String) session.getAttribute("mid");
+	    //String memId = "abcd";
+	    List<OrderInfoVO> orderList;
+
+	    // 현재 날짜
+	    LocalDate now = LocalDate.now();
+
+	    // 필터 조건에 따라 기간 계산
+	    if ("6months".equals(filter)) {
+	        orderList = orderService.getOrderHistoryByPeriod(memId, now.minusMonths(6));
+	    } else if ("1year".equals(filter)) {
+	        orderList = orderService.getOrderHistoryByPeriod(memId, now.minusYears(1));
+	    } else if ("2years".equals(filter)) {
+	        orderList = orderService.getOrderHistoryByPeriod(memId, now.minusYears(2));
+	    } else {
+	        orderList = orderService.getOrderHistory(memId); // 전체 주문 내역
+	    }
+
+	    // 각 주문에 대한 상품 정보를 추가로 가져옴
+	    for (OrderInfoVO order : orderList) {
+	        List<OrderProductVO> products = orderService.getOrderProductsByOrderNo(order.getOrdNo());
+	        for (OrderProductVO product : products) {
+	            ProductVO productDetails = prdService.detailViewProduct(product.getPrdNo());
+	            product.setProductDetails(productDetails);
+	        }
+	        order.setOrderProducts(products);
+	    }
+
+	    model.addAttribute("orderList", orderList);
 		return "mypage/marketOrderList";
 	}
 	
@@ -198,17 +250,37 @@ public class MyPageControlloer {
 	public String goodsList() {
 		return "mypage/marketGoodsList";
 	}
-	
+	/*쿠폰 리스트*/
 	@RequestMapping("/mypage/my_coupon_lists")
-	public String couponList() {
+	public String couponList(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		List<Map<String, Object>> coupon_list = mypageService.myCouponList(memId);
+		model.addAttribute("coupon_list",coupon_list);
 		return "mypage/marketCouponList";
 	}
 	
 	/*마이페이지_브리더*/
 	
 	@RequestMapping("/mypage/breeder_regist")
-	public String breederRegistration() {
+	public String breederRegistration(HttpSession session,Model model) {
+		String mpos = String.valueOf(session.getAttribute("mpos")) ;
+		model.addAttribute("mpos",mpos);
 		return "mypage/breederRegistration";
+	}
+	@RequestMapping("/mypage/breederInsert")
+	public String breederInsert(HttpSession session,BreederInfoVO breederInfoVo) {
+		String memId = (String) session.getAttribute("mid");
+		breederInfoVo.setMemId(memId);
+		mypageService.breederUpdate(breederInfoVo);
+		mypageService.updateBreeder(memId);
+		return "redirect:/mypage";
+	}
+	@RequestMapping("/mypage/breederUpdate")
+	public String breederUpdate(HttpSession session,BreederInfoVO breederInfoVo) {
+		String memId = (String) session.getAttribute("mid");
+		breederInfoVo.setMemId(memId);
+		mypageService.breederUpdate(breederInfoVo);
+		return "redirect:/mypage";
 	}
 	
 	@RequestMapping("/mypage/inquiry_lists")
