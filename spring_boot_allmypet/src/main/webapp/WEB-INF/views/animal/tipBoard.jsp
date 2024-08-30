@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/board/noticeBoard.css'/>" />
+	href="<c:url value='/css/animal/tipBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 </head>
 <body>
@@ -26,34 +26,34 @@
 					<br> <br>
 					<div class="pageInfo">
 						<div class="bracket">
-							<img src="/image/index/bracket-light-left.svg" class="bLeft" alt="..." style="height: 128px;">
+							<img src="/image/index/bracket-light-left.svg" class="bLeft"
+								alt="..." style="height: 128px;">
 						</div>
 						<div class="page-title">
 							<div class="titleInfo">&nbsp;동물별 커뮤니티</div>
 							<span class="ctgTitle"> ${petCtgName} 양육 팁💡</span>
 						</div>
 						<div class="bracket">
-							<img src="/image/index/bracket-light-right.svg" class="bRight" alt="..." style="height: 128px;">
+							<img src="/image/index/bracket-light-right.svg" class="bRight"
+								alt="..." style="height: 128px;">
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
-					<div class="notice-box">
-						<table class="notice-table">
-							<thead>
-								<tr>
-									<th>글 제목</th>
-									<th>작성자</th>
-									<th>날짜</th>
-									<th>조회</th>
-									<th>추천</th>
-								</tr>
-							</thead>
-							<tbody>
-								<!-- tbody와 thead간의 공백 -->
-								<tr>
-									<td colspan="5"
-										style="height: 3px; background-color: transparent;"></td>
-								</tr>
+					<div class="board-contents">
+						<!-- 게시판 관련 컨텐츠 시작 -->
+						<div class="searchBar">
+							<form action="${pageContext.request.contextPath}/search"
+								method="get">
+								<input type="text" name="keyword" placeholder="게시글 검색" required />
+								<button class="searchBtn" type="submit">
+									<img src="/image/search.png" alt="검색" />
+								</button>
+							</form>
+						</div>
+						<!-- searchBar 끝 -->
+						<div class="bestTip-box">
+							<span>베스트 양육 팁🌟</span>
+							<table class="bestTip-table">
 								<tr>
 									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
 									<td>작성자1</td>
@@ -64,50 +64,99 @@
 								<td colspan="5">
 									<div class="separator"></div>
 								</td>
+								<tr>
+									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+									<td>작성자1</td>
+									<td>2017.07.13</td>
+									<td>300</td>
+									<td>100</td>
+								</tr>
+								<td colspan="5">
+									<div class="separator"></div>
+								</td>
+								<tr>
+									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+									<td>작성자1</td>
+									<td>2017.07.13</td>
+									<td>300</td>
+									<td>100</td>
+								</tr>
+							</table>
+						</div>
+						<!-- bestTip-box끝 -->
+						<div class="notice-box">
+							<table class="notice-table">
+								<thead>
+									<tr>
+										<th>글 제목</th>
+										<th>작성자</th>
+										<th>날짜</th>
+										<th>조회</th>
+										<th>추천</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- tbody와 thead간의 공백 -->
+									<tr>
+										<td colspan="5"
+											style="height: 3px; background-color: transparent;"></td>
+									</tr>
+									<tr>
+										<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+										<td>작성자1</td>
+										<td>2017.07.13</td>
+										<td>300</td>
+										<td>100</td>
+									</tr>
+									<td colspan="5">
+										<div class="separator"></div>
+									</td>
 
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-							</tbody>
-						</table>
+									<tr>
+										<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+										<td>작성자1</td>
+										<td>2017.07.13</td>
+										<td>300</td>
+										<td>100</td>
+									</tr>
+									<td colspan="5">
+										<div class="separator"></div>
+									</td>
+									<tr>
+										<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+										<td>작성자1</td>
+										<td>2017.07.13</td>
+										<td>300</td>
+										<td>100</td>
+									</tr>
+									<td colspan="5">
+										<div class="separator"></div>
+									</td>
+									<tr>
+										<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+										<td>작성자1</td>
+										<td>2017.07.13</td>
+										<td>300</td>
+										<td>100</td>
+									</tr>
+									<td colspan="5">
+										<div class="separator"></div>
+									</td>
+									<tr>
+										<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
+										<td>작성자1</td>
+										<td>2017.07.13</td>
+										<td>300</td>
+										<td>100</td>
+									</tr>
+									<td colspan="5">
+										<div class="separator"></div>
+									</td>
+								</tbody>
+							</table>
+						</div>
 					</div>
+					<!-- board-contents끝 -->
 				</div>
 				<!-- contents 끝 -->
 			</div>

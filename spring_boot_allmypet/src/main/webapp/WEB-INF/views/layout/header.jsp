@@ -149,7 +149,6 @@
 		<!-- 검색 버튼 -->
 		<div class="search-icon">
 			<button class="searchBtn">
-				<!-- 버튼으로 감싸기 -->
 				<img src="/image/search.png" alt="검색" />
 			</button>
 		</div>
