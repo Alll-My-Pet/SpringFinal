@@ -65,7 +65,7 @@
 .bestTip-box {
 	/* 	background-color: yellow; */
 	width: 689px;
-	height: 185px;
+	height: 175px;
 	margin-top: 40px;
 	background-color: white;
 	border: 1px solid #A4A4A4;
@@ -73,11 +73,13 @@
 	box-shadow: 0 4px 1px rgba(0, 0, 0, 0.2);
 }
 
-.bestTip-box span {
+.bestTip-title {
 	/* background-color: yellow; */
 	display: inline-block; /* 또는 block */
-	margin: 15px;
-	font-weight: bold;
+/* 	margin: 15px; */
+	/* font-weight: bold; */
+	font-size: 17px;
+	transform: translateY(20px);
 }
 /* *************************************************** */
 /* 공지사항에서 가져온 전체 설정*/
@@ -174,8 +176,7 @@
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.bestTip-table,
-.notice-table {
+.bestTip-table, .notice-table {
 	width: 100%;
 	margin: 0 auto;
 	border-collapse: collapse; /* 테두리 겹침 방지 */

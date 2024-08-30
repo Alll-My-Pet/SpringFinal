@@ -53,22 +53,42 @@
 							</form>
 						</div>
 						<!-- searchBar 끝 -->
+						<div class="bestTip-title">🌟베스트 양육 팁🌟</div>
 						<div class="bestTip-box">
-							<span>베스트 양육 팁🌟</span>
 							<table class="bestTip-table">
-								<c:forEach var="top3" items="${topLikedTips }">
+								<thead>
 									<tr>
-										<td><a href="#">${top3.postTitle}</a></td>
-										<td>${top3.memId}</td>
-										<td><fmt:formatDate value="${top3.postDate}"
-												pattern="M/dd HH:mm" /></td>
-										<td>${top3.postView}</td>
-										<td>${top3.postLike}</td>
+										<th>글 제목</th>
+										<th>작성자</th>
+										<th>날짜</th>
+										<th>조회</th>
+										<th>추천</th>
 									</tr>
-									<td colspan="5">
-										<div class="separator"></div>
-									</td>
-								</c:forEach>
+								</thead>
+								<tbody>
+									<!-- tbody와 thead간의 공백 -->
+									<tr>
+										<td colspan="5"
+											style="height: 3px; background-color: transparent;"></td>
+									</tr>
+									<c:forEach var="top3" items="${topLikedTips }">
+										<tr>
+											<td><a href="#">${top3.postTitle}</a></td>
+											<td>${top3.memId}</td>
+											<td><fmt:formatDate value="${top3.postDate}"
+													pattern="M/dd HH:mm" /></td>
+											<td>${top3.postView}</td>
+											<td>${top3.postLike}</td>
+										</tr>
+										<c:if test="${!status.last}">
+											<tr>
+												<td colspan="5">
+													<div class="separator"></div>
+												</td>
+											</tr>
+										</c:if>
+									</c:forEach>
+								</tbody>
 							</table>
 						</div>
 						<!-- bestTip-box끝 -->
