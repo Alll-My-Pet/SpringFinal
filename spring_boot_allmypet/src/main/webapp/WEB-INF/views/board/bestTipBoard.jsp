@@ -183,6 +183,283 @@
 								<!-- carousel-container 끝 -->
 							</div>
 							<!-- card-container 끝 -->
+							<br> <br>
+							<div class="card-container">
+							<!-- 두번째 동물군 베스트팁 -->
+								<a href="<c:url value=''/>" class="board-title">
+									<div>고양이 양육팁🐈 +</div>
+								</a>
+								<div class="carousel-container">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<div class="row">
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="carousel-item">
+											<div class="row">
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<!-- card-post끝 -->
+											</div>
+											<!-- row 끝 -->
+										</div>
+										<!-- carousel-item끝 -->
+									</div>
+									<!-- carousel-inner 끝 -->
+									<button class="chevron-left">
+										<img class="icon" src="/image/index/chevron_left.svg" alt="왼" data-slide="prev"
+											width="40px" height="45px" />
+									</button>
+									<button class="chevron-right">
+										<img class="icon" src="/image/index/chevron_right.svg" alt="오" data-slide="next"
+											width="40px" height="45px" />
+									</button>
+								</div>
+								<!-- carousel-container 끝 -->
+							</div>
+							<!-- card-container 끝 -->
+							
+							<br> <br>
+							<div class="card-container">
+							<!-- 세번째 동물군 베스트팁 -->
+								<a href="<c:url value=''/>" class="board-title">
+									<div>기타 포유류 양육팁🐇 +</div>
+								</a>
+								<div class="carousel-container">
+									<div class="carousel-inner">
+										<div class="carousel-item active">
+											<div class="row">
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+											</div>
+										</div>
+										<div class="carousel-item">
+											<div class="row">
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
+												<!-- card-post끝 -->
+											</div>
+											<!-- row 끝 -->
+										</div>
+										<!-- carousel-item끝 -->
+									</div>
+									<!-- carousel-inner 끝 -->
+									<button class="chevron-left">
+										<img class="icon" src="/image/index/chevron_left.svg" alt="왼" data-slide="prev"
+											width="40px" height="45px" />
+									</button>
+									<button class="chevron-right">
+										<img class="icon" src="/image/index/chevron_right.svg" alt="오" data-slide="next"
+											width="40px" height="45px" />
+									</button>
+								</div>
+								<!-- carousel-container 끝 -->
+							</div>
+							<!-- card-container 끝 -->
 						</div>
 						<!-- bestBox 끝 -->
 					</section>
