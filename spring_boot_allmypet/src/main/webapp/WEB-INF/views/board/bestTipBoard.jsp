@@ -471,6 +471,11 @@
 			<!-- frame-2 끝 -->
 		</div>
 		<!-- frame-1 끝 -->
+		<br> <br>
+		<!-- footer부착 -->
+		<div id="footer">
+			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+		</div>
 	</div>
 	<!-- desktop-1 끝 -->
 </body>
