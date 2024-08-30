@@ -194,7 +194,7 @@
 										<a href="<c:url value='/petname'/>" class="naming-link">작명소로 이동🔜</a>
 								</div>
 								<div class="mytip-board">
-									<a href="게시판_링크.html" class="board-title">
+									<a href="<c:url value='/animal_home/${petCtgNo}/tip'/>" class="board-title">
 										<div>양육 팁💡 게시판 +</div>
 									</a>
 									<div class="post-list">
