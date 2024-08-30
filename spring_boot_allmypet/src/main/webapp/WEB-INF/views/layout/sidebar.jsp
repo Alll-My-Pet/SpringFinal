@@ -57,7 +57,7 @@
             </div>
             <div class="menu-item">
                 <a href="#" class="menu-link">
-                    <a href="#" class="menu-link">
+                    <a href="<c:url value='/board/promoteBoard'/>" class="menu-link">
                         <span>
                             분양홍보 게시판
                         </span>
@@ -65,7 +65,7 @@
                 </a>
             </div>
             <div class="menu-item">
-                <a href="#" class="menu-link">
+                <a href="/board/protect" class="menu-link">
                     <span>
                         반려동물 보호 게시판
                     </span>
