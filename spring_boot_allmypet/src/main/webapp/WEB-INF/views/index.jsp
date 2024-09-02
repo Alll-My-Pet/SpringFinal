@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +31,8 @@
 				<div class="contents">
 					<div class="pageInfo">
 						<div class="bracket">
-							<img src="image/index/bracket-light-left.svg" class="bLeft" alt="..." style="height: 128px;">
+							<img src="image/index/bracket-light-left.svg" class="bLeft"
+								alt="..." style="height: 128px;">
 						</div>
 						<div class="page-title">
 							<div class="titleInfo">다양한 반려동물 커뮤니티를 한 눈에!</div>
@@ -44,7 +46,8 @@
 							<c:import url="/WEB-INF/views/layout/modal.jsp"></c:import>
 						</div>
 						<div class="bracket">
-							<img src="image/index/bracket-light-right.svg" class="bRight" alt="..." style="height: 128px;">
+							<img src="image/index/bracket-light-right.svg" class="bRight"
+								alt="..." style="height: 128px;">
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
@@ -179,7 +182,7 @@
                                     <div class="photo" id="photo2"></div>
                                     <div class="photo" id="photo3"></div>
                                     <div class="photo" id="photo4"></div> -->
-	
+
 										<a href="갤러리_상세.html" class="photo"></a> <a href="갤러리_상세.html"
 											class="photo"></a> <a href="갤러리_상세.html" class="photo"></a> <a
 											href="갤러리_상세.html" class="photo"></a>
@@ -209,7 +212,8 @@
 						<div class="post-board">
 							<div class="notice-event-board">
 								<!-- 링크 삽입 -->
-								<a href="<c:url value='/board/noticeBoard'/>" class="board-title">
+								<a href="<c:url value='/board/noticeBoard'/>"
+									class="board-title">
 									<div>공지/이벤트 +</div>
 								</a>
 								<!-- 공지사항 -->
@@ -217,46 +221,16 @@
 									<div class="board-header">[ 공지사항 ]</div>
 									<div class="notice-list">
 										<!-- post 디폴트: 링크 걸어둔 것 -->
-										<a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
+										<c:forEach var="notice" items="${noticeList }">
+											<a href="게시판_상세.html" class="post">
+												<div class="post-title">${notice.postTitle}</div>
+												<div class="post-author">${notice.memNickName}</div>
+												<div class="post-date">
+													<fmt:formatDate value="${notice.postDate}"
+														pattern="M/dd HH:mm" />
+												</div>
+											</a>
+										</c:forEach>
 
 									</div>
 								</div>
@@ -288,7 +262,7 @@
 							<!-- notice-event board 끝 -->
 							<div class="community-board">
 								<div class="hot-board">
-									<!-- 링크 삽입 -->	
+									<!-- 링크 삽입 -->
 									<a href="게시판_링크.html" class="board-title">
 										<div>핫한 게시글🔥 +</div>
 									</a>
