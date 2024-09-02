@@ -43,6 +43,7 @@
         <div class="gallery">
             <c:forEach var="post" items="${posts}">
                 <div class="gallery-item">
+                <a href="/gallery/detail/${post.postNo }">
                     <div class="image-container">
                         <img class="gallery-image" src="<c:url value='/image/gallery/${post.postImg}'/>"/>
                         <div class="overlay">
@@ -59,6 +60,7 @@
                         <p class="title">${post.postTitle}</p>
                         <p class="comment-count">코멘트 수</p>
                     </div>
+                    </a>
                 </div>
             </c:forEach>
         </div>

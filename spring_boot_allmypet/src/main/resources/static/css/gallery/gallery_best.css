@@ -48,6 +48,15 @@ a {
     margin: 10px;
 }
 
+.gallery-item a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.gallery-item a:visited{
+    color: inherit;
+}
+
 .gallery-item:hover {
     transform: translateY(-5px);
 }
