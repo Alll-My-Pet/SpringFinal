@@ -7,14 +7,15 @@
    <resultMap id="boardResultMap" type="com.spring_boot_allmypet.project.model.BoardVO">
 	     <result property="postNo" column="postNo"/>
 	     <result property="boardCtgNo" column="boardCtgNo"/>
+	     <result property="headerNo" column="headerNo"/>
 	     <result property="postTitle" column="postTitle"/>
 	     <result property="postDate" column="postDate"/>
 	     <result property="memId" column="memId"/>
+	     <result property="memNickName" column="memNickName"/>
 	     <result property="postContent" column="postContent"/>
 	     <result property="postLike" column="postLike"/>
 	     <result property="postView" column="postView"/>
 	     <result property="postImg" column="postImg"/>
-	     <result property="postTypeNo" column="postTypeNo"/>
     </resultMap>
   
   
@@ -61,5 +62,15 @@
 				INSERT INTO post (postTitle, memId, postDate, postContent, boardCtgNo)
         VALUES (#{postTitle}, #{memId}, NOW(), #{postContent}, #{boardCtgNo})
     </insert>
+    
+    <!-- 공지게시판 -->
+    <select id="viewNotice" parameterType="int" resultType="com.spring_boot_allmypet.project.model.BoardVO">
+  		SELECT p.*, m.memNickName
+  		FROM post p
+  		JOIN member m ON p.memId = m.memId
+  		WHERE p.boardCtgNo = '1';
+  	</select>
+    
+    
   
   </mapper>

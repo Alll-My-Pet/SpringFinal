@@ -6,16 +6,20 @@ import java.util.HashMap;
 import com.spring_boot_allmypet.project.model.BoardVO;
 
 public interface IBoardDAO {
-	
+
 	// 목록
 	/* public ArrayList<BoardVO> listAllBoard(); */
 	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map);
+
 	public int getBoardCount();
-	
-    // 글 쓰기
+
+	// 공지게시판
+	public ArrayList<BoardVO> viewNotice();
+
+	// 글 쓰기
 	public void insertBoard(BoardVO vo);
-	
-    // 수정
+
+	// 수정
 	public void updateBoard(BoardVO vo);
 
 	// 삭제

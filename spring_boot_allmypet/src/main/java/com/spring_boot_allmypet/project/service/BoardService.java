@@ -21,12 +21,19 @@ public class BoardService implements IBoardService {
 	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map) {
 		return dao.listAllBoard(map);
 	}
-	
+
+	// 공지 게시판
+	@Override
+	public ArrayList<BoardVO> viewNotice() {
+		return dao.viewNotice();
+	}
+
 	@Override
 	public int getBoardCount() {
 		// TODO Auto-generated method stub
 		return dao.getBoardCount();
 	}
+
 	// 작성
 	@Override
 	public void insertBoard(BoardVO vo) {
@@ -45,7 +52,8 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 
 	}
-    // 상세 조회
+
+	// 상세 조회
 	@Override
 	public BoardVO detailViewBoard(int postNo) {
 		return dao.detailViewBoard(postNo);

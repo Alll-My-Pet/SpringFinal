@@ -4,15 +4,19 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.spring_boot_allmypet.project.model.BoardVO;
+import com.spring_boot_allmypet.project.model.animal.BulletinBoardVO;
 
 public interface IBoardService {
-	
+
 	/* public ArrayList<BoardVO> listAllBoard(); */
 	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map);
-    public int getBoardCount();
+
+	public int getBoardCount();
+
+	// 공지게시판
+	public ArrayList<BoardVO> viewNotice();
 
 	public void insertBoard(BoardVO vo);
-	
 
 	public void updateBoard(BoardVO vo);
 

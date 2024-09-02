@@ -6,17 +6,17 @@
 <mapper
 	namespace="com.spring_boot_allmypet.project.dao.animal.IBulletinDAO">
 	<!-- petCtgNo에 따른 게시글 목록 가져오기 -->
-	<!-- <select id="getBulletinList" parameterType="String"
-		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
-		SELECT * FROM bulletin_board WHERE petCtgNo = #{petCtgNo}
-	</select> -->
-	
+	<!-- <select id="getBulletinList" parameterType="String" resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO"> 
+		SELECT * FROM bulletin_board WHERE petCtgNo = #{petCtgNo} </select> -->
+
 	<select id="getBulletinList" parameterType="String"
 		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
-		SELECT bb.postNo, bb.petCtgNo, bb.headerNo, bb.postTitle, bb.postDate, bb.memId, m.memNickName,
-		bb.postContent, bb.postLike, bb.postView, bb.postImg
-		FROM bulletin_board bb 
+		SELECT bb.postNo, bb.petCtgNo, bb.headerNo, bb.postTitle,
+		bb.postDate, bb.memId, m.memNickName,
+		bb.postContent, bb.postLike,
+		bb.postView, bb.postImg
+		FROM bulletin_board bb
 		JOIN member m ON bb.memId = m.memId
 		WHERE bb.petCtgNo = #{petCtgNo}
-</select>
+	</select>
 </mapper>
