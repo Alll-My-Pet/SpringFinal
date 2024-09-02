@@ -6,55 +6,63 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-        <title>카테고리 별 갤러리</title>
-        <link rel="stylesheet" type="text/css" href="<c:url value='/css/gallery/gallery_category.css'/>" />
+        <title>갤러리 상세</title>
+        <link rel="stylesheet" type="text/css" href="<c:url value='/css/gallery/gallery_detail.css'/>" />
     </head>
 <body>
     <c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
     
-    <div class="gallery-container">
-	    <div class="header">
-	            <h1>카테고리 갤러리</h1>
-	    </div>
-        <div class="gallery">
-                <div class="gallery-item">
-                    <div class="image-container">
-                        <img class="gallery-image" src="<c:url value='/image/logo.png'/>"/>
-                        <div class="overlay">
-                            <div class="like-count">
-                                <span>&hearts; 좋아요 수</span>
-                            </div>
-                            <div class="profile-icon">
-                                <img src="<c:url value='/image/logo.png'/>" alt="Profile"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <p class="title">게시글 제목</p>
-                        <p class="comment-count">코멘트 수</p>
-                    </div>
-                </div>
-            <%-- <c:forEach var="post" items="${posts}">
-                <div class="gallery-item">
-                    <div class="image-container">
-                        <img class="gallery-image" src="<c:url value='${post.image}'/>"/>
-                        <div class="overlay">
-                            <div class="like-count">
-                                <span>&hearts; ${post.likes}</span>
-                            </div>
-                            <div class="profile-icon">
-                                <img src="<c:url value='${post.profile}'/>" alt="Profile"/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="info">
-                        <p class="title">${post.title}</p>
-                        <p class="comment-count">${post.comments} comment</p>
+    <div class="gallery-item-container">
+        <div class="header">
+        
+            <div class="left">
+                <div class="post-stats">
+                    <p>추천수: ${gall.postLike}</p>
+                    <c:set var="categoryName">
+			            <c:choose>
+			                <c:when test="${gall.petCtgNo == 1}">강아지</c:when>
+			                <c:when test="${gall.petCtgNo == 2}">고양이</c:when>
+			                <c:when test="${gall.petCtgNo == 3}">기타 포유류</c:when>
+			                <c:when test="${gall.petCtgNo == 4}">파충류/양서류</c:when>
+			                <c:when test="${gall.petCtgNo == 5}">어류</c:when>
+			                <c:when test="${gall.petCtgNo == 6}">조류</c:when>
+			                <c:when test="${gall.petCtgNo == 7}">설치류</c:when>
+			                <c:when test="${gall.petCtgNo == 8}">절지류/곤충</c:when>
+			                <c:otherwise>Unknown Category</c:otherwise>
+			            </c:choose>
+		        	</c:set>
+		        	<div id="category-${gall.petCtgNo}">
+                    	<p>동물: ${categoryName}</p>
                     </div>
                 </div>
-            </c:forEach> --%>
+            </div>
+            
+            <div class="center">
+                <h1 class="post-title">${gall.postTitle}</h1>
+            </div>
+            <div class="right">
+                <div class="profile">
+                    <img class="profile-image" src="<c:url value='/image/${gall.member.profile_image}'/>"/>
+                    <p>${gall.memId}</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="image-section">
+            <img class="post-image" src="<c:url value='/image/gallery/${gall.postImg}'/>" alt="Post Image"/>
+        </div>
+        
+        <div class="Content-section">
+            ${gall.postContent }
+        </div>
+        
+        <div class="comments-section">
+            <!-- 댓글 리스트 출력 -->
+            <c:forEach var="comment" items="${post.comments}">
+                <p>${comment.commentText}</p>
+            </c:forEach>
         </div>
     </div>
-    <c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 </body>
 </html>

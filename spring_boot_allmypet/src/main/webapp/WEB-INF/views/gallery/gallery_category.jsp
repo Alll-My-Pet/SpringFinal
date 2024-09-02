@@ -11,15 +11,31 @@
     </head>
 <body>
     <c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
-    
     <div class="gallery-container">
-        <div class="header">
-            <h1>카테고리 갤러리</h1>
+    <c:set var="categoryName">
+            <c:choose>
+                <c:when test="${petCtgNo == 1}">강아지</c:when>
+                <c:when test="${petCtgNo == 2}">고양이</c:when>
+                <c:when test="${petCtgNo == 3}">기타 포유류</c:when>
+                <c:when test="${petCtgNo == 4}">파충류/양서류</c:when>
+                <c:when test="${petCtgNo == 5}">어류</c:when>
+                <c:when test="${petCtgNo == 6}">조류</c:when>
+                <c:when test="${petCtgNo == 7}">설치류</c:when>
+                <c:when test="${petCtgNo == 8}">절지류/곤충</c:when>
+                <c:otherwise>Unknown Category</c:otherwise>
+            </c:choose>
+        </c:set>
+
+        <div id="category-${petCtgNo}" class="header">
+            <h2>${categoryName} 갤러리</h2>
         </div>
+        
         <div class="gallery">
             <!-- categoryPosts 리스트를 이용하여 게시물 출력 -->
             <c:forEach var="post" items="${categoryPosts}">
+            
                 <div class="gallery-item">
+                <a href="/gallery/detail/${post.postNo }">
                     <div class="image-container">
                         <img class="gallery-image" src="<c:url value='/image/gallery/${post.postImg}'/>" alt="${post.postTitle}"/>
                         <div class="overlay">
@@ -27,9 +43,9 @@
                                 <span>&hearts; ${post.postLike}</span>
                             </div>
                             <div class="profile-icon">
-                                <!-- 게시글 작성자의 프로필 이미지를 추가하려면, post에 해당 데이터가 있어야 합니다. -->
-                                <img src="<c:url value='/image/default_profile.png'/>" alt="Profile"/>
-                            </div>
+                            	<!-- 회원 프로필 사진 이미지 폴더 만들어지면 경로 수정 -->
+					    		<img src="<c:url value='/image/${post.member.profile_image}'/>"/>
+							</div>
                         </div>
                     </div>
                     <div class="info">
@@ -37,6 +53,7 @@
                         <p class="comment-count">코멘트 수: 0</p> <!-- 실제 코멘트 수가 있다면 post에 해당 데이터를 추가 -->
                     </div>
                 </div>
+                </a>
             </c:forEach>
             
             <!-- 게시물이 없는 경우 -->

@@ -1,5 +1,7 @@
 package com.spring_boot_allmypet.project.model.gallery;
 
+import com.spring_boot_allmypet.project.model.member.MemberVO;
+
 public class GalleryVO {
 	public int postNo;
 	public String petCtgNo;
@@ -9,6 +11,16 @@ public class GalleryVO {
 	public String postContent;
 	public String postImg;
 	public String postLike;
+	public MemberVO member;
+
+	
+	public MemberVO getMember() {
+		return member;
+	}
+
+	public void setMember(MemberVO member) {
+		this.member = member;
+	}
 	
 	public int getPostNo() {
 		return postNo;

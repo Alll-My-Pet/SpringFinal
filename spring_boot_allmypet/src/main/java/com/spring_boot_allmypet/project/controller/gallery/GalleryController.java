@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring_boot_allmypet.project.model.gallery.GalleryVO;
+import com.spring_boot_allmypet.project.model.market.MemberVO;
+import com.spring_boot_allmypet.project.model.market.ProductVO;
 import com.spring_boot_allmypet.project.service.gallery.GalleryService;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class GalleryController {
@@ -41,4 +45,34 @@ public class GalleryController {
         model.addAttribute("categoryPosts", categoryPosts);
         return "gallery/gallery_category";
     }
+    
+    // petCtgNo를 받아와서 해당되는 게시물 출력
+    @RequestMapping("/gallery/detail/{postNo}")
+    public String gallery_detail(@PathVariable int postNo, Model model, HttpSession session) {
+    	String memId = (String) session.getAttribute("mid");
+    	
+    	GalleryVO gall = galleryService.getPostByPostNo(postNo);
+    	
+    	model.addAttribute("gall", gall);
+    	
+        return "gallery/gallery_detail";
+    }
+    
+	/*
+	 * // 상품 상세
+	 * 
+	 * @RequestMapping("/market/product/detail/{prdNo}") public String
+	 * product_detail(@PathVariable String prdNo, Model model, HttpSession session)
+	 * { String memId = (String) session.getAttribute("mid");
+	 * System.out.println("Session memId = " + memId); // 디버그 용도
+	 * 
+	 * System.out.println("prdNo = " + prdNo);
+	 * 
+	 * MemberVO memVo = orderService.getMemberInfo(memId); ProductVO prd =
+	 * prdService.detailViewProduct(prdNo);
+	 * 
+	 * model.addAttribute("memVo", memVo); model.addAttribute("prd", prd);
+	 * 
+	 * return "market/product_detail"; }
+	 */
 }

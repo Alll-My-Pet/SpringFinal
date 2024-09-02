@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="navigation-pill">
-				<a href="#">갤러리</a>
+				<a href="/gallery">갤러리</a>
 			</div>
 			<div class="navigation-pill">
 				<a href="/">커뮤니티</a>

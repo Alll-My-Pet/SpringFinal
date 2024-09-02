@@ -31,5 +31,12 @@
 	    ORDER BY postLike DESC
 	    LIMIT 4
 	</select>
+	
+	<!-- 특정 postNo에 해당하는 게시물 조회 -->
+    <select id="getPostByPostNo" resultMap="galleryResult" parameterType="int">
+        SELECT * 
+        FROM pet_gallery 
+        WHERE postNo = #{postNo}
+    </select>
 
 </mapper>

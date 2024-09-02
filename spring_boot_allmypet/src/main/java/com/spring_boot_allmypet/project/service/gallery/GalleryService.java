@@ -22,4 +22,9 @@ public class GalleryService implements IGalleryService {
     public List<GalleryVO> getPostsByPetCtgNo(String petCtgNo) {
         return dao.getPostsByPetCtgNo(petCtgNo);
     }
+    
+    @Override
+    public GalleryVO getPostByPostNo(int postNo) {
+        return dao.getPostByPostNo(postNo);
+    }
 }

@@ -9,4 +9,6 @@ public interface IGalleryDAO {
     public List<GalleryVO> getPostsByPetCtgNo(String petCtgNo);
 
 	public List<GalleryVO> getTopPostsByPetCtgNoInLastWeek(String petCtgNo);
+	
+	public GalleryVO getPostByPostNo(int postNo);
 }
