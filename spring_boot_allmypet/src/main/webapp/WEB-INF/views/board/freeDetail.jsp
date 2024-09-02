@@ -20,7 +20,7 @@
     
       <section class="postText">
     	 <div class="TextBox">
-     		${postContent}
+     		${Fboard.postContent}
     	 </div>
       </section>
       
@@ -36,12 +36,12 @@
       
       <section class="comments">
       	<div class="commentsBox">
-      		${commentText}
+      		<%-- ${Fboard.comment} --%>
       	
       	
       	
       		<form class="commentsWriteFrm">
-      			${memId }:<textarea class="commentWriteArea" name="commentText" placeholder="댓글 입력"></textarea>
+      			<textarea class="commentWriteArea" name="commentText" placeholder="${Fboard.memId}:"></textarea>
       		</form>
       	</div>
       </section>

@@ -49,7 +49,7 @@
         </div>
         <div class="menu-section">
             <div class="menu-item">
-                <a href="#" class="menu-link">
+                <a href="/board/FreeBoardList" class="menu-link">
                     <span>
                         자유게시판
                     </span>

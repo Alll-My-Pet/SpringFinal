@@ -6,14 +6,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>전체 게시판</title>
+<title>자유 게시판</title>
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/common.css'/>">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/MainBoard.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/freeBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/Board/MainBoard.js'/>"></script>
+<script src="<c:url value='/js/Board/freeBoard.js'/>"></script>
 <script>
 	function goPage(no) {
 		const frm = document.pageFrm;
@@ -26,37 +24,10 @@
 			no = parseInt(frm.pageNo.value) + 1;
 		}
 
-		frm.action = "/board/listAllBoard";
+		frm.action = "/board/FreeBoardList";
 		frm.pageNo.value = no;
 		frm.submit();
 	}
-
-	document.addEventListener('DOMContentLoaded', function() {
-		var selectElement = document.getElementById('BFilter2');
-
-		// 버튼 클릭처럼 폼을 제출
-		selectElement.addEventListener('change', function() {
-			var form = document.getElementById('BoardSearchBar');
-			if (form) {
-				form.submit();
-			} else {
-				console.error('Form not found');
-			}
-		});
-	});
-
-	document.addEventListener('DOMContentLoaded', function() {
-		var selectElement = document.getElementById('BFilter2');
-
-		selectElement.addEventListener('change', function() {
-			var form = document.getElementById('boardCtg');
-			if (form) {
-				form.submit();
-			} else {
-				console.error('폼을 찾을 수 없습니다');
-			}
-		});
-	});
 </script>
 
 </head>
@@ -77,7 +48,7 @@
 						</div>
 						<div class="page-title">
 							<div class="titleInfo">동물별 커뮤니티</div>
-							<span class="ctgTitle">전체 게시판</span>
+							<span class="ctgTitle">자유 게시판</span>
 						</div>
 						<div class="bracket">
 							<img src="/image/index/bracket-light-right.svg" class="bRight"
@@ -85,39 +56,32 @@
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
-					<section class="MainBoard">
-						<form id="BoardSearchBar">
+					<section class="freeBoard">
+						<form id="FBoardSearchBar">
 							<select id="type" name="type">
 								<option value="memId" selected>작성자</option>
 								<option value="postTitle">글 제목</option>
 								<option value="postTitleAndpostContent">제목 + 내용</option>
-							</select> <input type="text" id="keyword" name="keyword"
-								placeholder="게시판 내 검색" /> <label for="BoardSearchBtn">
-								<input type="submit" class="BoardSearchBtn">
+							</select> 
+							<input type="text" id="keyword" name="keyword" placeholder="게시판 내 검색" /> 
+								
+						 	<label for="FBoardSearchBtn">
+								<input type="submit" class="FBoardSearchBtn">
 							</label>
 
 
 						</form>
 						<!-- form 끝 -->
-						<div class="hotBoard">
+						<div class="freeHotBoard">
 							<h3 style="margin-left: 2%; margin-top:30px; position:absolute;">실시간 인기글🔥</h3>
 							<div class="post-list">
-							  <table class="hotTable">
-							  <!-- <thead>
-							  <tr>
-							  <th>제목</th>
-							  <th>작성자</th>
-							  <th>작성일</th>
-							  <th>좋아요</th>
-							  <th>조회수</th>
-							  
-							  </tr>
-							  </thead> -->
+							  <table class="freeHotTable">
 							  
 							  <tbody>
-								<c:forEach items="${hotTopics}" var="hot">
+							  
+								<c:forEach items="${FreeHotTopics}" var="hot">
 									<tr>
-										<td><a href="<c:url value='/board/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
+										<td><a href="<c:url value='/board/FreeDetailView/${hot.postNo}'/>">${hot.postTitle}</a></td>
 										<td>${hot.memId}</td>
 										<td><fmt:formatDate value="${hot.postDate}" pattern="yyyy-MM-dd" /></td>
 										<td>${hot.postLike }</td>
@@ -128,20 +92,20 @@
 							  </tbody>
 								
 							  </table>
-							</div> <!-- post-list 끝 -->
-						</div> <!-- hotBoard 끝 -->
+							</div>
 
-						<table class="boardTB">
+						</div>
+
+						<table class="freeboardTB">
 
 							<thead>
 								<tr>
 									<th>글 번호</th>
 									<th>
-										<form id="boardCtg" name="boardCtg" method="get"
-											action="<c:url value='/board/listAllBoard'/>">
-											<select id="BFilter2" name="boardCtgNo"
+										<form id="freeBoardCtg" name="freeBoardCtg" method="get" action="<c:url value='/board/listAllBoard'/>">
+											<select id="FFilter2" name="boardCtgNo"
 												style="height: 25px; margin-left: 30px;">
-												<option value="All">구분</option>
+												<option value="0">구분</option>
 												<option value="1">자유</option>
 												<option value="2">분양홍보</option>
 												<option value="3">반려동물 보호</option>
@@ -161,17 +125,16 @@
 								</tr>
 							</thead>
 
-							<tbody id="boardList">
-								<c:forEach var="board" items="${boardList }">
+							<tbody id="FreeboardList">
+								<c:forEach var="Free" items="${FreeboardList }">
 									<tr>
-										<td>${board.postNo }</td>
-										<td>${board.boardCtgNo }</td>
-										<td><a href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td>
-										<td>${board.memId }</td>
-										<td><fmt:formatDate value="${board.postDate }"
-												pattern="YYYY-MM-dd" /></td>
-										<td>${board.postView }</td>
-										<td>${board.postLike }</td>
+										<td>${Free.postNo }</td>
+										<td>${Free.boardCtgNo }</td>
+										<td><a href="<c:url value='/board/FreeDetailView/${Free.postNo}'/>" />${Free.postTitle }</td>
+										<td>${Free.memId }</td>
+										<td><fmt:formatDate value="${Free.postDate }" pattern="YYYY-MM-dd" /></td>
+										<td>${Free.postView }</td>
+										<td>${Free.postLike }</td>
 									</tr>
 								</c:forEach>
 							</tbody>

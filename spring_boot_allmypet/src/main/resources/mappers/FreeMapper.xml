@@ -2,10 +2,9 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-<mapper namespace="com.spring_boot_allmypet.project.dao.IBoardDAO">
-	<resultMap id="boardResultMap"
-		type="com.spring_boot_allmypet.project.model.BoardVO">
+  
+<mapper namespace="com.spring_boot_allmypet.project.dao.IFreeDAO">
+	<resultMap id="FreeResultMap" type="com.spring_boot_allmypet.project.model.FreeVO">
 		<result property="postNo" column="postNo" />
 		<result property="boardCtgNo" column="boardCtgNo" />
 		<result property="postTitle" column="postTitle" />
@@ -17,27 +16,16 @@
 		<result property="postImg" column="postImg" />
 		<result property="postTypeNo" column="postTypeNo" />
 	</resultMap>
-
-
-
-	<!-- 전체 게시글 -->
-	<select id="listAllBoard" parameterType="hashmap"
-		resultType="com.spring_boot_allmypet.project.model.BoardVO">
-		SELECT * FROM post LIMIT #{startNo}, 15;
+	
+	<!-- 게시판 리스트 -->
+	<select id="FreeBoardList" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.FreeVO">
+		SELECT * FROM post 
+		WHERE boardCtgNo = 1
+		LIMIT #{startNo}, 15;
 	</select>
 	
-	
-
-	<!-- 페이징 -->
-	<select id="getBoardCount" resultType="int">
-		SELECT count(*) FROM post
-	</select>
-	
-	
-
 	<!-- 게시글 검색 -->
-	<select id="boardSearch" parameterType="hashmap"
-		resultMap="boardResultMap">
+	<select id="FreeSearch" parameterType="hashmap" resultMap="FreeResultMap">
 		SELECT * FROM post WHERE true
 		<choose>
 			<when test="type != null and type.equals('postTitle')">
@@ -53,32 +41,26 @@
 		</choose>
 		ORDER BY postNo DESC
 	</select>
-
+	
 	<!-- 게시글 조회 -->
-	<select id="detailViewBoard" parameterType="int"
-		resultType="com.spring_boot_allmypet.project.model.BoardVO">
+	<select id="FreeDetailView" parameterType="int" resultType="com.spring_boot_allmypet.project.model.FreeVO">
 		SELECT postNo, postTitle, memId, postContent, postLike, postImg, postView, boardCtgNo 
 		FROM post 
 		WHERE postNo = #{postNo}
 	</select>
-
-	<!-- 글 작성 -->
-	<insert id="insertBoard" parameterType="com.spring_boot_allmypet.project.model.BoardVO">
-		INSERT INTO post (postTitle, memId, postDate, postContent,postTypeNo, boardCtgNo, postNo)
-		VALUES (#{postTitle}, #{memId}, NOW(), #{postContent},#{postTypeNo}, #{boardCtgNo},#{postNo})
-	</insert>
 	
-	<!-- 인기글 -->
-	<select id="listHotTopics" resultMap="boardResultMap">
-    SELECT * FROM post
-    WHERE postLike > 50
-    ORDER BY postLike DESC
-    LIMIT 2
+	<!-- 페이징 -->
+	<select id="FreePaging" resultType="int">
+		SELECT count(*) FROM post
+		WHERE boardCtgNo = 1
 	</select>
 	
-	
-	
-	
-
-
+	<!-- 인기글 -->
+	<select id="FreeHotTopics" resultMap="FreeResultMap">
+    	SELECT * FROM post
+    	WHERE boardCtgNo = 1
+ 		AND postLike > 50
+    	ORDER BY postLike DESC
+    	LIMIT 2
+	</select>
 </mapper>
