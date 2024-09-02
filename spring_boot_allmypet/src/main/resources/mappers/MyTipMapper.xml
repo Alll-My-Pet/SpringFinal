@@ -24,10 +24,13 @@
 	<!-- 양육팁 게시판 내 베스트 양육팁 -->
 	<select id="getTop3List" parameterType="String"
 		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
-		SELECT * FROM mytip_board
-		WHERE petCtgNo = #{petCtgNo}
-		ORDER
-		BY postLike DESC
+		SELECT mt.postNo, mt.petCtgNo, mt.postTitle, mt.postDate,
+		mt.memId, m.memNickName, mt.postContent, mt.postLike, mt.postView, mt.postImg
+		FROM mytip_board mt
+		JOIN member m ON mt.memId = m.memId
+		WHERE
+		mt.petCtgNo = #{petCtgNo}
+		ORDER BY postLike DESC
 		LIMIT 3
 	</select>
 
