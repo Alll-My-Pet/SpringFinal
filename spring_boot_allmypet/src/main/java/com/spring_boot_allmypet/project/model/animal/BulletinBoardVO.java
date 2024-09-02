@@ -15,6 +15,7 @@ public class BulletinBoardVO {
 	private String memNickName;
 	private String postContent;
 	private int postLike;
+	private int postView;
 	private String postImg;
 
 	public int getPostNo() {
@@ -96,4 +97,13 @@ public class BulletinBoardVO {
 	public void setMemNickName(String memNickName) {
 		this.memNickName = memNickName;
 	}
+
+	public int getPostView() {
+		return postView;
+	}
+
+	public void setPostView(int postView) {
+		this.postView = postView;
+	}
+
 }
