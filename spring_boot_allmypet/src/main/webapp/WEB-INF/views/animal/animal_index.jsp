@@ -141,7 +141,7 @@
 					<!-- pageInfo끝 -->
 					<div class="all-board">
 						<div class="best-photos">
-							<a href="게시판_링크.html" class="board-title">
+							<a href="/gallery/category/${petCtgNo }" class="board-title">
 								<div>반려동물 갤러리 +</div>
 							</a>
 							<div class="best-slideshow">
