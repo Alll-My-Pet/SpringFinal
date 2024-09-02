@@ -6,25 +6,33 @@
 	document.getElementById('mainSubmitFrm').onsubmit = function() {
     event.preventDefault();
     
-		let bodTitle = document.getElementById('postTitle');
-		let memId = document.getElementById('memId');
-		let bodText = document.getElementById('postContent');
-		
+		let postTitle = document.getElementById('postTitle');
+		let postContent = document.getElementById('postContent');
+		let boardCtgNo = document.getElementById('boardCtgNo');
+		let postTypeNo = document.getElementById('postTypeNo');
 	
-		if(bodTitle.value == ""){
+		if(postTitle.value == ""){
+		
 			alert("제목을 입력하세요");
-			bodTitle.focus(bodTitle);
+			postTitle.focus(postTitle);
 			return false;
 			
-		}else if(memId.value == ""){
-			alert("작성자를 입력하세요");
-			memId.focus(memId);
-			return false;
-			
-		}else if(bodText.value == ""){
+		}else if(postContent.value == ""){
+		
 			alert("내용을 입력하세요");
-			bodText.focus(bodText);
+			postContent.focus(postContent);
 			return false;
+			
+		}else if(boardCtgNo.value == 0){
+		
+			alert("게시판 종류를 선택하세요");
+			return false;
+			
+		}else if(postTypeNo.value == 0){
+		
+			alert("머리글 종류를 선택하세요");
+			return false;
+			
 		};
 		
 		this.submit();

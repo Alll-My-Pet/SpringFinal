@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     
 
-    $('#BoardSearchBar').on('submit', function(event) {
+    $('#FBoardSearchBar').on('submit', function(event) {
         event.preventDefault();
         
         let keyword = $('#keyword').val();
@@ -21,13 +21,13 @@ $(document).ready(function() {
         
        $.ajax({
             type: "post",
-            url: "/board/boardSearch",
+            url: "/board/FreeSearch",
             data: { keyword: keyword, type: type },
             success: function(boardList) {
-                $('#boardList').empty();  // 기존 게시글 목록을 비움
+                $('#FreeboardList').empty();  // 기존 게시글 목록을 비움
                 
                 if (boardList.length === 0) {  // 검색 결과가 없는 경우
-                    $('#boardList').append('<tr align="center"><td colspan="6">찾는 게시글이 존재하지 않습니다.</td></tr>');
+                    $('#FreeboardList').append('<tr align="center"><td colspan="6">찾는 게시글이 존재하지 않습니다.</td></tr>');
                 } else {
                     boardList.reverse();  // 최신 글이 위로 오도록 순서를 뒤집음
                     
@@ -39,7 +39,7 @@ $(document).ready(function() {
                         let date = board_date.getDate().toString().padStart(2, '0');
                         let postDate = `${year}-${month}-${date}`;
                         
-                        $('#boardList').append('<tr><td>' + boardList[i].boardCthNo + '</td><td>' + boardList[i].postNo + '</td><td>' + boardList[i].postTitle + '</td><td>' + boardList[i].memId + '</td><td>' + postDate + '</td><td>' + boardList[i].postView + '</td><td>' + boardList[i].postLike + '</td></tr>');
+                        $('#FreeboardList').append('<tr><td>' + boardList[i].boardCthNo + '</td><td>' + boardList[i].postNo + '</td><td>' + boardList[i].postTitle + '</td><td>' + boardList[i].memId + '</td><td>' + postDate + '</td><td>' + boardList[i].postView + '</td><td>' + boardList[i].postLike + '</td></tr>');
                     }
                 }
             },

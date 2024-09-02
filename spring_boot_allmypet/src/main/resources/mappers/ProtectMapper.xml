@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.IProtectDAO">
+	<resultMap id="ProtectResultMap" type="com.spring_boot_allmypet.project.model.ProtectVO">
+		<result property="postNo" column="postNo" />
+		<result property="boardCtgNo" column="boardCtgNo" />
+		<result property="postTitle" column="postTitle" />
+		<result property="postDate" column="postDate" />
+		<result property="memId" column="memId" />
+		<result property="postContent" column="postContent" />
+		<result property="postLike" column="postLike" />
+		<result property="postView" column="postView" />
+		<result property="postImg" column="postImg" />
+		<result property="postTypeNo" column="postTypeNo" />
+	</resultMap>
+	
+	<!-- 게시판 리스트 -->
+	<select id="ProtectBoardList" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.ProtectVO">
+		SELECT * FROM post 
+		WHERE boardCtgNo = 1
+		LIMIT #{startNo}, 15;
+	</select>
+	
+	<!-- 게시글 검색 -->
+	<select id="ProtectSearch" parameterType="hashmap" resultMap="ProtectResultMap">
+		SELECT * FROM post WHERE true
+		<choose>
+			<when test="type != null and type.equals('postTitle')">
+				AND postTitle LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when test="type != null and type.equals('memId')">
+				AND memId LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when test="type != null and type.equals('postTitleAndpostContent')">
+				AND (postTitle LIKE CONCAT('%', #{keyword}, '%')
+				OR postContent LIKE CONCAT('%', #{keyword}, '%'))
+			</when>
+		</choose>
+		ORDER BY postNo DESC
+	</select>
+	
+	<!-- 게시글 조회 -->
+	<select id="ProtectDetailView" parameterType="int" resultType="com.spring_boot_allmypet.project.model.ProtectVO">
+		SELECT postNo, postTitle, memId, postContent, postLike, postImg, postView, boardCtgNo 
+		FROM post 
+		WHERE postNo = #{postNo}
+	</select>
+	
+	<!-- 페이징 -->
+	<select id="ProtectPaging" resultType="int">
+		SELECT count(*) FROM post
+		WHERE boardCtgNo = 3
+	</select>
+</mapper>

@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/mainBoardText.css' />" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/mainBoardText.js'/>"></script>
-<%-- <script src="<c:url value='/js/Board/mainBoardWrite.js'/>"></script> --%>
 </head>
 <body>
 	<div class="All">
@@ -20,38 +19,62 @@
 			</div>
 			<h1 id="mainWriteFont">게시글 작성</h1>
 			
-			<form id="mainSubmitFrm" method="post" action="<c:url value='/board/insertBoard'/>">
+			<form id="mainSubmitFrm" method="post" action="<c:url value='/insertBoard'/>">
 				<div class="writeBox">
-					<select class="mainWriteFilter" name="boardCtgNo">
-						<option value="1">[QnA]</option>
-						<option value="2">[자유게시판]</option>
-						<option value="3">[양육 팁]</option>
-						<option value="4">[분양홍보]</option>
-						<option value="5">[반려동물 보호]</option>
-						<option value="6">[이모지]</option>
+				<!-- select 필드 -->
+					
+					<select class="mainWriteFilter" name="boardCtgNo" id="boardCtgNo">
+						<option value="0">게시판 종류</option>
+						<option value="1">자유 게시판</option>
+						<option value="2">분양홍보 게시판</option>
+						<option value="3">반려동물 보호게시판</option>
+						<option value="4">소모임 게시판</option>
+						<option value="5">양육팁 게시판</option>
+						<option value="6">갤러리 게시판</option>
+						<option value="7">이모지 제작게시판</option>
+						<option value="8">중고거래 게시판</option>
 					</select>
 					
+					<select class="postTypeFilter" name="postTypeNo" id="postTypeNo">
+						<option value="0">[머리글]</option>
+						<option value="1">[자유]</option>
+						<option value="2">[분양홍보 게시판]</option>
+						<option value="3">[반려동물 보호게시판]</option>
+						<option value="4">[소모임 게시판]</option>
+						<option value="5">[양육팁 게시판]</option>
+						<option value="6">[갤러리 게시판]</option>
+						<option value="7">[이모지 제작게시판]</option>
+						<option value="8">[중고거래 게시판]</option>
+					</select>
+					
+					<!-- 작성자 필드 -->
 					<div class="author">
 						작성자:<input type="text" name="memid" value="${userId }" readonly style="width:100px;">
 					</div>
 					
+					<!-- 이미지 업로드 -->
 					<div class="mainPhotoBox">
 						<label for="fileUpload">
-						<img src="<c:url value='/pet_images/free-icon-photo-2984403.png'/>" />
+						<img src="<c:url value='/project_images/free-icon-photo-2984403.png'/>" />
 						</label>
-						<input type="file" id="fileUpload" name="fileUpload" multiple>
-						<button type="submit" class="MPhotoBtn">자료 첨부</button>
+						
+						<div class="fileUpload">
+						<input type="file" class="fileUpload" id="fileUpload" name="postImg" multiple>
+						</div>
 					</div>
 					
+				<!-- 제목 입력 필드 -->
 				<div class="mainDetailTitleBox">
-					<input type="text" class="MainDetailTitle" name="title"placeholder="글 제목">
+					<input type="text" class="MainDetailTitle" id="postTitle"name="postTitle" placeholder="글 제목">
 				</div>
 
 
+				<!-- 내용 입력 필드 -->
 				<div class="mainDetailBodyBox">
-					<textarea class="mainDetailBody" name="text"placeholder="글 내용"></textarea>
+					<textarea class="mainDetailBody" id="postContent" name="postContent"placeholder="글 내용"></textarea>
 				</div>
 				
+				<!-- 작성 버튼 -->
 				<button type="submit" class="FreeBoardBtn">작성하기</button>
 				
 				</div>

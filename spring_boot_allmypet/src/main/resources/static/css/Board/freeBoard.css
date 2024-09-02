@@ -78,7 +78,7 @@
 
 
 /* *********** */
-.MainBoard {
+.freeBoard {
 	/* border: 1px solid black; */
 	border: none;
 	width: 100vh;
@@ -86,7 +86,7 @@
 	margin: 0 auto;
 }
 
-.hotBoard {
+.freeHotBoard {
 	display: flex;
 	border: 1px solid black;
 	width: 800px;
@@ -97,7 +97,7 @@
 }
 
 
-.boardTB {
+.freeboardTB {
 	width: 800px;
 	border-collapse: collapse;
 	border: 1px solid black;
@@ -134,7 +134,7 @@
 }
 
 
-.BoardSearchBtn {
+.FBoardSearchBtn {
 	border: 0px;
 	background-color: white;
 	font-color: none;
@@ -149,7 +149,7 @@
 	width: 20px;
 }
 
-.BoardSearchBtn:hover {
+.FBoardSearchBtn:hover {
 	opacity: 0.8; /* 호버 시 투명도 조정 */
 }
 
@@ -229,7 +229,7 @@
 /* ******************************** */
 
 
-.boardTB td {
+.freeboardTB td {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
 	padding: 8px;
@@ -238,12 +238,12 @@
 	height: 20px;
 }
 /* tr에 대한 호버 효과 적용 */
-.boardTB tbody tr:hover {
+.freeboardTB tbody tr:hover {
 	background-color: #f0f0f0;
 }
 
 /* th에 대한 스타일 */
-.boardTB thead th {
+.freeboardTB thead th {
 	background-color: skyblue;
 }
 
@@ -286,7 +286,7 @@
 
 
 
-#BoardSearchBar {
+#FBoardSearchBar {
 	position: absolute;
 	width: 300px;
 	margin-left: 56vh;
@@ -303,7 +303,7 @@
 	text-align: center;
 }
 
-#BFilter2 {
+#FFilter2 {
 	border: none;
 }
 
@@ -335,7 +335,7 @@
         border-radius: 5px; /* 호버 시 테두리 반경 */
     }
     
-.hotTable{
+.freeHotTable{
 	width:800px;
 	margin-top:65px;
 	border-collapse: collapse;
@@ -345,7 +345,7 @@
 	
 }
 
-.hotTable td {
+.freeHotTable td {
 	border-top:1px solid black;
 	border-bottom:1px solid black;
 	padding: 8px;
@@ -355,6 +355,6 @@
 	border-color:#8000ff;
 }
 
-.hotTable tr:hover{
+.freeHotTable tr:hover{
 	background-color: #f0f0f0;
 }
