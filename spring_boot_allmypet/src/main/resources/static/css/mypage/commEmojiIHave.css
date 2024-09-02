@@ -48,6 +48,19 @@
 }
 
 /* 공용 */
+.emj_img{
+	width: 100%;
+    height: auto; 
+    object-fit: cover;
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.emj_div{
+	overflow: hidden; 
+    position: relative;
+}
 .mej_list_more_name{
 	margin-bottom:10px;
 	font-weight: bold;

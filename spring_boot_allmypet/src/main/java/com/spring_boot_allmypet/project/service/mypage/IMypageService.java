@@ -11,14 +11,19 @@ import com.spring_boot_allmypet.project.model.member.PetVO;
 import com.spring_boot_allmypet.project.model.mypage.BlockListVO;
 import com.spring_boot_allmypet.project.model.mypage.BookMarkGVO;
 import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
+import com.spring_boot_allmypet.project.model.mypage.BreederInfoVO;
 
 public interface IMypageService {
 	// 내정보 출력
 	public MemberVO memInfoView(String mid);
 	// 내정보 수정	// 구매한 이모지
 	public void updateMyInfo(MemberVO vo);
-	// 팻정보 출력
+	// 펫정보 출력
 	public ArrayList<PetVO> myPetList(String mid);
+	// 펫정보 삭제
+	public void myPetDelete(String mid);
+	// 펫정보 추가
+	public void  myPetUpdate(PetVO petvo);	
 	// 포인트 내역 출력
 	public ArrayList<MemberPointVO> myPointList_total(String mid);
 	// 포인트 내역 조건 출력
@@ -57,4 +62,12 @@ public interface IMypageService {
 	public List<Map<String, Object>> emoji_my_edit(String memId);
 	// 구매한 이모지
 	public List<Map<String, Object>> emoji_my_purch(String memId);
+	// 쿠폰 리스트 출력
+	public List<Map<String, Object>> myCouponList(String memId);
+	// 브리더 등록
+	public void breederInsert(BreederInfoVO vo);
+	// 브리더 수정
+	public void breederUpdate(BreederInfoVO vo);	
+	// 회원정보 브리더로 수정
+	public void updateBreeder(String mid);
 }

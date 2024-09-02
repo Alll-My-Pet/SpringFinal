@@ -8,8 +8,15 @@ public class PetVO {
 	private String petName; 
 	private String birth; 
 	private String petCtgNo;
-	private String rep_pet;
+	private boolean rep_pet;
+	private String memId;
 	private List<PetVO> petVOs;
+	public String getMemId() {
+		return memId;
+	}
+	public void setMemId(String memId) {
+		this.memId = memId;
+	}
 	public List<PetVO> getPetVOs() {
 		return petVOs;
 	}
@@ -49,10 +56,10 @@ public class PetVO {
 	public void setPetCtgNo(String petCtgNo) {
 		this.petCtgNo = petCtgNo;
 	}
-	public String getRep_pet() {
+	public boolean getRep_pet() {
 		return rep_pet;
 	}
-	public void setRep_pet(String rep_pet) {
+	public void setRep_pet(boolean rep_pet) {
 		this.rep_pet = rep_pet;
 	}
 }

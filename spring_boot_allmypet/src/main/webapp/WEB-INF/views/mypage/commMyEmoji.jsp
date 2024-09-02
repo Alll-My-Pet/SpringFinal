@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -41,7 +42,6 @@
 					<div id="mej_favorites_t">
 						<div id="mej_favorites_name" class="mej_list_more_name">이모지 즐겨찾기</div>
 					</div>
-					<!-- 추후 c:foreach 로 가능할지 봐야 할 부분 tr별로 5개씩 가능할 꺼로 보임-->
 					<div id="mej_favorites_b">
 						<table id="mej_favorites_table">
 						    <c:if test="${not empty emj_f_List}">
@@ -125,15 +125,18 @@
 							<div class="mej_div_check">승인여부</div>
 							<div class="mej_div_favorites">즐겨찾기</div>
 						</div>
-						<c:forEach var="emj_e" items="${emj_e_List }" end="2">
-							<div class="mej_list_post">
+						<c:set var="listSize" value="${fn:length(emj_e_List)}" />
+						<c:set var="maxSize" value="3" />
+						
+						<c:forEach var="emj_e" items="${emj_e_List }" begin="0" end="${listSize < maxSize ? listSize - 1 : maxSize - 1}">
+						    <div class="mej_list_post">
 						        <div class="mej_list_no">${emj_e.emoNo }</div>
 						        <div class="mej_list_title">${emj_e.emoName }</div>
 						        <div class="mej_list_date">${emj_e.emoDate }</div>
 						        <div class="spacer"></div>
 						        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/image/emoji/${emj_e.emoImg}'/>" alt="Emoji Image"></div>
 						        <div class="spacer"></div>
-						        <div class="mej_list_check" >${emj_e.approvalStatus }</div>
+						        <div class="mej_list_check">${emj_e.approvalStatus }</div>
 						        <div class="mej_list_favorites my_favorites_btn" data-emj-check ="${emj_e.approvalStatus }"  data-emo-no="${emj_e.purchaseId}">즐겨찾기</div>
 						    </div>
 						</c:forEach>
