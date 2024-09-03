@@ -30,7 +30,7 @@
 		frm.pageNo.value = no;
 		frm.submit();
 	}
-	
+
 	document.addEventListener('DOMContentLoaded', function() {
 		var selectElement = document.getElementById('BFilter2');
 
@@ -92,18 +92,25 @@
 								인기글🔥</h3>
 							<div class="post-list">
 								<table class="freeHotTable">
-
+									<thead>
+										<tr>
+											<th scope="col" class="th-title">글 제목</th>
+											<th scope="col" class="th-writer">작성자</th>
+											<th scope="col" class="th-date">날짜</th>
+											<th scope="col" class="th-view">조회</th>
+											<th scope="col" class="th-good">추천</th>
+										</tr>
+									</thead>
 									<tbody>
-
-										<c:forEach items="${FreeHotTopics}" var="hot">
+										<c:forEach var="hot" items="${free_hotList }">
 											<tr>
 												<td><a
-													href="<c:url value='/board/FreeDetailView/${hot.postNo}'/>">${hot.postTitle}</a></td>
-												<td>${hot.memId}</td>
-												<td><fmt:formatDate value="${hot.postDate}"
-														pattern="yyyy-MM-dd" /></td>
-												<td>${hot.postLike }</td>
+													href="<c:url value='/board/FreeDetailView/${hot.postNo}'/>" />${hot.postTitle }</td>
+												<td>${hot.memNickName }</td>
+												<td><fmt:formatDate value="${hot.postDate }"
+														pattern="YYYY-MM-dd" /></td>
 												<td>${hot.postView }</td>
+												<td>${hot.postLike }</td>
 											</tr>
 										</c:forEach>
 
@@ -118,22 +125,6 @@
 
 							<thead>
 								<tr>
-									<%-- <th>
-										<form id="freeBoardCtg" name="freeBoardCtg" method="get" action="<c:url value='/board/listAllBoard'/>">
-											<!-- <select id="FFilter2" name="boardCtgNo"
-												style="height: 25px; margin-left: 30px;">
-												<option value="0">구분</option>
-												<option value="1">자유</option>
-												<option value="2">분양홍보</option>
-												<option value="3">반려동물 보호</option>
-												<option value="4">소모임</option>
-												<option value="5">중고거래</option>
-												<option value="6">정보제공</option>
-												<option value="7">QnA</option>
-											</select> -->
-										</form>
-									</th> --%>
-
 									<th scope="col" class="th-title">글 제목</th>
 									<th scope="col" class="th-writer">작성자</th>
 									<th scope="col" class="th-date">날짜</th>

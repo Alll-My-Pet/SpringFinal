@@ -90,18 +90,24 @@ public class BoardCotroller {
 	/* 자유 게시판 */
 	@RequestMapping("/board/freeBoard")
 	public String freeBoard(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) {
-
+		
+		// 페이징
 		BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.paging());
 
 		HashMap<String, Integer> map = new HashMap<>();
 		map.put("startNo", (pageVo.getStartNo() - 1));
 		map.put("endNo", pageVo.getEndNo());
-
+		model.addAttribute("pageVo", pageVo);
+		
+		// 자유게시판 목록 보여줌
 		ArrayList<BoardVO> freeBoardList = boardService.viewFreeboard(map);
 		model.addAttribute("freeBoardList", freeBoardList);
 
-		model.addAttribute("pageVo", pageVo);
-
+		// 자유게시판 실시간 인기글
+		ArrayList<BoardVO> free_hotList = boardService.free_hotList();
+		System.out.println(free_hotList);
+		model.addAttribute("free_hotList", free_hotList);
+		
 		return "board/freeBoard";
 	}
 

@@ -40,13 +40,19 @@ public class BoardService implements IBoardService {
 	public int paging() {
 		return dao.paging();
 	}
-	
+
 	// 자유게시판 - index.jsp에 미리보기로 붙이는 용
 	@Override
 	public ArrayList<BoardVO> index_freeBoard() {
 		return dao.index_freeBoard();
 	}
 	
+	// 자유게시판 - 실시간 인기글
+	@Override
+	public ArrayList<BoardVO> free_hotList() {
+		return dao.free_hotList();
+	}
+
 	@Override
 	public int getBoardCount() {
 		// TODO Auto-generated method stub
@@ -89,7 +95,5 @@ public class BoardService implements IBoardService {
 	public ArrayList<BoardVO> listHotTopics() {
 		return dao.listHotTopics();
 	}
-
-
 
 }

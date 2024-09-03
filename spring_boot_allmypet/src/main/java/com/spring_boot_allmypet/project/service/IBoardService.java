@@ -25,6 +25,9 @@ public interface IBoardService {
 	// 자유게시판 - index.jsp에 미리보기로 붙이는 용
 	public ArrayList<BoardVO> index_freeBoard();
 
+	// 자유게시판 실시간 인기글
+	public ArrayList<BoardVO> free_hotList();
+
 	public void insertBoard(BoardVO vo);
 
 	public void updateBoard(BoardVO vo);
