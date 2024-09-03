@@ -292,51 +292,16 @@
 									</a>
 									<div class="general-list">
 										<!-- post 디폴트: 링크 걸어둔 것 -->
-										<a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
+										<c:forEach var="free" items="${freeBoardList }">
+											<a href="게시판_상세.html" class="post">
+												<div class="post-title">${free.postTitle}</div>
+												<div class="post-author">${free.memNickName}</div>
+												<div class="post-date">
+													<fmt:formatDate value="${free.postDate}"
+														pattern="M/dd HH:mm" />
+												</div>
+											</a>
+										</c:forEach>
 									</div>
 								</div>
 							</div>
