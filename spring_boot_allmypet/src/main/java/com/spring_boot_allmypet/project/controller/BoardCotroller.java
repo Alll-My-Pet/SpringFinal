@@ -65,23 +65,46 @@ public class BoardCotroller {
 	}
 
 	// 자유게시판
-	@RequestMapping("/board/FreeBoardList")
-	public String FreeBoardList(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) {
 
-		BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, freeService.FreePaging());
+	
+	/*
+	 * @RequestMapping("/board/FreeBoardList") public String
+	 * FreeBoardList(@RequestParam(required = false, defaultValue = "1") int pageNo,
+	 * Model model) {
+	 * 
+	 * BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10,
+	 * freeService.FreePaging());
+	 * 
+	 * HashMap<String, Integer> map = new HashMap<>(); map.put("startNo",
+	 * (pageVo.getStartNo() - 1)); map.put("endNo", pageVo.getEndNo());
+	 * 
+	 * ArrayList<FreeVO> FreeboardList = freeService.FreeBoardList(map);
+	 * model.addAttribute("FreeboardList", FreeboardList);
+	 * model.addAttribute("pageVo", pageVo);
+	 * 
+	 * // 인기글 조회 ArrayList<FreeVO> FreeHotTopics = freeService.FreeHotTopics();
+	 * model.addAttribute("FreeHotTopics", FreeHotTopics);
+	 * 
+	 * return "board/freeBoard"; }
+	 */
+	 
 
-		HashMap<String, Integer> map = new HashMap<>();
-		map.put("startNo", (pageVo.getStartNo() - 1));
-		map.put("endNo", pageVo.getEndNo());
+	/* 자유 게시판 */
+	@RequestMapping("/board/freeBoard")
+	public String freeBoard(Model model) {
 
-		ArrayList<FreeVO> FreeboardList = freeService.FreeBoardList(map);
-		model.addAttribute("FreeboardList", FreeboardList);
-		model.addAttribute("pageVo", pageVo);
+		/*
+		 * BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.paging());
+		 * 
+		 * HashMap<String, Integer> map = new HashMap<>(); map.put("startNo",
+		 * (pageVo.getStartNo() - 1)); map.put("endNo", pageVo.getEndNo());
+		 */
 
-		// 인기글 조회
-		ArrayList<FreeVO> FreeHotTopics = freeService.FreeHotTopics();
-		model.addAttribute("FreeHotTopics", FreeHotTopics);
-
+		ArrayList<BoardVO> freeBoardList = boardService.viewFreeboard();
+		model.addAttribute("freeBoardList", freeBoardList);
+		
+		/* model.addAttribute("pageVo", pageVo); */
+		
 		return "board/freeBoard";
 	}
 
@@ -127,7 +150,6 @@ public class BoardCotroller {
 	@RequestMapping("/board/noticeBoard")
 	public String noticeBoard(Model model) {
 
-		// petCtgNo에 해당하는 양육팁 게시글 목록 조회
 		ArrayList<BoardVO> noticeList = boardService.viewNotice();
 		model.addAttribute("noticeList", noticeList);
 

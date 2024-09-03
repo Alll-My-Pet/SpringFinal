@@ -13,8 +13,14 @@ public interface IBoardService {
 
 	public int getBoardCount();
 
+	// 페이징
+	/* public int paging(); */
+
 	// 공지게시판
 	public ArrayList<BoardVO> viewNotice();
+
+	// 자유게시판
+	public ArrayList<BoardVO> viewFreeboard();
 
 	public void insertBoard(BoardVO vo);
 
@@ -28,8 +34,8 @@ public interface IBoardService {
 
 	// 상품 검색
 	public ArrayList<BoardVO> boardSearch(HashMap<String, String> map);
-	
+
 	// 인기글
 	public ArrayList<BoardVO> listHotTopics();
-	
+
 }

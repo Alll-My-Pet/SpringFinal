@@ -29,6 +29,18 @@ public class BoardService implements IBoardService {
 		return dao.viewNotice();
 	}
 
+	// 자유 게시판
+	@Override
+	public ArrayList<BoardVO> viewFreeboard() {
+		return dao.viewFreeboard();
+	}
+	
+	/*
+	 * // 자유게시판 페이징
+	 * 
+	 * @Override public int paging() { return dao.paging(); }
+	 */
+	
 	@Override
 	public int getBoardCount() {
 		// TODO Auto-generated method stub
@@ -62,20 +74,15 @@ public class BoardService implements IBoardService {
 
 	// 검색
 	@Override
-	  public ArrayList<BoardVO> boardSearch(HashMap<String, String> param) {
-	    return dao.boardSearch(param);
-	  }
+	public ArrayList<BoardVO> boardSearch(HashMap<String, String> param) {
+		return dao.boardSearch(param);
+	}
 
-	//인기글
+	// 인기글
 	@Override
-    public ArrayList<BoardVO> listHotTopics() {
-        return dao.listHotTopics();
-    }
+	public ArrayList<BoardVO> listHotTopics() {
+		return dao.listHotTopics();
+	}
 
-	
-	
-
-	
-	
 
 }

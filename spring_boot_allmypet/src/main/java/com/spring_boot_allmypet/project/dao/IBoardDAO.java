@@ -12,9 +12,15 @@ public interface IBoardDAO {
 	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map);
 
 	public int getBoardCount();
-
+	
+	// 페이징
+	/* public int paging(); */
+	
 	// 공지게시판
 	public ArrayList<BoardVO> viewNotice();
+	
+	// 자유게시판
+	public ArrayList<BoardVO> viewFreeboard();
 
 	// 글 쓰기
 	public void insertBoard(BoardVO vo);
