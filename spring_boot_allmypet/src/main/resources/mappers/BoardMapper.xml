@@ -139,7 +139,7 @@
 			p.memId = m.memId
 			WHERE p.boardCtgNo = '3'
 			ORDER BY postLike DESC
-			LIMIT 2
+			LIMIT 3
 		) AS top3_posts
 		ORDER BY postDate DESC;
 	</select>
