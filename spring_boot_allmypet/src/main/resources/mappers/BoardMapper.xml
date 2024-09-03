@@ -85,6 +85,7 @@
 		LIMIT 2
 	</select>
 
+<!-- 전체 커뮤니티  -->
 	<!-- 공지게시판 -->
 	<select id="viewNotice" parameterType="string"
 		resultType="com.spring_boot_allmypet.project.model.BoardVO">

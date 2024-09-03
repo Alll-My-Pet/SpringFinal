@@ -25,6 +25,11 @@ public class MainController {
 		ArrayList<BoardVO> freeBoardList = boardService.index_freeBoard();
 		model.addAttribute("freeBoardList", freeBoardList);
 
+		// 자유게시판 실시간 인기글
+		ArrayList<BoardVO> free_hotList = boardService.free_hotList();
+		/* System.out.println(free_hotList); */
+		model.addAttribute("free_hotList", free_hotList);
+		
 		return "index";
 	}
 

@@ -44,7 +44,6 @@
 			}
 		});
 	});
-
 </script>
 
 </head>
@@ -88,10 +87,12 @@
 						</form>
 						<!-- form 끝 -->
 						<div class="hotBoard">
-							<h3 style="margin-left: 2%; margin-top:30px; position:absolute;">실시간 인기글🔥</h3>
+							<h3
+								style="margin-left: 2%; margin-top: 30px; position: absolute;">실시간
+								인기글🔥</h3>
 							<div class="post-list">
-							  <table class="hotTable">
-							  <!-- <thead>
+								<table class="hotTable">
+									<!-- <thead>
 							  <tr>
 							  <th>제목</th>
 							  <th>작성자</th>
@@ -101,29 +102,32 @@
 							  
 							  </tr>
 							  </thead> -->
-							  
-							  <tbody>
-								<c:forEach items="${hotTopics}" var="hot">
-									<tr>
-										<td><a href="<c:url value='/board/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
-										<td>${hot.memId}</td>
-										<td><fmt:formatDate value="${hot.postDate}" pattern="yyyy-MM-dd" /></td>
-										<td>${hot.postLike }</td>
-										<td>${hot.postView }</td>
-									</tr>
-								</c:forEach>
-								
-							  </tbody>
-								
-							  </table>
-							</div> <!-- post-list 끝 -->
-						</div> <!-- hotBoard 끝 -->
+
+									<tbody>
+										<c:forEach items="${hotTopics}" var="hot">
+											<tr>
+												<td><a
+													href="<c:url value='/board/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
+												<td>${hot.memId}</td>
+												<td><fmt:formatDate value="${hot.postDate}"
+														pattern="yyyy-MM-dd" /></td>
+												<td>${hot.postLike }</td>
+												<td>${hot.postView }</td>
+											</tr>
+										</c:forEach>
+
+									</tbody>
+
+								</table>
+							</div>
+							<!-- post-list 끝 -->
+						</div>
+						<!-- hotBoard 끝 -->
 
 						<table class="boardTB">
 
 							<thead>
 								<tr>
-									<th>글 번호</th>
 									<th>
 										<form id="boardCtg" name="boardCtg" method="get"
 											action="<c:url value='/board/listAllBoard'/>">
@@ -152,9 +156,9 @@
 							<tbody id="boardList">
 								<c:forEach var="board" items="${boardList }">
 									<tr>
-										<td>${board.postNo }</td>
-										<td>${board.boardCtgNo }</td>
-										<td><a href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td>
+										<td>${board.headerNo }</td>
+										<td><a
+											href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td>
 										<td>${board.memId }</td>
 										<td><fmt:formatDate value="${board.postDate }"
 												pattern="YYYY-MM-dd" /></td>

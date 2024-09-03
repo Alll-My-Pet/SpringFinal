@@ -263,26 +263,21 @@
 							<div class="community-board">
 								<div class="hot-board">
 									<!-- 링크 삽입 -->
-									<a href="게시판_링크.html" class="board-title">
-										<div>핫한 게시글🔥 +</div>
-									</a>
+									<div class="board-title">
+										<div>🔥핫한 게시글🔥</div>
+									</div>
 									<div class="hot-list">
 										<!-- post 디폴트: 링크 걸어둔 것 -->
-										<a href="게시판_상세.html" class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</a>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
-										<div class="post">
-											<div class="post-title">게시글제목게시글제목</div>
-											<div class="post-author">☆작성자★</div>
-											<div class="post-date">8/06 12:55</div>
-										</div>
+										<c:forEach var="hot" items="${free_hotList }">
+											<a href="<c:url value='/board/FreeDetailView/${hot.postNo}'/>" class="post">
+												<div class="post-title">${hot.postTitle}</div>
+												<div class="post-author">${hot.memNickName}</div>
+												<div class="post-date">
+													<fmt:formatDate value="${hot.postDate}"
+														pattern="M/dd HH:mm" />
+												</div>
+											</a>
+										</c:forEach>
 									</div>
 								</div>
 								<div class="general-board">
@@ -293,7 +288,7 @@
 									<div class="general-list">
 										<!-- post 디폴트: 링크 걸어둔 것 -->
 										<c:forEach var="free" items="${freeBoardList }">
-											<a href="게시판_상세.html" class="post">
+											<a href="<c:url value='/board/FreeDetailView/${free.postNo}'/>" class="post">
 												<div class="post-title">${free.postTitle}</div>
 												<div class="post-author">${free.memNickName}</div>
 												<div class="post-date">
