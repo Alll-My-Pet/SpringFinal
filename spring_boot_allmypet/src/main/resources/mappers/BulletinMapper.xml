@@ -3,8 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper
-	namespace="com.spring_boot_allmypet.project.dao.animal.IBulletinDAO">
+<mapper namespace="com.spring_boot_allmypet.project.dao.animal.IBulletinDAO">
 	<!-- petCtgNo에 따른 게시글 목록 가져오기 -->
 	<!-- <select id="getBulletinList" parameterType="String" resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO"> 
 		SELECT * FROM bulletin_board WHERE petCtgNo = #{petCtgNo} </select> -->
