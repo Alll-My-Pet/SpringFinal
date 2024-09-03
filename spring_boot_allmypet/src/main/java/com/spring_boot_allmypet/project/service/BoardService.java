@@ -31,16 +31,16 @@ public class BoardService implements IBoardService {
 
 	// 자유 게시판
 	@Override
-	public ArrayList<BoardVO> viewFreeboard() {
-		return dao.viewFreeboard();
+	public ArrayList<BoardVO> viewFreeboard(HashMap<String, Integer> map) {
+		return dao.viewFreeboard(map);
 	}
-	
-	/*
-	 * // 자유게시판 페이징
-	 * 
-	 * @Override public int paging() { return dao.paging(); }
-	 */
-	
+
+	// 자유게시판 페이징
+	@Override
+	public int paging() {
+		return dao.paging();
+	}
+
 	@Override
 	public int getBoardCount() {
 		// TODO Auto-generated method stub
@@ -83,6 +83,5 @@ public class BoardService implements IBoardService {
 	public ArrayList<BoardVO> listHotTopics() {
 		return dao.listHotTopics();
 	}
-
 
 }

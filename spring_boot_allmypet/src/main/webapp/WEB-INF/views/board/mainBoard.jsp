@@ -45,18 +45,6 @@
 		});
 	});
 
-	document.addEventListener('DOMContentLoaded', function() {
-		var selectElement = document.getElementById('BFilter2');
-
-		selectElement.addEventListener('change', function() {
-			var form = document.getElementById('boardCtg');
-			if (form) {
-				form.submit();
-			} else {
-				console.error('폼을 찾을 수 없습니다');
-			}
-		});
-	});
 </script>
 
 </head>

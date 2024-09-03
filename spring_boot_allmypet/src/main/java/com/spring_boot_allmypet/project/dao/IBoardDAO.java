@@ -12,15 +12,15 @@ public interface IBoardDAO {
 	public ArrayList<BoardVO> listAllBoard(HashMap<String, Integer> map);
 
 	public int getBoardCount();
-	
+
 	// 페이징
-	/* public int paging(); */
-	
+	public int paging();
+
 	// 공지게시판
 	public ArrayList<BoardVO> viewNotice();
-	
+
 	// 자유게시판
-	public ArrayList<BoardVO> viewFreeboard();
+	public ArrayList<BoardVO> viewFreeboard(HashMap<String, Integer> map);
 
 	// 글 쓰기
 	public void insertBoard(BoardVO vo);
@@ -36,12 +36,8 @@ public interface IBoardDAO {
 
 	// 검색
 	public ArrayList<BoardVO> boardSearch(HashMap<String, String> map);
-	
+
 	// 인기글
 	public ArrayList<BoardVO> listHotTopics();
-	
-	
-	
 
 }
-

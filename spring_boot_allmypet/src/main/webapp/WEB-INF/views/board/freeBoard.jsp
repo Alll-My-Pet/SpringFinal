@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/Board/freeBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/Board/freeBoard.js'/>"></script>
+<%-- <script src="<c:url value='/js/Board/freeBoard.js'/>"></script> --%>
 <script>
 	function goPage(no) {
 		const frm = document.pageFrm;
@@ -26,10 +26,24 @@
 			no = parseInt(frm.pageNo.value) + 1;
 		}
 
-		frm.action = "/board/FreeBoardList";
+		frm.action = "/board/freeBoard";
 		frm.pageNo.value = no;
 		frm.submit();
 	}
+	
+	document.addEventListener('DOMContentLoaded', function() {
+		var selectElement = document.getElementById('BFilter2');
+
+		// 버튼 클릭처럼 폼을 제출
+		selectElement.addEventListener('change', function() {
+			var form = document.getElementById('BoardSearchBar');
+			if (form) {
+				form.submit();
+			} else {
+				console.error('Form not found');
+			}
+		});
+	});
 </script>
 
 </head>

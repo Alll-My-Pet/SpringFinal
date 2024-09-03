@@ -66,7 +66,6 @@ public class BoardCotroller {
 
 	// 자유게시판
 
-	
 	/*
 	 * @RequestMapping("/board/FreeBoardList") public String
 	 * FreeBoardList(@RequestParam(required = false, defaultValue = "1") int pageNo,
@@ -87,24 +86,22 @@ public class BoardCotroller {
 	 * 
 	 * return "board/freeBoard"; }
 	 */
-	 
 
 	/* 자유 게시판 */
 	@RequestMapping("/board/freeBoard")
-	public String freeBoard(Model model) {
+	public String freeBoard(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) {
 
-		/*
-		 * BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.paging());
-		 * 
-		 * HashMap<String, Integer> map = new HashMap<>(); map.put("startNo",
-		 * (pageVo.getStartNo() - 1)); map.put("endNo", pageVo.getEndNo());
-		 */
+		BoardPagingVO pageVo = new BoardPagingVO(pageNo, 10, boardService.paging());
 
-		ArrayList<BoardVO> freeBoardList = boardService.viewFreeboard();
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("startNo", (pageVo.getStartNo() - 1));
+		map.put("endNo", pageVo.getEndNo());
+
+		ArrayList<BoardVO> freeBoardList = boardService.viewFreeboard(map);
 		model.addAttribute("freeBoardList", freeBoardList);
-		
-		/* model.addAttribute("pageVo", pageVo); */
-		
+
+		model.addAttribute("pageVo", pageVo);
+
 		return "board/freeBoard";
 	}
 

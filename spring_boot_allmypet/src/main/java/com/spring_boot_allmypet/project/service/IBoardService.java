@@ -14,13 +14,13 @@ public interface IBoardService {
 	public int getBoardCount();
 
 	// 페이징
-	/* public int paging(); */
+	public int paging();
 
 	// 공지게시판
 	public ArrayList<BoardVO> viewNotice();
 
 	// 자유게시판
-	public ArrayList<BoardVO> viewFreeboard();
+	public ArrayList<BoardVO> viewFreeboard(HashMap<String, Integer> map);
 
 	public void insertBoard(BoardVO vo);
 

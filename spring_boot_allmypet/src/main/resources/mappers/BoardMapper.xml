@@ -96,21 +96,22 @@
 	</select>
 
 	<!-- 자유게시판 -->
-	<select id="viewFreeboard" parameterType="string"
+	<select id="viewFreeboard" parameterType="hashmap"
 		resultType="com.spring_boot_allmypet.project.model.BoardVO">
 		SELECT p.*, m.memNickName
 		FROM post p
 		JOIN member m ON
 		p.memId = m.memId
 		WHERE p.boardCtgNo = '3'
-		ORDER BY postDate DESC;
+		ORDER BY postDate DESC
+		LIMIT #{startNo}, 15;
 	</select>
 
 	<!-- 자유게시판: 페이징 -->
-	<!-- <select id="paging" resultType="int">
+	<select id="paging" resultType="int">
 		SELECT count(*) FROM post
 		WHERE
 		boardCtgNo = '3';
-	</select> -->
+	</select>
 
 </mapper>
