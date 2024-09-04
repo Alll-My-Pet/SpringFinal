@@ -44,19 +44,6 @@
 			}
 		});
 	});
-
-	document.addEventListener('DOMContentLoaded', function() {
-		var selectElement = document.getElementById('BFilter2');
-
-		selectElement.addEventListener('change', function() {
-			var form = document.getElementById('boardCtg');
-			if (form) {
-				form.submit();
-			} else {
-				console.error('폼을 찾을 수 없습니다');
-			}
-		});
-	});
 </script>
 
 </head>
@@ -91,8 +78,11 @@
 								<option value="memId" selected>작성자</option>
 								<option value="postTitle">글 제목</option>
 								<option value="postTitleAndpostContent">제목 + 내용</option>
-							</select> <input type="text" id="keyword" name="keyword"
-								placeholder="게시판 내 검색" /> <label for="BoardSearchBtn">
+							</select> 
+							
+								<input type="text" id="keyword" name="keyword" placeholder="게시판 내 검색" /> 
+								
+							<label for="BoardSearchBtn">
 								<input type="submit" class="BoardSearchBtn">
 							</label>
 
@@ -137,8 +127,7 @@
 								<tr>
 									<th>글 번호</th>
 									<th>
-										<form id="boardCtg" name="boardCtg" method="get"
-											action="<c:url value='/board/listAllBoard'/>">
+										<form id="boardCtg" name="boardCtg" method="get" action="<c:url value='/board/listAllBoard'/>">
 											<select id="BFilter2" name="boardCtgNo"
 												style="height: 25px; margin-left: 30px;">
 												<option value="All">구분</option>

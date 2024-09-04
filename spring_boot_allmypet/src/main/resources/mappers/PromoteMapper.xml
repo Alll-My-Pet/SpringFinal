@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.IPromoteDAO">
+	<resultMap id="PromoteResultMap" type="com.spring_boot_allmypet.project.model.PromoteVO">
+		<result property="postNo" column="postNo" />
+		<result property="petCtgNo" column="petCtgNo" />
+		<result property="memId" column="memId" />
+		<result property="petName" column="petName" />
+		<result property="petName" column="placeInfo" />
+		<result property="petName" column="parcelOutInfo" />
+		<result property="postContent" column="postContent" />
+		<result property="postImg" column="postImg" />
+	</resultMap>
+  
+  
+  
+  <!-- 게시판 리스트 -->
+	<select id="promoteList" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.PromoteVO">
+		SELECT * FROM promote_board 
+		LIMIT #{startNo}, 8;
+	</select>
+	
+	<!-- 페이징 -->
+	<select id="promoteCount" resultType="int">
+		SELECT count(*) FROM promote_board
+	</select>
+	
+	
+	<!-- 글 작성 -->
+	<insert id="insertPromote" parameterType="com.spring_boot_allmypet.project.model.PromoteVO">
+		INSERT INTO promote_board 
+		(petCtgNo, memId,  petName, postImg, parcelOutInfo, placeInfo, postContent, postNo)
+		VALUES (#{petCtgNo}, #{memId}, #{petName}, #{postImg},
+		 #{parcelOutInfo}, #{placeInfo}, #{postContent}, #{postNo})
+	</insert>
+	
+	<!-- 게시글 검색 -->
+	<select id="promoteSearch" parameterType="hashmap" resultMap="PromoteResultMap">
+		SELECT * FROM promote_board
+        WHERE petCtgNo = #{petCtgNo}
+	</select>
+	
+	<!-- 게시글 조회 -->
+	<select id="promoteDetailView" parameterType="int" resultType="com.spring_boot_allmypet.project.model.PromoteVO">
+		SELECT postNo, memId, postContent, postImg, petCtgNo, petName, placeInfo, parcelOutInfo
+		FROM promote_board 
+		WHERE postNo = #{postNo}
+	</select>
+	
+	
+   </mapper>
