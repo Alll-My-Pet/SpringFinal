@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -108,13 +109,28 @@
         </div> <!-- 두 번째 행 끝 -->
     </div>
             <div class="filter-grid">
-                <label><input type="checkbox" name="prdCtgNo" value="1" onchange="filterProducts()">반려동물식품</label>
-                <label><input type="checkbox" name="prdCtgNo" value="2" onchange="filterProducts()">장난감</label>
-                <label><input type="checkbox" name="prdCtgNo" value="3" onchange="filterProducts()">목욕용품</label>
-                <label><input type="checkbox" name="prdCtgNo" value="4" onchange="filterProducts()">사육장</label>
-                
-                 <button onclick="showAllProducts()">전체목록 보기</button>
-            </div>
+			    <label><input type="checkbox" name="prdCtgNo" value="1" 
+			        onchange="filterProducts()" 
+			        <c:if test="${fn:contains(param.prdCtgNo, '1')}">checked</c:if>
+			    >반려동물식품</label>
+			    
+			    <label><input type="checkbox" name="prdCtgNo" value="2" 
+			        onchange="filterProducts()" 
+			        <c:if test="${fn:contains(param.prdCtgNo, '2')}">checked</c:if>
+			    >장난감</label>
+			    
+			    <label><input type="checkbox" name="prdCtgNo" value="3" 
+			        onchange="filterProducts()" 
+			        <c:if test="${fn:contains(param.prdCtgNo, '3')}">checked</c:if>
+			    >목욕용품</label>
+			    
+			    <label><input type="checkbox" name="prdCtgNo" value="4" 
+			        onchange="filterProducts()" 
+			        <c:if test="${fn:contains(param.prdCtgNo, '4')}">checked</c:if>
+			    >사육장</label>
+			    
+			    <button onclick="showAllProducts()">전체목록 보기</button>
+			</div>
             <p class="product_total">전체상품 000개</p>
             
             <div class="product-grid">
