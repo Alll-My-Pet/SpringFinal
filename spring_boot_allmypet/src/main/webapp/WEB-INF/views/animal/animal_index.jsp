@@ -171,7 +171,7 @@
 						<!-- best-photos 끝 -->
 						<div class="post-board">
 							<div class="bulletin-board">
-								<a href="<c:url value='/board/listAllBoard'/>" class="board-title">
+								<a href="<c:url value='/animal_home/${petCtgNo}/bulletin'/>" class="board-title">
 									<div>전체 게시판 +</div>
 								</a>
 								<div class="post-list">

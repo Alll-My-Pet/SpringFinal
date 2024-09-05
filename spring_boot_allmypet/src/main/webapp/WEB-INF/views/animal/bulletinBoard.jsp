@@ -63,7 +63,7 @@
 								alt="..." style="height: 128px;">
 						</div>
 						<div class="page-title">
-							<div class="titleInfo">동물별 커뮤니티: </div>
+							<div class="titleInfo">동물별 커뮤니티: ${petCtgName}</div>
 							<span class="ctgTitle">전체 게시판</span>
 						</div>
 						<div class="bracket">
@@ -154,16 +154,16 @@
 							</thead>
 
 							<tbody id="boardList">
-								<c:forEach var="board" items="${boardList }">
+								<c:forEach var="bulletin" items="${bulletinList }">
 									<tr>
-										<td>${board.headerNo }</td>
+										<td>${bulletin.headerNo }</td>
 										<td><a
-											href="<c:url value='/board/detailViewBoard/${board.postNo}'/>" />${board.postTitle }</td>
-										<td>${board.memId }</td>
-										<td><fmt:formatDate value="${board.postDate }"
-												pattern="YYYY-MM-dd" /></td>
-										<td>${board.postView }</td>
-										<td>${board.postLike }</td>
+											href="<c:url value='/board/detailViewBoard/${bulletin.postNo}'/>" />${bulletin.postTitle }</td>
+										<td>${bulletin.memNickName }</td>
+										<td><fmt:formatDate value="${bulletin.postDate }"
+												pattern="M/dd HH:mm" /></td>
+										<td>${bulletin.postView }</td>
+										<td>${bulletin.postLike }</td>
 									</tr>
 								</c:forEach>
 							</tbody>
