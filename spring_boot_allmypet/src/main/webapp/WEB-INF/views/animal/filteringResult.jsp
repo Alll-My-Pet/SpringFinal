@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>전체 게시판</title>
+<title>전체 게시판: 필터링 됐을 경우</title>
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">

@@ -128,7 +128,7 @@
 
 							<thead>
 								<tr>
-									<th>
+									<th scope="col" class="th-filter">
 										<form id="boardCtg" name="boardCtg">
 											<input type="hidden" id="petCtgNo" name="petCtgNo"
 												value="${petCtgNo}" /> <input type="hidden"
@@ -145,10 +145,10 @@
 									</th>
 
 									<th scope="col" class="th-title">글 제목</th>
-									<th scope="col" class="th-writer">작성자</th>
+									<th scope="col" class="th-author">작성자</th>
 									<th scope="col" class="th-date">날짜</th>
 									<th scope="col" class="th-view">조회</th>
-									<th scope="col" class="th-good">추천</th>
+									<th scope="col" class="th-like">추천</th>
 								</tr>
 							</thead>
 							</table>

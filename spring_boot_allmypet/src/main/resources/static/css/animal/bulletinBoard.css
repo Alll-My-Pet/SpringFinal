@@ -94,6 +94,7 @@
 	margin: 0 auto;
 	margin-top: 150px;
 	margin-right:125px;
+	margin-bottom: 50px;
 }
 
 
@@ -102,7 +103,7 @@
 	border-collapse: collapse;
 	border: 1px solid black;
 	margin: 0 auto;
-	margin-top: 50px;
+	/* margin-top: 50px; */
 	/* height: 900px; */
 	overflow: hidden;
 	margin-right:125px;
@@ -229,6 +230,36 @@
 /* ******************************** */
 
 
+/* 게시글 헤더(thead) */
+.boardTB .th {
+	text-align: center;
+}
+
+.boardTB .th-filter {
+	width: 60px;
+}
+
+.boardTB .th-title{
+	width: 375px;
+}
+
+
+.boardTB .th-author{
+	width: 119px;
+}
+
+.boardTB .th-date{
+	width: 138px;
+}
+
+/* th에 대한 스타일 */
+.boardTB thead th {
+	background-color: skyblue;
+}
+
+/* //////// */
+
+/* 게시글 목록(tbody) */
 .boardTB td {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
@@ -237,14 +268,10 @@
 	border-collapse: collapse;
 	height: 20px;
 }
+
 /* tr에 대한 호버 효과 적용 */
 .boardTB tbody tr:hover {
 	background-color: #f0f0f0;
-}
-
-/* th에 대한 스타일 */
-.boardTB thead th {
-	background-color: skyblue;
 }
 
 /* ********수정중******** */
@@ -347,6 +374,7 @@
 .hotTable{
 	width:800px;
 	margin-top:65px;
+	margin-bottom: 50px;
 	border-collapse: collapse;
 	border:1px solid black;
 	border-radius:10px;
