@@ -104,15 +104,15 @@
 							  </thead> -->
 
 									<tbody>
-										<c:forEach items="${hotTopics}" var="hot">
+										<c:forEach items="${hotList}" var="hot">
 											<tr>
 												<td><a
 													href="<c:url value='/board/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
-												<td>${hot.memId}</td>
+												<td>${hot.memNickName}</td>
 												<td><fmt:formatDate value="${hot.postDate}"
-														pattern="yyyy-MM-dd" /></td>
-												<td>${hot.postLike }</td>
+														pattern="M/dd HH:mm" /></td>
 												<td>${hot.postView }</td>
+												<td>${hot.postLike }</td>
 											</tr>
 										</c:forEach>
 

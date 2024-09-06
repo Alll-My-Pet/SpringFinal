@@ -103,6 +103,11 @@ public class AnimalController {
 		// petCtgNo에 해당하는 게시글 목록 조회
 		ArrayList<BulletinBoardVO> bulletinList = bulletinService.showBulletin(petCtgNo);
 		model.addAttribute("bulletinList", bulletinList);
+		
+		// 실시간 인기글
+		ArrayList<BulletinBoardVO> hotList = bulletinService.hotList(petCtgNo);
+		System.out.println("hotList: " + hotList);
+		model.addAttribute("hotList", hotList);
 
 		return "animal/bulletinBoard";
 	}
@@ -121,6 +126,7 @@ public class AnimalController {
 		 * bulletinList);
 		 */
 
+		// 필터링 기능 추가 / 필터링에서 구분 -> 전체 게시글 반환
 		ArrayList<BulletinBoardVO> bulletinList = null;
 		if (map.get("headerNo").toString().equals("")) {
 			bulletinList = bulletinService.showBulletin(map.get("petCtgNo").toString());
@@ -128,7 +134,7 @@ public class AnimalController {
 			bulletinList = bulletinService.getBulletinList(map);
 		}
 		model.addAttribute("bulletinList", bulletinList);
-		
+
 		return "animal/filteringResult";
 	}
 

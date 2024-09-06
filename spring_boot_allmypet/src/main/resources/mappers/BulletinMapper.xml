@@ -33,8 +33,43 @@
 		JOIN postHeader ph
 		ON bb.headerNo = ph.headerNo
 		WHERE bb.petCtgNo = #{petCtgNo}
-		AND bb.headerNo = #{headerNo}
+		AND
+		bb.headerNo = #{headerNo}
 		ORDER BY bb.postDate DESC;
 	</select>
+
+	<!-- 전체게시판 실시간 인기글 -->
+	<!-- <select id="hotList" parameterType="string"
+		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
+		SELECT *
+		FROM(
+		SELECT bb.*, m.memNickName, ph.headerName
+		FROM
+		bulletin_board bb
+		JOIN member m ON bb.memId = m.memId
+		JOIN postHeader ph
+		ON bb.headerNo = ph.headerNo
+		WHERE bb.petCtgNo = #{petCtgNo}
+		ORDER BY
+		postLike DESC
+		LIMIT 3
+		) AS top3_posts
+		ORDER BY postDate DESC;
+	</select> -->
+
+	<select id="hotList" parameterType="string"
+		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
+		SELECT bb.*, m.memNickName, ph.headerName
+		FROM
+		bulletin_board bb
+		JOIN member m ON bb.memId = m.memId
+		JOIN postHeader ph
+		ON bb.headerNo = ph.headerNo
+		WHERE bb.petCtgNo = #{petCtgNo}
+		ORDER BY
+		postLike DESC
+		LIMIT 3
+	</select>
+
 
 </mapper>

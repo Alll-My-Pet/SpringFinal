@@ -12,7 +12,10 @@ public interface IBulletinDAO {
 	
 	// 필터링 가능한 전체게시판 목록
 	public ArrayList<BulletinBoardVO> getBulletinList(HashMap<String, Object> map);
-
+	
+	// 전체게시판 실시간 인기글
+	public ArrayList<BulletinBoardVO> hotList(String petCtgNo);
+	
 	// postNo로 해당 게시글 가져오기
 	public BulletinBoardVO getPost(int postNo);
 
