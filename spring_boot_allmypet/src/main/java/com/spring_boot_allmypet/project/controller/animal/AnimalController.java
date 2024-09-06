@@ -1,12 +1,14 @@
 package com.spring_boot_allmypet.project.controller.animal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
 import com.spring_boot_allmypet.project.model.animal.BulletinBoardVO;
@@ -42,7 +44,7 @@ public class AnimalController {
 		}
 
 		// petCtgNo에 해당하는 게시글 목록 조회
-		ArrayList<BulletinBoardVO> bulletinList = bulletinService.getBulletinList(petCtgNo);
+		ArrayList<BulletinBoardVO> bulletinList = bulletinService.showBulletin(petCtgNo);
 		model.addAttribute("bulletinList", bulletinList);
 
 		// petCtgNo에 해당하는 양육팁 게시글 목록 조회
@@ -98,11 +100,64 @@ public class AnimalController {
 			model.addAttribute("petCtgName", "카테고리없음.");
 		}
 
-		// petCtgNo에 해당하는 전체 게시글 목록 조회
-		ArrayList<BulletinBoardVO> bulletinList = bulletinService.getBulletinList(petCtgNo);
+		// petCtgNo에 해당하는 게시글 목록 조회
+		ArrayList<BulletinBoardVO> bulletinList = bulletinService.showBulletin(petCtgNo);
 		model.addAttribute("bulletinList", bulletinList);
 
 		return "animal/bulletinBoard";
 	}
 
+	@RequestMapping(value = "/animal_home/bulletin/filtered")
+	public String getBulletinList(@RequestParam HashMap<String, Object> map, Model model) {
+		// petCtgNo에 해당하는 전체 게시글 목록
+		// 조회 return
+		System.out.println("petCtgNo: " + map.get("petCtgNo"));
+		System.out.println("isFiltered: " + map.get("isFiltered"));
+		System.out.println("headerNo: " + map.get("headerNo"));
+
+		/*
+		 * ArrayList<BulletinBoardVO> bulletinList =
+		 * bulletinService.getBulletinList(map); model.addAttribute("bulletinList",
+		 * bulletinList);
+		 */
+
+		ArrayList<BulletinBoardVO> bulletinList = null;
+		if (map.get("headerNo").toString().equals("")) {
+			bulletinList = bulletinService.showBulletin(map.get("petCtgNo").toString());
+		} else {
+			bulletinList = bulletinService.getBulletinList(map);
+		}
+		model.addAttribute("bulletinList", bulletinList);
+		
+		return "animal/filteringResult";
+	}
+
+	/*
+	 * // 전체게시판 상세 조회
+	 * 
+	 * @RequestMapping("/animal_home/{petCtgNo}/bulletin/detailViewBoard/{postNo}")
+	 * public String detailViewBoard(@PathVariable int postNo, Model model) { //
+	 * 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기 BoardVO board =
+	 * boardService.detailViewBoard(postNo);
+	 * 
+	 * // 뷰 페이지에 출력하기 위해 Model 설정 model.addAttribute("board", board);
+	 * 
+	 * return "board/mainDetail"; }
+	 */
+
+	// 전체게시판 글 작성 폼 열기
+	/*
+	 * @RequestMapping("/animal/bulletin_form") public String boardWrite(HttpSession
+	 * session, Model model) { // 세션에서 사용자 정보 가져오기 String userId = (String)
+	 * session.getAttribute("mid");
+	 * 
+	 * // 사용자 정보가 있으면, 필요한 데이터를 모델에 추가 model.addAttribute("userId", userId);
+	 * 
+	 * return "animal/bulletin_form"; }
+	 */
+	@RequestMapping("/animal/bulletin_form")
+	public String boardWrite() {
+
+		return "animal/bulletin_form";
+	}
 }

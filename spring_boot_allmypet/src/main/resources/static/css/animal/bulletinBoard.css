@@ -1,0 +1,369 @@
+@charset "UTF-8";
+
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 689px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin: 40px auto;
+	/* 여백 설정 */
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	padding: 18.5px 22px 11.5px 21px;
+	box-sizing: border-box;
+}
+
+/* 공지/이벤트 */
+.page-title .ctgTitle {
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 43px;
+	line-height: 1;
+	color: #000000;
+	margin: 10px auto;
+}
+
+/* 공지사항 */
+.page-title .titleInfo {
+	margin-bottom: 8px;
+	display: inline-block;
+	align-self: flex-start;
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.39);
+	margin: 0 auto;
+}
+
+.bracket {
+	width: fit-content;
+	height: fit-content;	
+}
+
+.bLeft {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    left: -50px;
+    /* 부모의 왼쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
+}
+
+.bRight {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    right: -50px;
+    /* 부모의 오른쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
+}
+
+
+/* *********** */
+.MainBoard {
+	/* border: 1px solid black; */
+	border: none;
+	width: 100vh;
+	height: 150vh;
+	margin: 0 auto;
+}
+
+.hotBoard {
+	display: flex;
+	border: 1px solid black;
+	width: 800px;
+	height: 200px;
+	margin: 0 auto;
+	margin-top: 150px;
+	margin-right:125px;
+}
+
+
+.boardTB {
+	width: 800px;
+	border-collapse: collapse;
+	border: 1px solid black;
+	margin: 0 auto;
+	margin-top: 50px;
+	/* height: 900px; */
+	overflow: hidden;
+	margin-right:125px;
+}
+
+
+.mainWriteBox {
+	background-color: red;
+	/* width: 100%; */
+	height: fit-content;
+	position: relative;
+	margin-right:150px;
+}
+
+.mainWriteBox .mainWriteBtn{
+	position: absolute;
+	right: 0px;
+	top: 50%;
+	width:150px;
+	height:30px;
+	background-color:white;
+	border-radius:5px;
+	margin-left:780px;
+	margin-top:40px;
+}
+
+.mainWriteBtn:hover{
+	background-color:skyblue;
+}
+
+
+.BoardSearchBtn {
+	border: 0px;
+	background-color: white;
+	font-color: none;
+	background-image:
+		url('/project_images/free-icon-search-interface-symbol-54481.png');
+	background-size: cover; /* 이미지 크기를 버튼에 맞게 조정 */
+	background-repeat: no-repeat; /* 이미지 반복 방지 */
+	border: none; /* 버튼 테두리 제거 */
+	cursor: pointer; /* 클릭 가능한 커서 */
+	text-indent: -9999px; /* 버튼의 텍스트를 화면에서 숨김 */
+	overflow: hidden; /* 텍스트가 남는 것을 방지 */
+	width: 20px;
+}
+
+.BoardSearchBtn:hover {
+	opacity: 0.8; /* 호버 시 투명도 조정 */
+}
+
+
+/* 실시간 인기글 섹션 */
+.post-list {
+	display: flex;
+	margin: 20px auto;
+	flex-direction: column;
+}
+
+/* 게시글(post) 상세페이지로 이동하는 링크 */
+.post-list a {
+	text-decoration: none;
+	/* 밑줄 제거 */
+	color: inherit;
+	/* 부모 요소의 색상 유지 */
+}
+
+.post-list .post {
+	display: flex;
+	/* Flexbox로 설정 */
+	align-items: center;
+	/* 수직 중앙 정렬 */
+	border-bottom: 1px solid #BDBDBD;
+	/* border-radius: 5px; */
+	/* 각 게시글 구분을 위한 하단 테두리 */
+	padding: 5px 0;
+	/* 게시글 간의 패딩 */
+	width: 500px;
+	height: 30px;
+}
+
+.post .post-title {
+	width: 185px;
+	/* background-color: #A5C6E6; */
+	margin-left: 2px;
+	font-size: 14px;
+	white-space: nowrap;
+	/* 한 줄로 유지 */
+	overflow: hidden;
+	/* 넘치는 부분 숨김 */
+	text-overflow: ellipsis;
+	/* 넘치는 부분에 ... 표시 */
+}
+
+.post .post-author {
+	/* background-color: #d1a7f3; */
+	text-align: center;
+	width: 68px;
+	font-size: 12px;
+	/* 작성자와 제목 간의 간격 */
+	white-space: nowrap;
+	/* 한 줄로 유지 */
+	overflow: hidden;
+	/* 넘치는 부분 숨김 */
+	text-overflow: ellipsis;
+	/* 넘치는 부분에 ... 표시 */
+}
+
+.post .post-date {
+	/* background-color: aquamarine; */
+	text-align: center;
+	margin-right: 2px;
+	width: 63px;
+	color: #888;
+	font-size: 12px;
+	white-space: nowrap;
+	/* 한 줄로 유지 */
+	overflow: hidden;
+	/* 넘치는 부분 숨김 */
+	text-overflow: ellipsis;
+	/* 넘치는 부분에 ... 표시 */
+}
+
+
+/* ******************************** */
+
+
+.boardTB td {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 8px;
+	text-align: center;
+	border-collapse: collapse;
+	height: 20px;
+}
+/* tr에 대한 호버 효과 적용 */
+.boardTB tbody tr:hover {
+	background-color: #f0f0f0;
+}
+
+/* th에 대한 스타일 */
+.boardTB thead th {
+	background-color: skyblue;
+}
+
+/* ********수정중******** */
+#boardCtg {
+	width: 50px !important;
+}
+#boardList .headerName {
+	width: 50px !important;
+}
+
+
+#keyword {
+	border-radius: 5px;
+	border-color: #01bffe;
+}
+
+#MainFont {
+	font-size: 50px;
+	margin-right: 630px;
+	margin-top: 150px;
+	display: flex;
+	justify-content: center;
+}
+
+.TbDropdownBtn {
+	background: white;
+	border: none;
+}
+
+.hot1 {
+	border: 1px solid black;
+	width: 90%;
+	height: 25%;
+	border-radius: 6px;
+	margin: 0 auto;
+	display: flex;
+}
+
+.hot2 {
+	border: 1px solid black;
+	width: 90%;
+	height: 25%;
+	border-radius: 6px;
+	margin: 0 auto;
+	margin-top: 10px;
+	display: flex;
+}
+
+
+
+#BoardSearchBar {
+	position: absolute;
+	width: 300px;
+	margin-left: 56vh;
+	margin-top: 7vh;
+	display: flex;
+}
+
+.PetCtgBrd {
+	border: 1px solid black;
+	width: 250px;
+	position: absolute;
+	top: 300px;
+	left: 200px;
+	text-align: center;
+}
+
+#BFilter2 {
+	border: none;
+}
+
+.paging{
+	margin-right:80px;
+}
+
+
+
+.paging a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px 10px;
+        margin: 0 5px;
+    }
+
+    /* 현재 페이지 강조 스타일 */
+.paging a.current {
+        font-weight: bold;
+        color: #ff5722; /* 강조 색상 */
+        border: 1px solid #ff5722; /* 강조 테두리 색상 */
+        border-radius: 5px;
+    }
+
+    /* 마우스 호버 효과 */
+.paging a:hover {
+        background-color: #e0e0e0; /* 호버 시 배경색 */
+        color: #333; /* 호버 시 텍스트 색상 */
+        border-radius: 5px; /* 호버 시 테두리 반경 */
+    }
+    
+.hotTable{
+	width:800px;
+	margin-top:65px;
+	border-collapse: collapse;
+	border:1px solid black;
+	border-radius:10px;
+	border-color:#8000ff;
+	
+}
+
+.hotTable td {
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	padding: 8px;
+	text-align: center;
+	height: 40px;
+	border-collapse: collapse;
+	border-color:#8000ff;
+}
+
+.hotTable tr:hover{
+	background-color: #f0f0f0;
+}

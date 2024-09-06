@@ -11,11 +11,11 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/MainBoard.css'/>" />
+	href="<c:url value='/css/animal/bulletinBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/Board/MainBoard.js'/>"></script>
+<script src="<c:url value='/js/animal/bulletinBoard.js'/>"></script>
 <script>
-	function goPage(no) {
+	/* function goPage(no) {
 		const frm = document.pageFrm;
 
 		if (no == "prev") {
@@ -43,7 +43,7 @@
 				console.error('Form not found');
 			}
 		});
-	});
+	}); */
 </script>
 
 </head>
@@ -129,18 +129,17 @@
 							<thead>
 								<tr>
 									<th>
-										<form id="boardCtg" name="boardCtg" method="get"
-											action="<c:url value='/board/listAllBoard'/>">
-											<select id="BFilter2" name="boardCtgNo"
-												style="height: 25px; margin-left: 30px;">
-												<option value="All">구분</option>
-												<option value="1">자유</option>
-												<option value="2">분양홍보</option>
-												<option value="3">반려동물 보호</option>
-												<option value="4">소모임</option>
-												<option value="5">중고거래</option>
-												<option value="6">정보제공</option>
-												<option value="7">QnA</option>
+										<form id="boardCtg" name="boardCtg">
+											<input type="hidden" id="petCtgNo" name="petCtgNo"
+												value="${petCtgNo}" /> <input type="hidden"
+												name="isFiltered" value="true" /> <select id="BFilter2"
+												name="boardCtgNo" style="height: 25px;">
+
+												<option value="">구분</option>
+												<option value="1">공지</option>
+												<option value="2">자유</option>
+												<option value="3">QnA</option>
+												<option value="4">리뷰</option>
 											</select>
 										</form>
 									</th>
@@ -152,23 +151,29 @@
 									<th scope="col" class="th-good">추천</th>
 								</tr>
 							</thead>
+							</table>
+							<div id="filtering_result_box">
+								<!-- 필터링 결과 박스 -->
+								<table class="boardTB">
+									<tbody id="boardList">
+										<c:forEach var="bulletin" items="${bulletinList }">
+											<tr>
+												<td class="headerName">[${bulletin.headerName }]</td>
+												<td><a href="<c:url value=''/>" />${bulletin.postTitle }</td>
+												<td>${bulletin.memNickName }</td>
+												<td><fmt:formatDate value="${bulletin.postDate }"
+														pattern="M/dd HH:mm" /></td>
+												<td>${bulletin.postView }</td>
+												<td>${bulletin.postLike }</td>
+											</tr>
+										</c:forEach>
 
-							<tbody id="boardList">
-								<c:forEach var="bulletin" items="${bulletinList }">
-									<tr>
-										<td>${bulletin.headerNo }</td>
-										<td><a
-											href="<c:url value='/board/detailViewBoard/${bulletin.postNo}'/>" />${bulletin.postTitle }</td>
-										<td>${bulletin.memNickName }</td>
-										<td><fmt:formatDate value="${bulletin.postDate }"
-												pattern="M/dd HH:mm" /></td>
-										<td>${bulletin.postView }</td>
-										<td>${bulletin.postLike }</td>
-									</tr>
-								</c:forEach>
-							</tbody>
+									</tbody>
 
-						</table>
+								</table>
+							</div>
+							<!--  필터링 결과 박스 -->
+
 						<br> <br>
 
 						<div class="paging" style="text-align: center;">
@@ -194,17 +199,19 @@
 						<div class="mainWriteBox">
 							<!-- <button class="mainWriteBtn">글 작성</button> -->
 							<!-- 로그인 한 경우  -->
-							<c:if test="${not empty sessionScope.mid }">
+							<%-- <c:if test="${not empty sessionScope.mid }">
 								<button class="mainWriteBtn">
-									<a href="<c:url value='/Board/MainBoardText'/>">글 작성</a>
+									<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
 								</button>
-							</c:if>
-
+							</c:if> --%>
+							<button class="mainWriteBtn">
+								<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
+							</button>
 
 							<!-- 로그인 하지 않은 경우-->
-							<c:if test="${empty sessionScope.mid }">
+							<%-- <c:if test="${empty sessionScope.mid }">
 								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
-							</c:if>
+							</c:if> --%>
 						</div>
 
 					</section>

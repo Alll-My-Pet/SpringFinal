@@ -8,13 +8,33 @@
 	<!-- petCtgNo에 따른 게시글 목록 가져오기 -->
 	<!-- <select id="getBulletinList" parameterType="String" resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO"> 
 		SELECT * FROM bulletin_board WHERE petCtgNo = #{petCtgNo} </select> -->
-	
+
 	<!-- 동물별 카테고리에 따라 전체게시판 보여주기 -->
-	<select id="getBulletinList" parameterType="String"
+	<select id="showBulletin" parameterType="String"
 		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
-		SELECT bb.*, m.memNickName
-		FROM bulletin_board bb
+		SELECT bb.*, m.memNickName, ph.headerName
+		FROM
+		bulletin_board bb
 		JOIN member m ON bb.memId = m.memId
+		JOIN postHeader ph
+		ON bb.headerNo = ph.headerNo
 		WHERE bb.petCtgNo = #{petCtgNo}
+		ORDER BY
+		bb.postDate DESC;
 	</select>
+
+	<!-- 전체게시판 필터링 가능한 목록 -->
+	<select id="getBulletinList" parameterType="hashmap"
+		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
+		SELECT bb.*, m.memNickName, ph.headerName
+		FROM
+		bulletin_board bb
+		JOIN member m ON bb.memId = m.memId
+		JOIN postHeader ph
+		ON bb.headerNo = ph.headerNo
+		WHERE bb.petCtgNo = #{petCtgNo}
+		AND bb.headerNo = #{headerNo}
+		ORDER BY bb.postDate DESC;
+	</select>
+
 </mapper>

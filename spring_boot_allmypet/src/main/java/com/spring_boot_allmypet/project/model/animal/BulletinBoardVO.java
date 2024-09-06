@@ -8,6 +8,7 @@ public class BulletinBoardVO {
 	private int postNo;
 	private String petCtgNo;
 	private int headerNo;
+	private String headerName;
 	private String postTitle;
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date postDate;
@@ -17,6 +18,7 @@ public class BulletinBoardVO {
 	private int postLike;
 	private int postView;
 	private String postImg;
+	private boolean isFiltered;
 
 	public int getPostNo() {
 		return postNo;
@@ -104,6 +106,22 @@ public class BulletinBoardVO {
 
 	public void setPostView(int postView) {
 		this.postView = postView;
+	}
+
+	public String getHeaderName() {
+		return headerName;
+	}
+
+	public void setHeaderName(String headerName) {
+		this.headerName = headerName;
+	}
+
+	public boolean isFiltered() {
+		return isFiltered;
+	}
+
+	public void setFiltered(boolean isFiltered) {
+		this.isFiltered = isFiltered;
 	}
 
 }
