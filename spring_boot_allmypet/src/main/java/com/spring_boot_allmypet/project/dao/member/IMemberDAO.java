@@ -13,6 +13,8 @@ public interface IMemberDAO {
 	public String memNNCheck(String nn);
 	// 포지션 체크 (일반, 브리더, 관리자)
 	public int memPosition(String id);
+	// 필터링 체크
+	public int memFiltering(String id);
 	// 로그인
 	public String loginCheck(HashMap<String, Object> map);
 	// 아이디 찾기

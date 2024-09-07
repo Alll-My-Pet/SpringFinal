@@ -43,6 +43,12 @@ public class MemberService implements IMemberService {
 		return dao.memPosition(id);
 	}
 	
+	// 포지션 체크
+	@Override
+	public int memFiltering(String id) {
+		return dao.memFiltering(id);
+	}
+	
 	// 로그인 체크
 	@Override
 	public String loginCheck(HashMap<String, Object> map) {

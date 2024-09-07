@@ -10,7 +10,7 @@
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/join.css'/>">
 		<script src="<c:url value='/js/member/joinPage.js'/>"></script>
-		<script src="<c:url value='/js/member/join.js'/>"></script>
+		<script src="<c:url value='/js/member/sendMail.js'/>"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/member/searchAddress.js'/> "></script>
 	</head>
@@ -22,21 +22,21 @@
 					<b>회원가입</b>
 				</div>
 			</div>
-			<div class="joinBox">
-				<div class="joinUpper">
-					<div class="upperContext">
-						<form id="joinForm" class="joinForm" method="post" action=""<c:url value='/member/insertmem'/>">
+			<form id="joinForm" class="joinForm" method="post" action="<c:url value='/member/insertmem'/>">
+				<div class="joinBox">
+					<div class="joinUpper">
+						<div class="upperContext">
 							<table>
 								<tr>
-									<td><label for="id">아이디</label></td>
-									<td><input type="text" id="id" name="memId" class="id">
+									<td><label for="memId">아이디</label></td>
+									<td><input type="text" id="memId" name="memId" class="id">
 										<input type="button" value="중복확인" class="checkBtn" id="searchId">
 										<span class="error-message" id="idError"></span>
 									</td>
 								</tr>
 								<tr>
-									<td><label for="pw">비밀번호</label></td>
-									<td><input type="password" id="pw" name="memPwd" class="text">
+									<td><label for="memPwd">비밀번호</label></td>
+									<td><input type="password" id="memPwd" name="memPwd" class="text">
 										<span class="error-message" id="pwError"></span>
 									</td>
 								</tr>
@@ -47,8 +47,8 @@
 									</td>
 								</tr>
 								<tr>
-									<td><label for="nickname">닉네임</label></td>
-									<td><input type="text" id="nickname" name="memNickName" class="id">
+									<td><label for="memNickName">닉네임</label></td>
+									<td><input type="text" id="memNickName" name="memNickName" class="id">
 										<input type="button" value="중복확인" class="checkBtn" id="searchNN">
 										<span class="error-message" id="nicknameError"></span>
 									</td>
@@ -57,72 +57,96 @@
 									<th>회원 정보</th>
 								</tr>
 								<tr>
-									<td><label for="name">성명</label></td>
-									<td><input type="text" id="name" name="memName" class="id">
+									<td><label for="memName">성명</label></td>
+									<td><input type="text" id="memName" name="memName" class="id">
 										<span class="error-message" id="nameError"></span>
 									</td>
 								</tr>
 								<tr>
 									<td><label>성별</label></td>
-									<td><input type="radio" id="gender1" value="male" name="memGen"> 남
-										<input type="radio" id="gender2" value="female" name="memGen"> 여
-										<input type="radio" id="gender3" value="not" name="memGen"> 해당 없음
+									<td><label class="radio"><input type="radio" id="gender1" value="male" name="memGen"> 남</label>
+										<label class="radio"><input type="radio" id="gender2" value="female" name="memGen"> 여</label>
+										<label class="radio"><input type="radio" id="gender3" value="none" name="memGen"> 해당 없음</label>
 										<span class="error-message" id="genderError"></span>
 									</td>
 								</tr>
 								<tr>
-									<td><label for="birth">생일</label></td>
-									<td><input type="date" id="birth" name="memBirth" class="id">
+									<td><label for="memBirth">생일</label></td>
+									<td><input type="date" id="memBirth" name="memBirth" class="id">
                         		 		<span class="error-message" id="birthError"></span>
                         		 	</td>
                         		 </tr>
 								<tr>
-									<td><label for="email">이메일</label></td>
-									<td><input type = "email" id="email" name="memEmail" placeholder="이메일 주소 입력" class="email" required>
-										<input type="button" value="인증" onClick="sendEmail()" class="checkBtn">
+									<td><label for="memEmail">이메일</label></td>
+									<td><input type = "email" id="memEmail" name="memEmail" placeholder="이메일 주소 입력" class="email" required>
+										<input id="mailCheck" type="button" value="발송" onClick="sendNum()" class="checkBtn">
 										<span class="error-message" id="emailError"></span>
 									</td>
 								</tr>
 								<tr>
+									<td><label for="chnum">인증번호</label></td>
+									<td><input type="text" id="chnum" name="chnum" class="id" required>
+										<input id="numCheck" type="button" value="인증" onClick="checkNum()" class="checkBtn">
+										<span class="error-message" id="chnumError"></span>
+									</td>
+								</tr>
+								<tr>
 									<td>주소</td>
-									<td><input type="text" id="adress1" name="memZipcode" placeholder="우편 번호" size="5" class="id" readonly>
+									<td><input type="text" id="memZipcode" name="memZipcode" placeholder="우편 번호" size="5" class="id" readonly>
 										<input type="button" id="searchAddressBtn" name="searchAddressBtn" value="우편번호 찾기" class="addressBtn">
 									</td>
 								</tr>
 								<tr>
 									<td></td>
-									<td><input type="text" id="adress2" name="memAddress1" class="adress" readonly>
+									<td><input type="text" id="memAddress1" name="memAddress1" class="adress" readonly>
 										<span class="error-message" id="adressError"></span>
 									</td>
 								</tr>
 								<tr>
 									<td></td>
-									<td><input type="text" id="adress3" placeholder="상세주소 입력" name="memAddress2" class="email" required>
+									<td><input type="text" id="memAddress2" placeholder="상세주소 입력" name="memAddress2" class="email" required>
 										<span class="error-message" id="adressError"></span>
 									</td>
 								</tr>
 								<tr>
-									<td><label for="hp1">연락처</label></td>
-									<td><input type="text" id="phone" name="memHP" class="email" size="11" placeholder="전화번호는 숫자만 입력해주세요" required>
+									<td><label for="memHP">연락처</label></td>
+									<td><input type="text" id="memHP" name="memHP" class="email" size="11" placeholder="전화번호는 숫자만 입력해주세요" required>
 										<span class="error-message" id="hpError"></span>
 						  			</td>
 						  		</tr>
-							</table>
-						</form>
+						  	</table>
+						  	<div class="position">
+						  		<b>회원 종류</b>
+						  		<label><input type="checkbox" id="position" name="position" class="position" onclick="restrictPositionSelection(this)" value="0">일반 회원</label>
+						  		<label><input type="checkbox" id="position" name="position" class="position" onclick="restrictPositionSelection(this)" value="1">브리더</label>
+						  	</div>
+						  	<div class="filtering">
+								<b>보고 싶지 않아요</b>
+								<p>반드시 선택하지 않으셔도 됩니다.</p>
+								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="1">강아지</label>
+								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="2">고양이</label>
+								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="3">기타 포유류</label>
+								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="4">파충류/양서류</label>
+								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="5">어류</label>
+								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="6">조류</label>
+								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="7">설치류</label>
+								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="8">절지류/곤충류</label>
+							</div>
+						</div>
 					</div>
-				</div>
-				<div class="joinBottom">
-					<div class="bottomContext">
-						<b>이용약관</b>
-						<div class="useterms">
-							<c:out value="${termsContent}"></c:out>
+					<div class="joinBottom">
+						<div class="bottomContext">
+							<b>이용약관</b>
+							<%-- <div class="useterms">
+								<c:out value="${termsContent}"></c:out>
+							</div> --%>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="joinSubmit">
-				<button id="submitBtn" class="joinBtn" >완료</button>
-			</div>
+				<div class="joinSubmit">
+					<input type="submit" id="joinBtn" class="joinBtn" value="완료">
+				</div>
+			</form>
 		</section>
 		<!-- bottom -->
 		<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>

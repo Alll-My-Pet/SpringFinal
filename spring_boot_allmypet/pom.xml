@@ -93,6 +93,13 @@
 	    	<groupId>org.springframework.boot</groupId>
 	    	<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+		
+		<!-- 메일 의존성 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

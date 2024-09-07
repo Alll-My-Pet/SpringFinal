@@ -1,10 +1,8 @@
 package com.spring_boot_allmypet.project.controller.member;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,11 +44,11 @@ public class MemberRestController {
 	}
 	
 	@RequestMapping("/member/nnCheck")
-	public String NNCheck(@RequestParam("memNN") String memNN) {
-		String memNN_result=memService.memNNCheck(memNN);
+	public String NNCheck(@RequestParam("memNickName") String memNickName) {
+		String memNickName_result=memService.memNNCheck(memNickName);
 		String result="fail";
 		
-		if(memNN_result == null) {
+		if(memNickName_result == null) {
 			result ="success";
 		}
 		
