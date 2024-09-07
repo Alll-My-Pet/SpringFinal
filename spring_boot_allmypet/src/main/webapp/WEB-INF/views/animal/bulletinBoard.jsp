@@ -151,28 +151,28 @@
 									<th scope="col" class="th-like">추천</th>
 								</tr>
 							</thead>
+						</table>
+						<div id="filtering_result_box">
+							<!-- 필터링 결과 박스 -->
+							<table class="boardTB">
+								<tbody id="boardList">
+									<c:forEach var="bulletin" items="${bulletinList }">
+										<tr>
+											<td class="headerName">[${bulletin.headerName }]</td>
+											<td><a href="<c:url value=''/>" />${bulletin.postTitle }</td>
+											<td>${bulletin.memNickName }</td>
+											<td><fmt:formatDate value="${bulletin.postDate }"
+													pattern="M/dd HH:mm" /></td>
+											<td>${bulletin.postView }</td>
+											<td>${bulletin.postLike }</td>
+										</tr>
+									</c:forEach>
+
+								</tbody>
+
 							</table>
-							<div id="filtering_result_box">
-								<!-- 필터링 결과 박스 -->
-								<table class="boardTB">
-									<tbody id="boardList">
-										<c:forEach var="bulletin" items="${bulletinList }">
-											<tr>
-												<td class="headerName">[${bulletin.headerName }]</td>
-												<td><a href="<c:url value=''/>" />${bulletin.postTitle }</td>
-												<td>${bulletin.memNickName }</td>
-												<td><fmt:formatDate value="${bulletin.postDate }"
-														pattern="M/dd HH:mm" /></td>
-												<td>${bulletin.postView }</td>
-												<td>${bulletin.postLike }</td>
-											</tr>
-										</c:forEach>
-
-									</tbody>
-
-								</table>
-							</div>
-							<!--  필터링 결과 박스 -->
+						</div>
+						<!--  필터링 결과 박스 -->
 
 						<br> <br>
 
