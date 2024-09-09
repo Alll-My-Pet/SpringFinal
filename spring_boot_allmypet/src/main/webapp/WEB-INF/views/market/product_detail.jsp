@@ -31,8 +31,7 @@
                 
                 <div class="info-item">
                 	<input class="detail_btn" type="submit" id="insertCart" value="장바구니 담기"><br>
-                	<input class="detail_btn" type="submit" id="insertOrder" value="즉시 구매"
-                	 onclick="location.href='<c:url value='/market/order'/>'">
+                	<input class="detail_btn" type="button" id="insertOrder" value="즉시 구매" />
                 </div>
             </div>
             <input type="hidden" name="memId" value="${memVo.memId}">

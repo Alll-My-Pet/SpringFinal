@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +27,7 @@ import com.spring_boot_allmypet.project.model.market.OrderInfoVO;
 import com.spring_boot_allmypet.project.model.market.OrderProductVO;
 import com.spring_boot_allmypet.project.model.market.CartVO;
 import com.spring_boot_allmypet.project.model.market.MemberVO;
+import com.spring_boot_allmypet.project.model.market.OrderCancelVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
 import com.spring_boot_allmypet.project.service.market.CartService;
 
@@ -70,7 +72,6 @@ public class MarketController {
         return "market/goods";
     }
 	
-	
 	// 상품 상세
 	@RequestMapping("/market/product/detail/{prdNo}")
 	public String product_detail(@PathVariable String prdNo, Model model,  HttpSession session) {
@@ -87,7 +88,8 @@ public class MarketController {
 	    
 	    return "market/product_detail";
 	}
-
+    
+    
 	// 장바구니 추가
 	@RequestMapping("/market/product/insertCart")
 	public String insertCart(CartVO vo, HttpSession session, Model model) {
@@ -149,6 +151,27 @@ public class MarketController {
 		return "market/cart";
 	}
 	
+	//즉시구매
+	@RequestMapping(value = "/market/product/instantOrder", method = RequestMethod.POST)
+	public String instantOrder(@RequestParam("prdNo") String prdNo, 
+	                           @RequestParam("cartQty") int cartQty, 
+	                           Model model, HttpSession session) {
+	    String memId = (String) session.getAttribute("mid");
+
+	    // 회원 정보 가져오기
+	    MemberVO memVo = orderService.getMemberInfo(memId);
+	    
+	    // 상품 정보 가져오기
+	    ProductVO prd = prdService.detailViewProduct(prdNo);
+	    
+	    // 수량을 설정한 후 주문 페이지로 데이터 전달
+	    model.addAttribute("memVo", memVo);
+	    model.addAttribute("prd", prd);
+	    model.addAttribute("cartQty", cartQty); // 주문 수량 전달
+	    
+	    return "market/order_sub"; // 즉시 구매용 주문 페이지로 이동
+	}
+	
 	//주문/결제
 	@RequestMapping("/market/order/")
 	//public String order(@PathVariable String prdNo, Model model, HttpSession session) {
@@ -158,7 +181,7 @@ public class MarketController {
 		
 
 		
-		com.spring_boot_allmypet.project.model.market.MemberVO memVo = orderService.getMemberInfo(memId); 
+		MemberVO memVo = orderService.getMemberInfo(memId); 
 		  
 		ArrayList<CartVO> cartList = cartService.cartList(memId);
 		
@@ -206,6 +229,34 @@ public class MarketController {
 	    }
 
 	    return "redirect:/market/order_summary";  // 주문 요약 페이지로 리다이렉트
+	}
+	
+	//즉시구매완료_주문전달
+	@RequestMapping(value = "/market/order/completeInstantOrder", method = RequestMethod.POST)
+	public String completeInstantOrder(OrderInfoVO orderInfo, 
+	                                   @RequestParam("prdNo") String prdNo, 
+	                                   @RequestParam("ordQty") int ordQty, 
+	                                   HttpSession session) {
+	    String memId = (String) session.getAttribute("mid");
+	    orderInfo.setMemId(memId);
+
+	    // 주문 정보 설정
+	    orderInfo.setOrdDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+	    orderInfo.setOrdState(false);
+
+	    // 주문 정보 저장
+	    orderService.insertOrderInfo(orderInfo);
+
+	    // 상품 정보 저장
+	    int ordNo = orderService.getLastOrderNoByMemId(memId);
+	    OrderProductVO orderProduct = new OrderProductVO();
+	    orderProduct.setOrdNo(ordNo);
+	    orderProduct.setPrdNo(prdNo);
+	    orderProduct.setOrdQty(ordQty);
+	    
+	    orderService.insertOrderProduct(orderProduct);
+
+	    return "redirect:/market/order_summary"; // 주문 요약 페이지로 리다이렉트
 	}
 	
 	//주문완료
@@ -264,6 +315,53 @@ public class MarketController {
 	@RequestMapping("/market/goods/produce")
 	public String goods_produce() {
 		return "market/goods_produce";
+	}
+	
+	// 주문 취소 페이지로 이동
+	@RequestMapping("/market/cancel/{ordNo}/{prdNo}")
+    public String orderCancel(@PathVariable int ordNo, @PathVariable String prdNo, Model model) {
+        // 1. 해당 주문 상품 정보 조회
+        OrderProductVO orderProduct = orderService.getOrderProductForCancel(ordNo, prdNo);
+        
+        // 2. 해당 상품의 추가적인 정보 조회 (product 테이블에서 prdNo로 조회)
+        ProductVO product = orderService.getProductInfo(prdNo);
+
+        // 3. 주문 취소 로직 (필요시 주문 상태를 업데이트하거나 다른 처리를 추가)
+        // orderService.cancelOrder(ordNo); 
+        // (예시로 만약 전체 주문 취소라면 이 부분에서 전체 주문 취소를 처리)
+
+        // 4. 모델에 조회한 주문 상품 정보 및 상품 정보를 담기
+        model.addAttribute("orderProduct", orderProduct);
+        model.addAttribute("product", product);
+
+        // 5. 취소된 주문 정보를 보여줄 페이지로 이동
+        return "market/order_cancel";
+    }
+	
+	@PostMapping("/orderCancelSubmit")
+	public String orderCancelSubmit(@RequestParam("ordNo") int ordNo,
+	                                @RequestParam("prdNo") String prdNo,
+	                                @RequestParam("ordQty") int ordQty,
+	                                @RequestParam("canReason") String canReason,
+	                                @RequestParam(value = "otherReason", required = false) String otherReason,
+	                                Model model) {
+	    // 기타 사유 처리
+	    if ("기타".equals(canReason) && otherReason != null && !otherReason.trim().isEmpty()) {
+	        canReason = otherReason;
+	    }
+	    
+	    // OrderCancelVO에 데이터 셋팅
+	    OrderCancelVO orderCancel = new OrderCancelVO();
+	    orderCancel.setOrdNo(ordNo);
+	    orderCancel.setPrdNo(prdNo);
+	    orderCancel.setOrdQty(ordQty);
+	    orderCancel.setCanReason(canReason);
+	    
+	    // Service를 통해 취소 정보를 DB에 저장
+	    orderService.insertOrderCancel(orderCancel);
+	    
+	    // 취소 완료 후 확인 페이지 또는 목록으로 이동
+	    return "redirect:/orderHistory";  // 예: 주문 내역 페이지로 이동
 	}
 	
 }

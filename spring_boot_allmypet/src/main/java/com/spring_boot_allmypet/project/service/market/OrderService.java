@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.spring_boot_allmypet.project.dao.market.IOrderDAO;
 import com.spring_boot_allmypet.project.model.market.CartVO;
 import com.spring_boot_allmypet.project.model.market.MemberVO;
+import com.spring_boot_allmypet.project.model.market.OrderCancelVO;
 import com.spring_boot_allmypet.project.model.market.OrderInfoVO;
 import com.spring_boot_allmypet.project.model.market.OrderProductVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
@@ -78,5 +79,13 @@ public class OrderService implements IOrderService {
     
     public List<OrderInfoVO> getOrderHistoryByPeriod(String memId, LocalDate startDate) {
         return dao.getOrderHistoryByPeriod(memId, startDate);
+    }
+
+    public OrderProductVO getOrderProductForCancel(int ordNo, String prdNo) {
+        return dao.getOrderProductForCancel(ordNo, prdNo);
+    }
+    
+    public void insertOrderCancel(OrderCancelVO orderCancel) {
+        dao.insertOrderCancel(orderCancel);
     }
 }

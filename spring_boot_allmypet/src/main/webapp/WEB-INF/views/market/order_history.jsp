@@ -53,7 +53,9 @@
                             <button>리뷰 작성</button>
                         </c:when>
                         <c:otherwise>
+                            <a href="<c:url value='/market/cancel/${order.ordNo}/${product.productDetails.prdNo}'/>">
                             <button>주문취소</button>
+                            </a>
                         </c:otherwise>
                     </c:choose>
                 </div>

@@ -81,4 +81,18 @@
     AND ordDate >= #{startDate}
     ORDER BY ordNo DESC
 </select>
+
+<select id="getOrderProductForCancel" parameterType="map"
+        resultType="com.spring_boot_allmypet.project.model.market.OrderProductVO">
+    SELECT op.*, p.prdName, p.prdImg, p.prdPrice
+    FROM order_product op
+    JOIN product p ON op.prdNo = p.prdNo
+    WHERE op.ordNo = #{ordNo} AND op.prdNo = #{prdNo}
+</select>
+
+<insert id="insertOrderCancel" parameterType="com.spring_boot_allmypet.project.model.market.OrderCancelVO">
+    INSERT INTO order_cancel (ordNo, prdNo, ordQty, canReason)
+    VALUES (#{ordNo}, #{prdNo}, #{ordQty}, #{canReason})
+</insert>
+
 </mapper>
