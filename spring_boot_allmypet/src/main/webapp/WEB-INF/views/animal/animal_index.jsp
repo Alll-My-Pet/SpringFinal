@@ -176,7 +176,7 @@
 								</a>
 								<div class="post-list">
 									<c:forEach var="bulletin" items="${bulletinList }">
-										<a href="게시판_상세.html" class="post">
+										<a href="<c:url value='/bulletin/detailViewBoard/${bulletin.postNo}'/>" class="post">
 											<div class="post-title">${bulletin.postTitle}</div>
 											<div class="post-author">${bulletin.memNickName}</div> 
 											<div class="post-date">

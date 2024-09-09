@@ -107,7 +107,7 @@
 										<c:forEach items="${hotList}" var="hot">
 											<tr>
 												<td><a
-													href="<c:url value='/board/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
+													href="<c:url value='/bulletin/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
 												<td>${hot.memNickName}</td>
 												<td><fmt:formatDate value="${hot.postDate}"
 														pattern="M/dd HH:mm" /></td>
@@ -199,19 +199,19 @@
 						<div class="mainWriteBox">
 							<!-- <button class="mainWriteBtn">글 작성</button> -->
 							<!-- 로그인 한 경우  -->
-							<%-- <c:if test="${not empty sessionScope.mid }">
+							<c:if test="${not empty sessionScope.mid }">
 								<button class="mainWriteBtn">
 									<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
 								</button>
-							</c:if> --%>
-							<button class="mainWriteBtn">
+							</c:if>
+							<%-- <button class="mainWriteBtn">
 								<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
-							</button>
+							</button> --%>
 
 							<!-- 로그인 하지 않은 경우-->
-							<%-- <c:if test="${empty sessionScope.mid }">
+							<c:if test="${empty sessionScope.mid }">
 								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
-							</c:if> --%>
+							</c:if>
 						</div>
 
 					</section>
