@@ -70,6 +70,16 @@
 		postLike DESC
 		LIMIT 3
 	</select>
-
+	
+	<!-- 게시글 조회 -->
+	<select id="detailViewBoard" parameterType="int"
+		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
+		SELECT bb.*, m.memNickName, ph.headerName
+		FROM bulletin_board bb
+		JOIN member m ON bb.memId = m.memId
+		JOIN postHeader ph
+		ON bb.headerNo = ph.headerNo
+		WHERE bb.postNo = #{postNo}
+	</select>
 
 </mapper>

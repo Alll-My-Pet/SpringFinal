@@ -32,7 +32,7 @@
 			
 			<div class="ctg">
 				<label for="ctg">분류:</label> 
-				<span id="bodctg">${board.boardCtgNo}</span>
+				<span id="bodctg">${board.headerNo}</span>
 			</div>
 			
 			

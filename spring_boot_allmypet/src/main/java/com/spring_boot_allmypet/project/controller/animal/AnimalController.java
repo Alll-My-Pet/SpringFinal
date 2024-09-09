@@ -103,7 +103,7 @@ public class AnimalController {
 		// petCtgNo에 해당하는 게시글 목록 조회
 		ArrayList<BulletinBoardVO> bulletinList = bulletinService.showBulletin(petCtgNo);
 		model.addAttribute("bulletinList", bulletinList);
-		
+
 		// 실시간 인기글
 		ArrayList<BulletinBoardVO> hotList = bulletinService.hotList(petCtgNo);
 		System.out.println("hotList: " + hotList);
@@ -138,18 +138,18 @@ public class AnimalController {
 		return "animal/filteringResult";
 	}
 
-	/*
-	 * // 전체게시판 상세 조회
-	 * 
-	 * @RequestMapping("/animal_home/{petCtgNo}/bulletin/detailViewBoard/{postNo}")
-	 * public String detailViewBoard(@PathVariable int postNo, Model model) { //
-	 * 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기 BoardVO board =
-	 * boardService.detailViewBoard(postNo);
-	 * 
-	 * // 뷰 페이지에 출력하기 위해 Model 설정 model.addAttribute("board", board);
-	 * 
-	 * return "board/mainDetail"; }
-	 */
+	// 전체게시판 상세 조회
+
+	@RequestMapping("/bulletin/detailViewBoard/{postNo}")
+	public String detailViewBoard(@PathVariable int postNo, Model model) {
+		// 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
+		BulletinBoardVO board = bulletinService.detailViewBoard(postNo);
+
+		// 뷰 페이지에 출력하기 위해 Model 설정 
+		model.addAttribute("board", board);
+
+		return "animal/bulletin_detail";
+	}
 
 	// 전체게시판 글 작성 폼 열기
 	/*

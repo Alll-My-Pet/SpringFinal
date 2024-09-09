@@ -17,7 +17,10 @@ public interface IBulletinServcie {
 
 	// postNo로 해당 게시글 가져오기
 	public BulletinBoardVO getPost(int postNo);
-
+	
+	// 상세 게시글 보기
+	public BulletinBoardVO detailViewBoard(int postNo);
+	
 	// 삽입/갱신/삭제
 	public void insertPost(BulletinBoardVO post);
 
