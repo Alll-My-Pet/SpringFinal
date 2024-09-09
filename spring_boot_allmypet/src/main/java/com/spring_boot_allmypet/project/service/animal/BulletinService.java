@@ -40,16 +40,17 @@ public class BulletinService implements IBulletinServcie {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	// 게시글 상세보기
 	@Override
 	public BulletinBoardVO detailViewBoard(int postNo) {
 		return dao.detailViewBoard(postNo);
 	}
-
+	
+	// 게시글 등록
 	@Override
-	public void insertPost(BulletinBoardVO post) {
-		// TODO Auto-generated method stub
-
+	public void insertPost(BulletinBoardVO vo) {
+		dao.insertPost(vo);
 	}
 
 	@Override

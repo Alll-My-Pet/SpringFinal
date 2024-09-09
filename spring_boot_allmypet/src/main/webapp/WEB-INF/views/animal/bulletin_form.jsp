@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/animal/bulletin_form.css' />" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/Board/mainBoardText.js'/>"></script>
+<script src="<c:url value='/js/animal/bulletin_form.js'/>"></script>
 </head>
 <body>
 	<div class="desktop-1">
@@ -44,7 +44,7 @@
 						<!-- <h1 id="mainWriteFont">게시글 작성</h1> -->
 
 						<form id="mainSubmitFrm" method="post"
-							action="<c:url value='/insertBoard'/>">
+							action="<c:url value='/animal_home/${petCtgNo}/insertBoard'/>">
 							<div class="writeBox">
 								<div class="postInfo-box">
 									<div class="post-info">
@@ -54,18 +54,18 @@
 												readonly style="width: 100px;">
 										</div>
 										<!-- select 필드 -->
+										<input type="hidden" id="petCtgNo" name="petCtgNo" value="${petCtgNo}" />
 										<select class="headerNoFilter" name="headerNo" id="headerNo">
 											<option value="0">머리글 선택</option>
-											<option value="1">자유</option>
-											<option value="2">QnA</option>
-											<option value="3">리뷰</option>
+											<option value="2">자유</option>
+											<option value="3">QnA</option>
+											<option value="4">리뷰</option>
 										</select>
 									</div>
 									<!-- post-info끝 -->
 									<!-- 이미지 업로드 -->
 									<div class="mainPhotoBox">
-										<label for="fileUpload"> 
-										<img class="uploadImg"
+										<label for="fileUpload"> <img class="uploadImg"
 											src="<c:url value='/project_images/free-icon-photo-2984403.png'/>" />
 										</label>
 

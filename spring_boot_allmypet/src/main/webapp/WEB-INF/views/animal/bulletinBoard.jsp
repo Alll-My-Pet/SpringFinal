@@ -201,7 +201,7 @@
 							<!-- 로그인 한 경우  -->
 							<c:if test="${not empty sessionScope.mid }">
 								<button class="mainWriteBtn">
-									<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
+									<a href="<c:url value='/animal_home/${petCtgNo}/bulletin_form'/>">글 작성</a>
 								</button>
 							</c:if>
 							<%-- <button class="mainWriteBtn">

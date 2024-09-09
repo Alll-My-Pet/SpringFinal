@@ -156,8 +156,20 @@ public class AnimalController {
 
 	// 전체게시판 글 작성 폼 열기
 
-	@RequestMapping("/animal/bulletin_form")
-	public String boardWrite(HttpSession session, Model model) { // 세션에서 사용자 정보 가져오기
+	@RequestMapping("/animal_home/{petCtgNo}/bulletin_form")
+	public String boardWrite(@PathVariable String petCtgNo, HttpSession session, Model model) { // 세션에서 사용자
+																												// 정보
+																												// 가져오기
+		// petCtgNo에 해당하는 카테고리 리스트 조회
+		ArrayList<AnimalCtgVO> categories = animalService.ctgListPet(petCtgNo);
+
+		// 리스트에서 첫 번째 항목의 petCtgName을 모델에 추가
+		if (!categories.isEmpty()) {
+			model.addAttribute("petCtgName", categories.get(0).getPetCtgName());
+		} else {
+			model.addAttribute("petCtgName", "카테고리없음.");
+		}
+
 		String userId = (String) session.getAttribute("mid");
 
 		// 사용자 정보가 있으면, 필요한 데이터를 모델에 추가
@@ -173,8 +185,18 @@ public class AnimalController {
 	 */
 
 	// 전체게시판 글 등록
-	@RequestMapping("/animal/insertBoard")
-	public String insertBoard(BulletinBoardVO vo, HttpSession session) {
+	@RequestMapping("/animal_home/{petCtgNo}/insertBoard")
+	public String insertBoard(@PathVariable String petCtgNo, Model model, BulletinBoardVO vo, HttpSession session) {
+		// petCtgNo에 해당하는 카테고리 리스트 조회
+		ArrayList<AnimalCtgVO> categories = animalService.ctgListPet(petCtgNo);
+
+		// 리스트에서 첫 번째 항목의 petCtgName을 모델에 추가
+		if (!categories.isEmpty()) {
+			model.addAttribute("petCtgName", categories.get(0).getPetCtgName());
+		} else {
+			model.addAttribute("petCtgName", "카테고리없음.");
+		}
+
 		// 세션에서 로그인한 사용자 아이디 가져오기
 		String logInUser = (String) session.getAttribute("mid");
 
@@ -183,6 +205,6 @@ public class AnimalController {
 
 		bulletinService.insertPost(vo);
 
-		return "redirect:animal/bulletinBoard";
+		return "redirect:/animal_home/{petCtgNo}/bulletin";
 	}
 }

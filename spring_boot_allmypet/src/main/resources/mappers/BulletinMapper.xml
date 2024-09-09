@@ -80,5 +80,15 @@
 		ON bb.headerNo = ph.headerNo
 		WHERE bb.postNo = #{postNo}
 	</select>
+	
+	<!-- 게시글 작성 -->
+	<insert id="insertPost"
+		parameterType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
+		INSERT INTO bulletin_board (postTitle, memId, postDate,
+		postContent, headerNo, petCtgNo)
+		VALUES (#{postTitle},
+		#{memId}, NOW(), #{postContent},
+		#{headerNo}, #{petCtgNo})
+	</insert>
 
 </mapper>
