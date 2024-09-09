@@ -6,9 +6,9 @@
   <mapper namespace="com.spring_boot_allmypet.project.dao.member.IMemberDAO">
   	<resultMap id="memResult" type="com.spring_boot_allmypet.project.model.member.MemberVO" >
   		<result property="memId" column="memId"  />
-  		<result property="memPw" column="memPwd"  />
+  		<result property="memPwd" column="memPwd"  />
   		<result property="memName" column="memName"  />
-  		<result property="memName" column="memNickName"  />
+  		<result property="memNickName" column="memNickName"  />
   		<result property="memEmail" column="memEmail"  />
   		<result property="memHP" column="memHP"  />
   		<result property="memZipcode" column="memZipcode"  />
@@ -17,13 +17,14 @@
   		<result property="memGen" column="memGen"  />
   		<result property="memBirth" column="memBirth"  />
   		<result property="filtering" column="filtering"  />
+  		<result property="position" column="position"  />
   		
   	</resultMap>
   	
   	<!-- 회원 가입 -->
   	<insert id="insertMember" parameterType="com.spring_boot_allmypet.project.model.member.MemberVO">
-  		INSERT INTO member (memId, memPwd, memNickName, memName, memGen, memBirth, memEmail, memHP, memZipcode, memAddress1, memAddress2)
-  		VALUES(#{memId},#{memPwd},#{memNickName},#{memName},#{memGen},#{memBirth},#{memEmail},#{memHP},#{memZipcode},#{memAddress1},#{memAddress2})
+  		INSERT INTO member (memId, memPwd, memNickName, memName, memGen, memBirth, memEmail, memHP, memZipcode, memAddress1, memAddress2, filtering, position)
+  		VALUES(#{memId},#{memPwd},#{memNickName},#{memName},#{memGen},#{memBirth},#{memEmail},#{memHP},#{memZipcode},#{memAddress1},#{memAddress2},#{filtering},#{position})
   	</insert>
   	
   	<!-- 로그인 -->
@@ -44,6 +45,11 @@
   	<!-- 포지션 확인 -->
   	<select id="memPosition" parameterType="string" resultType="int">
   		SELECT position FROM member WHERE memId=#{memId}
+  	</select>
+  	
+  	<!-- 필터링 확인 -->
+  	<select id="memFiltering" parameterType="string" resultType="int">
+  		SELECT filtering FROM member WHERE memId=#{memId}
   	</select>
   	
   	<!-- 로그인 검사 -->

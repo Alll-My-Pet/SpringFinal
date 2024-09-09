@@ -1,5 +1,5 @@
 $(function() {
-    $('#findPwd').on('submit', function() {
+    $('#findPWForm').on('submit', function() {
     	event.preventDefault();
         $.ajax({
             url: '/member/findPwd',

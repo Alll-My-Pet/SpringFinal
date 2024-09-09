@@ -26,7 +26,7 @@
 
 .changePWBox {
 	width: 853px;
-	height: 400px;
+	height: 300px;
 	margin: auto;
 }
 
@@ -70,7 +70,18 @@ input::placeholder {
 	text-align: left;
 }
 
-.id, .text, .hp {
+input[type="text"]:active, 
+input[type="text"]:focus, 
+input[type="text"]:hover, 
+input[type="password"]:active, 
+input[type="password"]:focus, 
+input[type="password"]:hover {
+	outline: none;
+	border-bottom: 2px solid;
+	border-bottom-color: #000000;
+}
+
+.id, .text {
 	padding: 7px 0;
 	border: none;
 	border-bottom: 1px solid;
@@ -114,7 +125,7 @@ input::placeholder {
 	font-size: 15px;
 	font-weight: bold;
 	background: #000000;
-	margin-top:30px;
+	margin-bottom: 50px;
 }
 
 .changePWBtn:hover {
