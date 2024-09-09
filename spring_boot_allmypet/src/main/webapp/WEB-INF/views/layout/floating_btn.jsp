@@ -28,11 +28,11 @@
             </div>
             <div class="float-element">
                 <span class="fab-label">반려동물 지도</span>
-                <a href="link2.html">
+                <a href="javascript:void(0);" id="petMapButton">
                     <div class="icon-container">
-                        <img src="/image/fab/animal-map.png" alt="동물지도" class="icon">
-                    </div>
-                </a>
+                    	<img src="/image/fab/animal-map.png" alt="동물지도" class="icon">
+                	</div>
+            	</a>
             </div>
             <div class="float-element">
                 <span class="fab-label">문의사항</span>

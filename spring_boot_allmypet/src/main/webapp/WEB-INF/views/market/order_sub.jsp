@@ -15,7 +15,7 @@
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
 	<section class="order">
-	<form action="<c:url value='/market/order/complete'/>" method="post" onsubmit="return combine()">
+	<form action="<c:url value='/market/order/completeInstantOrder'/>" method="post" onsubmit="return combine()">
 	<table class="order_info">
     <colgroup>
         <col style="width: 20%;">
@@ -37,9 +37,7 @@
                 <td>이메일</td>
                 <td>
                     <div class="order_input_container">
-                        <input type="text" name="emailUser" id="emailUser">
-                        @
-                        <input type="text" name="emailDomain" id="emailDomain">
+                        <input type="text" name="emailUser">@<input type="text" name="emailDomain">
                     </div>
                 </td>
             </tr>
@@ -69,6 +67,10 @@
             </tr>
         </thead>
         <tbody>
+            <tr>
+                <td><input type="checkbox">주문자 정보와 동일</td>
+                <td><input type="checkbox">직접 입력</td>
+            </tr>
             <tr>
                 <td>받는사람</td>
                 <td><input type="text" class="order_input" name="ordReceiver"></td>
@@ -113,24 +115,24 @@
         </thead>
         <tbody>
         	<c:set var = "total" value = "0" />
-        	<c:forEach var="car" items="${cartList}">
+        	
             <tr>
                 <td>
-                    <img src="<c:url value='/image/market/${car.product.prdImg }'/>"/>
+                    <img src="<c:url value='/image/market/${prd.prdImg }'/>"/>
                 </td>
                 <td>
-                    <div class="order_prdName">${car.product.prdName }</div><br>
-                    주문수량 : ${car.cartQty}<br>
+                    <div class="order_prdName">${prd.prdName}</div><br>
+                    주문수량 : ${cartQty}<br>
                     <div class="order_prdPirce">
-                    <fmt:formatNumber value= "${car.product.prdPrice *car.cartQty}" pattern="#,###" />원
-                    <c:set var= "total" value="${total + (car.product.prdPrice *car.cartQty)}"/>
+                    <fmt:formatNumber value= "${prd.prdPrice *cartQty}" pattern="#,###" />원
+                    <c:set var= "total" value="${total + (prd.prdPrice *cartQty)}"/>
                     </div><br>
                     배송비 : 0원
-                    <input type="hidden" name="prdNo" value="${car.product.prdNo}"/>
-            		<input type="hidden" name="ordQty" value="${car.cartQty}"/>
+                    <input type="hidden" name="prdNo" value="${prd.prdNo}"/>
+            		<input type="hidden" name="ordQty" value="${cartQty}"/>
                 </td>
             </tr>
-        </c:forEach>
+        
         </tbody>
 		</table>
 		<br>

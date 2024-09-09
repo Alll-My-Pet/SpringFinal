@@ -1,6 +1,7 @@
 package com.spring_boot_allmypet.project.service.map;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class PetMapService {
 
 
 
-    public ArrayList<PetMapVO> getStationsByBounds(Map<String, Object> bounds) {
+    public ArrayList<PetMapVO> getStationsByBounds(HashMap<String, Object> bounds) {
         return dao.getStationsByBounds(bounds);
     }
 }
