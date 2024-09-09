@@ -6,18 +6,42 @@
 <head>
 <meta charset="UTF-8">
 <title>분양 홍보 게시판</title>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/PetPromoteBoard.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/PetPromoteBoard.css'/>" />
+<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+<script src="<c:url value='/js/Board/promoteBoard.js'/>"></script>
+
+<script>
+	function goPage(no) {
+		const frm = document.pageFrm;
+
+		if (no == "prev") {
+			no = frm.pageNo.value - 1;
+			if (no <= 0)
+				no = 1;
+		} else if (no == "next") {
+			no = parseInt(frm.pageNo.value) + 1;
+		}
+
+		frm.action = "/board/PromoteBoardList";
+		frm.pageNo.value = no;
+		frm.submit();
+	}
+	
+</script>
 </head>
 <body>
 	<div class="All">
 		<section class="promoteBoard">
+			<div id="header">
+				<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
+			</div>
 			<div class="promoteHeader">
 
-                
+
 				<h1 id="titleFont">분양 홍보 게시판</h1>
-				<p id="titleFont2">인가받은 업체나 브리더에 한해서만 게시글 업로드 가능합니다</p>
-                
+				<p id="titleFont2" style="color: gray;">인가받은 업체나 브리더에 한해서만 게시글
+					업로드 가능합니다</p>
+
 				<div class="promoteHotBoard">
 					<h3 style="margin-left: 2%;">분양 시 주의사항</h3>
 					<div class="hot1">
@@ -32,53 +56,94 @@
 					</div>
 				</div>
 
-				<div class="promoteSearch">
+				<div class="promoteSearchBox">
 					<h4 id="PSearchFont">동물별 검색</h4>
-					<p id="ctgFont">분류</p>
-					<form>
-						<select class="promotePetCtg">
-							<option value="Reptiles">양서류/파충류</option>
-							<option value="option1">옵션1</option>
-						</select> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 
+					<form id="promoteSearch" method="get" action="<c:url value='/board/promoteSearch'/>">
+					
+						<select class="petNameSearch" id="type" name="type" style="height:30px;">
+							<option value="petName">동물 이름</option>
+							<option value="placeInfo">업체 명</option>
+						</select>
 						
-						<input type="text" class="PSearchBar" placeholder="게시판 내 검색">
-						<button class="promoteBoardSearchBtn"><!-- 동물별 검색 div 버튼 -->
-							<img src="<c:url value='/pet_images/free-icon-search-interface-symbol-54481.png'/>" />
-						</button>
+						<input type="text" class="PSearchBar" id="keyword" name="keyword" placeholder="게시판 내 검색">
+						
+						<button class="promoteBoardSearchBtn">검색</button>
 					</form>
-				</div> <!-- promoteSearch 끝 -->
-
-              <div class="promotePicBox">
-                <div class="promotePic">
-					<div class="promoteFont"></div>
-				    <div class="promoteDescription">설명</div>
 				</div>
-              </div> <!-- promotePicBox 끝 -->
-              
-              <button class="promoteBrdBtn">게시글 작성</button>
-              
-              
+				<!-- promoteSearch 끝 -->
+				
+				
+				<div class="petCtgBox">
+						<select class="promotePetCtg" id="petCtgNo" name="petCtgNo">
+							<option value="9">분류 선택</option>
+							<option value="1">강아지</option>
+							<option value="2">고양이</option>
+							<option value="3">기타 포유류</option>
+							<option value="4">파충류/양서류</option>
+							<option value="5">어류</option>
+							<option value="6">조류</option>
+							<option value="7">설치류</option>
+							<option value="8">절지류/곤충류</option>
+							
+						</select>
+				</div>
+				<!-- petCtgBox 끝 -->
+				
+				<div class="promoteBoardBox">
+					<c:forEach var="promote" items="${Promote }">
+						<a href="<c:url value='/board/promoteDetailView/${promote.postNo}'/>">
+							<div class="promotePic">
+								<div class="promoteFont">${promote.postImg }</div>
+								<div class="promoteDescription">
+									분류:${promote.petCtgNo }<br> 
+									생물명:${promote.petName }<br>
+									분양처:${promote.placeInfo }<br> 
+									분양 방법:${promote.parcelOutInfo }
+								</div>
+							</div>
+						</a>
+					</c:forEach>
+
+					<div class="paging" style="text-align: center;">
+						<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
+							onclick="javascript:goPage('prev')">이전</a>
+
+						<c:forEach var="i" begin="${pageVo.startPage }"
+							end="${pageVo.endPage }">
+							<%-- <a onclick="javascript:goPage('${i}')">${i }</a> --%>
+							<a onclick="javascript:goPage('${i}')"
+								class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
+						</c:forEach>
+
+						<a onclick="javascript:goPage('next')">다음</a> <a
+							onclick="javascript:goPage('${pageVo.totalPage }')"> &gt;&gt;</a>
+					</div>
+					<form name="pageFrm">
+						<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
+					</form>
+
+				</div>
+				<!-- promotePicBox 끝 -->
+
+				<!-- 로그인 시 -->
+				<c:if test="${not empty sessionScope.mid }">
+					<button class="promoteBrdBtn">
+						<a href="<c:url value='/board/promoteWrite'/>">글 작성</a>
+					</button>
+				</c:if>
+
+				<!-- 로그인 하지 않은 경우-->
+				<c:if test="${empty sessionScope.mid }">
+					<button id="notLoginBtn" class="promoteBrdBtn">글 작성</button>
+				</c:if>
 			</div>
 		</section>
-		
-		<nav class="boardCtg">
-		  <div class="PetCtgBrd">
-		  <p>카테고리별</p>
-		  <p>▶전체게시판</p>
-		  <p>▶양육 팁 게시판</p>
-		  <p>▶반려동물 갤러리</p>
-		  <br>
-		  <p>전체 커뮤니티</p>
-		  <p>▶자유게시판</p>
-		  <p>▶분양홍보 게시판</p>
-		  <p>▶반려동물 보호 게시판</p>
-		  <p>▶이모지 게시판</p>
-		  <br>
-		  <p>반려동물 이름짓기가 어렵다면?</p>
-		  <a href="#">작명소</a>
-		  </div>
-		  </nav>
-		  
+
+
+		<div id="footer">
+			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+		</div>
+
 	</div>
 </body>
 </html>

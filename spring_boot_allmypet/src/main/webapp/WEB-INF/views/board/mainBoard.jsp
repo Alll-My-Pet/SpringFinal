@@ -78,8 +78,11 @@
 								<option value="memId" selected>작성자</option>
 								<option value="postTitle">글 제목</option>
 								<option value="postTitleAndpostContent">제목 + 내용</option>
-							</select> <input type="text" id="keyword" name="keyword"
-								placeholder="게시판 내 검색" /> <label for="BoardSearchBtn">
+							</select> 
+							
+								<input type="text" id="keyword" name="keyword" placeholder="게시판 내 검색" /> 
+								
+							<label for="BoardSearchBtn">
 								<input type="submit" class="BoardSearchBtn">
 							</label>
 
@@ -129,8 +132,7 @@
 							<thead>
 								<tr>
 									<th>
-										<form id="boardCtg" name="boardCtg" method="get"
-											action="<c:url value='/board/listAllBoard'/>">
+										<form id="boardCtg" name="boardCtg" method="get" action="<c:url value='/board/listAllBoard'/>">
 											<select id="BFilter2" name="boardCtgNo"
 												style="height: 25px; margin-left: 30px;">
 												<option value="All">구분</option>
