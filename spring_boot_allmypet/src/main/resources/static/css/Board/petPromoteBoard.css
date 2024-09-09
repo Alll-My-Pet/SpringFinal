@@ -34,6 +34,7 @@
 	height:30px;
 	margin-top:20px;
 	margin-left:800px;
+	margin-bottom:30px;
 }
 
 .All{
@@ -84,7 +85,7 @@
 	display:flex;
 }
 
-.promoteSearch{
+.promoteSearchBox{
 	border:1px solid black;
 	border-radius:10px;
 	width:900px;
@@ -93,10 +94,33 @@
 	margin-top:50px;
 }
 
-/* .PSearchBar{
-	margin-left:100px;
+#promoteSearch{
+	margin-top:30px;
+	margin-left:200px;
 }
- */
+
+.petNameSearch{
+	position:absolute;
+	margin-left:100px;
+	margin-top:2px;
+}
+
+.PSearchBar{
+	margin-left:230px;
+	height:25px;
+	border-color:skyblue;
+}
+
+.petNameSearch{
+	width:100px;
+	height:20px;
+}
+
+.petCtgBox{
+	margin-left:430px;
+	position:absolute;
+}
+
 #PSearchFont{
 	width:100px;
 	margin:0 auto;
@@ -147,9 +171,9 @@
     white-space: nowrap;
 }
 
-.promotePicBox{
+.promoteBoardBox{
 	margin:0 auto;
-	margin-top:50px;
+	margin-top:70px;
 	border:1px solid black;
 	width:900px;
 	height:700px;

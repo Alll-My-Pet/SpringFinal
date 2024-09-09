@@ -22,7 +22,8 @@
 					<div class="petExplain">분류:${promoteBoard.petCtgNo }<br>
 				    						생물명:${promoteBoard.petName }<br>
 				    						분양처:${promoteBoard.placeInfo }<br>
-				    						분양 방법:${promoteBoard.parcelOutInfo }
+				    						분양 방법:${promoteBoard.parcelOutInfo }<br>
+				    						작성자:${promoteBoard.memId}
 				    </div>
 				</div>
 				
@@ -41,6 +42,13 @@
 				
 				<div class="promoteContentArea">
 					${promoteBoard.postContent}
+				</div>
+				
+				<div class="udButtons">
+					<c:if test="${promoteBoard.memId == logInUser}">
+						<a href="<c:url value='/board/promoteUpdateForm/${promoteBoard.postNo}'/>" class="updateBtn">수정</a>
+						<a href="<c:url value='/board/deletePromote/${promoteBoard.postNo}'/>" class="deleteBtn" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+					</c:if> 
 				</div>
 			</section>
 			

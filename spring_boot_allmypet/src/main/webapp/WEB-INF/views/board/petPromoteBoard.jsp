@@ -27,20 +27,6 @@
 		frm.submit();
 	}
 	
-	document.addEventListener('DOMContentLoaded', function() {
-		var selectElement = document.getElementById('promotePetCtg');
-
-		// 버튼 클릭처럼 폼을 제출
-		selectElement.addEventListener('change', function() {
-			var form = document.getElementById('promoteSearch');
-			if (form) {
-				form.submit();
-			} else {
-				console.error('Form not found');
-			}
-		});
-	});
-	
 </script>
 </head>
 <body>
@@ -70,9 +56,24 @@
 					</div>
 				</div>
 
-				<div class="promoteSearch">
+				<div class="promoteSearchBox">
 					<h4 id="PSearchFont">동물별 검색</h4>
 					<form id="promoteSearch" method="get" action="<c:url value='/board/promoteSearch'/>">
+					
+						<select class="petNameSearch" id="type" name="type" style="height:30px;">
+							<option value="petName">동물 이름</option>
+							<option value="placeInfo">업체 명</option>
+						</select>
+						
+						<input type="text" class="PSearchBar" id="keyword" name="keyword" placeholder="게시판 내 검색">
+						
+						<button class="promoteBoardSearchBtn">검색</button>
+					</form>
+				</div>
+				<!-- promoteSearch 끝 -->
+				
+				
+				<div class="petCtgBox">
 						<select class="promotePetCtg" id="petCtgNo" name="petCtgNo">
 							<option value="9">분류 선택</option>
 							<option value="1">강아지</option>
@@ -85,25 +86,19 @@
 							<option value="8">절지류/곤충류</option>
 							
 						</select>
-						
-						<!-- <input type="text" class="PSearchBar" id="keyword" name="keyword" placeholder="게시판 내 검색"> -->
-						
-						<button class="promoteBoardSearchBtn">검색</button>
-					</form>
 				</div>
-				<!-- promoteSearch 끝 -->
-
-				<div class="promotePicBox">
+				<!-- petCtgBox 끝 -->
+				
+				<div class="promoteBoardBox">
 					<c:forEach var="promote" items="${Promote }">
-						<a
-							href="<c:url value='/board/promoteDetailView/${promote.postNo}'/>">
+						<a href="<c:url value='/board/promoteDetailView/${promote.postNo}'/>">
 							<div class="promotePic">
 								<div class="promoteFont">${promote.postImg }</div>
 								<div class="promoteDescription">
 									분류:${promote.petCtgNo }<br> 
 									생물명:${promote.petName }<br>
-									분양처:${promote.placeInfo }<br> 분양
-									방법:${promote.parcelOutInfo }
+									분양처:${promote.placeInfo }<br> 
+									분양 방법:${promote.parcelOutInfo }
 								</div>
 							</div>
 						</a>

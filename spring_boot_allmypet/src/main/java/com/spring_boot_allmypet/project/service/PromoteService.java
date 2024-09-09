@@ -13,6 +13,7 @@ import com.spring_boot_allmypet.project.model.PromoteVO;
 @Service
 public class PromoteService implements IPromoteService {
 	
+
 	@Autowired
 	@Qualifier("IPromoteDAO")
 	IPromoteDAO dao;
@@ -22,6 +23,12 @@ public class PromoteService implements IPromoteService {
 		return dao.promoteList(map);
 	}
 
+	@Override
+	public ArrayList<PromoteVO> promoteCtgList(HashMap<String, Integer> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	@Override
 	public int promoteCount() {
 		// TODO Auto-generated method stub
@@ -36,8 +43,7 @@ public class PromoteService implements IPromoteService {
 
 	@Override
 	public void updatePromote(PromoteVO vo) {
-		dao.updatePromote(vo);
-
+	    dao.updatePromote(vo);
 	}
 
 	@Override

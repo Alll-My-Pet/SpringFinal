@@ -10,6 +10,7 @@ public interface IPromoteDAO {
 	
 		// 목록
 		public ArrayList<PromoteVO> promoteList(HashMap<String, Integer> map);
+		public ArrayList<PromoteVO> promoteCtgList(HashMap<String, Integer> map);
 
 		public int promoteCount();
 

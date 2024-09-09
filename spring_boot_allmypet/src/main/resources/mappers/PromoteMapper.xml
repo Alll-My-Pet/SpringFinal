@@ -37,11 +37,38 @@
 		 #{parcelOutInfo}, #{placeInfo}, #{postContent}, #{postNo})
 	</insert>
 	
+	<!-- 게시글 수정 : 수정된 데이터 DB에서 update(저장)  -->
+  	<!-- 주의!!! : 기본키인 게시글 번호는 수정 안 함 -->
+  	<update id="updatePromote">
+    UPDATE promote_board 
+    SET memId=#{memId}, postContent=#{postContent},
+        petCtgNo=#{petCtgNo}, parcelOutInfo=#{parcelOutInfo}, petName=#{petName},
+        placeInfo=#{placeInfo}, postImg=#{postImg}
+    WHERE postNo=#{postNo}
+	</update>
+  	
+  	<!--  상품 정보 삭제 -->
+  	<!-- 파라미터로 상품번호 전달 받음 -->
+  	<delete id="deletePromote" parameterType="string">
+  		DELETE FROM promote_board WHERE postNo=#{postNo}
+  	</delete>
+	
+	
 	<!-- 게시글 검색 -->
 	<select id="promoteSearch" parameterType="hashmap" resultMap="PromoteResultMap">
-		SELECT * FROM promote_board
-        WHERE petCtgNo = #{petCtgNo}
+		SELECT * FROM promote_board WHERE true
+		<choose>
+			<when test="type != null and type.equals('petName')">
+				AND petName LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when test="type != null and type.equals('placeInfo')">
+				AND placeInfo LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+		</choose>
+		ORDER BY postNo DESC
 	</select>
+	
+	
 	
 	<!-- 게시글 조회 -->
 	<select id="promoteDetailView" parameterType="int" resultType="com.spring_boot_allmypet.project.model.PromoteVO">
