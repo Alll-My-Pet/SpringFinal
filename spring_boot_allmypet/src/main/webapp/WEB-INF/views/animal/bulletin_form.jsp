@@ -92,7 +92,7 @@
 								</div>
 
 								<!-- 작성 버튼 -->
-								<button type="submit" class="FreeBoardBtn">작성하기</button>
+								<button type="submit" class="imgUploadBtn">작성하기</button>
 
 							</div>
 
