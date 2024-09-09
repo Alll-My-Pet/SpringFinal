@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_allmypet.project.model.BoardVO;
+import com.spring_boot_allmypet.project.model.PromoteVO;
 import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
 import com.spring_boot_allmypet.project.model.animal.BulletinBoardVO;
 import com.spring_boot_allmypet.project.model.animal.MyTipBoardVO;
@@ -207,4 +209,37 @@ public class AnimalController {
 
 		return "redirect:/animal_home/{petCtgNo}/bulletin";
 	}
+	
+	
+	/*
+	 * // 게시글 수정 화면 열기
+	 * 
+	 * @RequestMapping("/board/promoteUpdateForm/{postNo}") public String
+	 * promoteUpdateForm(@PathVariable int postNo, Model model) {
+	 * 
+	 * PromoteVO promoteBoard = promoteService.promoteDetailView(postNo);
+	 * model.addAttribute("promoteBoard", promoteBoard);
+	 * 
+	 * return "board/promoteUpdateView"; // 폼에 데이터 출력 }
+	 * 
+	 * // 수정된 데이터 받아서 DB에 저장
+	 * 
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("/board/updatePromote") public String updatePromote(PromoteVO
+	 * vo, @RequestParam String memPwd, HttpSession session) { String logInUser =
+	 * (String) session.getAttribute("mid");
+	 * 
+	 * if (logInUser == null) { return "fail"; // 로그인 되어 있지 않으면 실패 반환 }
+	 * 
+	 * // HashMap을 생성하여 loginCheck 메서드 호출 HashMap<String, Object> map = new
+	 * HashMap<>(); map.put("memId", logInUser); map.put("memPwd", memPwd);
+	 * 
+	 * String result = memberService.loginCheck(map);
+	 * 
+	 * if ("success".equals(result)) { vo.setMemId(logInUser); // 게시글 작성자 ID 설정
+	 * promoteService.updatePromote(vo); // 게시글 수정 서비스 호출 }
+	 * 
+	 * return result; }
+	 */
 }
