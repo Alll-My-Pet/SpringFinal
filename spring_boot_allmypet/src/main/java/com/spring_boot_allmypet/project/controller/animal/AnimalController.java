@@ -17,6 +17,8 @@ import com.spring_boot_allmypet.project.service.animal.AnimalService;
 import com.spring_boot_allmypet.project.service.animal.BulletinService;
 import com.spring_boot_allmypet.project.service.animal.MyTipService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class AnimalController {
 	@Autowired
@@ -145,25 +147,27 @@ public class AnimalController {
 		// 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
 		BulletinBoardVO board = bulletinService.detailViewBoard(postNo);
 
-		// 뷰 페이지에 출력하기 위해 Model 설정 
+		// 뷰 페이지에 출력하기 위해 Model 설정
 		model.addAttribute("board", board);
 
 		return "animal/bulletin_detail";
 	}
 
 	// 전체게시판 글 작성 폼 열기
-	/*
-	 * @RequestMapping("/animal/bulletin_form") public String boardWrite(HttpSession
-	 * session, Model model) { // 세션에서 사용자 정보 가져오기 String userId = (String)
-	 * session.getAttribute("mid");
-	 * 
-	 * // 사용자 정보가 있으면, 필요한 데이터를 모델에 추가 model.addAttribute("userId", userId);
-	 * 
-	 * return "animal/bulletin_form"; }
-	 */
+
 	@RequestMapping("/animal/bulletin_form")
-	public String boardWrite() {
+	public String boardWrite(HttpSession session, Model model) { // 세션에서 사용자 정보 가져오기
+		String userId = (String) session.getAttribute("mid");
+
+		// 사용자 정보가 있으면, 필요한 데이터를 모델에 추가
+		model.addAttribute("userId", userId);
 
 		return "animal/bulletin_form";
 	}
+
+	/*
+	 * @RequestMapping("/animal/bulletin_form") public String boardWrite() {
+	 * 
+	 * return "animal/bulletin_form"; }
+	 */
 }

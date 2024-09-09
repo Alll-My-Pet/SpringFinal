@@ -50,7 +50,7 @@
 									<div class="post-info">
 										<!-- 작성자 필드 -->
 										<div class="author">
-											작성자:<input type="text" name="memid" value="${userId }"
+											작성자:<input type="text" name="memid" value=" ${userId }"
 												readonly style="width: 100px;">
 										</div>
 										<!-- select 필드 -->
