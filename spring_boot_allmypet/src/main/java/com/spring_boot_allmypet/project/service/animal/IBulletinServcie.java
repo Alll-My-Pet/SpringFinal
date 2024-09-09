@@ -22,7 +22,7 @@ public interface IBulletinServcie {
 	public BulletinBoardVO detailViewBoard(int postNo);
 	
 	// 삽입/갱신/삭제
-	public void insertPost(BulletinBoardVO post);
+	public void insertPost(BulletinBoardVO vo);
 
 	public void updatePost(BulletinBoardVO post);
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.spring_boot_allmypet.project.model.BoardVO;
 import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
 import com.spring_boot_allmypet.project.model.animal.BulletinBoardVO;
 import com.spring_boot_allmypet.project.model.animal.MyTipBoardVO;
@@ -170,4 +171,18 @@ public class AnimalController {
 	 * 
 	 * return "animal/bulletin_form"; }
 	 */
+
+	// 전체게시판 글 등록
+	@RequestMapping("/animal/insertBoard")
+	public String insertBoard(BulletinBoardVO vo, HttpSession session) {
+		// 세션에서 로그인한 사용자 아이디 가져오기
+		String logInUser = (String) session.getAttribute("mid");
+
+		// BoardVO 객체에 사용자 아이디 설정
+		vo.setMemId(logInUser);
+
+		bulletinService.insertPost(vo);
+
+		return "redirect:animal/bulletinBoard";
+	}
 }
