@@ -21,45 +21,48 @@
 					<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 				</div>
 				<div class="contents">
-					<%-- <div class="pageInfo">
+					<div class="pageInfo">
 						<div class="page-title">
 							<div class="titleInfo">동물별 커뮤니티: ${petCtgName}</div>
 							<span class="ctgTitle">전체 게시판</span>
 						</div>
-					</div> --%>
+					</div>
 					<!-- pageInfo 끝 -->
-					<section class="MainText">
-						<div class="PostBox">
-
-							<div class="detailTitle">
-								<span id="bodTitle">${board.postTitle}</span>
+					<section class="mainText">
+						<div class="postBox">
+							<div class="post-info">
+								<div class="detailTitle">
+									<label for="detailTitle">&nbsp;제목:</label>&nbsp;<span
+										id="bodTitle"> [${board.headerName}] ${board.postTitle}</span>
+								</div>
+								<div class="authorBox">
+									<label for="detailTitle">&nbsp;작성자:</label>&nbsp;<span
+										class="author">${board.memNickName}</span>
+								</div>
 							</div>
-
-							<div class="author">
-								<span id="bodMemId"><img
-									src="<c:url value='${board.postImg}'/>"></span>
-							</div>
-
-							<div class="like">
-								<label for="like">추천수:</label> <span id="bodlike">${board.postLike}</span>
-							</div>
-
-							<div class="ctg">
-								<label for="ctg">분류:</label> <span id="bodctg">${board.headerNo}</span>
-							</div>
-
-
-
-							<div class="content">
+							<div class="postContent">
 								<pre id="bodText">${board.postContent}</pre>
 							</div>
-
-							<div class="comments">
-								<span id="bodComments">${board.memId}</span>
+							<div class="photoBox">
+								<label for="detailTitle">&nbsp;업로드한 사진: 1장</label>
+								<img src="<c:url value='${board.postImg}'/>">
 							</div>
 
-						</div>
 
+							<%-- <div class="like">
+								<label for="like">추천수:</label> <span id="bodlike">${board.postLike}</span>
+							</div>
+							
+							<div class="bookmark">
+								
+							</div>
+							
+							<div class="comments">
+								<span id="bodComments">${board.memId}</span>
+							</div> --%>
+
+						</div>
+						<!-- postBox 끝 -->
 					</section>
 
 				</div>

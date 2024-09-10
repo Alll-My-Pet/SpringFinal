@@ -159,7 +159,7 @@
 									<c:forEach var="bulletin" items="${bulletinList }">
 										<tr>
 											<td class="headerName">[${bulletin.headerName }]</td>
-											<td><a href="<c:url value='/bulletin/detailViewBoard/${bulletin.postNo}'/>" />${bulletin.postTitle }</td>
+											<td><a href="<c:url value='/bulletin/${petCtgNo}/detailViewBoard/${bulletin.postNo}'/>" />${bulletin.postTitle }</td>
 											<td>${bulletin.memNickName }</td>
 											<td><fmt:formatDate value="${bulletin.postDate }"
 													pattern="M/dd HH:mm" /></td>

@@ -145,11 +145,19 @@ public class AnimalController {
 
 	// 전체게시판 상세 조회
 
-	@RequestMapping("/bulletin/detailViewBoard/{postNo}")
-	public String detailViewBoard(@PathVariable int postNo, Model model) {
+	@RequestMapping("/bulletin/{petCtgNo}/detailViewBoard/{postNo}")
+	public String detailViewBoard(@PathVariable String petCtgNo, @PathVariable int postNo, Model model) {
 		// 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
 		BulletinBoardVO board = bulletinService.detailViewBoard(postNo);
+		// petCtgNo에 해당하는 카테고리 리스트 조회
+		ArrayList<AnimalCtgVO> categories = animalService.ctgListPet(petCtgNo);
 
+		// 리스트에서 첫 번째 항목의 petCtgName을 모델에 추가
+		if (!categories.isEmpty()) {
+			model.addAttribute("petCtgName", categories.get(0).getPetCtgName());
+		} else {
+			model.addAttribute("petCtgName", "카테고리없음.");
+		}
 		// 뷰 페이지에 출력하기 위해 Model 설정
 		model.addAttribute("board", board);
 
@@ -160,8 +168,8 @@ public class AnimalController {
 
 	@RequestMapping("/animal_home/{petCtgNo}/bulletin_form")
 	public String boardWrite(@PathVariable String petCtgNo, HttpSession session, Model model) { // 세션에서 사용자
-																												// 정보
-																												// 가져오기
+																								// 정보
+																								// 가져오기
 		// petCtgNo에 해당하는 카테고리 리스트 조회
 		ArrayList<AnimalCtgVO> categories = animalService.ctgListPet(petCtgNo);
 
@@ -209,8 +217,7 @@ public class AnimalController {
 
 		return "redirect:/animal_home/{petCtgNo}/bulletin";
 	}
-	
-	
+
 	/*
 	 * // 게시글 수정 화면 열기
 	 * 
