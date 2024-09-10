@@ -13,6 +13,9 @@
 	href="<c:url value='/css/animal/bulletin_detail.css' />" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/animal/bulletin_detail.js'/>"></script>
+<script>
+    const postNo = ${board.postNo}; // 게시글 번호
+</script>
 </head>
 <body>
 	<div class="desktop-1">
@@ -49,17 +52,19 @@
 								<label for="detailTitle">&nbsp;업로드한 사진: 1장</label> <img
 									src="<c:url value='${board.postImg}'/>">
 							</div>
+							
+								<div class="reactionBox">
+									<div class="like" id="likeButton">
+										<img src="/image/board/like-default.svg" alt="좋아요"
+											class="like-icon"> <span id="bodlike">${board.postLike}</span>
+									</div>
 
-							<div class="reactionBox">
-								<div class="like" id="likeButton">
-									<img src="/image/board/like-default.svg" alt="좋아요" class="like-icon">
-									<span id="bodlike">${board.postLike}</span>
+									<div class="bookmark" id="bookmarkButton">
+										<img src="/image/board/bookmark-default.svg" alt="북마크"
+											class="bookmark-icon">
+									</div>
 								</div>
-								
-								<div class="bookmark" id="bookmarkButton">
-									<img src="/image/board/bookmark-default.svg" alt="북마크" class="bookmark-icon">
-								</div>
-							</div>
+				
 							<%-- <div class="comments">
 								<span id="bodComments">${board.memId}</span>
 							</div> --%>

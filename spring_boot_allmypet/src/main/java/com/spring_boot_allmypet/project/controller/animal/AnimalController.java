@@ -2,17 +2,19 @@ package com.spring_boot_allmypet.project.controller.animal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.spring_boot_allmypet.project.model.BoardVO;
-import com.spring_boot_allmypet.project.model.PromoteVO;
 import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
 import com.spring_boot_allmypet.project.model.animal.BulletinBoardVO;
 import com.spring_boot_allmypet.project.model.animal.MyTipBoardVO;
@@ -163,13 +165,26 @@ public class AnimalController {
 
 		return "animal/bulletin_detail";
 	}
+	
+	// 좋아요 업데이트
+	@PostMapping("/bulletin/like")
+	@ResponseBody
+	public ResponseEntity<String> updateLike(@RequestBody Map<String, Integer> request) {
+	    int postNo = request.get("postNo");
+	    int postLike = request.get("postLike");
+
+	    bulletinService.updateLikeCount(postNo, postLike);
+
+	    return ResponseEntity.ok("좋아요 수 업데이트 완료");
+	}
+
+	
 
 	// 전체게시판 글 작성 폼 열기
 
 	@RequestMapping("/animal_home/{petCtgNo}/bulletin_form")
-	public String boardWrite(@PathVariable String petCtgNo, HttpSession session, Model model) { // 세션에서 사용자
-																								// 정보
-																								// 가져오기
+	public String boardWrite(@PathVariable String petCtgNo, HttpSession session, Model model) { 
+		
 		// petCtgNo에 해당하는 카테고리 리스트 조회
 		ArrayList<AnimalCtgVO> categories = animalService.ctgListPet(petCtgNo);
 

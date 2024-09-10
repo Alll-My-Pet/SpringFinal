@@ -47,6 +47,13 @@ public class BulletinService implements IBulletinServcie {
 		return dao.detailViewBoard(postNo);
 	}
 	
+	// 좋아요 업데이트
+	@Override
+	public void updateLikeCount(int postNo, int postLike) {
+	    dao.updateLikeCount(postNo, postLike);
+	}
+
+	
 	// 게시글 등록
 	@Override
 	public void insertPost(BulletinBoardVO vo) {

@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function() {
-	const likeButton = document.getElementById('likeButton');
+    const likeButton = document.getElementById('likeButton');
     const likeIcon = likeButton.querySelector('.like-icon');
     const bodlike = document.getElementById('bodlike');
     let likeCount = parseInt(bodlike.textContent);
@@ -21,6 +21,20 @@ $(document).ready(function() {
         }
 
         bodlike.textContent = likeCount; // 좋아요 수 업데이트
+
+        // AJAX 요청 - 좋아요 업데이트
+        $.ajax({
+            url: '/bulletin/like', // 서버에서 처리할 URL
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ postNo: postNo, postLike: likeCount }),
+            success: function(response) {
+                console.log('좋아요 수 업데이트 성공:', response);
+            },
+            error: function(error) {
+                console.log('좋아요 수 업데이트 실패:', error);
+            }
+        });
     });
 
     const bookmarkButton = document.getElementById('bookmarkButton');

@@ -17,10 +17,13 @@ public interface IBulletinServcie {
 
 	// postNo로 해당 게시글 가져오기
 	public BulletinBoardVO getPost(int postNo);
-	
+
 	// 상세 게시글 보기
 	public BulletinBoardVO detailViewBoard(int postNo);
-	
+
+	// 좋아요 업데이트
+	public void updateLikeCount(int postNo, int postLike);
+
 	// 삽입/갱신/삭제
 	public void insertPost(BulletinBoardVO vo);
 
