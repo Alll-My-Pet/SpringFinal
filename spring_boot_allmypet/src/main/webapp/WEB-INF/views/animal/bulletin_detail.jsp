@@ -147,9 +147,9 @@
 								</c:if>
 							</div>
 
-							<%-- <div class="comments">
-								<span id="bodComments">${board.memId}</span>
-							</div> --%>
+							<div class="comments">
+								<label for="comments">&nbsp;댓글</label>
+							</div>
 
 						</div>
 						<!-- postBox 끝 -->

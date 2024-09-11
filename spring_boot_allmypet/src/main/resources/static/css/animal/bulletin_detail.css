@@ -77,17 +77,15 @@
 	background-color: #CEF6F5;
 	/* border:1px solid black; */
 	width: 750px;
-	height: 900px;
+	height: auto;
 	padding: 20px;
-	margin: 0 auto;
-	/* 	margin-top: 10px; */
 	box-sizing: border-box;
 	display: flex;
 	/* justify-content: center; */
 	align-items: center;
 	flex-direction: column;
-	margin-top: 10px;
-	margin: 0 auto;
+	margin-top: 15px;
+	border-radius: 7px;
 }
 
 /* post-info: 게시글 제목, 작성자 들어간 box  */
@@ -238,10 +236,10 @@
 /* ********************************* */
 /* reactionBox: 좋아요, 북마크 기능 */
 .reactionBox {
-	margin-top: 15px;
+	margin-top: 30px;
 	width: 710px;
 	height: 50px;
-	background-color: #F3E2A9;
+	/* background-color: #F3E2A9; */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -296,9 +294,13 @@
 /* **************************** */
 /* 댓글 */
 .comments {
-	border: 1px solid black;
-	width: 850px;
-	margin-left: 25px;
+	background-color: white;
+	width: 710px;
+	height: 150px;
+	padding: 5px;
 	margin-top: 30px;
-	height: 100%;
+	border-radius: 10px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
 }
