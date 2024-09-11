@@ -14,7 +14,7 @@
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/animal/bulletin_detail.js'/>"></script>
 <script>
-    const postNo = ${board.postNo}; // 게시글 번호
+	const postNo = ${board.postNo}; // 게시글 번호
 </script>
 </head>
 <body>
@@ -42,10 +42,9 @@
 								</div>
 								<div class="authorBox">
 									<label for="detailTitle">&nbsp;작성자:</label>&nbsp;<span
-										class="author">${board.memNickName}</span>
-										<span class="divider">|</span>
-										<img src="/image/board/view_gray.svg" alt="조회수"
-											class="view-icon"><span id="bodView">&nbsp;${board.postView}</span>
+										class="author">${board.memNickName}</span> <span
+										class="divider">|</span> <img src="/image/board/view_gray.svg"
+										alt="조회수" class="view-icon"><span id="bodView">&nbsp;${board.postView}</span>
 								</div>
 							</div>
 							<div class="postContent">
@@ -55,8 +54,10 @@
 								<label for="detailTitle">&nbsp;업로드한 사진: 1장</label> <img
 									src="<c:url value='${board.postImg}'/>">
 							</div>
-							
-								<div class="reactionBox">
+
+							<div class="reactionBox">
+							 	<!-- 로그인 후 -->
+								<c:if test="${not empty sessionScope.mid }">
 									<div class="like" id="likeButton">
 										<img src="/image/board/like-default.svg" alt="좋아요"
 											class="like-icon"> <span id="bodlike">${board.postLike}</span>
@@ -66,8 +67,21 @@
 										<img src="/image/board/bookmark-default.svg" alt="북마크"
 											class="bookmark-icon">
 									</div>
-								</div>
-				
+								</c:if>
+								<!-- 로그인 하기 전 -->
+								<c:if test="${empty sessionScope.mid }">
+									<div class="like" id="notLoginLike">
+										<img src="/image/board/like-default.svg" alt="좋아요"
+											class="like-icon"> <span id="bodlike">${board.postLike}</span>
+									</div>
+
+									<div class="bookmark" id="notLoginBook">
+										<img src="/image/board/bookmark-default.svg" alt="북마크"
+											class="bookmark-icon">
+									</div>
+								</c:if>
+							</div>
+
 							<%-- <div class="comments">
 								<span id="bodComments">${board.memId}</span>
 							</div> --%>

@@ -3,13 +3,31 @@
  */
 
 $(document).ready(function() {
+
+    // 로그인 안하고 좋아요 누를 때
+    $('#notLoginLike').click(function() {
+       /* alert("확인용");*/
+        if (confirm('로그인이 필요합니다. 로그인 하시겠습니까?')) {
+            window.location.href = '/login';
+        }
+    });
+
+    // 로그인 안하고 북마크 누를 때
+    $('#notLoginBook').click(function() {
+        if (confirm('로그인이 필요합니다. 로그인 하시겠습니까?')) {
+            window.location.href = '/login';
+        }
+    });
+
     const likeButton = document.getElementById('likeButton');
     const likeIcon = likeButton.querySelector('.like-icon');
     const bodlike = document.getElementById('bodlike');
     let likeCount = parseInt(bodlike.textContent);
     let isLiked = false; // 좋아요 상태를 추적
 
+
     likeButton.addEventListener('click', function() {
+        event.preventDefault();
         isLiked = !isLiked; // 상태 토글
 
         if (isLiked) {
