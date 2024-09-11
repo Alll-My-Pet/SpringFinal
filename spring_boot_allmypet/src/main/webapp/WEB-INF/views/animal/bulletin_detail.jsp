@@ -77,7 +77,7 @@
 							</div> --%>
 
 							<div class="photoBox">
-								<label for="detailTitle">&nbsp;업로드한 사진: </label>
+								<!-- <label for="detailTitle">&nbsp;업로드한 사진: </label> -->
 								<%
 								BulletinBoardVO board = (BulletinBoardVO) request.getAttribute("board");
 								byte[] imageBytes = board.getPostImgBytes();
