@@ -3,37 +3,33 @@
  */
  
  window.onload = function() {
-	document.getElementById('promoteUpdateFrm').onsubmit = function() {
+	document.getElementById('protectUpdateFrm').onsubmit = function() {
     event.preventDefault();
-		
-	let petCtgNo = document.getElementById('petCtgNo');
-		let parcelOutInfo = document.getElementById('parcelOutInfo');
-		let petName = document.getElementById('petName');
-		let placeInfo = document.getElementById('placeInfo');
+    
+		let headerNo = document.getElementById('headerNo');
+		let companyName = document.getElementById('companyName');
+		let postTitle = document.getElementById('postTitle');
 	
-		if(petName.value == ""){
+		if(companyName.value == ""){
 		
-			alert("반려동물 이름을 입력하세요");
-			petName.focus(petName);
+			alert("업체명을 입력하세요");
+			companyName.focus(companyName);
 			return false;
 			
-		}else if(placeInfo.value == ""){
+		}else if(postTitle.value == ""){
 		
-			alert("분양처 명을 입력하세요");
-			placeInfo.focus(placeInfo);
+			alert("제목을 입력하세요");
+			postTitle.focus(postTitle);
 			return false;
 			
-		}else if(petCtgNo.value == 0){
+		}else if(headerNo.value == 0){
 		
-			alert("반려동물 종을 선택해 주세요");
+			alert("머");
 			return false;
 			
-		}else if(parcelOutInfo.value == 0){
+		};
 		
-			alert("분양 방법을 선택해 주세요");
-			return false;
-			
-		};	
+		
 		
 		this.submit();
 		
@@ -44,7 +40,7 @@
 
 
 $(document).ready(function() {
-    $('.promoteUpdateFrm').on('submit', function(event) {
+    $('.protectUpdateFrm').on('submit', function(event) {
         event.preventDefault();
 
         var formData = $(this).serialize(); // 폼 데이터 직렬화
@@ -52,13 +48,13 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/board/updatePromote", 
+            url: "/board/ProtectUpdate", 
             data: formData,
             dataType: 'text',
             success: function(result) {
                 if (result == "success") {
                     alert("게시글 수정 완료.");
-                    location.href = "/board/promoteDetailView/" + bodNo; // 해당 게시글 상세 페이지로 이동
+                    location.href = "/board/ProtectDetailView/" + bodNo; // 해당 게시글 상세 페이지로 이동
                 } else if (result == "fail") {
                     alert("비밀번호가 일치하지 않습니다");
                     location.reload(); // 현재 페이지 새로고침

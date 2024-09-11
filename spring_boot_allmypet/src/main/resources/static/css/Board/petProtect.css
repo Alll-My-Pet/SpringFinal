@@ -129,6 +129,8 @@
     
 }
 
+
+
 .MainFont{
 	margin:0 auto;
 	align-text:left;
@@ -218,4 +220,6 @@
     }
 
 
-  
+ .header-text-red {
+            color: red;
+        }

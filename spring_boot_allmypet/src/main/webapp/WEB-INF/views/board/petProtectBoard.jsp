@@ -1,13 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>반려동물 보호 게시판</title>
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/PetProtect.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/PetProtect.css'/>" />
+<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+<script src="<c:url value='/js/Board/protectBoard.js'/>"></script>
 	
 <script>
 function goPage(no) {
@@ -37,27 +39,21 @@ function goPage(no) {
 
 			<div class="MainFont">
 				<h1 id="PPBoardFont">반려동물 보호 게시판</h1>
-				<button class="reportBtn">신고하기</button>
+				<a href="<c:url value='/board/protectReport'/>"><button class="reportBtn">신고하기</button></a>
 			</div>
 
 			<div class="abandoned">
 				<p id="reportFont">유기동물 신고</p>
-				<div class="abandonedPic">
-					<div class="abandonedFont"></div>
-					<div class="description">설명</div>
-				</div>
-				<div class="abandonedPic">
-					<div class="abandonedFont"></div>
-					<div class="description">설명</div>
-				</div>
-				<div class="abandonedPic">
-					<div class="abandonedFont"></div>
-					<div class="description">설명</div>
-				</div>
-				<div class="abandonedPic">
-					<div class="abandonedFont"></div>
-					<div class="description">설명</div>
-				</div>
+				<c:forEach items="${ReportList}" var="report">
+					<div class="abandonedPic">
+						<div class="abandonedFont">${report.postImg }</div>
+						<div class="description">
+							종류:${report.lossPet }<br>
+							위치:${report.lossLocation }<br>
+							제목:${report.postTitle }<br>
+						</div>
+					</div>
+				</c:forEach>
 
 
 			</div>
@@ -84,11 +80,19 @@ function goPage(no) {
 					<tbody>
 						<c:forEach items="${ProtectList}" var="PBoard">
 							<tr>
-								<td><a href="<c:url value='/board/detailViewBoard/${PBoard.postNo}'/>">${PBoard.postTitle}</a></td>
+								<td>
+									<c:choose>
+										<c:when test="${PBoard.headerNo == 1}">[유기동물 봉사]</c:when>
+										<c:when test="${PBoard.headerNo == 2}">[봉사]</c:when>
+										<c:when test="${PBoard.headerNo == 3}">[캠페인]</c:when>
+										<c:when test="${PBoard.headerNo == 4}">
+											<span class="header-text-red">[유기동물 신고]</span>
+										</c:when>
+									</c:choose>
+								</td>
+								<td><a href="<c:url value='/board/ProtectDetailView/${PBoard.postNo}'/>">${PBoard.postTitle}</a></td>
 								<td>${PBoard.memId}</td>
 								<td><fmt:formatDate value="${PBoard.postDate}" pattern="yyyy-MM-dd" /></td>
-								<td>${PBoard.postLike }</td>
-								<td>${PBoard.postView }</td>
 							</tr>
 						</c:forEach>
 						</tbody>
@@ -121,7 +125,7 @@ function goPage(no) {
 							<!-- 로그인 한 경우  -->
 							<c:if test="${not empty sessionScope.mid }">
 								<button class="protectWriteBtn">
-									<a href="<c:url value='/Board/MainBoardText'/>">글 작성</a>
+									<a href="<c:url value='/board/protectWrite'/>">글 작성</a>
 								</button>
 							</c:if>
 

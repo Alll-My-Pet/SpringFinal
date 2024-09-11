@@ -13,9 +13,15 @@ import com.spring_boot_allmypet.project.model.ProtectVO;
 @Service
 public class ProtectService implements IProtectService {
 	
+
 	@Autowired
 	@Qualifier("IProtectDAO")
 	IProtectDAO dao;
+	
+	@Override
+	public ArrayList<ProtectVO> ProtectReportList(HashMap<String, Integer> map) {
+		return dao.ProtectReportList(map);
+	}
 
 	@Override
 	public ArrayList<ProtectVO> ProtectBoardList(HashMap<String, Integer> map) {
@@ -32,6 +38,11 @@ public class ProtectService implements IProtectService {
 		dao.ProtectInsert(vo);
 
 	}
+	
+	@Override
+    public void reportInsert(ProtectVO vo) {
+        dao.reportInsert(vo);
+    }
 
 	@Override
 	public void ProtectUpdate(ProtectVO vo) {
@@ -40,8 +51,8 @@ public class ProtectService implements IProtectService {
 	}
 
 	@Override
-	public void ProtectDelete(String bodNo) {
-		dao.ProtectDelete(bodNo);
+	public void ProtectDelete(int postNo) {
+		dao.ProtectDelete(postNo);
 
 	}
 

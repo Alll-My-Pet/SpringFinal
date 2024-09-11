@@ -160,15 +160,117 @@ public class BoardCotroller {
 
 		ArrayList<ProtectVO> ProtectList = protectService.ProtectBoardList(map);
 		model.addAttribute("ProtectList", ProtectList);
+		
+		ArrayList<ProtectVO> ReportList = protectService.ProtectReportList(map);
+		model.addAttribute("ReportList", ReportList);
+		
 		model.addAttribute("pageVo", pageVo);
 
 		return "board/petProtectBoard";
 	}
 
-	@RequestMapping("/board/protectDetail")
-	public String protectDetail() {
-		return "board/protectDetail";
-	}
+	// 상세 페이지
+		@RequestMapping("/board/ProtectDetailView/{postNo}")
+		public String ProtectDetailView(@PathVariable int postNo, Model model,HttpSession session) {
+			// 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
+			ProtectVO protect = protectService.ProtectDetailView(postNo);
+			String logInUser = (String) session.getAttribute("mid");
+
+			// 뷰 페이지에 출력하기 위해 Model 설정
+			model.addAttribute("protect", protect);
+			model.addAttribute("logInUser", logInUser);
+
+			return "board/protectDetail";
+		}
+		
+		// 게시글 작성 폼 열기
+		@RequestMapping("/board/protectWrite")
+		public String protectWrite(HttpSession session, Model model) {
+			// 세션에서 사용자 정보 가져오기
+			String userId = (String) session.getAttribute("mid");
+
+			// 사용자 정보가 있으면, 필요한 데이터를 모델에 추가
+			model.addAttribute("userId", userId);
+
+			return "board/protectWrite";
+		}
+
+		// 글 등록
+		@RequestMapping("/ProtectInsert")
+		public String ProtectInsert(ProtectVO vo, HttpSession session) {
+			// 세션에서 로그인한 사용자 아이디 가져오기
+			String logInUser = (String) session.getAttribute("mid");
+
+			// 사용자 아이디 설정
+			vo.setMemId(logInUser);
+
+			protectService.ProtectInsert(vo);
+
+			return "redirect:board/ProtectBoardList";
+		}
+		
+		
+		// 게시글 수정 화면 열기
+		  @RequestMapping("/board/protectUpdateForm/{postNo}")
+		  public String protectUpdateForm(@PathVariable int postNo, Model model) {
+			  
+			ProtectVO protectBoard = protectService.ProtectDetailView(postNo);
+		    model.addAttribute("protectBoard", protectBoard);  
+		    
+		    return "board/protectUpdateView"; // 폼에 데이터 출력
+		  }
+		  
+		  	// 수정된 정보 저장
+		  @ResponseBody
+		  @RequestMapping("/board/ProtectUpdate")
+		  public String ProtectUpdate(ProtectVO vo, @RequestParam String memPwd, HttpSession session) {
+		      String logInUser = (String) session.getAttribute("mid");
+
+		      if (logInUser == null) {
+		          return "fail"; // 로그인 되어 있지 않으면 실패 반환
+		      }
+
+		      // HashMap을 생성하여 loginCheck 메서드 호출
+		      HashMap<String, Object> map = new HashMap<>();
+		      map.put("memId", logInUser);
+		      map.put("memPwd", memPwd);
+
+		      String result = memberService.loginCheck(map);
+
+		      if ("success".equals(result)) {
+		          vo.setMemId(logInUser); // 게시글 작성자 ID 설정
+		          protectService.ProtectUpdate(vo); // 게시글 수정 서비스 호출
+		      }
+		      
+		      return result; 
+		  }
+		  
+		  //삭제
+		  @RequestMapping("/board/deleteProtect/{postNo}")
+		  public String deleteProtect(@PathVariable int postNo) {
+		    protectService.ProtectDelete(postNo);  
+		    return "redirect:/board/ProtectBoardList";
+		  }
+		  
+		  @RequestMapping("/board/protectReport")
+			public String protectReport() {
+				return "board/protectReportWrite";
+			}
+		  
+		  @RequestMapping("/reportInsert")
+		  public String reportInsert(ProtectVO vo, HttpSession session) {
+		      // 세션에서 로그인한 사용자 아이디 가져오기
+		      String logInUser = (String) session.getAttribute("mid");
+
+		      // 사용자 아이디 설정
+		      vo.setMemId(logInUser);
+
+		      // ProtectInsert 호출 (headerNo가 4로 설정된 reportInsert 쿼리 사용)
+		      protectService.reportInsert(vo);
+
+		      return "redirect:/board/ProtectBoardList";
+		  }
+		
 
 	// ********************************동물분양 홍보****************************************
 	@RequestMapping("/board/PromoteBoardList")
@@ -282,6 +384,8 @@ public class BoardCotroller {
 			ArrayList<PromoteVO> PSearch = promoteService.promoteSearch(param);
 			return PSearch;
 		}
+		
+		
 
 	/*  *********************************공지 게시판****************************************  */
 	@RequestMapping("/board/noticeBoard")

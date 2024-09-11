@@ -6,27 +6,38 @@
   <mapper namespace="com.spring_boot_allmypet.project.dao.IProtectDAO">
 	<resultMap id="ProtectResultMap" type="com.spring_boot_allmypet.project.model.ProtectVO">
 		<result property="postNo" column="postNo" />
-		<result property="boardCtgNo" column="boardCtgNo" />
-		<result property="postTitle" column="postTitle" />
-		<result property="postDate" column="postDate" />
+		<result property="headerNo" column="headerNo" />
 		<result property="memId" column="memId" />
+		<result property="postTitle" column="postTitle" />
 		<result property="postContent" column="postContent" />
+		<result property="postImg" column="postImg" />
+		<result property="postDate" column="postDate" />
 		<result property="postLike" column="postLike" />
 		<result property="postView" column="postView" />
-		<result property="postImg" column="postImg" />
-		<result property="postTypeNo" column="postTypeNo" />
 	</resultMap>
 	
 	<!-- 게시판 리스트 -->
 	<select id="ProtectBoardList" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.ProtectVO">
-		SELECT * FROM post 
-		WHERE boardCtgNo = 1
+		SELECT * FROM animal_protect 
 		LIMIT #{startNo}, 15;
 	</select>
 	
+	<!-- 게시판 리스트 -->
+	<select id="ProtectReportList" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.ProtectVO">
+		SELECT * FROM animal_protect
+		WHERE headerNo = 4
+		LIMIT #{startNo}, 15;
+	</select>
+	
+	<!-- 페이징 -->
+	<select id="ProtectPaging" resultType="int">
+		SELECT count(*) FROM animal_protect
+	</select>
+	
+	
 	<!-- 게시글 검색 -->
 	<select id="ProtectSearch" parameterType="hashmap" resultMap="ProtectResultMap">
-		SELECT * FROM post WHERE true
+		SELECT * FROM animal_protect WHERE true
 		<choose>
 			<when test="type != null and type.equals('postTitle')">
 				AND postTitle LIKE CONCAT('%', #{keyword}, '%')
@@ -44,14 +55,40 @@
 	
 	<!-- 게시글 조회 -->
 	<select id="ProtectDetailView" parameterType="int" resultType="com.spring_boot_allmypet.project.model.ProtectVO">
-		SELECT postNo, postTitle, memId, postContent, postLike, postImg, postView, boardCtgNo 
-		FROM post 
+		SELECT postNo, postTitle, memId, postContent, postLike, postImg, postView, headerNo, companyName
+		FROM animal_protect 
 		WHERE postNo = #{postNo}
 	</select>
 	
-	<!-- 페이징 -->
-	<select id="ProtectPaging" resultType="int">
-		SELECT count(*) FROM post
-		WHERE boardCtgNo = 3
-	</select>
+	<!-- 글 작성 -->
+	<insert id="ProtectInsert" parameterType="com.spring_boot_allmypet.project.model.ProtectVO">
+		INSERT INTO animal_protect 
+		(headerNo, companyName, postContent, postImg, postTitle, postDate, postNo, memId)
+		VALUES (#{headerNo}, #{companyName}, #{postContent}, #{postImg},
+		 #{postTitle}, #{postDate}, #{postNo}, #{memId})
+	</insert>
+	
+	<!-- 글 작성 -->
+	<insert id="reportInsert" parameterType="com.spring_boot_allmypet.project.model.ProtectVO">
+	    INSERT INTO animal_protect 
+	    (headerNo, companyName, postContent, postImg, postTitle, postDate, postNo, memId, lossLocation, lossPet)
+	    VALUES (4, #{companyName}, #{postContent}, #{postImg}, #{postTitle}, 
+	    		#{postDate}, #{postNo}, #{memId}, #{lossLocation}, #{lossPet})
+	</insert>
+	
+	<!-- 게시글 수정 -->
+  	<update id="ProtectUpdate">
+    UPDATE animal_protect 
+    SET headerNo=#{headerNo}, companyName=#{companyName},
+        postContent=#{postContent}, postImg=#{postImg}, postTitle=#{postTitle},
+        postDate=#{postDate}, memId=#{memId}
+    WHERE postNo=#{postNo}
+	</update>
+  	
+  	<!-- 삭제 -->
+  	<delete id="ProtectDelete" parameterType="int">
+  		DELETE FROM animal_protect WHERE postNo=#{postNo}
+  	</delete>
+	
+	
 </mapper>
