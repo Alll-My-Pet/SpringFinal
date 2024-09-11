@@ -101,7 +101,9 @@
 								%>
 								<!-- 이미지 썸네일 -->
 								<img src="data:<%=imageType%>;base64,<%=base64Image%>"
-									alt="게시글 이미지" id="thumbnail" onclick="openModal(this.src)"/>
+									alt="이미지 없음" 
+									id="thumbnail" onclick="openModal(this.src)"
+									onerror="this.onerror=null; this.src='/image/board/no-image.svg';"/>
 
 								<!-- 모달 창 -->
 								<div id="myModal" class="modal" onclick="closeModal()">
@@ -159,6 +161,10 @@
 				<!-- contents 끝 -->
 			</div>
 			<!-- frame-2 끝 -->
+			<!-- sidebar 부착 -->
+			<div id="sidebar">
+				<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
+			</div>
 		</div>
 		<!-- frame-1 끝 -->
 		<br> <br>
