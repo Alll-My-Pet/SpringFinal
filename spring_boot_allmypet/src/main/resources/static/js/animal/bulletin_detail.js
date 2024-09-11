@@ -3,10 +3,11 @@
  */
 
 $(document).ready(function() {
+    document.getElementById('myModal').style.display = "none";
 
     // 로그인 안하고 좋아요 누를 때
     $('#notLoginLike').click(function() {
-       /* alert("확인용");*/
+        /* alert("확인용");*/
         if (confirm('로그인이 필요합니다. 로그인 하시겠습니까?')) {
             window.location.href = '/login';
         }
@@ -68,4 +69,5 @@ $(document).ready(function() {
             bookmarkIcon.src = '/image/board/bookmark-default.svg'; // 기본 상태 아이콘으로 변경
         }
     });
+
 });

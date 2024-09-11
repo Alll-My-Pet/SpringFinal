@@ -192,7 +192,47 @@
 
 .photoBox img {
 	width: 100px;
+	cursor: pointer;
 }
+
+/* 이미지 모달창 */
+.modal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.modal-content {
+    max-width: 90%; /* 최대 너비 90% */
+    max-height: 90%; /* 최대 높이 90% */
+}
+
+.modal-content.large {
+    width: auto; /* 원래 크기 유지 */
+    height: auto; /* 원래 크기 유지 */
+    transform: scale(1.2); /* 이미지 크기 5배 확대 */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
 /* ********************************* */
 /* reactionBox: 좋아요, 북마크 기능 */
 .reactionBox {

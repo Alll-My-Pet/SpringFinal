@@ -19,10 +19,20 @@
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/animal/bulletin_detail.js'/>"></script>
 <script>
-	const postNo = $
-	{
-		board.postNo
-	}; // 게시글 번호
+	const postNo = ${board.postNo}; // 게시글 번호  
+    function openModal(src) {
+        console.log(src); // src 경로 확인
+        const modalImage = document.getElementById("modalImage");
+        modalImage.src = src;
+        modalImage.classList.add("large"); // 크기 조절 클래스 추가
+        document.getElementById("myModal").style.display = "flex"; // 모달 창 열기
+    }
+
+    function closeModal() {
+        const modalImage = document.getElementById("modalImage");
+        modalImage.classList.remove("large"); // 크기 조절 클래스 제거
+        document.getElementById("myModal").style.display = "none"; // 모달 창 닫기
+    }
 </script>
 </head>
 <body>
@@ -69,33 +79,43 @@
 							<div class="photoBox">
 								<label for="detailTitle">&nbsp;업로드한 사진: </label>
 								<%
-								    BulletinBoardVO board = (BulletinBoardVO) request.getAttribute("board");
-								    byte[] imageBytes = board.getPostImgBytes();
-								    String imageType = "image/jpeg"; // 기본값 설정
-								
-								    if (imageBytes != null && imageBytes.length > 0) {
-								        byte[] header = Arrays.copyOf(imageBytes, 4);
-								        
-								        // 이미지 포맷 확인
-								        if (header[0] == (byte) 0x89 && header[1] == (byte) 0x50) {
-								            imageType = "image/png"; // PNG
-								        } else if (header[0] == (byte) 0xFF && header[1] == (byte) 0xD8) {
-								            imageType = "image/jpeg"; // JPEG
-								        } else {
-								            // 기타 포맷 처리 필요 시 추가
-								            imageType = "image/jpeg"; // 기본값으로 설정
-								        }
-								
-								        // Base64 인코딩
-								        String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+								BulletinBoardVO board = (BulletinBoardVO) request.getAttribute("board");
+								byte[] imageBytes = board.getPostImgBytes();
+								String imageType = "image/jpeg"; // 기본값 설정
+
+								if (imageBytes != null && imageBytes.length > 0) {
+									byte[] header = Arrays.copyOf(imageBytes, 4);
+
+									// 이미지 포맷 확인
+									if (header[0] == (byte) 0x89 && header[1] == (byte) 0x50) {
+										imageType = "image/png"; // PNG
+									} else if (header[0] == (byte) 0xFF && header[1] == (byte) 0xD8) {
+										imageType = "image/jpeg"; // JPEG
+									} else {
+										// 기타 포맷 처리 필요 시 추가
+										imageType = "image/jpeg"; // 기본값으로 설정
+									}
+
+									// Base64 인코딩
+									String base64Image = Base64.getEncoder().encodeToString(imageBytes);
 								%>
-								<img src="data:<%= imageType %>;base64,<%= base64Image %>" alt="게시글 이미지" />
+								<!-- 이미지 썸네일 -->
+								<img src="data:<%=imageType%>;base64,<%=base64Image%>"
+									alt="게시글 이미지" id="thumbnail" onclick="openModal(this.src)"/>
+
+								<!-- 모달 창 -->
+								<div id="myModal" class="modal" onclick="closeModal()">
+									<span class="close" onclick="closeModal()">&times;</span> <img
+										class="modal-content" id="modalImage">
+								</div>
+
+
 								<%
-								    } else {
+								} else {
 								%>
 								<p>이미지가 없습니다.</p>
 								<%
-								    }
+								}
 								%>
 							</div>
 
