@@ -10,30 +10,6 @@ $(document).ready(function() {
         }
     }
 
-    function combine() {
-        var phone1 = document.getElementById("phone1").value;
-        var phone2 = document.getElementById("phone2").value;
-        var phone3 = document.getElementById("phone3").value;
-        var ordHP = phone1 + "-" + phone2 + "-" + phone3;
-
-        var address1 = document.getElementById("sample4_roadAddress").value;
-        var address2 = document.getElementById("sample4_detailAddress").value;
-        var address3 = document.getElementById("sample4_extraAddress").value;
-        var ordAddress = address1 + " " + address2 + " " + address3;
-
-        // 최종 값 확인
-        console.log("ordHP:", ordHP);
-        console.log("ordAddress:", ordAddress);
-
-        document.getElementById("ordHP").value = ordHP;
-        document.getElementById("ordAddress").value = ordAddress;
-        return true; // 폼이 정상적으로 제출되도록 true 반환
-    }
-
-    // `combine` 함수가 폼 제출 전에 실행되도록 설정
-    $("form").on("submit", function(event) {
-        return combine(); // combine이 true를 반환해야 폼이 제출됨
-    });
 
     // Daum 주소 API 통합
     function sample4_execDaumPostcode() {
@@ -95,4 +71,39 @@ $(document).ready(function() {
     $('#addressSearchButton').on('click', function() {
         sample4_execDaumPostcode();
     });
+    
+    function combine() {
+        var phone1 = document.getElementById("phone1").value;
+        var phone2 = document.getElementById("phone2").value;
+        var phone3 = document.getElementById("phone3").value;
+        var ordHP = phone1 + "-" + phone2 + "-" + phone3;
+
+        var address1 = document.getElementById("sample4_roadAddress").value;
+        var address2 = document.getElementById("sample4_detailAddress").value;
+        var address3 = document.getElementById("sample4_extraAddress").value;
+        var ordAddress = address1 + " " + address2 + " " + address3;
+
+        // 최종 값 확인
+        console.log("ordHP:", ordHP);
+        console.log("ordAddress:", ordAddress);
+
+        document.getElementById("ordHP").value = ordHP;
+        document.getElementById("ordAddress").value = ordAddress;
+        return true; // 폼이 정상적으로 제출되도록 true 반환
+    }
+
+    // `combine` 함수가 폼 제출 전에 실행되도록 설정
+    $("form").on("submit", function(event) {
+        return combine(); // combine이 true를 반환해야 폼이 제출됨
+    });
+    
+    function openPointPopup() {
+	    var memId = "<%= memVo.getMemId() %>";
+	    var url = "/market/order/pointPopup?memId=" + memId;
+	    window.open(url, "포인트 사용", "width=400, height=300");
+	}
+
+	function applyUsedPoints(usePoints) {
+	    document.getElementById('usedPoint').innerText = usePoints + "원";
+	}
 });

@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring_boot_allmypet.project.service.market.ProductService;
+import com.spring_boot_allmypet.project.service.mypage.MypageService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -29,6 +32,7 @@ import com.spring_boot_allmypet.project.model.market.CartVO;
 import com.spring_boot_allmypet.project.model.market.MemberVO;
 import com.spring_boot_allmypet.project.model.market.OrderCancelVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.service.market.CartService;
 
 
@@ -43,6 +47,8 @@ public class MarketController {
 	@Autowired
 	OrderService orderService;
 	
+	@Autowired
+	MypageService mypageService;
 	
 	//마켓홈
 	@RequestMapping("/market/home")
@@ -157,7 +163,11 @@ public class MarketController {
 	                           @RequestParam("cartQty") int cartQty, 
 	                           Model model, HttpSession session) {
 	    String memId = (String) session.getAttribute("mid");
-
+	    
+	    List<MemberPointVO> point = orderService.getPointInfo(memId);
+		
+	    model.addAttribute("point", point);
+	    
 	    // 회원 정보 가져오기
 	    MemberVO memVo = orderService.getMemberInfo(memId);
 	    
@@ -179,6 +189,9 @@ public class MarketController {
 		String memId = (String) session.getAttribute("mid");
 		//String memId="abcd";
 		
+		List<MemberPointVO> point = orderService.getPointInfo(memId);
+		
+	    model.addAttribute("point", point);
 
 		
 		MemberVO memVo = orderService.getMemberInfo(memId); 
@@ -196,13 +209,14 @@ public class MarketController {
 		return "market/order";
 	}
 	
-	//주문 내용 전달
+	// 
 	@RequestMapping(value = "/market/order/complete", method = RequestMethod.POST)
 	public String orderComplete(OrderInfoVO orderInfo, HttpSession session,
 	                            @RequestParam("prdNo") List<String> prdNos,
-	                            @RequestParam("ordQty") List<Integer> ordQtys) {
-		String memId = (String) session.getAttribute("mid");
-		//String memId = "abcd"; // 실제 코드에서는 session에서 가져옵니다.
+	                            @RequestParam("ordQty") List<Integer> ordQtys,
+	                            @RequestParam(value = "points", required = false, defaultValue = "0") int points,
+	                            @RequestParam(value = "couponId", required = false) Integer couponId) { // 추가된 couponId 파라미터
+	    String memId = (String) session.getAttribute("mid");
 	    orderInfo.setMemId(memId);
 
 	    // 기본 주문 정보 설정
@@ -228,36 +242,82 @@ public class MarketController {
 	        cartService.deleteCartItem(memId, prdNo);
 	    }
 
+	    // 4. 포인트 사용 처리
+	    if (points > 0) {
+	        List<MemberPointVO> pointList = orderService.getPointInfo(memId);
+	        int totalPoints = pointList.stream().mapToInt(MemberPointVO::getPoint_change).sum();
+
+	        if (points <= totalPoints) {
+	            MemberPointVO pointChange = new MemberPointVO();
+	            pointChange.setMemId(memId);
+	            pointChange.setPoint_change(-points);
+	            pointChange.setReason("상품 구매");
+	            orderService.insertPointChange(pointChange);
+	        } else {
+	            return "redirect:/market/order?error=invalid_points";
+	        }
+	    }
+
+	    // 5. 쿠폰 사용 처리
+	    if (couponId != null) {
+	        orderService.deleteUserCoupon(memId, couponId); // 쿠폰 삭제
+	    }
+
 	    return "redirect:/market/order_summary";  // 주문 요약 페이지로 리다이렉트
 	}
+
 	
 	//즉시구매완료_주문전달
 	@RequestMapping(value = "/market/order/completeInstantOrder", method = RequestMethod.POST)
-	public String completeInstantOrder(OrderInfoVO orderInfo, 
-	                                   @RequestParam("prdNo") String prdNo, 
-	                                   @RequestParam("ordQty") int ordQty, 
-	                                   HttpSession session) {
-	    String memId = (String) session.getAttribute("mid");
-	    orderInfo.setMemId(memId);
-
-	    // 주문 정보 설정
-	    orderInfo.setOrdDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-	    orderInfo.setOrdState(false);
-
-	    // 주문 정보 저장
-	    orderService.insertOrderInfo(orderInfo);
-
-	    // 상품 정보 저장
-	    int ordNo = orderService.getLastOrderNoByMemId(memId);
-	    OrderProductVO orderProduct = new OrderProductVO();
-	    orderProduct.setOrdNo(ordNo);
-	    orderProduct.setPrdNo(prdNo);
-	    orderProduct.setOrdQty(ordQty);
-	    
-	    orderService.insertOrderProduct(orderProduct);
-
-	    return "redirect:/market/order_summary"; // 주문 요약 페이지로 리다이렉트
-	}
+	public String completeInstantOrder(OrderInfoVO orderInfo, HttpSession session,
+							            @RequestParam("prdNo") List<String> prdNos,
+							            @RequestParam("ordQty") List<Integer> ordQtys,
+							            @RequestParam(value = "pointsUsed", required = false, defaultValue = "0") int pointsUsed) {
+		String memId = (String) session.getAttribute("mid");
+		orderInfo.setMemId(memId);
+		
+		// 기본 주문 정보 설정
+		orderInfo.setOrdDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+		orderInfo.setOrdState(false); // 초기 상태 설정
+		
+		// 1. order_info 저장
+		orderService.insertOrderInfo(orderInfo);
+		
+		// 2. order_product 저장
+		int ordNo = orderService.getLastOrderNoByMemId(memId); // 방금 저장된 주문 번호 가져오기
+		for (int i = 0; i < prdNos.size(); i++) {
+			OrderProductVO orderProduct = new OrderProductVO();
+			orderProduct.setOrdNo(ordNo);
+			orderProduct.setPrdNo(prdNos.get(i));
+			orderProduct.setOrdQty(ordQtys.get(i));
+			
+			orderService.insertOrderProduct(orderProduct);
+		}
+		
+		// 3. 주문된 품목을 장바구니에서 삭제
+		for (String prdNo : prdNos) {
+			cartService.deleteCartItem(memId, prdNo);
+		}
+		
+		// 4. 포인트 사용 처리 (통합된 부분)
+		if (pointsUsed > 0) {
+			List<MemberPointVO> pointList = orderService.getPointInfo(memId);
+			int totalPoints = pointList.stream().mapToInt(MemberPointVO::getPoint_change).sum();
+			
+			if (pointsUsed <= totalPoints) {
+			MemberPointVO pointChange = new MemberPointVO();
+			pointChange.setMemId(memId);
+			pointChange.setPoint_change(-pointsUsed);
+			pointChange.setReason("주문에 사용");
+			orderService.insertPointChange(pointChange);
+			} else {
+			// 포인트 부족 시 처리
+			return "redirect:/market/order?error=invalid_points";
+			}
+		}
+		
+		return "redirect:/market/order_summary";  // 주문 요약 페이지로 리다이렉트
+		}
 	
 	//주문완료
 	@RequestMapping("/market/order_summary")
@@ -338,30 +398,14 @@ public class MarketController {
         return "market/order_cancel";
     }
 	
-	@PostMapping("/orderCancelSubmit")
-	public String orderCancelSubmit(@RequestParam("ordNo") int ordNo,
-	                                @RequestParam("prdNo") String prdNo,
-	                                @RequestParam("ordQty") int ordQty,
-	                                @RequestParam("canReason") String canReason,
-	                                @RequestParam(value = "otherReason", required = false) String otherReason,
-	                                Model model) {
-	    // 기타 사유 처리
-	    if ("기타".equals(canReason) && otherReason != null && !otherReason.trim().isEmpty()) {
-	        canReason = otherReason;
-	    }
-	    
-	    // OrderCancelVO에 데이터 셋팅
-	    OrderCancelVO orderCancel = new OrderCancelVO();
-	    orderCancel.setOrdNo(ordNo);
-	    orderCancel.setPrdNo(prdNo);
-	    orderCancel.setOrdQty(ordQty);
-	    orderCancel.setCanReason(canReason);
-	    
-	    // Service를 통해 취소 정보를 DB에 저장
-	    orderService.insertOrderCancel(orderCancel);
-	    
-	    // 취소 완료 후 확인 페이지 또는 목록으로 이동
-	    return "redirect:/orderHistory";  // 예: 주문 내역 페이지로 이동
+	//쿠폰 UI
+	@RequestMapping("/market/couponUI")
+	public String couponList(HttpSession session,Model model) {
+		String memId = (String) session.getAttribute("mid");
+		List<Map<String, Object>> coupon_list = mypageService.myCouponList(memId);
+		model.addAttribute("coupon_list",coupon_list);
+		return "market/couponUI";
 	}
+	
 	
 }

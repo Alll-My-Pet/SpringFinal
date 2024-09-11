@@ -68,17 +68,13 @@
         </thead>
         <tbody>
             <tr>
-                <td><input type="checkbox">주문자 정보와 동일</td>
-                <td><input type="checkbox">직접 입력</td>
-            </tr>
-            <tr>
                 <td>받는사람</td>
                 <td><input type="text" class="order_input" name="ordReceiver"></td>
             </tr>
             <tr>
                 <td>주소</td>
                 <td>
-                <input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
+                <input type="button" id="addressSearchButton" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
                 <input type="text" id="sample4_postcode" placeholder="우편번호">
 				<input type="text" id="sample4_roadAddress" placeholder="도로명주소">
 				<input type="text" id="sample4_jibunAddress" placeholder="지번주소">

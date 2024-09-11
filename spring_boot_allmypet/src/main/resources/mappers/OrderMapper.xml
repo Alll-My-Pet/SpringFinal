@@ -11,6 +11,20 @@
         FROM member
         WHERE memId = #{memId}	
     </select>
+    
+    <!-- 포인트 정보 받아오기 -->
+    <select id="getPointInfo" parameterType="java.lang.String"
+            resultType="com.spring_boot_allmypet.project.model.member.MemberPointVO">
+        SELECT *
+        FROM member_point
+        WHERE memId = #{memId}	
+    </select>
+    
+     <!-- 포인트 변동 기록 삽입 (포인트 사용 시 음수 값으로 기록) -->
+    <insert id="insertPointChange" parameterType="map">
+        INSERT INTO member_point (memId, point_change, reason, change_date)
+        VALUES (#{memId}, #{point_change}, #{reason}, NOW())
+    </insert>
  	
     <select id="getProductInfo" parameterType="java.lang.String"
             resultType="com.spring_boot_allmypet.project.model.market.ProductVO">
@@ -94,5 +108,11 @@
     INSERT INTO order_cancel (ordNo, prdNo, ordQty, canReason)
     VALUES (#{ordNo}, #{prdNo}, #{ordQty}, #{canReason})
 </insert>
+
+<!-- 특정 memId와 coupon_id로 유저의 쿠폰 삭제 -->
+<delete id="deleteUserCoupon" parameterType="map">
+    DELETE FROM UserCoupons
+    WHERE memId = #{memId} AND coupon_id = #{coupon_id}
+</delete>
 
 </mapper>
