@@ -9,23 +9,25 @@
 		<!-- head -->
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/change.css'/>">
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/member/changePwd.js'/>"></script>
 	</head>
 	<body>
-		<section class="changePW">
-			<div class="changePWTitleWrap">
-				<div class="changePWTitle">
+		<section class="changePwd">
+			<div class="changePwdTitleWrap">
+				<div class="changePwdTitle">
 					<b>비밀번호 변경</b>
 				</div>
 			</div>
-			<form id="changePWForm" class="changePWForm" method="post" action="#">
-				<div class="changePWBox">
-					<div class="changePWInput">
+			<form id="changePwdForm" class="changePwdForm" method="post" action="#">
+				<div class="changePwdBox">
+					<div class="changePwdInput">
 						<table>
 							<tr><td><label for="memId">아이디</label></td>
-								<td><input type="text" id="memId" name="memId" class="id" readonly>
+								<td><input type="text" id="memId" name="memId" class="id" value="${memId}" readonly required>
 								<span class="error-message" id="idError"></span></td></tr>
 							<tr><td><label for="memPwd">비밀번호</label></td>
-								<td><input type="password" id="memPwd" name="memPwd" class="text">
+								<td><input type="password" id="newMemPwd" name="memPwd" class="text">
 								<span class="error-message" id="pwError"></span></td></tr>
 							<tr><td><label for="pwcheck">비밀번호 확인</label></td>
 								<td><input type="password" id="pwcheck" name="pwcheck" class="text">
@@ -33,8 +35,8 @@
 						</table>
 					</div>
 				</div>
-				<div id="changePWsubmit">
-					<input type="submit" id="changePWBtn" class="changePWBtn" value="변경">
+				<div id="changePwdsubmit">
+					<input type="submit" id="changePwdBtn" class="changePwdBtn" value="변경">
 				</div>
 			</form>
 		</section>

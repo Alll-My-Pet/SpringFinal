@@ -11,6 +11,7 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/join.css'/>">
 		<script src="<c:url value='/js/member/joinPage.js'/>"></script>
 		<script src="<c:url value='/js/member/sendMail.js'/>"></script>
+		<script src="<c:url value='/js/member/checkNum.js'/>"></script>
 		<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 		<script src="<c:url value='/js/member/searchAddress.js'/> "></script>
 	</head>
@@ -78,15 +79,16 @@
                         		 </tr>
 								<tr>
 									<td><label for="memEmail">이메일</label></td>
-									<td><input type = "email" id="memEmail" name="memEmail" placeholder="이메일 주소 입력" class="email" required>
-										<input id="mailCheck" type="button" value="발송" onClick="sendNum()" class="checkBtn">
+									<td><input type="email" id="memEmail" name="memEmail" placeholder="이메일 주소 입력" class="email" required>
+										<input id="mailCheck" type="button" name="mailCheck" value="발송" onClick="sendNum()" class="checkBtn">
 										<span class="error-message" id="emailError"></span>
 									</td>
 								</tr>
 								<tr>
 									<td><label for="chnum">인증번호</label></td>
 									<td><input type="text" id="chnum" name="chnum" class="id" required>
-										<input id="numCheck" type="button" value="인증" onClick="checkNum()" class="checkBtn">
+										<input id="numCheck" type="button" name="numCheck" value="인증" onClick="checkNum()" class="checkBtn">
+										<input type="text" id="confirm" name="confirm" style="display: none" value="">
 										<span class="error-message" id="chnumError"></span>
 									</td>
 								</tr>

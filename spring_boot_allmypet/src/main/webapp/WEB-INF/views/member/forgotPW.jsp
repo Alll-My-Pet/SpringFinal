@@ -9,7 +9,6 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/member/forgot.css'/>">
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 		<script src="<c:url value='/js/member/findPwd.js'/>"></script>
-		<script src="<c:url value='/js/member/sendMail.js'/>"></script>
 	</head>
 	<body>
 		<section class="find">
@@ -26,12 +25,13 @@
 							<span class="error-message" id="idError"></span></td></tr>
 						<tr><td><label for="memEmail">이메일</label></td>
 							<td><input type="email" id="memEmail" name="memEmail" class="email" placeholder="이메일 입력" required>
-							<input id="mailCheck" type="button" value="발송" onClick="sendEmail()" class="checkBtn">
-							<span class="error-message" id="emailError"></span></td></tr>
+								<input id="mailCheck" type="button" value="발송" onClick="sendNum()" class="checkBtn">
+								<span class="error-message" id="emailError"></span></td></tr>
 						<tr><td><label for="chnum">인증번호</label></td>
 							<td><input type="text" id="chnum" name="chnum" class="id" required>
-							<input id="confirm" type="button" value="인증" onClick="confirmNumber()" class="checkBtn">
-							<span class="error-message" id="chnumError"></span></td></tr>
+								<input id="numCheck" type="button" name="numCheck" value="인증" onClick="checkNum()" class="checkBtn">
+								<input type="text" id="confirm" name="confirm" style="display: none" value="">
+								<span class="error-message" id="chnumError"></span></td></tr>
 					</table>
 					<div id="findSubmit">
 						<input type="submit" id="findBtn" class="findBtn" value="확인">

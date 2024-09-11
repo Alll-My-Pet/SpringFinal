@@ -21,4 +21,6 @@ public interface IMemberDAO {
 	public String findId(HashMap<String, Object> map);
 	// 비밀번호 찾기
 	public String findPwd(HashMap<String, Object> map);
+	// 비밀번호 변경
+    public void changePwd(MemberVO vo);
 }

@@ -3,11 +3,14 @@ package com.spring_boot_allmypet.project.controller.member;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.spring_boot_allmypet.project.model.member.MemberVO;
 import com.spring_boot_allmypet.project.service.member.MemberService;
 
 import jakarta.servlet.http.HttpSession;
@@ -66,4 +69,19 @@ public class MemberRestController {
        String memPwd = memService.findPwd(param);
        return memPwd;
    }
+	
+	// 비밀번호 변경
+    @RequestMapping(value = "/member/changePassword", method = RequestMethod.POST)
+    public String changePassword(@RequestParam HashMap<String, Object> param) {
+        // MemberVO 객체 생성 및 데이터 설정
+        MemberVO member = new MemberVO();
+        member.setMemId((String) param.get("memId"));
+        member.setMemPwd((String) param.get("newMemPwd")); // 새로운 비밀번호
+
+        // 비밀번호 변경 서비스 호출
+        memService.changePwd(member);
+
+        return "success"; // 비밀번호 변경 성공 시 응답
+    }
+    
 }

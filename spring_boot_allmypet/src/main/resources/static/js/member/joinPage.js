@@ -92,15 +92,21 @@
 		event.preventDefault();
 		let pwV = $('#memPwd').val();
 		let pwVC = $('#pwcheck').val();
+		let email = $('#email').val();
+		let inputNum = $('#chnum').val();
 		
 		if(idch == false){
 			alert("아이디 중복체크가 필요 합니다.")
 		}else if(pwV != pwVC){
 			alert("비밀번호가 같지 않습니다.")			
 		}else if(nickch == false){
-			alert("닉네임 중복체크가 필요 합니다.")		
+			alert("닉네임 중복체크가 필요 합니다.")
+        } else if (email == "") {
+            alert("이메일 주소를 입력해 주세요.");
+		} else if (inputNum == "") {
+            alert("인증번호를 입력해 주세요.");
 		}else{
-			
+			alert("회원 가입이 완료되었습니다.")
 			// 폼 제출
 			$('#joinForm').submit();
 		}
