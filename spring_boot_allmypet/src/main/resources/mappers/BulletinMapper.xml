@@ -62,7 +62,7 @@
 	<!-- 게시글 조회 -->
 	<select id="detailViewBoard" parameterType="int"
 		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
-		SELECT bb.*, m.memNickName, ph.headerName
+		SELECT bb.*, m.memNickName, ph.headerName, bb.postImg AS postImgBytes
 		FROM
 		bulletin_board bb
 		JOIN member m ON bb.memId = m.memId
@@ -83,11 +83,11 @@
 	<insert id="insertPost"
 		parameterType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
 		INSERT INTO bulletin_board (postTitle, memId, postDate,
-		postContent, headerNo, petCtgNo)
+		postContent, headerNo, petCtgNo, postImg)
 		VALUES (#{postTitle},
 		#{memId}, NOW(),
 		#{postContent},
-		#{headerNo}, #{petCtgNo})
+		#{headerNo}, #{petCtgNo}, #{postImgBytes})
 	</insert>
 
 </mapper>

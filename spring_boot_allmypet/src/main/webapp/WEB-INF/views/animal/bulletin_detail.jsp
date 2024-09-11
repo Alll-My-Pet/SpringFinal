@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@ page import="java.util.Base64"%>
+<%@ page
+	import="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO"%>
+<%@ page import="java.util.Arrays"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +19,10 @@
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/animal/bulletin_detail.js'/>"></script>
 <script>
-	const postNo = ${board.postNo}; // 게시글 번호
+	const postNo = $
+	{
+		board.postNo
+	}; // 게시글 번호
 </script>
 </head>
 <body>
@@ -50,13 +58,50 @@
 							<div class="postContent">
 								<pre id="bodText">${board.postContent}</pre>
 							</div>
+
+
+							<!-- 이미지 처리 -->
+							<%-- <div class="photoBox">
+								<label for="detailTitle">&nbsp;업로드한 사진: </label> <img
+									src="<c:url value='/displayImage?postNo=${board.postNo}'/>">
+							</div> --%>
+
 							<div class="photoBox">
-								<label for="detailTitle">&nbsp;업로드한 사진: 1장</label> <img
-									src="<c:url value='${board.postImg}'/>">
+								<label for="detailTitle">&nbsp;업로드한 사진: </label>
+								<%
+								    BulletinBoardVO board = (BulletinBoardVO) request.getAttribute("board");
+								    byte[] imageBytes = board.getPostImgBytes();
+								    String imageType = "image/jpeg"; // 기본값 설정
+								
+								    if (imageBytes != null && imageBytes.length > 0) {
+								        byte[] header = Arrays.copyOf(imageBytes, 4);
+								        
+								        // 이미지 포맷 확인
+								        if (header[0] == (byte) 0x89 && header[1] == (byte) 0x50) {
+								            imageType = "image/png"; // PNG
+								        } else if (header[0] == (byte) 0xFF && header[1] == (byte) 0xD8) {
+								            imageType = "image/jpeg"; // JPEG
+								        } else {
+								            // 기타 포맷 처리 필요 시 추가
+								            imageType = "image/jpeg"; // 기본값으로 설정
+								        }
+								
+								        // Base64 인코딩
+								        String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+								%>
+								<img src="data:<%= imageType %>;base64,<%= base64Image %>" alt="게시글 이미지" />
+								<%
+								    } else {
+								%>
+								<p>이미지가 없습니다.</p>
+								<%
+								    }
+								%>
 							</div>
 
+
 							<div class="reactionBox">
-							 	<!-- 로그인 후 -->
+								<!-- 로그인 후 -->
 								<c:if test="${not empty sessionScope.mid }">
 									<div class="like" id="likeButton">
 										<img src="/image/board/like-default.svg" alt="좋아요"

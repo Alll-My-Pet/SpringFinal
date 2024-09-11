@@ -44,7 +44,8 @@
 						<!-- <h1 id="mainWriteFont">게시글 작성</h1> -->
 
 						<form id="mainSubmitFrm" method="post"
-							action="<c:url value='/animal_home/${petCtgNo}/insertBoard'/>">
+							action="<c:url value='/animal_home/${petCtgNo}/insertBoard'/>"
+							enctype="multipart/form-data">
 							<div class="writeBox">
 								<div class="postInfo-box">
 									<div class="post-info">
