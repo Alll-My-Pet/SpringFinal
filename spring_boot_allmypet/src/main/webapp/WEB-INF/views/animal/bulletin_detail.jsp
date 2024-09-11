@@ -43,6 +43,9 @@
 								<div class="authorBox">
 									<label for="detailTitle">&nbsp;작성자:</label>&nbsp;<span
 										class="author">${board.memNickName}</span>
+										<span class="divider">|</span>
+										<img src="/image/board/view_gray.svg" alt="조회수"
+											class="view-icon"><span id="bodView">&nbsp;${board.postView}</span>
 								</div>
 							</div>
 							<div class="postContent">

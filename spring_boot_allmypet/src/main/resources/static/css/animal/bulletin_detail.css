@@ -141,6 +141,16 @@
 	align-items: center;
 }
 
+.divider {
+    display: inline-block;
+    margin: 0 8px;
+    color: #d6d6d6;
+}
+
+
+.view-icon {
+	width: 20px;
+}
 /* 게시글 내용: 길면 스크롤 생기게 */
 .postContent {
 	overflow: auto;
