@@ -18,6 +18,8 @@ public class WebConfig implements WebMvcConfigurer {
 		.addResourceLocations("file:///usr/local/allmypet/product_images/");
 		registry.addResourceHandler("/emoji_images/**")
 		.addResourceLocations("file:///usr/local/allmypet/emoji_images/");
+		registry.addResourceHandler("/member_images/**")
+		.addResourceLocations("file:///usr/local/allmypet/member_images/");
 
 	}
 }
