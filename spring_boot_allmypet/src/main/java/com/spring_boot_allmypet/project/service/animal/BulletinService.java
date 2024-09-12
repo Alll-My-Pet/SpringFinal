@@ -1,6 +1,8 @@
 package com.spring_boot_allmypet.project.service.animal;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,10 +17,22 @@ public class BulletinService implements IBulletinServcie {
 	@Qualifier("IBulletinDAO")
 	IBulletinDAO dao;
 
+	// animal_index.jsp에 붙을 전체게시판 미리보기
 	@Override
-	public ArrayList<BulletinBoardVO> getBulletinList(String petCtgNo) {
-		System.out.println("petctgno" + petCtgNo);
-		return dao.getBulletinList(petCtgNo);
+	public ArrayList<BulletinBoardVO> showBulletin(String petCtgNo) {
+		return dao.showBulletin(petCtgNo);
+	}
+
+	// 전체게시판 목록 가져오기
+	public ArrayList<BulletinBoardVO> getBulletinList(HashMap<String, Object> map) {
+		// 필터링 로직 추가 (예: headerNo가 null이 아닐 경우 필터링)
+		return dao.getBulletinList(map);
+	}
+
+	// 전체게시판 실시간 인기글
+	@Override
+	public ArrayList<BulletinBoardVO> hotList(String petCtgNo) {
+		return dao.hotList(petCtgNo);
 	}
 
 	@Override
@@ -26,11 +40,24 @@ public class BulletinService implements IBulletinServcie {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	// 게시글 상세보기
 	@Override
-	public void insertPost(BulletinBoardVO post) {
-		// TODO Auto-generated method stub
+	public BulletinBoardVO detailViewBoard(int postNo) {
+		return dao.detailViewBoard(postNo);
+	}
+	
+	// 좋아요 업데이트
+	@Override
+	public void updateLikeCount(int postNo, int postLike) {
+	    dao.updateLikeCount(postNo, postLike);
+	}
 
+	
+	// 게시글 등록
+	@Override
+	public void insertPost(BulletinBoardVO vo) {
+		dao.insertPost(vo);
 	}
 
 	@Override

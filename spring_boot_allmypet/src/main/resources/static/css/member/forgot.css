@@ -31,7 +31,7 @@
 	margin-top: 50px;
 }
 
-.findIDSubmit, .findPWSubmit {
+.findSubmit {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -62,6 +62,20 @@ input::placeholder {
 	font-style: italic;
 	font-size: 15px;
 	text-align: left;
+}
+
+input[type="text"]:active, 
+input[type="text"]:focus, 
+input[type="text"]:hover, 
+input[type="password"]:active, 
+input[type="password"]:focus, 
+input[type="password"]:hover,
+input[type="email"]:active, 
+input[type="email"]:focus, 
+input[type="email"]:hover {
+	outline: none;
+	border-bottom: 2px solid;
+	border-bottom-color: #000000;
 }
 
 .id, .text {
@@ -121,6 +135,7 @@ input::placeholder {
 	display: block;
 	margin: auto;
 	color: #fff;
+	font-size: 15px;
 	font-weight: bold;
 	background: #000000;
 	margin-top: 50px;

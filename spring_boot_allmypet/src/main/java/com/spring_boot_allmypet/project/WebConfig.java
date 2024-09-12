@@ -14,12 +14,13 @@ public class WebConfig implements WebMvcConfigurer {
 		// 맵핑 이름 : project_images
 		registry.addResourceHandler("/project_images/**")
 		.addResourceLocations("file:///" + projectRootPath + "/src/main/webapp/uploads/");
-		
+
 		registry.addResourceHandler("/prd_images/**")
 		.addResourceLocations("file:///usr/local/allmypet/product_images/");
-		
-		registry.addResourceHandler("/emoji_imgs/**")
-		.addResourceLocations("file:///usr/local/allmypet/emoji_imgs/");
+		registry.addResourceHandler("/emoji_images/**")
+		.addResourceLocations("file:///usr/local/allmypet/emoji_images/");
+		registry.addResourceHandler("/member_images/**")
+		.addResourceLocations("file:///usr/local/allmypet/member_images/");
 
 	}
 }

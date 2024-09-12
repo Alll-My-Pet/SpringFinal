@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,14 +27,16 @@
 					<br> <br>
 					<div class="pageInfo">
 						<div class="bracket">
-							<img src="/image/index/bracket-light-left.svg" class="bLeft" alt="..." style="height: 128px;">
+							<img src="/image/index/bracket-light-left.svg" class="bLeft"
+								alt="..." style="height: 128px;">
 						</div>
 						<div class="page-title">
 							<div class="titleInfo">&nbsp;공지/이벤트</div>
 							<span class="ctgTitle">공지사항</span>
 						</div>
 						<div class="bracket">
-							<img src="/image/index/bracket-light-right.svg" class="bRight" alt="..." style="height: 128px;">
+							<img src="/image/index/bracket-light-right.svg" class="bRight"
+								alt="..." style="height: 128px;">
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
@@ -54,7 +57,7 @@
 									<td colspan="5"
 										style="height: 3px; background-color: transparent;"></td>
 								</tr>
-								<tr>
+								<!-- <tr>
 									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
 									<td>작성자1</td>
 									<td>2017.07.13</td>
@@ -63,48 +66,21 @@
 								</tr>
 								<td colspan="5">
 									<div class="separator"></div>
-								</td>
+								</td> -->
 
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
-								<tr>
-									<td><a href="#">[공지사항] 개인정보 처리방침 변경안내처리방침</a></td>
-									<td>작성자1</td>
-									<td>2017.07.13</td>
-									<td>300</td>
-									<td>100</td>
-								</tr>
-								<td colspan="5">
-									<div class="separator"></div>
-								</td>
+								<c:forEach var="notice" items="${noticeList }">
+									<tr>
+										<td><a href="#">${notice.postTitle}</a></td>
+										<td>${notice.memNickName}</td>
+										<td><fmt:formatDate value="${notice.postDate}"
+												pattern="M/dd HH:mm" /></td>
+										<td>${notice.postView}</td>
+										<td>${notice.postLike}</td>
+									</tr>
+									<td colspan="5">
+										<div class="separator"></div>
+									</td>
+								</c:forEach>
 							</tbody>
 						</table>
 					</div>
