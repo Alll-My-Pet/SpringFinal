@@ -2,6 +2,7 @@ package com.spring_boot_allmypet.project.service.market;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring_boot_allmypet.project.dao.market.IProductDAO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.market.ReviewVO;
 
 
 @Service
@@ -68,6 +70,11 @@ public class ProductService implements IProductService {
 	
 	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, String prdCtgNo, int startRange, int endRange) {
         return dao.listProductsByCtg(petCtgNo, prdCtgNo, startRange, endRange);
+    }
+	
+	 @Override
+    public List<ReviewVO> getReviewsByProductNo(String prdNo) {
+        return dao.getReviewsByProductNo(prdNo);
     }
 	
 }

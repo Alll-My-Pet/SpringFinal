@@ -109,5 +109,19 @@ public class OrderService implements IOrderService {
         dao.deleteUserCoupon(params);
     }
     
+	public void deleteOrderInfo(int ordNo) {
+	    dao.deleteOrderInfo(ordNo);
+	}
 
+	public void deleteOrderProduct(int ordNo) {
+		 dao.deleteOrderProduct(ordNo);
+	}
+
+	public List<OrderCancelVO> getOrderCancel(String memId) {
+		return dao.getOrderCancel(memId);
+	}
+	
+	public OrderInfoVO getOrderInfo(int ordNo) {
+		return dao.getOrderInfo(ordNo);
+	}
 }

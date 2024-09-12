@@ -73,14 +73,16 @@ a {
 .order_image {
     height: 100px;
     width: 80px;
+    margin: 10px;
 }
 
 
 
 .product-info {
-	font-size : 22px;
-    margin-bottom: 10px;
+	font-size : 18px;
+    margin-top: 15px;
     display: flex;
+    border-top: 1px solid #eee;
 }
 
 

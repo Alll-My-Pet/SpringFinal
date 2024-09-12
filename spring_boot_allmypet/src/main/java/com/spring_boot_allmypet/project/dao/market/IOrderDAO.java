@@ -34,5 +34,8 @@ public interface IOrderDAO {
     public List<MemberPointVO> getPointInfo(String memId);
     public void insertPointChange(MemberPointVO point);
     public void deleteUserCoupon(Map<String, Object> params);
-    
+	public void deleteOrderInfo(int ordNo);
+	public void deleteOrderProduct(int ordNo);
+	public List<OrderCancelVO> getOrderCancel(String memId);
+	public OrderInfoVO getOrderInfo(int ordNo);
 }

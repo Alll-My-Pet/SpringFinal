@@ -8,14 +8,18 @@
 <meta charset="UTF-8">
 <title>주문/결제</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/market/order.css'/>" />
-<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/market/order.js'/>"></script>
+<script src="<c:url value='/js/market/jquery-3.7.1.min.js'/>"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+const ptotal = ${ptotal};  // JSP에서 포인트 최대값 설정
+const total = ${total};   // JSP에서 총 결제 금액 설정
+</script>
+<script src="<c:url value='/js/market/order.js'/>"></script>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
 	<section class="order">
-	<form action="<c:url value='/market/order/completeInstantOrder'/>" method="post" onsubmit="return combine()">
+	<form action="<c:url value='/market/order/completeInstantOrder'/>" method="post">
 	<table class="order_info">
     <colgroup>
         <col style="width: 20%;">
@@ -145,24 +149,32 @@
         </thead>
         <tbody>
             <tr>
-                <td>쿠폰할인</td>
-                <td>
-                    <div class=order_Pirce>0원<button>쿠폰적용</button></div>
-                </td>
-            </tr>
+			    <td>쿠폰할인</td>
+			    <td>
+			        <div class="order_Price">
+			            <span id="couponDiscount">0원</span>
+			            <button type="button" onclick="openCouponPopup()">쿠폰적용</button>
+			        </div>
+			        <!-- 쿠폰 ID를 저장할 숨김 필드 추가 -->
+			        <input type="hidden" id="selectedCouponId" name="couponId" value="">
+			    </td>
+			</tr>
             <tr>
                 <td>포인트</td>
                 <td>
-                    <div class=order_Pirce>0원<button>포인트사용</button></div>
+                    <c:set var="ptotal" value="0" />
+                    <c:forEach items="${point}" var="p">
+                        <c:set var="ptotal" value="${ptotal + p.point_change}" />
+                    </c:forEach>
+				    
+					<div class="point">
+					    사용할 포인트:
+					    <input type="number" id="points" name="points" min="0" max="${ptotal}" value="0" oninput="updateDiscount()" onfocus="showMaxPoints()" onkeydown="preventEnter(event)" required />
+					    <div id="maxPointsMessage" style="color: gray; display: none;"></div>
+					</div>
                 </td>
             </tr>
         </tbody>
-        <tfooter>
-            <tr>
-                <td>적용금액</td>
-                <td><div class=order_Pirce>-0원</div></td>
-            </tr>
-            </tfooter>
 		</table>
 		<br>
 		
@@ -180,7 +192,7 @@
             <tr>
                 <td>주문상품</td>
                 <td>
-                    <div class=order_Pirce>
+                    <div class=order_Price>
                     <fmt:formatNumber value= "${total}" pattern="#,###" />원
                     </div>
                 </td>
@@ -188,29 +200,31 @@
             <tr>
                 <td>배송비</td>
                 <td>
-                    <div class=order_Pirce>0원</div>
+                    <div class=order_Price>0원</div>
                 </td>
             </tr>
         </tbody>
         <tfooter>
             <tr>
                 <td>할인금액</td>
-                <td><div class=order_Pirce>-0원</div></td>
+                <td>
+                	<div class="order_Price" id="discountAmount"></div>
+                </td>
             </tr>
              <tr>
                 <td>적립 포인트</td>
-                <td><div class=order_Pirce>
+                <td><div class="order_Price">
 					+<fmt:formatNumber value= "${total*0.02}" pattern="#,###" />p
 				</div></td>
             </tr>
             <tr>
-                <td>총 결제금액</td>
-                <td>
-                <div class=order_Pirce>
-					<fmt:formatNumber value= "${total}" pattern="#,###" />원
-					<input type="hidden" name="ordPrice" value="${total}">
-				</div>
-				</td>
+                <td>결제금액</td>
+	            <td>
+	                <div class="order_Price" id="finalAmount">
+	                    <fmt:formatNumber value="${total}" pattern="#,###" />원
+	                </div>
+	                <input type="hidden" name="ordPrice" id="ordPrice" value="${total}">
+	            </td>
             </tr>
             </tfooter>
 		</table>
@@ -264,13 +278,14 @@
                 가상계좌
             </td>
         </tr>
+       
     </tbody>
 </table>
 	<br>
 	<br>
 	<div>
-		<button class="paument_button" type="submit">
-			<p><fmt:formatNumber value= "${total}" pattern="#,###" />원 결제하기</p>
+		<button class="paument_button" type="submit" >
+			<p>결제하기</p>
 		</button>
 	</div>
 		</form>

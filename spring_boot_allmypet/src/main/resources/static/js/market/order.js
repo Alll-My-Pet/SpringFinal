@@ -1,109 +1,211 @@
-$(document).ready(function() {
-	var memEmail = "<%= memVo.getMemEmail() != null ? memVo.getMemEmail() : "" %>";
+// 서버에서 전달된 값 (서버 사이드에서 ${ptotal}과 ${total}을 변수로 제공해야 합니다)
+const ptotal = 0;  // 초기값, 서버 사이드에서 설정됨
+const total = 0;   // 초기값, 서버 사이드에서 설정됨
+let discountValue = 0;   // 할인 금액 초기화
 
-    // 이메일 값이 존재하면 @ 기준으로 분리하여 각 input에 값 입력
-    if (memEmail) {
-        var emailParts = memEmail.split("@");
-        if (emailParts.length === 2) {
-            document.getElementById('emailUser').value = emailParts[0];
-            document.getElementById('emailDomain').value = emailParts[1];
-        }
+// 포인트 입력 시 총 결제 금액 업데이트
+function updateDiscount() {
+    const points = document.getElementById('points').value;  // 입력된 포인트 값
+
+    // 포인트가 유효한 범위인지 확인
+    if (points >= 1 && points <= ptotal) {
+        discountValue = points;  // 유효하면 포인트로 할인 금액 설정
+        document.querySelector('.order_Price button').disabled = true;  // 쿠폰 적용 버튼 비활성화
+    } else {
+        discountValue = 0;  // 유효하지 않으면 할인 금액 0으로 설정
+        document.querySelector('.order_Price button').disabled = false;  // 쿠폰 적용 버튼 활성화
     }
 
+    // 할인 금액을 HTML에 업데이트
+    document.getElementById('discountAmount').innerText = "-" + discountValue + "원";
 
-    // Daum 주소 API 통합
-    function sample4_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+    // 총 결제 금액 업데이트 (total에서 discountValue를 뺌)
+    const finalAmount = total - discountValue;
 
-                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var roadAddr = data.roadAddress; // 도로명 주소 변수
-                var extraRoadAddr = ''; // 참고 항목 변수
+    // 최종 금액을 HTML에 업데이트
+    document.getElementById('finalAmount').innerText = finalAmount.toLocaleString() + "원";
+    document.getElementById('ordPrice').value = finalAmount;  // hidden input 값도 업데이트
+}
 
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
-                }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
+// 포인트 입력칸을 클릭할 때 최대 사용 가능한 포인트 메시지를 표시
+function showMaxPoints() {
+    const messageDiv = document.getElementById('maxPointsMessage');
+    messageDiv.innerText = `최대 ${ptotal}포인트`;  // 메시지 표시
+    messageDiv.style.display = 'block';  // 메시지 표시
+}
 
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode;
-                document.getElementById("sample4_roadAddress").value = roadAddr;
-                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+// 쿠폰 팝업 열기
+function openCouponPopup() {
+    window.open('/market/couponUI', 'couponPopup', 'width=600,height=600');
+}
 
-                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                if(roadAddr !== ''){
-                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-                } else {
-                    document.getElementById("sample4_extraAddress").value = '';
-                }
+// 쿠폰 선택 시 호출되는 함수
+function applyCoupon(discountRate, couponId) {
+    // 할인 비율을 계산하고 쿠폰 ID를 hidden 필드에 저장
+    let discountAmount = total * (discountRate / 100);  // 할인 금액 계산
+    discountValue = discountAmount;  // 할인 금액 업데이트
 
-                var guideTextBox = document.getElementById("guide");
-                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-                if(data.autoRoadAddress) {
-                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                    guideTextBox.style.display = 'block';
+    // 쿠폰 할인 적용 UI 업데이트
+    document.getElementById('couponDiscount').innerText = discountRate + "% 할인 적용";
+    document.getElementById('discountAmount').innerText = "- " + discountAmount.toLocaleString() + "원";
 
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                    guideTextBox.style.display = 'block';
-                } else {
-                    guideTextBox.innerHTML = '';
-                    guideTextBox.style.display = 'none';
-                }
+    // 총 결제 금액 업데이트
+    const finalAmount = total - discountValue;
+    document.getElementById('finalAmount').innerText = finalAmount.toLocaleString() + "원";
+    document.getElementById('ordPrice').value = finalAmount;  // hidden input 값도 업데이트
+
+    // 선택한 쿠폰 ID를 hidden 필드에 저장
+    document.getElementById('selectedCouponId').value = couponId;
+
+    // 포인트 입력 비활성화
+    document.getElementById('points').disabled = true;
+
+    // 디버깅 로그
+    console.log(`Coupon applied with discount rate: ${discountRate}%, coupon ID: ${couponId}`);
+}
+
+// Daum 주소 API 호출
+function sample4_execDaumPostcode() {
+    new daum.Postcode({
+        oncomplete: function(data) {
+            let roadAddr = data.roadAddress; // 도로명 주소
+            let extraRoadAddr = ''; // 참고 항목
+
+            // 법정동명 추가
+            if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                extraRoadAddr += data.bname;
             }
-        }).open();
+
+            if (data.buildingName !== '' && data.apartment === 'Y') {
+                extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+
+            if (extraRoadAddr !== '') {
+                extraRoadAddr = ` (${extraRoadAddr})`;
+            }
+
+            document.getElementById('sample4_postcode').value = data.zonecode; // 우편번호
+            document.getElementById("sample4_roadAddress").value = roadAddr; // 도로명 주소
+            document.getElementById("sample4_jibunAddress").value = data.jibunAddress; // 지번 주소
+
+            if (roadAddr !== '') {
+                document.getElementById("sample4_extraAddress").value = extraRoadAddr; // 참고 항목
+            } else {
+                document.getElementById("sample4_extraAddress").value = '';
+            }
+
+            let guideTextBox = document.getElementById("guide");
+            if (data.autoRoadAddress) {
+                let expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                guideTextBox.innerHTML = `(예상 도로명 주소: ${expRoadAddr})`;
+                guideTextBox.style.display = 'block';
+            } else if (data.autoJibunAddress) {
+                let expJibunAddr = data.autoJibunAddress;
+                guideTextBox.innerHTML = `(예상 지번 주소: ${expJibunAddr})`;
+                guideTextBox.style.display = 'block';
+            } else {
+                guideTextBox.innerHTML = '';
+                guideTextBox.style.display = 'none';
+            }
+        }
+    }).open();
+}
+
+// 폼 제출 시 호출되는 함수
+function combine() {
+    const phone1 = document.getElementById('phone1').value;
+    const phone2 = document.getElementById('phone2').value;
+    const phone3 = document.getElementById('phone3').value;
+    
+    const address1 = document.getElementById("sample4_roadAddress").value;
+    const address2 = document.getElementById("sample4_detailAddress").value;
+    const address3 = document.getElementById("sample4_extraAddress").value;
+
+    // 세 개의 전화번호 입력값을 하나로 결합
+    const fullPhoneNumber = phone1 + '-' + phone2 + '-' + phone3;
+    const fullAddress = address1 + " " + address2 + " " + address3;
+
+    // hidden input 필드에 결합된 전화번호 및 주소 설정
+    document.getElementById('ordHP').value = fullPhoneNumber;
+    document.getElementById('ordAddress').value = fullAddress;
+
+    // 유효성 검사
+    const ordReceiver = document.querySelector('input[name="ordReceiver"]').value.trim();
+    const ordPrice = document.getElementById('ordPrice').value.trim();
+    const ordPay = document.querySelectorAll('input[name="ordPay"]:checked').length > 0;
+
+    let errorMessage = '';
+    if (ordReceiver === '') {
+        errorMessage += '받는사람을 입력해주세요.\n';
+    }
+    if (fullPhoneNumber.trim() === '') {
+        errorMessage += '전화번호를 입력해주세요.\n';
+    }
+    if (fullAddress.trim() === '') {
+        errorMessage += '주소를 입력해주세요.\n';
+    }
+    if (ordPrice === '') {
+        errorMessage += '결제금액을 입력해주세요.\n';
+    }
+    if (!ordPay) {
+        errorMessage += '결제수단을 선택해주세요.\n';
     }
 
-    // 주소 검색 버튼 클릭 시 Daum API 호출
-    $('#addressSearchButton').on('click', function() {
-        sample4_execDaumPostcode();
-    });
-    
-    function combine() {
-        var phone1 = document.getElementById("phone1").value;
-        var phone2 = document.getElementById("phone2").value;
-        var phone3 = document.getElementById("phone3").value;
-        var ordHP = phone1 + "-" + phone2 + "-" + phone3;
-
-        var address1 = document.getElementById("sample4_roadAddress").value;
-        var address2 = document.getElementById("sample4_detailAddress").value;
-        var address3 = document.getElementById("sample4_extraAddress").value;
-        var ordAddress = address1 + " " + address2 + " " + address3;
-
-        // 최종 값 확인
-        console.log("ordHP:", ordHP);
-        console.log("ordAddress:", ordAddress);
-
-        document.getElementById("ordHP").value = ordHP;
-        document.getElementById("ordAddress").value = ordAddress;
-        return true; // 폼이 정상적으로 제출되도록 true 반환
+    // 유효성 검사가 실패하면 오류 메시지 출력
+    if (errorMessage) {
+        alert(errorMessage);
+        return false; // 폼 제출 방지
     }
 
-    // `combine` 함수가 폼 제출 전에 실행되도록 설정
-    $("form").on("submit", function(event) {
-        return combine(); // combine이 true를 반환해야 폼이 제출됨
-    });
-    
-    function openPointPopup() {
-	    var memId = "<%= memVo.getMemId() %>";
-	    var url = "/market/order/pointPopup?memId=" + memId;
-	    window.open(url, "포인트 사용", "width=400, height=300");
-	}
+    // 유효성 검사가 통과하면 폼 제출
+    return true;
+}
 
-	function applyUsedPoints(usePoints) {
-	    document.getElementById('usedPoint').innerText = usePoints + "원";
-	}
+// 엔터키가 눌렸을 때 폼이 제출되지 않도록 하는 함수
+function preventEnter(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // 기본 동작(폼 제출) 막기
+    }
+}
+
+// 페이지 로드 후 실행
+$(document).ready(function() {
+    // 폼 입력 필드에서 엔터키 방지
+    $('#orderForm').on('keydown', preventEnter);
+
+    // 페이지 로드 시 최대 포인트 메시지 표시
+    showMaxPoints();
+
+    // 폼 제출 버튼 클릭 시 호출되는 함수
+    $('#orderCompleteButton').on('click', function(event) {
+        event.preventDefault(); // 기본 폼 제출 방지
+
+
+        // 폼을 직접 제출할 경우를 대비하여 유효성 검사
+        const pointsValue = document.getElementById('points').value;
+        const couponId = document.getElementById('selectedCouponId').value;
+
+        // 포인트와 쿠폰 모두 사용하지 않는 경우에도 제출
+        if (pointsValue === "" && couponId === "") {
+            document.getElementById('orderForm').submit(); // 폼 제출
+        } else {
+            // 포인트 또는 쿠폰 사용 시 서버에 필요한 추가 작업
+            // 예를 들어, AJAX를 통해 서버에 데이터를 전송할 수 있습니다.
+
+            // 여기서 AJAX 호출 예시
+            $.ajax({
+                url: '/market/orderComplete', // 서버의 주문 처리 URL
+                type: 'POST',
+                data: $('#orderForm').serialize(), // 폼 데이터 직렬화
+                success: function(response) {
+                    // 주문 완료 후의 처리 (예: 성공 메시지 표시)
+                    alert('주문이 완료되었습니다.');
+                },
+                error: function(error) {
+                    // 에러 처리
+                    alert('주문 처리 중 오류가 발생했습니다.');
+                }
+            });
+        }
+    });
 });

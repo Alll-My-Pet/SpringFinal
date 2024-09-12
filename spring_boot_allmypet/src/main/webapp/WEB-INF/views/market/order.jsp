@@ -8,9 +8,13 @@
 <meta charset="UTF-8">
 <title>주문/결제</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/market/order.css'/>" />
-<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/market/order.js'/>"></script>
+<script src="<c:url value='/js/market/jquery-3.7.1.min.js'/>"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+const ptotal = ${ptotal};  // JSP에서 포인트 최대값 설정
+const total = ${total};   // JSP에서 총 결제 금액 설정
+</script>
+<script src="<c:url value='/js/market/order.js'/>"></script>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -168,10 +172,10 @@
                     </c:forEach>
 				    
 					<div class="point">
-                    사용할 포인트:
-	                    <input type="number" id="points" name="points" min="1" max="${ptotal}" oninput="updateDiscount()" onfocus="showMaxPoints()" onkeydown="preventEnter(event)" required />
-	                    <div id="maxPointsMessage" style="color: gray; display: none;"></div>
-	                </div>
+					    사용할 포인트:
+					    <input type="number" id="points" name="points" min="0" max="${ptotal}" value="0" oninput="updateDiscount()" onfocus="showMaxPoints()" onkeydown="preventEnter(event)" required />
+					    <div id="maxPointsMessage" style="color: gray; display: none;"></div>
+					</div>
                 </td>
             </tr>
         </tbody>
@@ -278,6 +282,7 @@
                 가상계좌
             </td>
         </tr>
+       
     </tbody>
 </table>
 	<br>
@@ -291,160 +296,4 @@
 	</section>
 <c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>
 </body>
-<script>
-const ptotal = ${ptotal};  // 최대 사용할 수 있는 포인트
-const total = ${total};  // 서버에서 전달된 총 결제 금액 (기본값)
-let discountValue = 0;   // 할인 금액 초기화
-
-
-
-
-//포인트 입력 시 총 결제 금액 업데이트
-function updateDiscount() {
-    const points = document.getElementById('points').value;  // 입력된 포인트 값
-
-    // 포인트가 유효한 범위인지 확인
-    if (points >= 1 && points <= ${ptotal}) {
-        discountValue = points;  // 유효하면 포인트로 할인 금액 설정
-    } else {
-        discountValue = 0;  // 유효하지 않으면 할인 금액 0으로 설정
-    }
-
-    // 할인 금액을 HTML에 업데이트
-    document.getElementById('discountAmount').innerText = "-"+discountValue+"원";
-
-    
-    // 총 결제 금액을 업데이트 (total에서 discountValue를 뺌)
-    const finalAmount = total - discountValue;
-
-    // 최종 금액을 HTML에 업데이트
-    document.getElementById('finalAmount').innerText = finalAmount.toLocaleString() + "원";
-    document.getElementById('ordPrice').value = finalAmount;  // hidden input 값도 업데이트
-}
-
-// 포인트 입력칸을 클릭할 때 최대 사용 가능한 포인트 메시지를 표시
-function showMaxPoints() {
-    const maxPoints = ${ptotal};  // 최대 사용 가능한 포인트 값
-    const messageDiv = document.getElementById('maxPointsMessage');
-    
-    // 메시지 표시
-    messageDiv.innerText = `최대 ${ptotal}포인트`;
-    messageDiv.style.display = 'block';  // 메시지 표시
-}
-
-//페이지 로드 시 최대 포인트 표시
-window.onload = function() {
-    showMaxPoints();
-};
-
-
-// 엔터키 입력 방지
-function preventEnter(event) {
-    if (event.key === 'Enter') {
-        event.preventDefault();  // 기본 동작(폼 제출)을 막음
-    }
-}
-
-$(document).ready(function() {
-    function sample4_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                var roadAddr = data.roadAddress; // 도로명 주소
-                var extraRoadAddr = ''; // 참고 항목
-
-                // 법정동명 추가
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
-                }
-
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                    extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
-
-                document.getElementById('sample4_postcode').value = data.zonecode; // 우편번호
-                document.getElementById("sample4_roadAddress").value = roadAddr; // 도로명 주소
-                document.getElementById("sample4_jibunAddress").value = data.jibunAddress; // 지번 주소
-
-                if(roadAddr !== ''){
-                    document.getElementById("sample4_extraAddress").value = extraRoadAddr; // 참고 항목
-                } else {
-                    document.getElementById("sample4_extraAddress").value = '';
-                }
-
-                var guideTextBox = document.getElementById("guide");
-                if(data.autoRoadAddress) {
-                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                    guideTextBox.style.display = 'block';
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                    guideTextBox.style.display = 'block';
-                } else {
-                    guideTextBox.innerHTML = '';
-                    guideTextBox.style.display = 'none';
-                }
-            }
-        }).open();
-    }
-
-    // 주소 검색 버튼 클릭 시 Daum API 호출
-    $('#addressSearchButton').on('click', function() {
-        sample4_execDaumPostcode();
-    });
-    
-});
-function openCouponPopup() {
-    // 팝업 창을 열어 쿠폰 UI를 표시
-    window.open('/market/couponUI', 'couponPopup', 'width=600,height=600');
-}
-
-//쿠폰 선택 시 호출되는 함수
-function applyCoupon(discountRate, couponId) {
-    // 할인 비율을 계산하고 쿠폰 ID를 hidden 필드에 저장
-    let discountAmount = total * (discountRate / 100); // 할인 금액 계산
-    discountValue = discountAmount;  // 포인트와 동일한 변수에 저장
-
-    // 쿠폰 할인 적용 UI 업데이트
-    document.getElementById('couponDiscount').innerText = discountRate + "% 할인 적용";
-    document.getElementById('discountAmount').innerText = "- " + discountAmount.toLocaleString() + "원";
-
-    // 총 결제 금액 업데이트
-    const finalAmount = total - discountValue;
-    document.getElementById('finalAmount').innerText = finalAmount.toLocaleString() + "원";
-    document.getElementById('ordPrice').value = finalAmount;  // hidden input 값도 업데이트
-
-    // 선택한 쿠폰 ID를 hidden 필드에 저장
-    document.getElementById('selectedCouponId').value = couponId;
-
-    // 포인트 입력 비활성화
-    document.getElementById('points').disabled = true;
-
-    // 디버깅 로그 추가
-    console.log("Coupon applied with discount rate: " + discountRate + "%, coupon ID: " + couponId);
-}
-
-
-function updateDiscount() {
-    const points = document.getElementById('points').value;  // 입력된 포인트 값
-
-    // 포인트가 입력되면 쿠폰 적용 버튼 비활성화
-    if (points >= 1 && points <= ${ptotal}) {
-        discountValue = points;  // 유효하면 포인트로 할인 금액 설정
-        document.querySelector('.order_Price button').disabled = true;  // 쿠폰 적용 버튼 비활성화
-    } else {
-        discountValue = 0;  // 유효하지 않으면 할인 금액 0으로 설정
-        document.querySelector('.order_Price button').disabled = false;  // 쿠폰 적용 버튼 활성화
-    }
-
-    document.getElementById('discountAmount').innerText = "-" + discountValue + "원";
-    const finalAmount = total - discountValue;
-    document.getElementById('finalAmount').innerText = finalAmount.toLocaleString() + "원";
-    document.getElementById('ordPrice').value = finalAmount;
-}
-</script>
 </html>

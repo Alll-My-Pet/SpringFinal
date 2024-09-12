@@ -121,7 +121,7 @@
 		
         
         <div class="cart__mainbtns">
-            <button class="cart__bigorderbtn left" onclick="location.href='<c:url value='/market/home'/>'">쇼핑 계속하기</button>
+            <button class="cart__bigorderbtn left" type="button" onclick="continueShopping()">쇼핑 계속하기</button>
             <button class="cart__bigorderbtn right" type="submit">주문하기</button>
         </div>
         </form>

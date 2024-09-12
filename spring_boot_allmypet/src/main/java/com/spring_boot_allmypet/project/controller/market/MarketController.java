@@ -32,6 +32,7 @@ import com.spring_boot_allmypet.project.model.market.CartVO;
 import com.spring_boot_allmypet.project.model.market.MemberVO;
 import com.spring_boot_allmypet.project.model.market.OrderCancelVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.market.ReviewVO;
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.service.market.CartService;
 
@@ -79,21 +80,23 @@ public class MarketController {
     }
 	
 	// 상품 상세
-	@RequestMapping("/market/product/detail/{prdNo}")
-	public String product_detail(@PathVariable String prdNo, Model model,  HttpSession session) {
-		String memId = (String) session.getAttribute("mid");
-		System.out.println("Session memId = " + memId); // 디버그 용도
-		    
-		System.out.println("prdNo = " + prdNo);
-		
-		MemberVO memVo = orderService.getMemberInfo(memId); 
-	    ProductVO prd = prdService.detailViewProduct(prdNo);
-	    
-	    model.addAttribute("memVo", memVo); 
-	    model.addAttribute("prd", prd);
-	    
-	    return "market/product_detail";
-	}
+    @RequestMapping("/market/product/detail/{prdNo}")
+    public String productDetail(@PathVariable String prdNo, Model model, HttpSession session) {
+        String memId = (String) session.getAttribute("mid");
+        System.out.println("Session memId = " + memId); // 디버그 용도
+            
+        System.out.println("prdNo = " + prdNo);
+        
+        MemberVO memVo = orderService.getMemberInfo(memId); 
+        ProductVO prd = prdService.detailViewProduct(prdNo);
+        List<ReviewVO> reviews = prdService.getReviewsByProductNo(prdNo); // 리뷰 목록 조회
+        
+        model.addAttribute("memVo", memVo); 
+        model.addAttribute("prd", prd);
+        model.addAttribute("reviews", reviews); // 리뷰 목록 추가
+        
+        return "market/product_detail";
+    }
     
     
 	// 장바구니 추가
@@ -209,7 +212,7 @@ public class MarketController {
 		return "market/order";
 	}
 	
-	// 
+	// 주문 정보 전달
 	@RequestMapping(value = "/market/order/complete", method = RequestMethod.POST)
 	public String orderComplete(OrderInfoVO orderInfo, HttpSession session,
 	                            @RequestParam("prdNo") List<String> prdNos,
@@ -272,52 +275,57 @@ public class MarketController {
 	public String completeInstantOrder(OrderInfoVO orderInfo, HttpSession session,
 							            @RequestParam("prdNo") List<String> prdNos,
 							            @RequestParam("ordQty") List<Integer> ordQtys,
-							            @RequestParam(value = "pointsUsed", required = false, defaultValue = "0") int pointsUsed) {
-		String memId = (String) session.getAttribute("mid");
-		orderInfo.setMemId(memId);
-		
-		// 기본 주문 정보 설정
-		orderInfo.setOrdDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-		orderInfo.setOrdState(false); // 초기 상태 설정
-		
-		// 1. order_info 저장
-		orderService.insertOrderInfo(orderInfo);
-		
-		// 2. order_product 저장
-		int ordNo = orderService.getLastOrderNoByMemId(memId); // 방금 저장된 주문 번호 가져오기
-		for (int i = 0; i < prdNos.size(); i++) {
+							            @RequestParam(value = "points", required = false, defaultValue = "0") int points,
+							            @RequestParam(value = "couponId", required = false) Integer couponId) { // 추가된 couponId 파라미터
+			String memId = (String) session.getAttribute("mid");
+			orderInfo.setMemId(memId);
+			
+			// 기본 주문 정보 설정
+			orderInfo.setOrdDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+			orderInfo.setOrdState(false); // 초기 상태 설정
+			
+			// 1. order_info 저장
+			orderService.insertOrderInfo(orderInfo);
+			
+			// 2. order_product 저장
+			int ordNo = orderService.getLastOrderNoByMemId(memId); // 방금 저장된 주문 번호 가져오기
+			for (int i = 0; i < prdNos.size(); i++) {
 			OrderProductVO orderProduct = new OrderProductVO();
 			orderProduct.setOrdNo(ordNo);
 			orderProduct.setPrdNo(prdNos.get(i));
 			orderProduct.setOrdQty(ordQtys.get(i));
 			
 			orderService.insertOrderProduct(orderProduct);
-		}
-		
-		// 3. 주문된 품목을 장바구니에서 삭제
-		for (String prdNo : prdNos) {
+			}
+			
+			// 3. 주문된 품목을 장바구니에서 삭제
+			for (String prdNo : prdNos) {
 			cartService.deleteCartItem(memId, prdNo);
-		}
-		
-		// 4. 포인트 사용 처리 (통합된 부분)
-		if (pointsUsed > 0) {
+			}
+			
+			// 4. 포인트 사용 처리
+			if (points > 0) {
 			List<MemberPointVO> pointList = orderService.getPointInfo(memId);
 			int totalPoints = pointList.stream().mapToInt(MemberPointVO::getPoint_change).sum();
 			
-			if (pointsUsed <= totalPoints) {
+			if (points <= totalPoints) {
 			MemberPointVO pointChange = new MemberPointVO();
 			pointChange.setMemId(memId);
-			pointChange.setPoint_change(-pointsUsed);
-			pointChange.setReason("주문에 사용");
+			pointChange.setPoint_change(-points);
+			pointChange.setReason("상품 구매");
 			orderService.insertPointChange(pointChange);
 			} else {
-			// 포인트 부족 시 처리
 			return "redirect:/market/order?error=invalid_points";
 			}
-		}
-		
-		return "redirect:/market/order_summary";  // 주문 요약 페이지로 리다이렉트
-		}
+			}
+			
+			// 5. 쿠폰 사용 처리
+			if (couponId != null) {
+			orderService.deleteUserCoupon(memId, couponId); // 쿠폰 삭제
+			}
+			
+			return "redirect:/market/order_summary";  // 주문 요약 페이지로 리다이렉트
+	}
 	
 	//주문완료
 	@RequestMapping("/market/order_summary")
@@ -378,25 +386,73 @@ public class MarketController {
 	}
 	
 	// 주문 취소 페이지로 이동
-	@RequestMapping("/market/cancel/{ordNo}/{prdNo}")
-    public String orderCancel(@PathVariable int ordNo, @PathVariable String prdNo, Model model) {
-        // 1. 해당 주문 상품 정보 조회
-        OrderProductVO orderProduct = orderService.getOrderProductForCancel(ordNo, prdNo);
-        
-        // 2. 해당 상품의 추가적인 정보 조회 (product 테이블에서 prdNo로 조회)
-        ProductVO product = orderService.getProductInfo(prdNo);
+	@RequestMapping("/market/cancel/{ordNo}")
+	public String orderCancel(@PathVariable int ordNo, Model model, HttpSession session) {
+		String memId = (String) session.getAttribute("mid");
 
-        // 3. 주문 취소 로직 (필요시 주문 상태를 업데이트하거나 다른 처리를 추가)
-        // orderService.cancelOrder(ordNo); 
-        // (예시로 만약 전체 주문 취소라면 이 부분에서 전체 주문 취소를 처리)
+	    // 1. 해당 주문 정보 조회
+	    OrderInfoVO ordInfo = orderService.getOrderInfo(ordNo);
 
-        // 4. 모델에 조회한 주문 상품 정보 및 상품 정보를 담기
-        model.addAttribute("orderProduct", orderProduct);
-        model.addAttribute("product", product);
+	    // 2. 해당 주문 상품 정보 조회
+	    List<OrderProductVO> orderProducts = orderService.getOrderProductsByOrderNo(ordNo);
 
-        // 5. 취소된 주문 정보를 보여줄 페이지로 이동
-        return "market/order_cancel";
-    }
+	    // 3. 각 상품의 추가적인 정보 조회
+	    for (OrderProductVO orderProduct : orderProducts) {
+	        ProductVO product = orderService.getProductInfo(orderProduct.getPrdNo());
+	        orderProduct.setProductDetails(product);
+	    }
+
+	    // 4. 모델에 조회한 주문 정보 및 상품 정보를 담기
+	    model.addAttribute("ordInfo", ordInfo);
+	    model.addAttribute("orderProducts", orderProducts);
+	    model.addAttribute("ordNo", ordNo); // 주문 번호도 JSP로 전달
+
+	    // 5. 취소된 주문 정보를 보여줄 페이지로 이동
+	    return "market/order_cancel";
+	}
+	
+	//주문취소 반영
+	@RequestMapping(value = "/orderCancelSubmit", method = RequestMethod.POST)
+	public String orderCancelSubmit(OrderCancelVO orderCancel, Model model, HttpSession session) {
+	    String memId = (String) session.getAttribute("mid");
+	    orderCancel.setMemId(memId);
+	    
+	    orderCancel.setOrdDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+	    
+	    
+	    // 1. order_cancel 테이블에 취소 데이터 추가
+	    orderService.insertOrderCancel(orderCancel);
+	    
+	    // 2. order_info 테이블에서 해당 주문 삭제
+	    orderService.deleteOrderInfo(orderCancel.getOrdNo());
+	    
+	    
+	    // 3. 취소 완료 후 페이지로 이동
+	    model.addAttribute("message", "주문이 취소되었습니다.");
+	    return "redirect:/market/cancelComplete"; // 취소 완료 페이지로 리다이렉트
+	}
+	
+	// 주문 취소 완료
+	@RequestMapping("/market/cancelComplete")
+	public String orderCancelComplete(Model model, HttpSession session) {
+	    String memId = (String) session.getAttribute("mid");
+	    List<OrderCancelVO> orderList;
+
+	    orderList = orderService.getOrderCancel(memId);
+	    
+	    // 각 주문에 대한 상품 정보를 추가로 가져옴
+	    for (OrderCancelVO order : orderList) {
+	        List<OrderProductVO> products = orderService.getOrderProductsByOrderNo(order.getOrdNo());
+	        for (OrderProductVO product : products) {
+	            ProductVO productDetails = prdService.detailViewProduct(product.getPrdNo());
+	            product.setProductDetails(productDetails);
+	        }
+	        order.setOrderProducts(products);
+	    }
+
+	    model.addAttribute("orderList", orderList);
+	    return "market/order_cancel_complete";
+	}
 	
 	//쿠폰 UI
 	@RequestMapping("/market/couponUI")

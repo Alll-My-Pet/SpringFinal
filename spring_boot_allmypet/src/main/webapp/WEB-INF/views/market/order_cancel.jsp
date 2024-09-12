@@ -18,29 +18,41 @@
         <div class="header">
             <h1>주문 취소</h1>
         </div>
+
+        <!-- 주문 상품 목록 반복 출력 -->
         
-        <div class="order">
-		    <h3>취소 대상 상품</h3>
-		    <div class="product-info">
-		        <img class="order_image" src="<c:url value='/image/market/${product.prdImg}'/>" />
-		        <p>${product.prdName}
-		        <br>
-		        <fmt:formatNumber value="${product.prdPrice}" pattern="#,###" />원
-		        <br>
-		        ${orderProduct.ordQty}개<br>
-		        총 가격: <fmt:formatNumber value="${orderProduct.ordQty * product.prdPrice}" pattern="#,###" />원</p>
-		    </div>
-		</div>
+            <div class="order">
+                <h3>취소 대상 상품</h3>
+                <c:forEach var="orderProduct" items="${orderProducts}">
+                <div class="product-info">
+                	
+                    <img class="order_image" src="<c:url value='/image/market/${orderProduct.productDetails.prdImg}'/>" />
+                    <p>${orderProduct.productDetails.prdName}
+                    <br>
+                    <fmt:formatNumber value="${orderProduct.productDetails.prdPrice}" pattern="#,###" />원
+                    <br>
+                    ${orderProduct.ordQty}개<br>
+                </div>
+				</c:forEach>
+            </div>
         
+        <!-- 취소 사유 폼 -->
         <div class="order">
             <h3>취소 사유</h3>
-            <!-- form 태그 수정: 데이터를 전송할 URL과 POST 메서드 추가 -->
             <form action="${pageContext.request.contextPath}/orderCancelSubmit" method="post">
-                <!-- 필수 데이터: ordNo, prdNo, ordQty를 hidden input으로 전송 -->
-                <input type="hidden" name="ordNo" value="${orderProduct.ordNo}" />
-                <input type="hidden" name="prdNo" value="${orderProduct.prdNo}" />
-                <input type="hidden" name="ordQty" value="${orderProduct.ordQty}" />
+			<input type="hidden" name="ordNo" value="${ordInfo.ordNo}" />
+			<input type="hidden" name="memId" value="${ordInfo.memId}" />
+			<input type="hidden" name="ordPrice" value="${ordInfo.ordPrice}" />
+			<input type="hidden" name="ordDate" value="${ordInfo.ordDate}" />
 
+                <!-- 필수 데이터: prdNo, ordQty, ordPrice도 여러 개일 경우 각각 전송 -->
+                <c:forEach var="orderProduct" items="${orderProducts}">
+                    <input type="hidden" name="prdNo" value="${orderProduct.prdNo}" />
+                    <input type="hidden" name="ordQty" value="${orderProduct.ordQty}" />
+                    
+                </c:forEach>
+
+                <!-- 취소 사유 선택 -->
                 <label>
                     <input type="radio" name="canReason" value="상품이 마음에 들지 않음 (단순 변심)"> 상품이 마음에 들지 않음 (단순 변심)
                 </label><br>
