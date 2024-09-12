@@ -30,8 +30,7 @@ public class MyTipService implements IMyTipService {
 	// 상세게시글 조회
 	@Override
 	public MyTipBoardVO detailViewBoard(int postNo) {
-		// TODO Auto-generated method stub
-		return null;
+		return dao.detailViewBoard(postNo);
 	}
 	
 	// 좋아요 업데이트

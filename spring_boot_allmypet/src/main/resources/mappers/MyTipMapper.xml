@@ -33,6 +33,15 @@
 		LIMIT 3
 	</select>
 	
+	<!-- 게시글 조회 -->
+	<select id="detailViewBoard" parameterType="int"
+		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
+		SELECT mt.*, m.memNickName, mt.postImg AS postImgBytes
+		FROM mytip_board mt
+		JOIN member m ON mt.memId = m.memId
+		WHERE mt.postNo = #{postNo}
+	</select>
+	
 	<!-- 게시글 작성 -->
 	<insert id="insertPost"
 		parameterType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">

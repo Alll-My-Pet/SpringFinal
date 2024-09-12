@@ -120,8 +120,8 @@
 									</tr>
 									<c:forEach var="mytip" items="${myTipList }">
 										<tr>
-											<td><a href="#">${mytip.postTitle}</a></td>
-											<td>${mytip.memNickName}</td>
+											<td class="post-title"><a href="<c:url value='/tip/${petCtgNo}/detailTipBoard/${mytip.postNo}'/>">${mytip.postTitle}</a></td>
+											<td class="post-author">${mytip.memNickName}</td>
 											<td><fmt:formatDate value="${mytip.postDate}"
 													pattern="M/dd HH:mm" /></td>
 											<td>${mytip.postView}</td>

@@ -98,6 +98,26 @@ public class AnimalController {
 		return "animal/tipBoard";
 	}
 	
+	// 양육 팁 상세게시글
+	@RequestMapping("/tip/{petCtgNo}/detailTipBoard/{postNo}")
+	public String detailTipBoard(@PathVariable String petCtgNo, @PathVariable int postNo, Model model) {
+		// 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
+		MyTipBoardVO board = mytipService.detailViewBoard(postNo);
+		// petCtgNo에 해당하는 카테고리 리스트 조회
+		ArrayList<AnimalCtgVO> categories = animalService.ctgListPet(petCtgNo);
+
+		// 리스트에서 첫 번째 항목의 petCtgName을 모델에 추가
+		if (!categories.isEmpty()) {
+			model.addAttribute("petCtgName", categories.get(0).getPetCtgName());
+		} else {
+			model.addAttribute("petCtgName", "카테고리없음.");
+		}
+		// 뷰 페이지에 출력하기 위해 Model 설정
+		model.addAttribute("board", board);
+
+		return "animal/tipBoard_detail";
+	}
+	
 	// 양육팁 글 작성 폼
 	@RequestMapping("/animal_home/{petCtgNo}/tipBoard_form")
 	public String boardTipWrite(@PathVariable String petCtgNo, HttpSession session, Model model) {
