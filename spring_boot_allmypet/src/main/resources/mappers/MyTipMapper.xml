@@ -18,6 +18,7 @@
 		JOIN member m ON mt.memId = m.memId
 		WHERE
 		mt.petCtgNo = #{petCtgNo}
+		ORDER BY mt.postDate DESC;
 	</select>
 
 	<!-- 양육팁 게시판 내 베스트 양육팁 -->
@@ -31,5 +32,15 @@
 		ORDER BY postLike DESC
 		LIMIT 3
 	</select>
+	
+	<!-- 게시글 작성 -->
+	<insert id="insertPost"
+		parameterType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
+		INSERT INTO mytip_board (postTitle, memId, postDate,
+		postContent, petCtgNo, postImg)
+		VALUES (#{postTitle},
+		#{memId}, NOW(),
+		#{postContent}, #{petCtgNo}, #{postImgBytes})
+	</insert>
 
 </mapper>

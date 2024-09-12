@@ -3,6 +3,7 @@ package com.spring_boot_allmypet.project.model.animal;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 public class MyTipBoardVO {
 	private int postNo;
@@ -15,7 +16,8 @@ public class MyTipBoardVO {
 	private String postContent;
 	private int postLike;
 	private int postView;
-	private String postImg;
+	private MultipartFile postImg; // 수정
+	private byte[] postImgBytes; // 데이터베이스에 저장할 바이트 배열
 
 	public int getPostView() {
 		return postView;
@@ -81,12 +83,21 @@ public class MyTipBoardVO {
 		this.postLike = postLike;
 	}
 
-	public String getPostImg() {
+
+	public MultipartFile getPostImg() {
 		return postImg;
 	}
 
-	public void setPostImg(String postImg) {
+	public void setPostImg(MultipartFile postImg) {
 		this.postImg = postImg;
+	}
+
+	public byte[] getPostImgBytes() {
+		return postImgBytes;
+	}
+
+	public void setPostImgBytes(byte[] postImgBytes) {
+		this.postImgBytes = postImgBytes;
 	}
 
 	public String getMemNickName() {

@@ -98,7 +98,7 @@ public class AnimalController {
 		return "animal/tipBoard";
 	}
 	
-	// 양육팁 글 작성
+	// 양육팁 글 작성 폼
 	@RequestMapping("/animal_home/{petCtgNo}/tipBoard_form")
 	public String boardTipWrite(@PathVariable String petCtgNo, HttpSession session, Model model) {
 
@@ -120,6 +120,60 @@ public class AnimalController {
 		return "animal/tipBoard_form";
 	}
 	
+	// 양육팁 글 등록
+	@RequestMapping("/animal_home/{petCtgNo}/inserTip")
+	public String inserTip(@PathVariable String petCtgNo, Model model, MyTipBoardVO vo, HttpSession session) {
+		// petCtgNo에 해당하는 카테고리 리스트 조회
+		ArrayList<AnimalCtgVO> categories = animalService.ctgListPet(petCtgNo);
+
+		// 리스트에서 첫 번째 항목의 petCtgName을 모델에 추가
+		if (!categories.isEmpty()) {
+			model.addAttribute("petCtgName", categories.get(0).getPetCtgName());
+		} else {
+			model.addAttribute("petCtgName", "카테고리없음.");
+		}
+
+		// 세션에서 로그인한 사용자 아이디 가져오기
+		String logInUser = (String) session.getAttribute("mid");
+
+		// 사용자 정보 세팅
+		vo.setMemId(logInUser);
+
+		MultipartFile postImg = vo.getPostImg();
+		// 이미지 파일 처리
+		if (postImg != null && !postImg.isEmpty()) {
+
+			System.out.println("업로드된 파일 이름: " + postImg.getOriginalFilename());
+			System.out.println("파일 크기: " + postImg.getSize());
+
+			String contentType = postImg.getContentType();
+			List<String> validTypes = Arrays.asList("image/jpeg", "image/png", "image/gif");
+			if (!validTypes.contains(contentType)) {
+				model.addAttribute("error", "유효하지 않은 파일 형식입니다.");
+				return "redirect:/animal_home/" + petCtgNo + "/insertBoard";
+			}
+
+			if (postImg.getSize() > 50 * 1024 * 1024) {
+				model.addAttribute("error", "파일 크기가 50MB를 초과합니다.");
+				return "redirect:/animal_home/" + petCtgNo + "/insertBoard";
+			}
+
+			try {
+				byte[] imageBytes = postImg.getBytes();
+				System.out.println("이미지 바이트 크기: " + imageBytes.length);
+				vo.setPostImgBytes(imageBytes);
+			} catch (IOException e) {
+				System.out.println("파일 읽기 실패: " + e.getMessage());
+				e.printStackTrace();
+			}
+		} else {
+			System.out.println("업로드된 파일이 없습니다.");
+		}
+		System.out.println("이미지 바이트 출력:" + vo.getPostImgBytes());
+		mytipService.insertPost(vo);
+
+		return "redirect:/animal_home/{petCtgNo}/tip";
+	}
 	
 	// *************************** 전체게시판 ***************************
 	// 동물별 전체게시판

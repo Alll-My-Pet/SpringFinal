@@ -48,7 +48,7 @@
 						<!-- <h1 id="mainWriteFont">게시글 작성</h1> -->
 
 						<form id="mainSubmitFrm" method="post"
-							action="<c:url value='/animal_home/${petCtgNo}/insertBoard'/>"
+							action="<c:url value='/animal_home/${petCtgNo}/inserTip'/>"
 							enctype="multipart/form-data">
 							<div class="writeBox">
 								<div class="postInfo-box">
@@ -108,7 +108,7 @@
 								</div>
 
 								<!-- 작성 버튼 -->
-								<button type="submit" class="imgUploadBtn">작성하기</button>
+								<button type="submit" class="uploadBtn">작성하기</button>
 
 							</div>
 							<!-- writeBox 끝 -->
