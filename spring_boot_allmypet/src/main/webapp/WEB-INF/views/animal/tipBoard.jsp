@@ -17,6 +17,11 @@
 	href="<c:url value='/css/Board/paging.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/paging.js'/>"></script>
+<script src="<c:url value='/js/animal/tipBoard.js'/>"></script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 	<div class="desktop-1">
@@ -77,7 +82,7 @@
 									<c:forEach var="top3" items="${topLikedTips }">
 										<tr>
 											<td><a href="#">${top3.postTitle}</a></td>
-											<td>${top3.memId}</td>
+											<td>${top3.memNickName}</td>
 											<td><fmt:formatDate value="${top3.postDate}"
 													pattern="M/dd HH:mm" /></td>
 											<td>${top3.postView}</td>
@@ -95,6 +100,7 @@
 							</table>
 						</div>
 						<!-- bestTip-box끝 -->
+						<div class="board-title">&nbsp;전체 게시글</div>
 						<div class="notice-box">
 							<table class="notice-table">
 								<thead>
@@ -115,7 +121,7 @@
 									<c:forEach var="mytip" items="${myTipList }">
 										<tr>
 											<td><a href="#">${mytip.postTitle}</a></td>
-											<td>${mytip.memId}</td>
+											<td>${mytip.memNickName}</td>
 											<td><fmt:formatDate value="${mytip.postDate}"
 													pattern="M/dd HH:mm" /></td>
 											<td>${mytip.postView}</td>
@@ -129,7 +135,24 @@
 							</table>
 						</div>
 						<!-- noticebox 끝 -->
-						<br>
+						<div class="mainWriteBox">
+							<!-- <button class="mainWriteBtn">글 작성</button> -->
+							<!-- 로그인 한 경우  -->
+							<c:if test="${not empty sessionScope.mid }">
+								<button class="mainWriteBtn">
+									<a href="<c:url value='/animal_home/${petCtgNo}/tipBoard_form'/>">글 작성</a>
+								</button>
+							</c:if>
+							<%-- <button class="mainWriteBtn">
+								<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
+							</button> --%>
+
+							<!-- 로그인 하지 않은 경우-->
+							<c:if test="${empty sessionScope.mid }">
+								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
+							</c:if>
+						</div>
+						<br> <br> <br>
 						<div class="bottom-box">
 							<!-- 페이징 -->
 							<div class="paging" style="text-align: center;">
@@ -150,19 +173,7 @@
 							<form name="pageFrm">
 								<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 							</form>
-
 							<br>
-
-							<div class="searchBar">
-								<form action="${pageContext.request.contextPath}/search"
-									method="get">
-									<input type="text" name="keyword" placeholder="게시글 검색" required />
-									<button class="searchBtn" type="submit">
-										<img src="/image/search.png" alt="검색" />
-									</button>
-								</form>
-							</div>
-							<!-- searchBar 끝 -->
 						</div>
 					</div>
 					<!-- board-contents끝 -->

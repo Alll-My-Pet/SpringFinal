@@ -171,11 +171,44 @@
 	border: 1px solid #A4A4A4;
 	border-radius: 8px;
 	width: 689px;
-	height: 700px;
+	height: auto;
 	margin-top: 40px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* 글작성 버튼 */
+.mainWriteBox{
+	display: flex;
+	position: relative;
+}
+.mainWriteBtn {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	width: 130px;
+	height: 30px;
+	border-radius: 8px;
+	/* 	border: none; */
+	cursor: pointer;
+	/*  background-color: aliceblue; */
+	background-color: #E6E6E6;
+	/* border: none; */
+	border-width: 1px;
+	border-color: blanchedalmond;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.mainWriteBtn a{
+	text-decoration: none;
+	color: inherit;
+}
+.board-title {
+	/* background-color: yellow; */
+	display: inline-block; /* 또는 block */
+	font-size: 17px;
+	transform: translateY(30px);
+}
 .bestTip-table, .notice-table {
 	width: 100%;
 	margin: 0 auto;

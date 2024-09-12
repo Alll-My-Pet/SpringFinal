@@ -70,7 +70,7 @@ public class AnimalController {
 	public String petNameGen() {
 		return "animal/petname_form";
 	}
-
+	// *************************** 양육팁 게시판 ***************************
 	// 동물별 양육팁 게시판
 	@RequestMapping("/animal_home/{petCtgNo}/tip")
 	public String tipBoard(@PathVariable String petCtgNo, Model model) {
@@ -97,7 +97,31 @@ public class AnimalController {
 
 		return "animal/tipBoard";
 	}
+	
+	// 양육팁 글 작성
+	@RequestMapping("/animal_home/{petCtgNo}/tipBoard_form")
+	public String boardTipWrite(@PathVariable String petCtgNo, HttpSession session, Model model) {
 
+		// petCtgNo에 해당하는 카테고리 리스트 조회
+		ArrayList<AnimalCtgVO> categories = animalService.ctgListPet(petCtgNo);
+
+		// 리스트에서 첫 번째 항목의 petCtgName을 모델에 추가
+		if (!categories.isEmpty()) {
+			model.addAttribute("petCtgName", categories.get(0).getPetCtgName());
+		} else {
+			model.addAttribute("petCtgName", "카테고리없음.");
+		}
+
+		String userId = (String) session.getAttribute("mid");
+
+		// 사용자 정보가 있으면, 필요한 데이터를 모델에 추가
+		model.addAttribute("userId", userId);
+
+		return "animal/tipBoard_form";
+	}
+	
+	
+	// *************************** 전체게시판 ***************************
 	// 동물별 전체게시판
 	@RequestMapping("/animal_home/{petCtgNo}/bulletin")
 	public String bulletinBoard(@PathVariable String petCtgNo, Model model) {
@@ -204,12 +228,7 @@ public class AnimalController {
 
 		return "animal/bulletin_form";
 	}
-
-	/*
-	 * @RequestMapping("/animal/bulletin_form") public String boardWrite() {
-	 * 
-	 * return "animal/bulletin_form"; }
-	 */
+	 
 
 	// 전체게시판 글 등록
 	@RequestMapping("/animal_home/{petCtgNo}/insertBoard")
@@ -273,35 +292,5 @@ public class AnimalController {
 		return "redirect:/animal_home/{petCtgNo}/bulletin";
 	}
 
-	/*
-	 * // 게시글 수정 화면 열기
-	 * 
-	 * @RequestMapping("/board/promoteUpdateForm/{postNo}") public String
-	 * promoteUpdateForm(@PathVariable int postNo, Model model) {
-	 * 
-	 * PromoteVO promoteBoard = promoteService.promoteDetailView(postNo);
-	 * model.addAttribute("promoteBoard", promoteBoard);
-	 * 
-	 * return "board/promoteUpdateView"; // 폼에 데이터 출력 }
-	 * 
-	 * // 수정된 데이터 받아서 DB에 저장
-	 * 
-	 * @ResponseBody
-	 * 
-	 * @RequestMapping("/board/updatePromote") public String updatePromote(PromoteVO
-	 * vo, @RequestParam String memPwd, HttpSession session) { String logInUser =
-	 * (String) session.getAttribute("mid");
-	 * 
-	 * if (logInUser == null) { return "fail"; // 로그인 되어 있지 않으면 실패 반환 }
-	 * 
-	 * // HashMap을 생성하여 loginCheck 메서드 호출 HashMap<String, Object> map = new
-	 * HashMap<>(); map.put("memId", logInUser); map.put("memPwd", memPwd);
-	 * 
-	 * String result = memberService.loginCheck(map);
-	 * 
-	 * if ("success".equals(result)) { vo.setMemId(logInUser); // 게시글 작성자 ID 설정
-	 * promoteService.updatePromote(vo); // 게시글 수정 서비스 호출 }
-	 * 
-	 * return result; }
-	 */
+	
 }

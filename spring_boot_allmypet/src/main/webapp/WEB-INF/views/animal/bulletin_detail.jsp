@@ -34,6 +34,10 @@
         document.getElementById("myModal").style.display = "none"; // 모달 창 닫기
     }
 </script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 	<div class="desktop-1">

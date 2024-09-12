@@ -62,13 +62,13 @@
 
 .pageInfo::before {
 	top: -10px; /* 위쪽 선의 위치 조정 */
-	left: 110px; /* 중앙 정렬 */
+	left: 100px; /* 중앙 정렬 */
 	transform: translateX(-50%); /* 중앙으로 이동 */
 }
 
 .pageInfo::after {
 	bottom: -10px; /* 아래쪽 선의 위치 조정 */
-	left: 110px; /* 중앙 정렬 */
+	left: 100px; /* 중앙 정렬 */
 	transform: translateX(-50%); /* 중앙으로 이동 */
 }
 
@@ -164,6 +164,7 @@
 	box-sizing: border-box;
 	font-size: 14.5px;
 	display: flex;
+	line-height: 1.5;
 }
 
 #bodText {
@@ -172,6 +173,7 @@
 	word-wrap: break-word; /* 긴 단어 줄 바꿈 처리 (구형 브라우저 지원) */
 	max-height: 100%; /* 부모 요소의 높이를 초과하지 않도록 설정 */
 	flex-grow: 1; /* 공간을 차지하도록 설정 */
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 /* 업로드한 사진 */
@@ -328,6 +330,7 @@
 	resize: none; /* 크기 조절 비활성화 */
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 	transition: border-color 0.3s;
+	font-family: 'Nanum Gothic', sans-serif;
 }
 
 textarea:focus {

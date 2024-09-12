@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+* {
+	font-family: "IBM Plex Sans KR", sans-serif;
+}
+
 /* ******************** */
 /* 모든 페이지 공통 css */
 /* ******************** */

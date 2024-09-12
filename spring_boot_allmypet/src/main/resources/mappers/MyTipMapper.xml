@@ -13,8 +13,7 @@
 
 	<select id="getTipList" parameterType="String"
 		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
-		SELECT mt.postNo, mt.petCtgNo, mt.postTitle, mt.postDate,
-		mt.memId, m.memNickName, mt.postContent, mt.postLike, mt.postView, mt.postImg
+		SELECT mt.*, m.memNickName
 		FROM mytip_board mt
 		JOIN member m ON mt.memId = m.memId
 		WHERE
@@ -24,8 +23,7 @@
 	<!-- 양육팁 게시판 내 베스트 양육팁 -->
 	<select id="getTop3List" parameterType="String"
 		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
-		SELECT mt.postNo, mt.petCtgNo, mt.postTitle, mt.postDate,
-		mt.memId, m.memNickName, mt.postContent, mt.postLike, mt.postView, mt.postImg
+		SELECT mt.*, m.memNickName
 		FROM mytip_board mt
 		JOIN member m ON mt.memId = m.memId
 		WHERE
