@@ -14,7 +14,7 @@ import org.springframework.context.annotation.PropertySources;
 //로컬 경로 / 서버 경로
 @PropertySources({
 @PropertySource(value={"file:c:/springWorkspace/configure.properties", 
-"file:/usr/local/allmypet/properties/configure.properties", }, 
+"file:/usr/local/allmypet/properties/configure.properties" }, 
 ignoreResourceNotFound=true)
 }) 
 public class SpringBootAllmypetApplication {
