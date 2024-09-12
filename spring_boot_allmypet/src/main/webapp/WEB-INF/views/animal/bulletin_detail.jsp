@@ -151,6 +151,11 @@
 
 							<div class="comments">
 								<label for="comments">&nbsp;댓글</label>
+								<form id="commentsWriteFrm" method="POST" action="/">
+									<textarea class="commentWriteArea" name="commentText" placeholder="댓글을 입력해주세요"></textarea>
+								</form>
+								<!-- 댓글 등록 버튼 -->
+								<button type="submit" class="comUploadBtn">등록</button>
 							</div>
 
 						</div>
