@@ -16,6 +16,7 @@ public class MyTipBoardVO {
 	private String postContent;
 	private int postLike;
 	private int postView;
+	private String boardCtgNo;
 	private MultipartFile postImg; // 수정
 	private byte[] postImgBytes; // 데이터베이스에 저장할 바이트 배열
 
@@ -106,6 +107,14 @@ public class MyTipBoardVO {
 
 	public void setMemNickName(String memNickName) {
 		this.memNickName = memNickName;
+	}
+
+	public String getBoardCtgNo() {
+		return boardCtgNo;
+	}
+
+	public void setBoardCtgNo(String boardCtgNo) {
+		this.boardCtgNo = boardCtgNo;
 	}
 
 }

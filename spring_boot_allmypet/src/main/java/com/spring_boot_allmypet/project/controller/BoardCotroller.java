@@ -297,15 +297,6 @@ public class BoardCotroller {
 		return "board/noticeBoard";
 	}
 
-	// ********************************베스트 팁****************************************
-	@RequestMapping("/board/bestTipBoard")
-	public String TipBoard() {
-		return "board/bestTipBoard";
-	}
-
-	@RequestMapping("/board/bestTipDetail")
-	public String TipDetail() {
-		return "board/bestTipDetail";
-	}
+	
 
 }

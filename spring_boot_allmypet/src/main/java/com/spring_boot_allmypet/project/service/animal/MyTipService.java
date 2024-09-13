@@ -45,5 +45,17 @@ public class MyTipService implements IMyTipService {
 	public void insertPost(MyTipBoardVO vo) {
 		dao.insertPost(vo);		
 	}
-
+	
+	// 베스트 양육팁 게시판 : 6개씩
+	@Override
+	public ArrayList<MyTipBoardVO> bestTips(String petCtgNo) {
+		return dao.bestTips(petCtgNo);
+	}
+	
+	// 베스트 양육팁 게시판 : 6개씩
+	@Override
+	public ArrayList<MyTipBoardVO> bestTips2(String petCtgNo) {
+		return dao.bestTips(petCtgNo);
+	}
+	
 }

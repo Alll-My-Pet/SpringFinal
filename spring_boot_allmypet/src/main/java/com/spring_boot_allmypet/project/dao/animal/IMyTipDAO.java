@@ -10,7 +10,7 @@ public interface IMyTipDAO {
 
 	// 베스트 양육팁 top 3
 	public ArrayList<MyTipBoardVO> getTop3List(String petCtgNo);
-	
+
 	// 상세 게시글 보기
 	public MyTipBoardVO detailViewBoard(int postNo);
 
@@ -19,4 +19,9 @@ public interface IMyTipDAO {
 
 	// 게시글 삽입
 	public void insertPost(MyTipBoardVO vo);
+
+	// ****************** 베스트 양육팁 게시판 *************************
+	// 베스트 양육팁 : postLike 기준으로 6개
+	public ArrayList<MyTipBoardVO> bestTips(String petCtgNo);
+	public ArrayList<MyTipBoardVO> bestTips2(String petCtgNo);
 }

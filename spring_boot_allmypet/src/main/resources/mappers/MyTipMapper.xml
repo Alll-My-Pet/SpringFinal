@@ -46,10 +46,21 @@
 	<insert id="insertPost"
 		parameterType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
 		INSERT INTO mytip_board (postTitle, memId, postDate,
-		postContent, petCtgNo, postImg)
+		postContent, petCtgNo, postImg, boardCtgNo)
 		VALUES (#{postTitle},
 		#{memId}, NOW(),
-		#{postContent}, #{petCtgNo}, #{postImgBytes})
+		#{postContent}, #{petCtgNo}, #{postImgBytes}, '11')
 	</insert>
-
+	
+	<!-- 베스트 양육팁 게시판 -->
+	<select id="bestTips" parameterType="String"
+		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
+		SELECT mt.*, m.memNickName
+		FROM mytip_board mt
+		JOIN member m ON mt.memId = m.memId
+		WHERE
+		mt.petCtgNo = #{petCtgNo}
+		ORDER BY postLike DESC
+		LIMIT 4
+	</select>
 </mapper>

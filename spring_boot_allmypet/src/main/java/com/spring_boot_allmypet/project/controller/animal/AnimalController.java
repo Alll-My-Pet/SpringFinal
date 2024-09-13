@@ -70,6 +70,7 @@ public class AnimalController {
 	public String petNameGen() {
 		return "animal/petname_form";
 	}
+
 	// *************************** 양육팁 게시판 ***************************
 	// 동물별 양육팁 게시판
 	@RequestMapping("/animal_home/{petCtgNo}/tip")
@@ -97,7 +98,7 @@ public class AnimalController {
 
 		return "animal/tipBoard";
 	}
-	
+
 	// 양육 팁 상세게시글
 	@RequestMapping("/tip/{petCtgNo}/detailTipBoard/{postNo}")
 	public String detailTipBoard(@PathVariable String petCtgNo, @PathVariable int postNo, Model model) {
@@ -117,7 +118,7 @@ public class AnimalController {
 
 		return "animal/tipBoard_detail";
 	}
-	
+
 	// 양육팁 글 작성 폼
 	@RequestMapping("/animal_home/{petCtgNo}/tipBoard_form")
 	public String boardTipWrite(@PathVariable String petCtgNo, HttpSession session, Model model) {
@@ -139,7 +140,7 @@ public class AnimalController {
 
 		return "animal/tipBoard_form";
 	}
-	
+
 	// 양육팁 글 등록
 	@RequestMapping("/animal_home/{petCtgNo}/inserTip")
 	public String inserTip(@PathVariable String petCtgNo, Model model, MyTipBoardVO vo, HttpSession session) {
@@ -194,7 +195,7 @@ public class AnimalController {
 
 		return "redirect:/animal_home/{petCtgNo}/tip";
 	}
-	
+
 	// *************************** 전체게시판 ***************************
 	// 동물별 전체게시판
 	@RequestMapping("/animal_home/{petCtgNo}/bulletin")
@@ -302,7 +303,6 @@ public class AnimalController {
 
 		return "animal/bulletin_form";
 	}
-	 
 
 	// 전체게시판 글 등록
 	@RequestMapping("/animal_home/{petCtgNo}/insertBoard")
@@ -366,5 +366,40 @@ public class AnimalController {
 		return "redirect:/animal_home/{petCtgNo}/bulletin";
 	}
 
-	
+	// ********************************베스트 팁****************************************
+	@RequestMapping("/board/bestTipBoard")
+	public String TipBoard(Model model) {
+		// 강아지 베스트 양육팁
+		ArrayList<MyTipBoardVO> dogTips = mytipService.bestTips("1");
+		model.addAttribute("dogTips", dogTips);
+		// 고양이 베스트 양육팁
+		ArrayList<MyTipBoardVO> catTips = mytipService.bestTips("2");
+		model.addAttribute("catTips", catTips);
+		// 기타포유류 베스트 양육팁
+		ArrayList<MyTipBoardVO> otherTips = mytipService.bestTips("3");
+		model.addAttribute("otherTips", otherTips);
+		// 파충류/양서류 베스트 양육팁
+		ArrayList<MyTipBoardVO> repTips = mytipService.bestTips("4");
+		model.addAttribute("repTips", repTips);
+		// 어류 베스트 양육팁
+		ArrayList<MyTipBoardVO> fishTips = mytipService.bestTips("5");
+		model.addAttribute("fishTips", fishTips);
+		// 조류 베스트 양육팁
+		ArrayList<MyTipBoardVO> birdTips = mytipService.bestTips("6");
+		model.addAttribute("birdTips", birdTips);
+		// 설치류 베스트 양육팁
+		ArrayList<MyTipBoardVO> rodTips = mytipService.bestTips("7");
+		model.addAttribute("rodTips", rodTips);
+		// 절지류/곤충류 베스트 양육팁
+		ArrayList<MyTipBoardVO> insectTips = mytipService.bestTips("8");
+		model.addAttribute("insectTips", insectTips);
+
+		return "board/bestTipBoard";
+	}
+
+	@RequestMapping("/board/bestTipDetail")
+	public String TipDetail() {
+		return "board/bestTipDetail";
+	}
+
 }
