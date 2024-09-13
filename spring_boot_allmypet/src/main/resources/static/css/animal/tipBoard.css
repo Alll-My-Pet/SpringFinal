@@ -227,9 +227,19 @@
 /* .notice-table tbody tr:first-child {
     margin-top: 10px; 원하는 마진 값
 } */
+
+.notice-table {
+	table-layout: fixed;
+}
+
 .notice-table th, td {
 	text-align: center;
 	padding: 5px; /* 셀 안의 패딩 추가 */
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	/* 넘치는 부분 숨김 */
+	text-overflow: ellipsis !important;
+	/* 넘치는 부분에 ... 표시 */
 }
 
 thead th {
@@ -244,3 +254,25 @@ td a {
 	text-decoration: none;
 	color: inherit;
 }
+
+
+.post-title {
+	width: 377px !important;
+}
+
+.post-author {
+	width: 82px;
+}
+
+.post-date {
+	width: 115px;
+}
+
+.post-view {
+	width: 32px;
+}
+
+.post-like {
+	width: 32px;
+}
+

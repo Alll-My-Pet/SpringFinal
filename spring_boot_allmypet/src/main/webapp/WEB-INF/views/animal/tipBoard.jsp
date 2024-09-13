@@ -66,11 +66,11 @@
 							<table class="bestTip-table">
 								<thead>
 									<tr>
-										<th>글 제목</th>
-										<th>작성자</th>
-										<th>날짜</th>
-										<th>조회</th>
-										<th>추천</th>
+										<th class="post-title">글 제목</th>
+										<th class="post-author">작성자</th>
+										<th class="post-date">날짜</th>
+										<th class="post-view">조회</th>
+										<th class="post-like">추천</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -81,12 +81,12 @@
 									</tr>
 									<c:forEach var="top3" items="${topLikedTips }">
 										<tr>
-											<td><a href="#">${top3.postTitle}</a></td>
-											<td>${top3.memNickName}</td>
-											<td><fmt:formatDate value="${top3.postDate}"
+											<td class="post-title"><a href="<c:url value='/tip/${petCtgNo}/detailTipBoard/${top3.postNo}'/>">${top3.postTitle}</a></td>
+											<td class="post-author">${top3.memNickName}</td>
+											<td class="post-date"><fmt:formatDate value="${top3.postDate}"
 													pattern="M/dd HH:mm" /></td>
-											<td>${top3.postView}</td>
-											<td>${top3.postLike}</td>
+											<td class="post-view">${top3.postView}</td>
+											<td class="post-like">${top3.postLike}</td>
 										</tr>
 										<c:if test="${!status.last}">
 											<tr>
@@ -105,11 +105,11 @@
 							<table class="notice-table">
 								<thead>
 									<tr>
-										<th>글 제목</th>
-										<th>작성자</th>
-										<th>날짜</th>
-										<th>조회</th>
-										<th>추천</th>
+										<th class="post-title">글 제목</th>
+										<th class="post-author">작성자</th>
+										<th class="post-date">날짜</th>
+										<th class="post-view">조회</th>
+										<th class="post-like">추천</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -122,10 +122,10 @@
 										<tr>
 											<td class="post-title"><a href="<c:url value='/tip/${petCtgNo}/detailTipBoard/${mytip.postNo}'/>">${mytip.postTitle}</a></td>
 											<td class="post-author">${mytip.memNickName}</td>
-											<td><fmt:formatDate value="${mytip.postDate}"
+											<td class="post-date"><fmt:formatDate value="${mytip.postDate}"
 													pattern="M/dd HH:mm" /></td>
-											<td>${mytip.postView}</td>
-											<td>${mytip.postLike}</td>
+											<td class="post-view">${mytip.postView}</td>
+											<td class="post-like">${mytip.postLike}</td>
 										</tr>
 										<td colspan="5">
 											<div class="separator"></div>
