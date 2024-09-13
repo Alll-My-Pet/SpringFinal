@@ -24,10 +24,10 @@
 					<div class="changePwdInput">
 						<table>
 							<tr><td><label for="memId">아이디</label></td>
-								<td><input type="text" id="memId" name="memId" class="id" value="${memId}" readonly required>
+								<td><input type="text" id="memId" name="memId" class="id" required>
 								<span class="error-message" id="idError"></span></td></tr>
 							<tr><td><label for="memPwd">비밀번호</label></td>
-								<td><input type="password" id="newMemPwd" name="memPwd" class="text">
+								<td><input type="password" id="newMemPwd" name="newMemPwd" class="text">
 								<span class="error-message" id="pwError"></span></td></tr>
 							<tr><td><label for="pwcheck">비밀번호 확인</label></td>
 								<td><input type="password" id="pwcheck" name="pwcheck" class="text">

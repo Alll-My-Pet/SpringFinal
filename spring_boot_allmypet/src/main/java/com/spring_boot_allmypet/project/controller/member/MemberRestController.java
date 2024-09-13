@@ -71,7 +71,7 @@ public class MemberRestController {
    }
 	
 	// 비밀번호 변경
-    @RequestMapping(value = "/member/changePassword", method = RequestMethod.POST)
+    @RequestMapping(value = "/member/changePwd", method = RequestMethod.POST)
     public String changePassword(@RequestParam HashMap<String, Object> param) {
         // MemberVO 객체 생성 및 데이터 설정
         MemberVO member = new MemberVO();

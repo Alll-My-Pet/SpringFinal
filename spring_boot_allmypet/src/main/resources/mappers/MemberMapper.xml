@@ -68,9 +68,9 @@
   	</select>
   	
   	<!-- 비밀번호 변경 -->
-  	<update id="changPwd">
+  	<update id="changePwd" parameterType="com.spring_boot_allmypet.project.model.member.MemberVO">
   		UPDATE member
-  		SET memPwd=#{newMemPwd} WHERE memId=#{memId} AND memEmail=#{memEmail}
+  		SET memPwd=#{newMemPwd} WHERE memId=#{memId}
   	</update>
   	
   </mapper>

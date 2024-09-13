@@ -12,7 +12,7 @@ $(document).ready(function() {
 
         // 비밀번호 확인 검사
         if (newMemPwd !== pwcheck) {
-            $('#pwcheckError').text('비밀번호가 일치하지 않습니다.');
+            alert("비밀번호가 일치하지 않습니다.");
             isValid = false;
         } else {
             $('#pwcheckError').text('');
@@ -20,6 +20,7 @@ $(document).ready(function() {
 
         // 모든 유효성 검사를 통과한 경우
         if (isValid) {
+        	
             // AJAX 요청
             $.ajax({
                 url: '/member/changePwd', // 비밀번호 변경 API URL
@@ -32,7 +33,7 @@ $(document).ready(function() {
                 success: function(response) {
                     if (response === "success") {
                         alert("비밀번호가 성공적으로 변경되었습니다.");
-                        window.location.href = '/login.jsp'; // 로그인 페이지로 리다이렉트
+                        window.location.href = 'login'; // 로그인 페이지로 리다이렉트
                     } else {
                         alert("비밀번호 변경에 실패했습니다. 다시 시도해 주세요.");
                     }

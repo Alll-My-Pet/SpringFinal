@@ -33,9 +33,9 @@ public class MemberController {
 		return "member/forgotPW";
 	}
 	
-	@RequestMapping("/changePW")
+	@RequestMapping("/changePwd")
 	public String changePW() {
-		return "member/changePW";
+		return "member/changePwd";
 	}
 	
 	/* 회원가입 */
