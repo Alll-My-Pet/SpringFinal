@@ -62,10 +62,15 @@
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${dog.postTitle }</span>
-															<p class="post-info">${dog.postLike }|${dog.memNickName }</p>
+															<div class="post-info">
+																<span class="author">${dog.memNickName}</span> <span
+																	class="divider">|</span> <img
+																	src="/image/board/view_gray.svg" alt="조회수"
+																	class="view-icon"><span id="bodView">&nbsp;${dog.postView}</span>
+															</div>
 															<p class="post-date">
 																<fmt:formatDate value="${dog.postDate}"
-																	pattern="M/dd HH:mm" />
+																	pattern="YYYY.MM.dd" />
 															</p>
 														</div>
 													</div>
