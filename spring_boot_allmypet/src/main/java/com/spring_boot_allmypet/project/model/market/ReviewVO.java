@@ -1,12 +1,14 @@
 package com.spring_boot_allmypet.project.model.market;
 
+import java.time.LocalDateTime;
+
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 
 public class ReviewVO {
 	public int revNo;
 	public String prdNo;
 	public String memId;
-	public String revDate;
+	public LocalDateTime revDate;
 	public String revImg;
 	public String revText;
 	public String revSco;
@@ -36,10 +38,10 @@ public class ReviewVO {
 	public void setMemId(String memId) {
 		this.memId = memId;
 	}
-	public String getRevDate() {
+	public LocalDateTime  getRevDate() {
 		return revDate;
 	}
-	public void setRevDate(String revDate) {
+	public void setRevDate(LocalDateTime  revDate) {
 		this.revDate = revDate;
 	}
 	public String getRevImg() {

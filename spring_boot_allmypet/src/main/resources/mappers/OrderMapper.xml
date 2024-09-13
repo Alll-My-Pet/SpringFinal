@@ -138,5 +138,9 @@
         WHERE ordNo = #{ordNo}
     </select>
 
+<insert id="insertReview" parameterType="com.spring_boot_allmypet.project.model.market.ReviewVO">
+    INSERT INTO review (prdNo, memId, revDate, revImg, revText, revSco)
+    VALUES (#{prdNo}, #{memId}, #{revDate}, #{revImg}, #{revText}, #{revSco})
+</insert>
 
 </mapper>

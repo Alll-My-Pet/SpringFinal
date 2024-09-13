@@ -10,16 +10,12 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/market/order.css'/>" />
 <script src="<c:url value='/js/market/jquery-3.7.1.min.js'/>"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-const ptotal = ${ptotal};  // JSP에서 포인트 최대값 설정
-const total = ${total};   // JSP에서 총 결제 금액 설정
-</script>
 <script src="<c:url value='/js/market/order.js'/>"></script>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
 	<section class="order">
-	<form action="<c:url value='/market/order/completeInstantOrder'/>" method="post">
+	<form action="<c:url value='/market/order/complete'/>" method="post" onsubmit="return combine()">
 	<table class="order_info">
     <colgroup>
         <col style="width: 20%;">
@@ -176,6 +172,11 @@ const total = ${total};   // JSP에서 총 결제 금액 설정
             </tr>
         </tbody>
 		</table>
+		
+		<script>
+		const ptotal = ${ptotal};  // JSP에서 포인트 최대값 설정
+		const total = ${total};   // JSP에서 총 결제 금액 설정
+		</script>
 		<br>
 		
 		<table class="order_info">

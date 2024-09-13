@@ -17,6 +17,7 @@ import com.spring_boot_allmypet.project.model.market.OrderCancelVO;
 import com.spring_boot_allmypet.project.model.market.OrderInfoVO;
 import com.spring_boot_allmypet.project.model.market.OrderProductVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.market.ReviewVO;
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 
 @Service
@@ -124,4 +125,12 @@ public class OrderService implements IOrderService {
 	public OrderInfoVO getOrderInfo(int ordNo) {
 		return dao.getOrderInfo(ordNo);
 	}
+
+	@Override
+	public void insertReview(ReviewVO review) {
+		dao.insertReview(review);
+	}
+	
+	
+	
 }

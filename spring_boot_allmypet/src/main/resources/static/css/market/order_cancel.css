@@ -76,15 +76,12 @@ a {
     margin: 10px;
 }
 
-
-
 .product-info {
 	font-size : 18px;
     margin-top: 15px;
     display: flex;
     border-top: 1px solid #eee;
 }
-
 
 
 .order-container button:hover {
@@ -133,4 +130,59 @@ a {
 label {
     display: block;
     margin-bottom: 10px;
+}
+.custom-btn {
+  margin: 10px;
+  float: right;
+  width: 130px;
+  height: 40px;
+  padding: 10px 25px;
+  border: 2px solid #000;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.btn-1 {
+  transition: all 0.3s ease;
+}
+.btn-1:hover {
+   box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+}
+
+
+table {
+  border-top: solid 1.5px black;
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  table-layout: fixed; /* 테이블 레이아웃을 고정으로 설정 */
+}
+
+thead {
+  text-align: center;
+  font-weight: bold;
+}
+
+tbody {
+  font-size: 20px;
+}
+
+tfooter{
+	font-size: 20px;
+	font-weight: bold;
+	background-color: gray;
+}
+
+td {
+  padding: 15px 0px;
+  border-bottom: 1px solid lightgrey;
 }

@@ -9,11 +9,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spring_boot_allmypet.project.model.comment.CommentVO;
 import com.spring_boot_allmypet.project.model.gallery.GalleryVO;
 import com.spring_boot_allmypet.project.model.market.MemberVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.service.comment.CommentService;
 import com.spring_boot_allmypet.project.service.gallery.GalleryService;
 
 import jakarta.servlet.http.HttpSession;
@@ -23,6 +26,9 @@ public class GalleryController {
 
     @Autowired
     private GalleryService galleryService;
+    
+    @Autowired
+    private CommentService commentService;
     
     // getPopularPostsInLastWeek를 적용하여 각 펫 ctg별로 조회수 높은 게시글 4개 출력
     @RequestMapping("/gallery")
@@ -46,33 +52,58 @@ public class GalleryController {
         return "gallery/gallery_category";
     }
     
-    // petCtgNo를 받아와서 해당되는 게시물 출력
     @RequestMapping("/gallery/detail/{postNo}")
     public String gallery_detail(@PathVariable int postNo, Model model, HttpSession session) {
-    	String memId = (String) session.getAttribute("mid");
-    	
-    	GalleryVO gall = galleryService.getPostByPostNo(postNo);
-    	
-    	model.addAttribute("gall", gall);
-    	
+        String memId = (String) session.getAttribute("mid");
+
+        GalleryVO gall = galleryService.getPostByPostNo(postNo);
+        
+        model.addAttribute("gall", gall);
+        
+        // 댓글을 가져오고 GalleryVO 객체에 설정
+        Map<String, Object> params = new HashMap<>();
+        params.put("postNo", postNo);
+        params.put("boardCtgNo", gall.getPetCtgNo());
+        List<CommentVO> comments = commentService.getCommentsByPostAndBoardCtgNo(params);
+        
+        // 댓글 날짜를 포맷하여 설정 (예: "yyyy-MM-dd HH:mm:ss")
+        for (CommentVO comment : comments) {
+            comment.setCommentDate(formatDate(comment.getCommentDate()));
+        }
+
+        // GalleryVO 객체에 댓글 설정
+        gall.setComments(comments);
+        
+        model.addAttribute("post", gall);
         return "gallery/gallery_detail";
     }
+
+    // 날짜 포맷팅 메소드
+    private String formatDate(String date) {
+        // 문자열을 Date로 변환 후 포맷팅할 필요가 있는 경우 사용
+        // 예: "2024-09-13 14:26:34"를 "yyyy-MM-dd HH:mm:ss"로 변환
+        return date; // 여기서는 이미 포맷이 맞는다고 가정
+    }
+
+    @PostMapping("/comment/like")
+    public String likeComment(@RequestParam("commentId") int commentId, @RequestParam("postNo") Integer postNo) {
+        commentService.incrementCommentLike(commentId);
+        return "redirect:/gallery/detail/" + postNo;
+    }
+
+    @PostMapping("/comment/delete")
+    public String deleteComment(@RequestParam("commentId") int commentId, @RequestParam("postNo") Integer postNo) {
+        commentService.deleteComment(commentId);
+        return "redirect:/gallery/detail/" + postNo;
+    }
+
+    @PostMapping("/comment/insert")
+    public String insertComment(CommentVO comment, HttpSession session) {
+        String memId = (String) session.getAttribute("mid");
+        comment.setMemId(memId);
+        commentService.insertComment(comment);
+        return "redirect:/gallery/detail/" + comment.getPostNo();
+    }
     
-	/*
-	 * // 상품 상세
-	 * 
-	 * @RequestMapping("/market/product/detail/{prdNo}") public String
-	 * product_detail(@PathVariable String prdNo, Model model, HttpSession session)
-	 * { String memId = (String) session.getAttribute("mid");
-	 * System.out.println("Session memId = " + memId); // 디버그 용도
-	 * 
-	 * System.out.println("prdNo = " + prdNo);
-	 * 
-	 * MemberVO memVo = orderService.getMemberInfo(memId); ProductVO prd =
-	 * prdService.detailViewProduct(prdNo);
-	 * 
-	 * model.addAttribute("memVo", memVo); model.addAttribute("prd", prd);
-	 * 
-	 * return "market/product_detail"; }
-	 */
+	
 }

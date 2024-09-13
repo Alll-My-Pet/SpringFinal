@@ -1,5 +1,8 @@
 package com.spring_boot_allmypet.project.model.gallery;
 
+import java.util.List;
+
+import com.spring_boot_allmypet.project.model.comment.CommentVO;
 import com.spring_boot_allmypet.project.model.member.MemberVO;
 
 public class GalleryVO {
@@ -11,9 +14,29 @@ public class GalleryVO {
 	public String postContent;
 	public String postImg;
 	public String postLike;
+	public String boardCtgNo;
 	public MemberVO member;
 
+	public List<CommentVO> comments;
 	
+	
+	
+	public List<CommentVO> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<CommentVO> comments) {
+		this.comments = comments;
+	}
+
+	public String getBoardCtgNo() {
+		return boardCtgNo;
+	}
+
+	public void setBoardCtgNo(String boardCtgNo) {
+		this.boardCtgNo = boardCtgNo;
+	}
+
 	public MemberVO getMember() {
 		return member;
 	}

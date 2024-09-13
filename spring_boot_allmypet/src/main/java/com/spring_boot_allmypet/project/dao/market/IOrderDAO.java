@@ -5,6 +5,7 @@ import com.spring_boot_allmypet.project.model.market.OrderCancelVO;
 import com.spring_boot_allmypet.project.model.market.OrderInfoVO;
 import com.spring_boot_allmypet.project.model.market.OrderProductVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.market.ReviewVO;
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 import com.spring_boot_allmypet.project.model.market.CartVO;
 
@@ -38,4 +39,5 @@ public interface IOrderDAO {
 	public void deleteOrderProduct(int ordNo);
 	public List<OrderCancelVO> getOrderCancel(String memId);
 	public OrderInfoVO getOrderInfo(int ordNo);
+    public void insertReview(ReviewVO review);
 }

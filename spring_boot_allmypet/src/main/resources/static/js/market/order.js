@@ -1,7 +1,7 @@
 // 서버에서 전달된 값 (서버 사이드에서 ${ptotal}과 ${total}을 변수로 제공해야 합니다)
-const ptotal = 0;  // 초기값, 서버 사이드에서 설정됨
-const total = 0;   // 초기값, 서버 사이드에서 설정됨
-let discountValue = 0;   // 할인 금액 초기화
+//const ptotal = 0;  // 초기값, 서버 사이드에서 설정됨
+//const total = 0;   // 초기값, 서버 사이드에서 설정됨
+//let discountValue = 0;   // 할인 금액 초기화
 
 // 포인트 입력 시 총 결제 금액 업데이트
 function updateDiscount() {
@@ -170,6 +170,7 @@ function preventEnter(event) {
 
 // 페이지 로드 후 실행
 $(document).ready(function() {
+
     // 폼 입력 필드에서 엔터키 방지
     $('#orderForm').on('keydown', preventEnter);
 

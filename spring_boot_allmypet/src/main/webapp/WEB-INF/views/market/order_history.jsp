@@ -56,7 +56,9 @@
  	                <c:choose>
 	                	<c:when test="${order.ordState}">
                             <button>교환/반품 신청</button>
-                            <button>리뷰 작성</button>
+                            <a href="<c:url value='/market/review_select/${order.ordNo}'/>">
+                            <button>리뷰작성</button>
+                            </a>
                         </c:when>
                         <c:otherwise>
                             <a href="<c:url value='/market/cancel/${order.ordNo}'/>">

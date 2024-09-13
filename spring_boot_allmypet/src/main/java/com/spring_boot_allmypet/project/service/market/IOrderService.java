@@ -6,6 +6,7 @@ import com.spring_boot_allmypet.project.model.market.CartVO;
 import com.spring_boot_allmypet.project.model.market.MemberVO;
 import com.spring_boot_allmypet.project.model.market.OrderInfoVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.market.ReviewVO;
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 
 public interface IOrderService {
@@ -22,5 +23,5 @@ public interface IOrderService {
 	
 	public List<MemberPointVO> getPointInfo(String memId);
     public void insertPointChange(MemberPointVO point);
-	
+    public void insertReview(ReviewVO review);
 }

@@ -1,7 +1,13 @@
 package com.spring_boot_allmypet.project.controller.market;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -18,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.spring_boot_allmypet.project.service.market.ProductService;
@@ -378,6 +385,84 @@ public class MarketController {
 	    return "market/order_history";
 	}
 	
+	//리뷰 상품 선택
+	@RequestMapping("/market/review_select/{ordNo}")
+	public String orderHistory(@PathVariable int ordNo, Model model, HttpSession session) {
+	    String memId = (String) session.getAttribute("mid");
+	    
+	    List<OrderProductVO> products = orderService.getOrderProductsByOrderNo(ordNo);
+	    
+        for (OrderProductVO product : products) {
+            ProductVO productDetails = prdService.detailViewProduct(product.getPrdNo());
+            product.setProductDetails(productDetails);
+        }
+        model.addAttribute("products", products);
+
+	    return "market/review_select";
+	}
+	
+	//리뷰 작성 페이지
+	@RequestMapping("/market/review/{ordNo}/{prdNo}")
+	public String review(@PathVariable int ordNo,@PathVariable String prdNo,
+			Model model, HttpSession session) {
+	    String memId = (String) session.getAttribute("mid");
+	    
+	    ProductVO productDetails = prdService.detailViewProduct(prdNo);
+	    
+	    model.addAttribute("ordNo", ordNo);
+        model.addAttribute("prdNo", prdNo);
+        model.addAttribute("productDetails", productDetails);
+
+	    return "market/review";
+	}
+	
+	@RequestMapping("/market/insertReview")
+	public String insertReview(
+	    @RequestParam("ordNo") int ordNo,
+	    @RequestParam("prdNo") String prdNo,
+	    @RequestParam("revText") String revText,
+	    @RequestParam("revSco") String revSco,
+	    @RequestParam("revImg") MultipartFile revImg,
+	    HttpSession session,
+	    RedirectAttributes redirectAttributes) {
+	    
+	    String memId = (String) session.getAttribute("mid");
+	    String revImgPath = null;
+
+	    // 이미지 파일 저장
+	    if (!revImg.isEmpty()) {
+	        try {
+	            // 이미지 파일 이름을 현재 시각 기반으로 생성
+	            String originalFilename = revImg.getOriginalFilename();
+	            String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+	            String newFilename = timestamp + "_" + originalFilename;
+	            
+	            // 파일 저장 경로
+	            Path path = Paths.get("src/main/resources/static/image/market/" + newFilename);
+	            Files.write(path, revImg.getBytes());
+	            
+	            revImgPath = newFilename;
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            redirectAttributes.addFlashAttribute("message", "이미지 업로드 실패");
+	            return "redirect:/market/review/" + ordNo + "/" + prdNo;
+	        }
+	    }
+
+	    // ReviewVO 객체 생성 및 설정
+	    ReviewVO review = new ReviewVO();
+	    review.setPrdNo(prdNo);
+	    review.setMemId(memId);
+	    review.setRevDate(LocalDateTime.now()); // 현재 시각으로 설정
+	    review.setRevText(revText);
+	    review.setRevSco(revSco);
+	    review.setRevImg(revImgPath); // 업로드된 이미지 파일 경로 설정
+	    
+	    // 리뷰 DB에 저장
+	    orderService.insertReview(review);
+	    
+	    return "redirect:/market/order/history"; // 리뷰 작성 후 주문 내역 페이지로 리다이렉트
+	}
 	
 	//굿즈 제작
 	@RequestMapping("/market/goods/produce")
