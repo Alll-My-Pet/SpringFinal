@@ -117,7 +117,7 @@
 /* card-post(게시글 목록 올라가는 카드)관련 스타일 */
 /* ************************* */
 .card-post {
-	width: 170px !important;
+	width: 158px !important;
 	height: 190px !important;
 	display: flex;
 	flex-direction: column;
@@ -167,6 +167,7 @@
 
 .post-title {
 	font-size: 15px !important;
+	width: 137px !important;
 }
 
 .post-text {

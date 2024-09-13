@@ -164,6 +164,21 @@
 														</div>
 													</a>
 												</div>
+												<div class="col-md-4">
+													<a href="<c:url value=''/>" class="card-link">
+														<div class="card-post">
+															<img src="/image/board/noimg_2.jpg" class="post-img"
+																alt="게시글 사진">
+															<div class="post-body">
+																<h5 class="post-title">게시글 제목(댓글수)</h5>
+																<p class="post-text">추천수 | 작성자</p>
+																<p class="post-text">
+																	<small class="text-muted">20XX.XX.XX</small>
+																</p>
+															</div>
+														</div>
+													</a>
+												</div>
 												<!-- card-post끝 -->
 											</div>
 											<!-- row 끝 -->
