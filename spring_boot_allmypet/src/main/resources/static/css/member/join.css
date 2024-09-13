@@ -160,34 +160,51 @@ input[type="radio"]:checked {
 	margin-right: 30px;
 }
 
-.position {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.position, .filtering {
+	margin: 10px 0;
+    padding: 10px 20px;
+    text-align: center;
 }
 
-.position b {
+.position b, .filtering b, .filtering p {
 	text-align: center;
-	font-size: 30px;
 }
 
-.position input {
-	font-size: 20px;
-}
-
-.filtering {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.filtering b{
-	text-align: center;
-	font-size: 30px;
+.position b, .filtering b {
+    font-size: 30px;
 }
 
 .filtering p {
-	text-align: center;
+	padding: 5px 20px;
+	font-size: 15px;
+}
+
+.label-container {
+    display: flex;
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+    justify-content: center;
+}
+
+.position label, .filtering label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    box-sizing: border-box;
+    flex: 0 0 21%; /* 4개씩 나열 */
+    padding: 10px 0;
+}
+
+input[type="checkbox"] {
+	width: 1.25em;
+	height: 1.25em;
+	border: max(2px, 0.1em) solid gray;
+	accent-color: #000000;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.filtering p {
 	color: #808080;
 }
 
@@ -211,7 +228,7 @@ input[type="radio"]:checked {
 	display: block;
 	margin: auto;
 	color: #fff;
-	font-size: 15px;
+	font-size: 20px;
 	font-weight: bold;
 	background: #000000;
 }

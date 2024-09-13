@@ -119,20 +119,24 @@
 						  	</table>
 						  	<div class="position">
 						  		<b>회원 종류</b>
-						  		<label><input type="checkbox" id="position" name="position" class="position" onclick="restrictPositionSelection(this)" value="0">일반 회원</label>
-						  		<label><input type="checkbox" id="position" name="position" class="position" onclick="restrictPositionSelection(this)" value="1">브리더</label>
+						  		<div class="label-container">
+							  		<label><input type="checkbox" id="position" name="position" class="position" onclick="restrictPositionSelection(this)" value="0">일반 회원</label>
+							  		<label><input type="checkbox" id="position" name="position" class="position" onclick="restrictPositionSelection(this)" value="1">브리더</label>
+						  		</div>
 						  	</div>
 						  	<div class="filtering">
 								<b>보고 싶지 않아요</b>
 								<p>반드시 선택하지 않으셔도 됩니다.</p>
-								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="1">강아지</label>
-								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="2">고양이</label>
-								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="3">기타 포유류</label>
-								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="4">파충류/양서류</label>
-								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="5">어류</label>
-								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="6">조류</label>
-								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="7">설치류</label>
-								<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="8">절지류/곤충류</label>
+								<div class="label-container">
+									<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="1">강아지</label>
+									<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="2">고양이</label>
+									<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="3">기타 포유류</label>
+									<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="4">파충류/양서류</label>
+									<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="5">어류</label>
+									<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="6">조류</label>
+									<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="7">설치류</label>
+									<label><input type="checkbox" id="filtering" name="filtering" class="filtering" onclick="restrictFilteringSelection()" value="8">절지류/곤충류</label>
+								</div>
 							</div>
 						</div>
 					</div>
