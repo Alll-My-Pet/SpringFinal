@@ -83,11 +83,11 @@
 	<insert id="insertPost"
 		parameterType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
 		INSERT INTO bulletin_board (postTitle, memId, postDate,
-		postContent, headerNo, petCtgNo, postImg)
+		postContent, headerNo, petCtgNo, postImg, boardCtgNo)
 		VALUES (#{postTitle},
 		#{memId}, NOW(),
 		#{postContent},
-		#{headerNo}, #{petCtgNo}, #{postImgBytes})
+		#{headerNo}, #{petCtgNo}, #{postImgBytes}, '10')
 	</insert>
 
 </mapper>

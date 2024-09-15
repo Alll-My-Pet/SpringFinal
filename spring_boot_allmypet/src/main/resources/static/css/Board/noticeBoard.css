@@ -89,9 +89,10 @@
 	border: 1px solid #A4A4A4;
 	border-radius: 8px;
 	width: 689px;
-	height: 700px;
-	margin-top: 55px;
+	height: auto;
+	margin-top: 10px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
 }
 
 .notice-table {
