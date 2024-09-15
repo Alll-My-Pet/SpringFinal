@@ -50,7 +50,7 @@
 						<div class="bestBox">
 							<div class="card-container">
 								<!-- 첫번째 동물군 베스트팁 -->
-								<a href="<c:url value=''/>" class="board-title">
+								<a href="<c:url value='/animal_home/1/tip'/>" class="board-title">
 									<div>강아지 양육팁 바로가기🐶</div>
 								</a>
 
@@ -58,7 +58,7 @@
 									<div class="row">
 										<c:forEach var="dog" items="${dogTips }">
 											<div class="col-md-4">
-												<a href="<c:url value=''/>" class="card-link">
+												<a href="<c:url value='/tip/1/detailTipBoard/${dog.postNo}'/>" class="card-link">
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${dog.postTitle }</span>
@@ -86,7 +86,7 @@
 							<br> <br>
 							<div class="card-container">
 								<!-- 두번째 동물군 베스트팁 -->
-								<a href="<c:url value=''/>" class="board-title">
+								<a href="<c:url value='/animal_home/2/tip'/>" class="board-title">
 									<div>고양이 양육팁 바로가기🐕 </div>
 								</a>
 
@@ -94,14 +94,19 @@
 									<div class="row">
 										<c:forEach var="cat" items="${catTips }">
 											<div class="col-md-4">
-												<a href="<c:url value=''/>" class="card-link">
+												<a href="<c:url value='/tip/2/detailTipBoard/${cat.postNo}'/>" class="card-link">
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${cat.postTitle }</span>
-															<p class="post-text">${cat.postLike }|${cat.memNickName }</p>
-															<p class="post-text">
-																<small class="text-muted"><fmt:formatDate
-																		value="${cat.postDate}" pattern="M/dd HH:mm" /></small>
+															<div class="post-info">
+																<span class="author">${cat.memNickName}</span> <span
+																	class="divider">|</span> <img
+																	src="/image/board/view_gray.svg" alt="조회수"
+																	class="view-icon"><span id="bodView">&nbsp;${cat.postView}</span>
+															</div>
+															<p class="post-date">
+																<fmt:formatDate value="${cat.postDate}"
+																	pattern="YYYY.MM.dd" />
 															</p>
 														</div>
 													</div>
@@ -116,7 +121,7 @@
 							<br> <br>
 							<div class="card-container">
 								<!-- 세번째 동물군 베스트팁 -->
-								<a href="<c:url value=''/>" class="board-title">
+								<a href="<c:url value='/animal_home/3/tip'/>" class="board-title">
 									<div>기타 포유류 양육팁 바로가기🐇</div>
 								</a>
 
@@ -124,14 +129,19 @@
 									<div class="row">
 										<c:forEach var="other" items="${otherTips }">
 											<div class="col-md-4">
-												<a href="<c:url value=''/>" class="card-link">
+												<a href="<c:url value='/tip/3/detailTipBoard/${other.postNo}'/>" class="card-link">
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${other.postTitle }</span>
-															<p class="post-text">${other.postLike }|${other.memNickName }</p>
-															<p class="post-text">
-																<small class="text-muted"><fmt:formatDate
-																		value="${other.postDate}" pattern="M/dd HH:mm" /></small>
+															<div class="post-info">
+																<span class="author">${other.memNickName}</span> <span
+																	class="divider">|</span> <img
+																	src="/image/board/view_gray.svg" alt="조회수"
+																	class="view-icon"><span id="bodView">&nbsp;${other.postView}</span>
+															</div>
+															<p class="post-date">
+																<fmt:formatDate value="${other.postDate}"
+																	pattern="YYYY.MM.dd" />
 															</p>
 														</div>
 													</div>
@@ -146,7 +156,7 @@
 							<br> <br>
 							<div class="card-container">
 								<!-- 네번째 동물군 베스트팁 -->
-								<a href="<c:url value=''/>" class="board-title">
+								<a href="<c:url value='/animal_home/4/tip'/>" class="board-title">
 									<div>파충류/양서류 양육팁 바로가기🐢</div>
 								</a>
 
@@ -154,17 +164,23 @@
 									<div class="row">
 										<c:forEach var="rep" items="${repTips }">
 											<div class="col-md-4">
-												<a href="<c:url value=''/>" class="card-link">
+												<a href="<c:url value='/tip/4/detailTipBoard/${rep.postNo}'/>" class="card-link">
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${rep.postTitle }</span>
-															<p class="post-text">${rep.postLike }|${rep.memNickName }</p>
-															<p class="post-text">
-																<small class="text-muted"><fmt:formatDate
-																		value="${rep.postDate}" pattern="M/dd HH:mm" /></small>
+															<div class="post-info">
+																<span class="author">${rep.memNickName}</span> <span
+																	class="divider">|</span> <img
+																	src="/image/board/view_gray.svg" alt="조회수"
+																	class="view-icon"><span id="bodView">&nbsp;${rep.postView}</span>
+															</div>
+															<p class="post-date">
+																<fmt:formatDate value="${rep.postDate}"
+																	pattern="YYYY.MM.dd" />
 															</p>
 														</div>
 													</div>
+													<!-- card-post끝 -->
 												</a>
 											</div>
 										</c:forEach>
@@ -176,7 +192,7 @@
 							<br> <br>
 							<div class="card-container">
 								<!-- 다섯번째 동물군 베스트팁 -->
-								<a href="<c:url value=''/>" class="board-title">
+								<a href="<c:url value='/animal_home/5/tip'/>" class="board-title">
 									<div>어류 양육팁 바로가기🐠</div>
 								</a>
 
@@ -184,17 +200,23 @@
 									<div class="row">
 										<c:forEach var="fish" items="${fishTips }">
 											<div class="col-md-4">
-												<a href="<c:url value=''/>" class="card-link">
+												<a href="<c:url value='/tip/5/detailTipBoard/${fish.postNo}'/>" class="card-link">
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${fish.postTitle }</span>
-															<p class="post-text">${fish.postLike }|${dog.memNickName }</p>
-															<p class="post-text">
-																<small class="text-muted"><fmt:formatDate
-																		value="${fish.postDate}" pattern="M/dd HH:mm" /></small>
+															<div class="post-info">
+																<span class="author">${fish.memNickName}</span> <span
+																	class="divider">|</span> <img
+																	src="/image/board/view_gray.svg" alt="조회수"
+																	class="view-icon"><span id="bodView">&nbsp;${fish.postView}</span>
+															</div>
+															<p class="post-date">
+																<fmt:formatDate value="${fish.postDate}"
+																	pattern="YYYY.MM.dd" />
 															</p>
 														</div>
 													</div>
+													<!-- card-post끝 -->
 												</a>
 											</div>
 										</c:forEach>
@@ -206,7 +228,7 @@
 							<br> <br>
 							<div class="card-container">
 								<!-- 첫번째 동물군 베스트팁 -->
-								<a href="<c:url value=''/>" class="board-title">
+								<a href="<c:url value='/animal_home/6/tip'/>" class="board-title">
 									<div>조류 양육팁 바로가기🦜</div>
 								</a>
 
@@ -214,14 +236,19 @@
 									<div class="row">
 										<c:forEach var="bird" items="${birdTips }">
 											<div class="col-md-4">
-												<a href="<c:url value=''/>" class="card-link">
+												<a href="<c:url value='/tip/6/detailTipBoard/${bird.postNo}'/>" class="card-link">
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${bird.postTitle }</span>
-															<p class="post-text">${bird.postLike }|${dog.memNickName }</p>
-															<p class="post-text">
-																<small class="text-muted"><fmt:formatDate
-																		value="${bird.postDate}" pattern="M/dd HH:mm" /></small>
+															<div class="post-info">
+																<span class="author">${bird.memNickName}</span> <span
+																	class="divider">|</span> <img
+																	src="/image/board/view_gray.svg" alt="조회수"
+																	class="view-icon"><span id="bodView">&nbsp;${bird.postView}</span>
+															</div>
+															<p class="post-date">
+																<fmt:formatDate value="${bird.postDate}"
+																	pattern="YYYY.MM.dd" />
 															</p>
 														</div>
 													</div>
@@ -236,7 +263,7 @@
 							<br> <br>
 							<div class="card-container">
 								<!-- 첫번째 동물군 베스트팁 -->
-								<a href="<c:url value=''/>" class="board-title">
+								<a href="<c:url value='/animal_home/7/tip'/>" class="board-title">
 									<div>설치류 양육팁 바로가기🐹</div>
 								</a>
 
@@ -244,14 +271,19 @@
 									<div class="row">
 										<c:forEach var="rod" items="${rodTips }">
 											<div class="col-md-4">
-												<a href="<c:url value=''/>" class="card-link">
+												<a href="<c:url value='/tip/7/detailTipBoard/${rod.postNo}'/>" class="card-link">
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${rod.postTitle }</span>
-															<p class="post-text">${rod.postLike }|${dog.memNickName }</p>
-															<p class="post-text">
-																<small class="text-muted"><fmt:formatDate
-																		value="${rod.postDate}" pattern="M/dd HH:mm" /></small>
+															<div class="post-info">
+																<span class="author">${rod.memNickName}</span> <span
+																	class="divider">|</span> <img
+																	src="/image/board/view_gray.svg" alt="조회수"
+																	class="view-icon"><span id="bodView">&nbsp;${rod.postView}</span>
+															</div>
+															<p class="post-date">
+																<fmt:formatDate value="${rod.postDate}"
+																	pattern="YYYY.MM.dd" />
 															</p>
 														</div>
 													</div>
@@ -266,7 +298,7 @@
 							<br> <br>
 							<div class="card-container">
 								<!-- 첫번째 동물군 베스트팁 -->
-								<a href="<c:url value=''/>" class="board-title">
+								<a href="<c:url value='/animal_home/8/tip'/>" class="board-title">
 									<div>절지류/곤충류 양육팁 바로가기🕷️</div>
 								</a>
 
@@ -274,14 +306,19 @@
 									<div class="row">
 										<c:forEach var="insect" items="${insectTips }">
 											<div class="col-md-4">
-												<a href="<c:url value=''/>" class="card-link">
+												<a href="<c:url value='/tip/8/detailTipBoard/${insect.postNo}'/>" class="card-link">
 													<div class="card-post">
 														<div class="post-body">
 															<span class="post-title">${insect.postTitle }</span>
-															<p class="post-text">${insect.postLike }|${dog.memNickName }</p>
-															<p class="post-text">
-																<small class="text-muted"><fmt:formatDate
-																		value="${insect.postDate}" pattern="M/dd HH:mm" /></small>
+															<div class="post-info">
+																<span class="author">${insect.memNickName}</span> <span
+																	class="divider">|</span> <img
+																	src="/image/board/view_gray.svg" alt="조회수"
+																	class="view-icon"><span id="bodView">&nbsp;${insect.postView}</span>
+															</div>
+															<p class="post-date">
+																<fmt:formatDate value="${insect.postDate}"
+																	pattern="YYYY.MM.dd" />
 															</p>
 														</div>
 													</div>
