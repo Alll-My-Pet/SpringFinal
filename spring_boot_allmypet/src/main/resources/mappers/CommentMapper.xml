@@ -21,6 +21,7 @@
     FROM comment 
     WHERE postNo = #{postNo}
       AND boardCtgNo = #{boardCtgNo}
+    ORDER BY commentDate DESC
 </select>
 
 <!-- 댓글 삽입 -->
@@ -42,6 +43,14 @@
     SET commentlike = commentlike + 1
     WHERE commentId = #{commentId};
 </update>
+
+<select id="getFavoriteEmojisByMemId" parameterType="String" resultType="com.spring_boot_allmypet.project.model.comment.EmojiVO">
+    SELECT e.emoNo, e.emoImg, e.emoName
+    FROM emoji_favorites ef
+    JOIN emoji_purchase ep ON ef.purchaseId = ep.purchaseId
+    JOIN emoji e ON ep.emoNo = e.emoNo
+    WHERE ef.memId = #{memId}
+</select>
 
 
 </mapper>

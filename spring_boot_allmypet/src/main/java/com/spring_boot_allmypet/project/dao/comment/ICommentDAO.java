@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.spring_boot_allmypet.project.model.comment.CommentVO;
+import com.spring_boot_allmypet.project.model.comment.EmojiFavVO;
+import com.spring_boot_allmypet.project.model.comment.EmojiVO;
 
 
 public interface ICommentDAO {
@@ -18,4 +20,8 @@ public interface ICommentDAO {
 
     // 댓글 공감 수 증가
     public void incrementCommentLike(int commentId);
+    
+    //즐겨찾기 이모지 조회
+    public List<EmojiVO> getFavoriteEmojisByMemId(String memId);
+
 }

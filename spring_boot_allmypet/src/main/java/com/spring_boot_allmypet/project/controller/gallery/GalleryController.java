@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring_boot_allmypet.project.model.comment.CommentVO;
+import com.spring_boot_allmypet.project.model.comment.EmojiVO;
 import com.spring_boot_allmypet.project.model.gallery.GalleryVO;
 import com.spring_boot_allmypet.project.model.market.MemberVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
@@ -85,25 +86,7 @@ public class GalleryController {
         return date; // 여기서는 이미 포맷이 맞는다고 가정
     }
 
-    @PostMapping("/comment/like")
-    public String likeComment(@RequestParam("commentId") int commentId, @RequestParam("postNo") Integer postNo) {
-        commentService.incrementCommentLike(commentId);
-        return "redirect:/gallery/detail/" + postNo;
-    }
-
-    @PostMapping("/comment/delete")
-    public String deleteComment(@RequestParam("commentId") int commentId, @RequestParam("postNo") Integer postNo) {
-        commentService.deleteComment(commentId);
-        return "redirect:/gallery/detail/" + postNo;
-    }
-
-    @PostMapping("/comment/insert")
-    public String insertComment(CommentVO comment, HttpSession session) {
-        String memId = (String) session.getAttribute("mid");
-        comment.setMemId(memId);
-        commentService.insertComment(comment);
-        return "redirect:/gallery/detail/" + comment.getPostNo();
-    }
+   
     
 	
 }

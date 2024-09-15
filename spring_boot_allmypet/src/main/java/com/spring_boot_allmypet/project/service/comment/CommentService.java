@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.spring_boot_allmypet.project.dao.comment.ICommentDAO;
 import com.spring_boot_allmypet.project.model.comment.CommentVO;
+import com.spring_boot_allmypet.project.model.comment.EmojiFavVO;
+import com.spring_boot_allmypet.project.model.comment.EmojiVO;
 
 @Service
 public class CommentService implements ICommentService {
@@ -38,5 +40,10 @@ public class CommentService implements ICommentService {
     @Override
     public void incrementCommentLike(int commentId) {
         dao.incrementCommentLike(commentId);
+    }
+    
+    // 특정 회원의 즐겨찾는 이모지 조회
+    public List<EmojiVO> getFavoriteEmojisByMemId(String memId) {
+        return dao.getFavoriteEmojisByMemId(memId);
     }
 }

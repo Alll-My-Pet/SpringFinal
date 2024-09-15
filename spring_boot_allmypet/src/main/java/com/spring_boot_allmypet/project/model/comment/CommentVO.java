@@ -10,8 +10,15 @@ public class CommentVO {
 	public String commentText;
 	public int emojiNo;
 	public int commentlike;
+	public String emojiImg; 
 	
 	
+	public String getEmojiImg() {
+		return emojiImg;
+	}
+	public void setEmojiImg(String emojiImg) {
+		this.emojiImg = emojiImg;
+	}
 	public int getCommentlike() {
 		return commentlike;
 	}
