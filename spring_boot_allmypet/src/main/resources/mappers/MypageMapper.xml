@@ -344,10 +344,11 @@
 		SELECT 
 		    uc.memId,
 		    uc.valid_until,
+		    uc.coupon_id,
 		    c.discount_percent,
 		    c.valid_items
 		FROM 
-		    user_coupons uc
+		    usercoupons uc
 		JOIN 
 		    coupons c ON uc.coupon_id = c.coupon_id
 		WHERE 
