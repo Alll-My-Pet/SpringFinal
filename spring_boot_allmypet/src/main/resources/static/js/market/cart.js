@@ -41,4 +41,10 @@ $(document).ready(function() {
             alert("삭제할 상품을 선택해주세요.");
         }
     };
+    
+
 });
+function continueShopping() {
+    // 쇼핑 계속하기 버튼 클릭 시 마켓홈으로 이동
+    location.href = '/market/home';
+}

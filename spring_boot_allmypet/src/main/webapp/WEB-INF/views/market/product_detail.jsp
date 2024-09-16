@@ -43,10 +43,30 @@
         <div class="product-description">
             <div class="description-item">
             <a id="#1">
-            <img class="product-image" src="<c:url value='/image/market/${prd.prdDescript }'/>"/>
+            <img class="product-Descript" src="<c:url value='/image/market/${prd.prdDescript }'/>"/>
 			</a></div>
-            <div class="description-item">
-            <a id="#2">이용후기</a> 내용</div>
+            <div class="description-item" id="#2">
+            <div>
+            	<div>
+                <c:forEach var="review" items="${reviews}">
+                    <div class="review-item">
+                        <div class="review-header">
+                        	<img class="profile-image" src="<c:url value='/image/member/${review.member.profile_image}'/>"/>
+                            <div class="review-author">${review.memId}</div><br>
+                            <div class="review-score">★${review.revSco}</div>
+                            <div class="review-date"> &nbsp;&nbsp;${review.revDate}</div>
+                        </div>
+                        <br>
+                        <div class="review-body">
+                                <img class="review_img" src="<c:url value='/image/market/${review.revImg}'/>"/>
+
+                            <p>${review.revText}</p>
+                        </div>
+                    </div>
+                </c:forEach>
+                </div>
+            </div>
+            </div>
         </div>
     </div>
     </form>

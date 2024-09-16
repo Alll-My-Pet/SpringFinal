@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>마켓</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product.css'/>" />
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 </head>
@@ -131,7 +131,6 @@
 			    
 			    <button onclick="showAllProducts()">전체목록 보기</button>
 			</div>
-            <p class="product_total">전체상품 000개</p>
             
             <div class="product-grid">
             <c:forEach items="${prdList }" var="prd">
