@@ -344,6 +344,7 @@
 		SELECT 
 		    uc.memId,
 		    uc.valid_until,
+		    uc.coupon_id,
 		    c.discount_percent,
 		    c.valid_items
 		FROM 

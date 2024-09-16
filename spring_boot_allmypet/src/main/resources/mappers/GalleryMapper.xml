@@ -12,6 +12,7 @@
   		<result property="memId" column="memId"  />
   		<result property="postContent" column="postContent"  />
   		<result property="postImg" column="postImg"  />
+  		<result property="boardCtgNo" column="boardCtgNo"  />
   		<result property="postLike" column="postLike"  />
   	</resultMap>
   	

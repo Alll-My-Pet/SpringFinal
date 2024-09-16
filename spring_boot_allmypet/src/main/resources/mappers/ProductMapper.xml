@@ -76,4 +76,12 @@
         ORDER BY CAST(p.prdNo AS UNSIGNED);
     </select>
 
+    <!-- 상품 번호에 따른 리뷰 목록 조회 -->
+    <select id="getReviewsByProductNo" resultType="com.spring_boot_allmypet.project.model.market.ReviewVO">
+    SELECT r.*, m.profile_image
+    FROM review r
+    JOIN member m ON r.memId = m.memId
+    WHERE r.prdNo = #{prdNo}
+    </select>
+
 </mapper>

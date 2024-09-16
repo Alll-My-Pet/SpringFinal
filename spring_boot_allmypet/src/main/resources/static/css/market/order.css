@@ -136,7 +136,7 @@ td {
 	font-weight: bold;
 }
 
-.order_Pirce{
+.order_Price{
 	text-align : right;
 	font-size : 23px;
 	font-weight: bold;
@@ -226,4 +226,9 @@ td {
   background-color: blue;
   color: white;
   border: none;
+}
+
+.point{
+	text-align: right;
+	font-size: 15px;
 }

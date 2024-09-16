@@ -2,7 +2,9 @@ package com.spring_boot_allmypet.project.service.market;
 
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,6 +17,8 @@ import com.spring_boot_allmypet.project.model.market.OrderCancelVO;
 import com.spring_boot_allmypet.project.model.market.OrderInfoVO;
 import com.spring_boot_allmypet.project.model.market.OrderProductVO;
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.market.ReviewVO;
+import com.spring_boot_allmypet.project.model.member.MemberPointVO;
 
 @Service
 public class OrderService implements IOrderService {
@@ -88,4 +92,45 @@ public class OrderService implements IOrderService {
     public void insertOrderCancel(OrderCancelVO orderCancel) {
         dao.insertOrderCancel(orderCancel);
     }
+
+	@Override
+	public List<MemberPointVO> getPointInfo(String memId) {
+		return dao.getPointInfo(memId);
+	}
+
+	@Override
+	public void insertPointChange(MemberPointVO point) {
+		dao.insertPointChange(point);
+	}
+	
+	public void deleteUserCoupon(String memId, int couponId) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("memId", memId);
+        params.put("coupon_id", couponId);
+        dao.deleteUserCoupon(params);
+    }
+    
+	public void deleteOrderInfo(int ordNo) {
+	    dao.deleteOrderInfo(ordNo);
+	}
+
+	public void deleteOrderProduct(int ordNo) {
+		 dao.deleteOrderProduct(ordNo);
+	}
+
+	public List<OrderCancelVO> getOrderCancel(String memId) {
+		return dao.getOrderCancel(memId);
+	}
+	
+	public OrderInfoVO getOrderInfo(int ordNo) {
+		return dao.getOrderInfo(ordNo);
+	}
+
+	@Override
+	public void insertReview(ReviewVO review) {
+		dao.insertReview(review);
+	}
+	
+	
+	
 }

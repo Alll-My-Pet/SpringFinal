@@ -110,10 +110,11 @@ h2 {
 }
 
 .description-item {
-    border: 1px solid #000;
+    border: 1px solid #ddd;
     padding: 20px;
     box-sizing: border-box;
     margin-bottom: 10px;
+    border-radius: 10px;
 }
 
 .detail_btn {
@@ -151,4 +152,52 @@ h2 {
 
 .option_text{
 	font-size: 20px;
+}
+
+.review-body{
+	width:inherit;
+}
+
+.review_img{
+	width: 100px;
+	height: auto;
+}
+
+.review-item{
+	border-bottom: 1px solid lightgrey;
+}
+
+.review-header{
+}
+
+.review-score{
+  float: left;
+  font-weight: bold;
+  font-size: 13px;
+  color: black;
+  background-color: gold;
+}
+
+.review-date{
+	float: left;
+	font-size : 13px;
+	font-weight: lighter;
+}
+
+.review-author{
+	float: left;
+	font-size: 15px;
+}
+
+.profile-image {
+	float: left;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.product-Descript{
+	align-content: center;
+	width: 100%;
+	height: auto;
 }
