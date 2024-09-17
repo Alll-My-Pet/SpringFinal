@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+#admin_prdinsert{
+	display: flex;
+	flex-direction: row;
+	width:100%;
+	height:100%;
+}
+#admin_prdinsert #admin_r{
+	width:70%;
+}
+#admin_r #admin_section{
+	width:80%;
+	padding: 1%;
+}
+#admin_section{
+	height:100%;
+	width:100%;
+}
+#admin_section_t{
+	height:10%;
+}
+#admin_section_m{
+	height:90%;
+	width:100%;
+}
+
+/* 삭제할꺼 */
+#admin_r div{
+	
+}
+
+#admin_section_t #first_name{
+	font-size:10px;
+}
+#admin_section_t #second_name{
+	font-size:30px;
+	font-weight: bold;
+}
+#admin_section{
+	box-shadow: 0 0 0 1px #aaaaaa;
+	border-radius: 10px;
+}
+
+
+
