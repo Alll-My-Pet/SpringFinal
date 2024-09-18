@@ -6,12 +6,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.spring_boot_allmypet.project.model.market.ProductVO;
 import com.spring_boot_allmypet.project.service.admin.AdminService;
 
 @RestController
@@ -68,4 +68,20 @@ public class AdminRestController {
         
         return result;
     }
+	/*상품 정보 불러오기*/
+	@RequestMapping("/admin/prdInfoLoad")
+	public ProductVO prdInfoLoad(@RequestParam("prdNo") String prdNo) {
+	    ProductVO prdInfo = adminService.prdInfoLoad(prdNo);
+	    if (prdInfo == null) {
+	        return null;  // 해당 상품 번호가 없으면 null 반환
+	    }
+	    return prdInfo;
+	}
+	/*상품 삭제*/
+	@RequestMapping("/admin/prdDelete")
+	public String prdDelete(@RequestParam("prdNo") String prdNo) {
+		adminService.prdDelete(prdNo);
+		return "success";
+	}	
+
 }

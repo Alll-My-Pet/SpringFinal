@@ -29,4 +29,25 @@
  		 INSERT INTO product (prdNo, petCtgNo, prdCtgNo, prdName, prdPrice, prdCompany, prdStock, prdImg, prdDescript)
         VALUES (#{prdNo}, #{petCtgNo}, #{prdCtgNo}, #{prdName}, #{prdPrice}, #{prdCompany}, #{prdStock}, #{prdImg}, #{prdDescript});
   	</insert>
+  	<!-- 상품 정보 출력 -->
+	<select id="prdInfoLoad" parameterType="string" resultType="com.spring_boot_allmypet.project.model.market.ProductVO">
+ 		SELECT * FROM product WHERE prdNo=#{prdNo}
+  	</select>
+  	<update id="prdModify" parameterType="com.spring_boot_allmypet.project.model.market.ProductVO">
+	    UPDATE product
+	    SET 
+	        petCtgNo = #{petCtgNo}, 
+	        prdCtgNo = #{prdCtgNo}, 
+	        prdName = #{prdName}, 
+	        prdPrice = #{prdPrice}, 
+	        prdCompany = #{prdCompany}, 
+	        prdStock = #{prdStock}, 
+	        prdImg = #{prdImg}, 
+	        prdDescript = #{prdDescript}
+	    WHERE prdNo = #{prdNo};
+	</update>
+	<delete id="prdDelete" parameterType="string">
+  		DELETE FROM product 
+	    WHERE prdNo = #{prdNo}
+  	</delete>
 </mapper>

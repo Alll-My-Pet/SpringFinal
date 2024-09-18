@@ -5,14 +5,14 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>상품 등록 페이지</title>
+		<title>상품 정보 수정</title>
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/admin/adminPagePublic.css'/>">
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/admin/adminControl.css'/>">
-		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/admin/prdInsertView.css'/>">
+		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/admin/prdModifyView.css'/>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-		<script src="<c:url value='/js/admin/prdInsertView.js'/>"></script>
+		<script src="<c:url value='/js/admin/prdModifyView.js'/>"></script>
 	</head>
 	<body>
 		<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -37,12 +37,12 @@
 						<a href="/mypage/my_block_list"><div id="second_name">상품 추가</div></a>
 					</div>
 					<div id="admin_section_m">
-						<form id="prd_insert_form" method="POST" action="/admin/prdInsert">
+						<form id="prd_insert_form" method="POST" action="/admin/prdModify">
 							<div class="prd_div">
 								<div class="prd_div_name">상품번호</div>
 								<div class="prd_info_area">
 									<input id="prdNo" name="prdNo"type="text">
-									<div id="no_check_btn" class="btn_div">중복확인</div>
+									<div id="no_check_btn" class="btn_div">불러오기</div>
 								</div>
 							</div>
 							<div class="prd_div">
@@ -98,7 +98,6 @@
 								<div class="prd_div_name">상품 이미지</div>
 								<div class="prd_info_area">
 									<div id="prd_img_area"></div>
-									<div id="prd_img_btn"class="ei_cursor_pointer btn_div">이미지 추가</div>
 									<input type="file" id="imageInput" style="display: none;" accept="image/*">
 								</div>
 							</div>
@@ -108,13 +107,12 @@
 									<div id="prd_info_area">
 										<input id="prd_info"type="text" readonly>
 									</div>
-									<div id="prd_info_btn"class="ei_cursor_pointer btn_div">이미지 추가</div>
 									<input type="file" id="infoInput" style="display: none;" accept="image/*">
 								</div>
 							</div>
 							<div class="btn_area">
-								<div id="submit_btn" class="btn_div">추가하기</div>
-
+								<div id="submit_btn" class="btn_div">수정하기</div>
+								<div id="delete_btn" class="btn_div">삭제하기</div>
 							</div>
 						</form>
 					</div>

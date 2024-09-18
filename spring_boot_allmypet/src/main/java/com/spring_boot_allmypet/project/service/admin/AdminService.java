@@ -23,4 +23,18 @@ public class AdminService implements IAdminService {
 	public void prdInsert(ProductVO vo) {
 		dao.prdInsert(vo);
 	}
+	/*상품 정보 출력*/
+	@Override
+	public ProductVO prdInfoLoad(String prdNo) {
+		return dao.prdInfoLoad(prdNo);
+	}
+	/*상품 수정*/
+	@Override
+	public void prdModify(ProductVO vo) {
+		dao.prdModify(vo);
+	}
+	@Override
+	public void prdDelete(String prdNo) {
+		dao.prdDelete(prdNo);
+	}
 }

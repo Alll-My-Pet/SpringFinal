@@ -13,13 +13,13 @@
 	padding: 1%;
 }
 #admin_section{
+	height:100%;
 	width:100%;
 }
 #admin_section_t{
-	height:10%;
 }
 #admin_section_m{
-	height:90%;
+	width:100%;
 }
 
 /* 삭제할꺼 */
@@ -38,7 +38,6 @@
 	box-shadow: 0 0 0 1px #aaaaaa;
 	border-radius: 10px;
 }
-
 
 /* admin_section_m 내부에서만 적용되는 스타일 */
 #admin_section_m {
@@ -83,7 +82,7 @@
     width: auto; /* 기본 가로 크기를 유지 */
 }
 
-/* 중복 확인 버튼을 입력 필드 옆에 배치 */
+/* 불러오기 버튼을 입력 필드 옆에 배치 */
 #no_check_btn {
     padding: 10px 15px;
     border-radius: 5px;
@@ -154,6 +153,7 @@ input[type="radio"] {
     border-radius: 5px;
 }
 
+/* 버튼 스타일 (색상 없음) */
 #admin_section_m .btn_div {
     display: inline-block;
     padding: 10px 15px;
@@ -190,4 +190,5 @@ input[type="radio"] {
         width: 100%;
     }
 }
+
 
