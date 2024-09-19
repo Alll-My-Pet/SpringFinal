@@ -138,12 +138,10 @@
 				</c:if>
 			</div>
 		</section>
-
-
+	</div>
+	
 		<div id="footer">
 			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 		</div>
-
-	</div>
 </body>
 </html>

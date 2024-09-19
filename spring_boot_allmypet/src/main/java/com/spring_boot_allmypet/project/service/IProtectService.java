@@ -15,6 +15,8 @@ public interface IProtectService {
 				public ArrayList<ProtectVO> ProtectReportList(HashMap<String, Integer> map);
 				//페이징
 				public int ProtectPaging();
+				// 유기동물 신고 페이징
+				public int ReportPaging();
 				
 			    // 글 쓰기
 				public void ProtectInsert(ProtectVO vo);
@@ -32,5 +34,8 @@ public interface IProtectService {
 
 				// 검색
 				public ArrayList<ProtectVO> ProtectSearch(HashMap<String, String> map);
-
+				
+				public void incrementLike(int postNo);
+				
+				public void decrementLike(int postNo);
 }

@@ -26,7 +26,7 @@
 	<select id="ProtectReportList" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.ProtectVO">
 		SELECT * FROM animal_protect
 		WHERE headerNo = 4
-		LIMIT #{startNo}, 15;
+		LIMIT #{startNo}, 4;
 	</select>
 	
 	<!-- 페이징 -->
@@ -84,11 +84,4 @@
         postDate=#{postDate}, memId=#{memId}
     WHERE postNo=#{postNo}
 	</update>
-  	
-  	<!-- 삭제 -->
-  	<delete id="ProtectDelete" parameterType="int">
-  		DELETE FROM animal_protect WHERE postNo=#{postNo}
-  	</delete>
-	
-	
 </mapper>

@@ -14,6 +14,9 @@ import com.spring_boot_allmypet.project.model.ProtectVO;
 public class ProtectService implements IProtectService {
 	
 
+	
+
+
 	@Autowired
 	@Qualifier("IProtectDAO")
 	IProtectDAO dao;
@@ -31,6 +34,12 @@ public class ProtectService implements IProtectService {
 	@Override
 	public int ProtectPaging() {
 		return dao.ProtectPaging();
+	}
+	
+	@Override
+	public int ReportPaging() {
+		// TODO Auto-generated method stub
+		return dao.ReportPaging();
 	}
 
 	@Override
@@ -65,5 +74,13 @@ public class ProtectService implements IProtectService {
 	public ArrayList<ProtectVO> ProtectSearch(HashMap<String, String> map) {
 		return dao.ProtectSearch(map);
 	}
+	
+	public void incrementLike(int postNo) {
+        dao.incrementLike(postNo);
+    }
+
+    public void decrementLike(int postNo) {
+        dao.decrementLike(postNo);
+    }
 
 }

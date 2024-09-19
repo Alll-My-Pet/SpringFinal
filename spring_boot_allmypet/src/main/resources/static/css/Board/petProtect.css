@@ -77,13 +77,12 @@
 	height: 45vh;
 	margin:0 auto;
 	margin-top:200px;
-	
 }
 
 #reportFont {
-	font-size: 30px;
+	font-size: 25px;
 	display: flex;
-	margin-left:300px;
+	margin-left:360px;
 }
 
  
@@ -125,8 +124,6 @@
     padding: 8px;
     text-align: center;
     border-collapse: collapse;
-
-    
 }
 
 
@@ -180,6 +177,9 @@
 	border:1px solid black;
     margin-top:160px;
     background-color:white;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
 }
 
 .abandonedFont{
@@ -222,4 +222,7 @@
 
  .header-text-red {
             color: red;
-        }
+	}
+        
+        
+   

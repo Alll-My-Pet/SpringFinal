@@ -35,47 +35,52 @@ function goPage(no) {
 		<div id="header">
 			<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		</div>
-		<section class="protect">
-
-			<div class="MainFont">
-				<h1 id="PPBoardFont">반려동물 보호 게시판</h1>
-				<a href="<c:url value='/board/protectReport'/>"><button class="reportBtn">신고하기</button></a>
-			</div>
-
-			<div class="abandoned">
-				<p id="reportFont">유기동물 신고</p>
-				<c:forEach items="${ReportList}" var="report">
-					<div class="abandonedPic">
-						<div class="abandonedFont">${report.postImg }</div>
-						<div class="description">
-							종류:${report.lossPet }<br>
-							위치:${report.lossLocation }<br>
-							제목:${report.postTitle }<br>
+	
+		<section class="report">
+				<div class="MainFont">
+					<h1 id="PPBoardFont">반려동물 보호 게시판</h1>
+					<a href="<c:url value='/board/protectReport'/>"><button class="reportBtn">신고하기</button></a>
+				</div>
+	
+				<div class="abandoned">
+					<p id="reportFont">유기동물 신고</p>
+					
+					<c:forEach items="${ReportList}" var="report">
+					<a href="<c:url value='/board/ProtectDetailView/${report.postNo}'/>">
+						<div class="abandonedPic">
+							<div class="abandonedFont">${report.postImg }</div>
+							<div class="description">
+								종류:${report.lossPet }<br>
+								위치:${report.lossLocation }<br>
+								제목:${report.postTitle }<br>
+							</div>
 						</div>
-					</div>
-				</c:forEach>
-
-
-			</div>
-			<!-- abandoned 끝 -->
-
-
+					</a>
+					</c:forEach>
+	
+	
+				</div>
+				<!-- abandoned 끝 -->
+		</section>
+		<section class="protect">
 			<div class="ProtectBrd">
 
-				<form class="boardListForm">
-					<select class="searchOption">
+				<form class="boardListForm"  method="get" action="<c:url value='/board/ProtectSearch'/>">
+					<select class="searchOption" id="type" name="type">
 						<option value="AllList">전체 게시글</option>
-						<option value="option1">옵션1</option>
-						<option value="option2">옵션2</option>
+						<option value="1">유기동물 봉사</option>
+						<option value="2">봉사</option>
+						<option value="3">캠페인</option>
+						<option value="4">유기동물 신고</option>
 					</select> 
-					<input type="text" class="searchBar" placeholder="게시판 내 검색">
+					<input type="text" class="searchBar"id="keyword" name="keyword" placeholder="게시판 내 검색">
 
-					<button class="ProtectSearchBtn">
+					<button class="ProtectSearchBtn" type="submit">
 						<img src="<c:url value='/project_images/free-icon-search-interface-symbol-54481.png'/>" />
 					</button>
 				</form>
 
-
+			<div class="protectBoard">
 				<table class="PttTable">
 					<tbody>
 						<c:forEach items="${ProtectList}" var="PBoard">
@@ -97,7 +102,7 @@ function goPage(no) {
 						</c:forEach>
 						</tbody>
 				</table>
-
+			</div>
 
 						<div class="paging" style="text-align: center;">
 									<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
@@ -110,8 +115,8 @@ function goPage(no) {
 											class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
 									</c:forEach>
 		
-									<a onclick="javascript:goPage('next')">다음</a> <a
-										onclick="javascript:goPage('${pageVo.totalPage }')">
+									<a onclick="javascript:goPage('next')">다음</a> 
+									<a onclick="javascript:goPage('${pageVo.totalPage }')">
 										&gt;&gt;</a>
 						</div>
 						
@@ -136,10 +141,10 @@ function goPage(no) {
 							</c:if>
 						</div>
 
-			</div> <!-- ProtectBrd끝 -->
+				</div> <!-- ProtectBrd끝 -->
 
 
-		</section>
+			</section>
 		<div id="floatingBtn">
 			<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
 		</div>

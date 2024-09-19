@@ -169,7 +169,7 @@ public class BoardCotroller {
 		return "board/petProtectBoard";
 	}
 
-	// 상세 페이지
+		// 상세 페이지
 		@RequestMapping("/board/ProtectDetailView/{postNo}")
 		public String ProtectDetailView(@PathVariable int postNo, Model model,HttpSession session) {
 			// 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
@@ -270,6 +270,14 @@ public class BoardCotroller {
 
 		      return "redirect:/board/ProtectBoardList";
 		  }
+		  
+		  	// 검색
+			@ResponseBody
+			@RequestMapping("/board/ProtectSearch")
+			public ArrayList<ProtectVO> ProtectSearch(@RequestParam HashMap<String, String> param) {
+				ArrayList<ProtectVO> ProtectList = protectService.ProtectSearch(param);
+				return ProtectList;
+			}
 		
 
 	// ********************************동물분양 홍보****************************************

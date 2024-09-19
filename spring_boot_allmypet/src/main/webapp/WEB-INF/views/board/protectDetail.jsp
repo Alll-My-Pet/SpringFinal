@@ -22,7 +22,20 @@
 		
 		
 		  <div class="protectTitle">
-		    <div class="title">제목&nbsp:&nbsp[${protect.headerNo}]&nbsp${protect.postTitle }</div>
+		    <div class="title">
+		    
+		   		 제목&nbsp:&nbsp
+					<c:choose>
+						<c:when test="${protect.headerNo == 1}">[유기동물 봉사]</c:when>
+						<c:when test="${protect.headerNo == 2}">[봉사]</c:when>
+						<c:when test="${protect.headerNo == 3}">[캠페인]</c:when>
+						<c:when test="${protect.headerNo == 4}">
+							<span class="header-text-red">[유기동물 신고]</span>
+						</c:when>
+					</c:choose>
+				&nbsp${protect.postTitle }
+			
+			</div>
 		    <div class="author">작성자:${protect.memId }</div>
 		  </div>
 		  
@@ -39,9 +52,11 @@
 		  		</div>
 		  
 		  		<div class="bookMarkInfo">
-		   			<p>북마크한 이용자:</p><br>
-		   			<img src="<c:url value='/project_images/free-icon-user-9351199.png'/>" />
+		   			<p class="bookmarkUserFont">북마크한 이용자</p><br>
+		   			<img src="<c:url value='/project_images/free-icon-user-9351199.png'/>" class="bookmarkImg"/>
+		  		<p class="bookmarkFont">많은 관심 부탁드려요!</p>
 		  		</div>
+		  		
 		  
 		  	</div>
 		 </section>

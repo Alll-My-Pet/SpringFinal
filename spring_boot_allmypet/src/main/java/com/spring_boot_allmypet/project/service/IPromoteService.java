@@ -3,7 +3,6 @@ package com.spring_boot_allmypet.project.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.apache.ibatis.annotations.Param;
 
 import com.spring_boot_allmypet.project.model.PromoteVO;
 

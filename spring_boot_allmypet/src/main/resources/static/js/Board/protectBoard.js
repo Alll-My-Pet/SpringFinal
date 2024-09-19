@@ -1,19 +1,18 @@
 /**
- *  MainBoard.js
+ *  protectBoard.js
  */
 $(document).ready(function() {
-    
     $('#notLoginBtn').click(function() {
-    	if (confirm('로그인이 필요합니다. 로그인 하시겠습니까?')) {
-                window.location.href = '/login';
-            }
+        if (confirm('로그인이 필요합니다. 로그인 하시겠습니까?')) {
+            window.location.href = '/login';
+        }
     });
-    
-     $('.promoteBoardSearchBtn').click(function(event) {
+
+    $('.ProtectSearchBtn').click(function(event) {
         event.preventDefault(); // 기본 폼 제출 방지
 
         // 폼 데이터 수집
-        var form = $('#promoteSearch');
+        var form = $('.boardListForm');
         var formData = form.serialize(); // 폼 데이터 직렬화
 
         // AJAX 요청 보내기
@@ -23,7 +22,6 @@ $(document).ready(function() {
             data: formData,
             dataType: 'json',
             success: function(response) {
-                // 검색 결과를 처리
                 displaySearchResults(response);
             },
             error: function(xhr, status, error) {
@@ -34,32 +32,39 @@ $(document).ready(function() {
 
     // 검색 결과를 표시하는 함수
     function displaySearchResults(results) {
-        var container = $('.promoteBoardBox');
+        var container = $('.protectBoard');
+        container.empty(); // 기존 결과 삭제
 
         if (results.length === 0) {
-            // 검색 결과가 없을 때 경고 메시지 표시
             alert("검색 결과가 없습니다");
-            return; // 더 이상의 작업을 수행하지 않음
+            return;
         }
 
-        // 검색 결과가 있을 때만 기존 결과 삭제
-        container.empty();
+        var table = $('<table class="PttTable"></table>');
+        var header = '<thead><tr><th>종류</th><th>제목</th><th>작성자</th><th>작성일</th></tr></thead>';
+        var tbody = $('<tbody></tbody>');
 
         $.each(results, function(index, item) {
-            var html = '<a href="/board/promoteDetailView/' + item.postNo + '">';
-            html += '<div class="promotePic">';
-            html += '<div class="promoteFont">' + item.postImg + '</div>';
-            html += '<div class="promoteDescription">';
-            html += '분류:' + item.petCtgNo + '<br>';
-            html += '생물명:' + item.petName + '<br>';
-            html += '분양처:' + item.placeInfo + '<br>';
-            html += '분양 방법:' + item.parcelOutInfo;
-            html += '</div>';
-            html += '</div>';
-            html += '</a>';
-            container.append(html);
+            var row = '<tr>';
+            row += '<td>' + (item.headerNo === 1 ? '[유기동물 봉사]' :
+                              item.headerNo === 2 ? '[봉사]' :
+                              item.headerNo === 3 ? '[캠페인]' :
+                              item.headerNo === 4 ? '<span class="header-text-red">[유기동물 신고]</span>' : '') + '</td>';
+            row += '<td><a href="/board/ProtectDetailView/' + item.postNo + '">' + item.postTitle + '</a></td>';
+            row += '<td>' + item.memId + '</td>';
+            row += '<td>' + formatDate(item.postDate) + '</td>';
+            row += '</tr>';
+            tbody.append(row);
         });
+
+        table.append(header).append(tbody);
+        container.append(table);
     }
 
-}); // ready 끝
+    // 날짜 포맷팅 함수
+    function formatDate(dateString) {
+        var date = new Date(dateString);
+        return date.toISOString().slice(0, 10); // 'YYYY-MM-DD' 형식으로 반환
+    }
+});
 
