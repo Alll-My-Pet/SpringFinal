@@ -15,9 +15,7 @@
 		<div class="complete_message">주문이 완료 되었습니다</div>
 		<br><br><br>
 		<div class="complete_guide">상품배송 정보</div>
-		<div class="complete_box">
-		<span class="complete_guide">8/1(토)도착 예정(상품 n개)</span>
-		</div>
+		
 		<br><br><br>
 		
 		<div class="complete_s_box">
