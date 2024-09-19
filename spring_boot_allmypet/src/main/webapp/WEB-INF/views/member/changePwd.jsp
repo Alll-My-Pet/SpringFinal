@@ -16,7 +16,7 @@
 		<section class="changePwd">
 			<div class="changePwdTitleWrap">
 				<div class="changePwdTitle">
-					<b>비밀번호 변경</b>
+					<b>비밀번호 변경</b><!-- ㅁㄴㅇㄹ -->
 				</div>
 			</div>
 			<form id="changePwdForm" class="changePwdForm" method="post" action="#">
