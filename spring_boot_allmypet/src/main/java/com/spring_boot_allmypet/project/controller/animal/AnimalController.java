@@ -22,9 +22,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
 import com.spring_boot_allmypet.project.model.animal.BulletinBoardVO;
 import com.spring_boot_allmypet.project.model.animal.MyTipBoardVO;
+import com.spring_boot_allmypet.project.model.gallery.GalleryVO;
 import com.spring_boot_allmypet.project.service.animal.AnimalService;
 import com.spring_boot_allmypet.project.service.animal.BulletinService;
 import com.spring_boot_allmypet.project.service.animal.MyTipService;
+import com.spring_boot_allmypet.project.service.gallery.GalleryService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -38,6 +40,9 @@ public class AnimalController {
 
 	@Autowired
 	private MyTipService mytipService;
+	
+	@Autowired
+    private GalleryService galleryService;
 
 	// 동물별 커뮤니티 메인페이지
 	@RequestMapping("/animal_home/{petCtgNo}")
@@ -61,6 +66,14 @@ public class AnimalController {
 		// petCtgNo에 해당하는 양육팁 게시글 목록 조회
 		ArrayList<MyTipBoardVO> myTipList = mytipService.getTipList(petCtgNo);
 		model.addAttribute("myTipList", myTipList);
+		
+		
+		
+		  List<GalleryVO> galleryImg = galleryService.getPostsByPetCtgNo(petCtgNo);
+		  System.out.println("Animal Controller출력: " + petCtgNo);
+		  model.addAttribute("galleryImg", galleryImg);
+		 
+		 
 
 		return "animal/animal_index";
 	}
