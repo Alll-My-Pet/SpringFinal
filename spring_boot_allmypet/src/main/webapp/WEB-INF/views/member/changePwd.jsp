@@ -16,7 +16,7 @@
 		<section class="changePwd">
 			<div class="changePwdTitleWrap">
 				<div class="changePwdTitle">
-					<b>비밀번호 변경</b>
+					<b>비밀번호 변경</b><!-- 체크아웃 이후 프로젝트 이상 발견됨 / 재임포트 -->
 				</div>
 			</div>
 			<form id="changePwdForm" class="changePwdForm" method="post" action="#">
