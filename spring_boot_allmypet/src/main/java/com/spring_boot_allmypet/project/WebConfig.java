@@ -16,11 +16,13 @@ public class WebConfig implements WebMvcConfigurer {
 		.addResourceLocations("file:///" + projectRootPath + "/src/main/webapp/uploads/");
 
 		registry.addResourceHandler("/prd_images/**")
-		.addResourceLocations("file:///usr/local/allmypet/product_images/");
+		.addResourceLocations("file:///usr/local/allmypet/image/market/");
 		registry.addResourceHandler("/emoji_images/**")
-		.addResourceLocations("file:///usr/local/allmypet/emoji_images/");
+		.addResourceLocations("file:///usr/local/allmypet/image/emoji/");
 		registry.addResourceHandler("/member_images/**")
-		.addResourceLocations("file:///usr/local/allmypet/member_images/");
+		.addResourceLocations("file:///usr/local/allmypet/image/member/");
+		registry.addResourceHandler("/gallery_images/**")
+		.addResourceLocations("file:///usr/local/allmypet/image/gallery/");
 
 	}
 }

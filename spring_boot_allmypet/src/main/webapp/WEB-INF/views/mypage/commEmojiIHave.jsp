@@ -56,7 +56,7 @@
 							        <div class="mej_list_title">${emj_p.emoName }</div>
 							        <div class="mej_list_date">${emj_p.purchaseDate }</div>
 							        <div class="spacer"></div>
-							        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/image/emoji/${emj_p.emoImg}'/>" alt="Emoji Image"></div>
+							        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/emoji_images/${emj_p.emoImg}'/>" alt="Emoji Image"></div>
 							        <div class="spacer"></div>
 							        <div class="mej_list_nou">${emj_p.useCount }</div>
 							        <div class="mej_list_favorites purch_favorites_btn" data-emo-no="${emj_p.purchaseId}">즐겨찾기</div>
