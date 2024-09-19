@@ -64,7 +64,7 @@
             </div>
             <div class="right">
                 <div class="profile">
-                    <img class="profile-image" src="<c:url value='/image/${gall.member.profile_image}'/>"/>
+                    <img class="profile-image" src="<c:url value='/image/member/${profileImage}'/>"/>
                     <p>${gall.memId}</p>
                 </div>
             </div>
@@ -94,10 +94,10 @@
                     <img id="selectedEmojiImg" src="" alt="" style="width: 50px; height: 50px; display: none;"/>
                 </div>
                 
+                
                 <textarea name="commentText" placeholder="댓글을 입력하세요" required></textarea>
                 <button type="submit">댓글 등록</button>
             </form>
-        
             <h3>댓글 [${post.comments.size()}]</h3>
             
             <!-- 댓글 리스트 출력 -->

@@ -27,4 +27,22 @@ public class GalleryService implements IGalleryService {
     public GalleryVO getPostByPostNo(int postNo) {
         return dao.getPostByPostNo(postNo);
     }
+    
+    @Override
+    public List<GalleryVO> searchPostsByPetCtgNo(String petCtgNo, String keyword, int offset, int limit) {
+        return dao.searchPostsByPetCtgNo(petCtgNo, keyword, offset, limit);
+    }
+
+    @Override
+    public int countPostsByPetCtgNo(String petCtgNo, String keyword) {
+        return dao.countPostsByPetCtgNo(petCtgNo, keyword);
+    }
+    
+    public void insertGalleryPost(GalleryVO galleryVO) {
+        dao.insertGalleryPost(galleryVO);
+    }
+
+	public String getProfileImage(int postNo) {
+		return dao.getProfileImage(postNo);
+	}
 }

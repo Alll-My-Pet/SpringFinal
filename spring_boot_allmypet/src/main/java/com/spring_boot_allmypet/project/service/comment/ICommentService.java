@@ -17,4 +17,7 @@ public interface ICommentService {
 
     // 댓글 공감 수 증가
     public void incrementCommentLike(int commentId);
+    
+    // 특정 게시물의 댓글 수 조회
+    public int countCommentsByPostNo(int postNo);
 }

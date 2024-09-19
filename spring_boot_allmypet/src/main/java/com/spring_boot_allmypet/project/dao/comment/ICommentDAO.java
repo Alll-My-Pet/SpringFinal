@@ -24,4 +24,6 @@ public interface ICommentDAO {
     //즐겨찾기 이모지 조회
     public List<EmojiVO> getFavoriteEmojisByMemId(String memId);
 
+    // 특정 게시물의 댓글 수 조회
+    public int countCommentsByPostNo(int postNo);
 }

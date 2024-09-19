@@ -53,5 +53,9 @@
     WHERE ef.memId = #{memId}
 </select>
 
+<!-- 특정 postNo의 댓글 수 조회 -->
+<select id="countCommentsByPostNo" parameterType="int" resultType="int">
+    SELECT COUNT(*) FROM comment WHERE postNo = #{postNo};
+</select>
 
 </mapper>

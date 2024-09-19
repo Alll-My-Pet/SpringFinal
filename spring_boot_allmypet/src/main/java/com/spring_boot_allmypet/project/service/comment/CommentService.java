@@ -46,4 +46,9 @@ public class CommentService implements ICommentService {
     public List<EmojiVO> getFavoriteEmojisByMemId(String memId) {
         return dao.getFavoriteEmojisByMemId(memId);
     }
+    
+    @Override
+    public int countCommentsByPostNo(int postNo) {
+        return dao.countCommentsByPostNo(postNo);
+    }
 }
