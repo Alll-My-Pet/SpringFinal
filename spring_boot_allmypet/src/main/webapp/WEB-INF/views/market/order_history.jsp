@@ -28,15 +28,18 @@
 		
 		<c:forEach var="order" items="${orderList}">
         <div class="order">
-            <h3>${order.ordDate} 주문</h3>
-           	 <c:forEach var="product" items="${order.orderProducts}">
-            <div class="order-item">
-            	<div class="status">
+            <h3>${order.ordDate} 주문
+            <div class="order_price">
+                    총 <fmt:formatNumber value= "${order.ordPrice}" pattern="#,###" />원
+             </div></h3>
+            <div class="status">
               	<c:choose>
                 	<c:when test="${order.ordState}">배송완료</c:when>
                 	<c:otherwise>배송중</c:otherwise>
 				</c:choose>  
 				</div>
+           	 <c:forEach var="product" items="${order.orderProducts}">
+            <div class="order-item">
                 <div class="product-info">
                 <img class="order_image" src="<c:url value='/image/market/${product.productDetails.prdImg}'/>"/>
                      <p>${product.productDetails.prdName}
@@ -45,21 +48,25 @@
                     <br>
                     ${product.ordQty}개</p>
                 </div>
-                <div class="order_buttons">
+                
+            </div>
+            </c:forEach>
+            <div class="order_buttons">
                     <button>배송조회</button>
  	                <c:choose>
 	                	<c:when test="${order.ordState}">
                             <button>교환/반품 신청</button>
-                            <button>리뷰 작성</button>
+                            <a href="<c:url value='/market/review_select/${order.ordNo}'/>">
+                            <button>리뷰작성</button>
+                            </a>
                         </c:when>
                         <c:otherwise>
+                            <a href="<c:url value='/market/cancel/${order.ordNo}'/>">
                             <button>주문취소</button>
+                            </a>
                         </c:otherwise>
                     </c:choose>
                 </div>
-                
-            </div>
-            </c:forEach>
         </div>
         </c:forEach>
 	<c:import url = "/WEB-INF/views/layout/footer.jsp"></c:import>

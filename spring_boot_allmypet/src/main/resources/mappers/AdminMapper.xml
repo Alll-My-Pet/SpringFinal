@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.admin.IAdminDAO">
+  	<resultMap id="memResult" type="com.spring_boot_allmypet.project.model.member.MemberVO" >
+  		<result property="memId" column="memId"  />
+  		<result property="memPw" column="memPwd"  />
+  		<result property="memName" column="memName"  />
+  		<result property="memName" column="memNickName"  />
+  		<result property="memEmail" column="memEmail"  />
+  		<result property="memHP" column="memHP"  />
+  		<result property="memZipcode" column="memZipcode"  />
+  		<result property="memAddress1" column="memAddress1"  />
+  		<result property="memAddress2" column="memAddress2"  />
+  		<result property="memGen" column="memGen"  />
+  		<result property="memBirth" column="memBirth"  />
+  		<result property="filtering" column="filtering"  />
+  		<result property="position" column="position"  />
+  		<result property="profile_image" column="profile_image"  />
+  	</resultMap>
+  	<select id="prdNoCheck" parameterType="string" resultType="string">
+  		SELECT prdNo FROM product WHERE prdNo=#{prdNo}
+  	</select>
+	
+  	<!-- 상품 추가 -->
+  	<insert id="prdInsert" parameterType="com.spring_boot_allmypet.project.model.market.ProductVO">
+ 		 INSERT INTO product (prdNo, petCtgNo, prdCtgNo, prdName, prdPrice, prdCompany, prdStock, prdImg, prdDescript)
+        VALUES (#{prdNo}, #{petCtgNo}, #{prdCtgNo}, #{prdName}, #{prdPrice}, #{prdCompany}, #{prdStock}, #{prdImg}, #{prdDescript});
+  	</insert>
+  	<!-- 상품 정보 출력 -->
+	<select id="prdInfoLoad" parameterType="string" resultType="com.spring_boot_allmypet.project.model.market.ProductVO">
+ 		SELECT * FROM product WHERE prdNo=#{prdNo}
+  	</select>
+  	<update id="prdModify" parameterType="com.spring_boot_allmypet.project.model.market.ProductVO">
+	    UPDATE product
+	    SET 
+	        petCtgNo = #{petCtgNo}, 
+	        prdCtgNo = #{prdCtgNo}, 
+	        prdName = #{prdName}, 
+	        prdPrice = #{prdPrice}, 
+	        prdCompany = #{prdCompany}, 
+	        prdStock = #{prdStock}, 
+	        prdImg = #{prdImg}, 
+	        prdDescript = #{prdDescript}
+	    WHERE prdNo = #{prdNo};
+	</update>
+	<delete id="prdDelete" parameterType="string">
+  		DELETE FROM product 
+	    WHERE prdNo = #{prdNo}
+  	</delete>
+</mapper>

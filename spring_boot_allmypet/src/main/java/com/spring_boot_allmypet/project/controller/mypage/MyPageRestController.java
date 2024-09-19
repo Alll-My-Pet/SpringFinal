@@ -49,7 +49,7 @@ public class MyPageRestController {
         if (!image.isEmpty()) {
             try {
                 // 웹 애플리케이션 루트 경로 기준으로 파일 저장 경로 설정
-                String uploadDir = servletContext.getRealPath("/uploads/profile_Img/");
+                String uploadDir = "/usr/local/allmypet/image/member/";
                 String fileName = System.currentTimeMillis() + "_" + image.getOriginalFilename();
                 File destFile = new File(uploadDir, fileName);
                 

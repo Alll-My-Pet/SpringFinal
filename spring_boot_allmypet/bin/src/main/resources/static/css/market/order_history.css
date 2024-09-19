@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p,
+span {
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration-line: none; 
+}
+
+@media (min-width: 1200px) {
+  .product {
+    width: 50%;
+  }
+}
+
+/* 화면 너비가 992px 이상일 때 */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .product {
+    width: 60%;
+  }
+}
+
+/* 화면 너비가 768px 이상일 때 */
+@media (min-width: 768px) and (max-width: 991px) {
+  .product {
+    width: 70%;
+  }
+}
+
+/* 화면 너비가 768px 미만일 때 */
+@media (max-width: 767px) {
+  .product {
+    width: 90%;
+  }
+}
+
+
+
+.order-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.order {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.order h3 {
+    margin-top: 0;
+}
+
+.order-item {
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+}
+
+
+.order_image {
+    height: 100px;
+    width: 80px;
+}
+
+.status {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.product-info {
+	font-size : 22px;
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.order-container button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.order-container button:hover {
+    background-color: #0056b3;
+}
+
+.order_buttons{
+	margin: 5px;
+}
+
+.filter-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.order_title{
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+	align-items: baseline;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.header h1 {
+	margin: 0;
+	font-size: 24px;
+}

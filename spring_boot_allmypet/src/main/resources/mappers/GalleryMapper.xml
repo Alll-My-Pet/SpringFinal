@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.gallery.IGalleryDAO">
+  	<resultMap id="galleryResult" type="com.spring_boot_allmypet.project.model.gallery.GalleryVO" >
+  		<result property="postNo" column="postNo"  />
+  		<result property="petCtgNo" column="petCtgNo"  />
+  		<result property="postTitle" column="postTitle"  />
+  		<result property="postDate" column="postDate"  />
+  		<result property="memId" column="memId"  />
+  		<result property="postContent" column="postContent"  />
+  		<result property="postImg" column="postImg"  />
+  		<result property="boardCtgNo" column="boardCtgNo"  />
+  		<result property="postLike" column="postLike"  />
+  	</resultMap>
+  	
+    <!-- petCtgNo로 특정 게시물 조회 -->
+    <select id="getPostsByPetCtgNo" resultMap="galleryResult" parameterType="string">
+        SELECT * 
+        FROM pet_gallery 
+        WHERE petCtgNo = #{petCtgNo}
+    </select>
+
+	<!-- petCtgNo로 특정 게시물 조회: 1주일 이내, 좋아요 순으로 4개 제한 -->
+	<select id="getTopPostsByPetCtgNoInLastWeek" resultMap="galleryResult" parameterType="string">
+	    SELECT * 
+	    FROM pet_gallery 
+	    WHERE petCtgNo = #{petCtgNo}
+	      AND postDate >= DATE_SUB(CURDATE(), INTERVAL 1 WEEK)
+	    ORDER BY postLike DESC
+	    LIMIT 4
+	</select>
+	
+	<!-- 특정 postNo에 해당하는 게시물 조회 -->
+    <select id="getPostByPostNo" resultMap="galleryResult" parameterType="int">
+        SELECT * 
+        FROM pet_gallery 
+        WHERE postNo = #{postNo}
+    </select>
+
+	<!-- 검색어와 페이징을 적용한 게시물 조회 -->
+	<select id="searchPostsByPetCtgNo" resultMap="galleryResult">
+	    SELECT * 
+	    FROM pet_gallery 
+	    WHERE petCtgNo = #{petCtgNo}
+	      AND (postTitle LIKE CONCAT('%', #{keyword}, '%') OR #{keyword} IS NULL)
+	    LIMIT #{offset}, #{limit}
+	</select>
+	
+	<!-- 총 게시물 수 조회 -->
+	<select id="countPostsByPetCtgNo" parameterType="map" resultType="int">
+	    SELECT COUNT(*) 
+	    FROM pet_gallery 
+	    WHERE petCtgNo = #{petCtgNo}
+	      AND (postTitle LIKE CONCAT('%', #{keyword}, '%') OR #{keyword} IS NULL)
+	</select>
+
+	<insert id="insertGalleryPost" parameterType="com.spring_boot_allmypet.project.model.gallery.GalleryVO">
+	    INSERT INTO pet_gallery (postNo, petCtgNo, postTitle, postDate, memId, postContent, postImg, postLike, boardCtgNo)
+	    VALUES (#{postNo}, #{petCtgNo}, #{postTitle}, #{postDate}, #{memId}, #{postContent}, #{postImg}, #{postLike}, '6')
+	</insert>
+	
+	<select id="getProfileImage" resultType="java.lang.String" parameterType="int">
+        SELECT m.profile_image
+        FROM pet_gallery g
+        JOIN member m ON g.memId = m.memId
+        WHERE g.postNo = #{postNo}
+    </select>
+</mapper>

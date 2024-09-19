@@ -27,5 +27,15 @@ $(document).ready(function () {
             behavior: 'smooth' // 부드러운 스크롤
         });
     });
-
+	
+	// 반려동물 지도 팝업 열기
+    const petMapButton = document.getElementById('petMapButton');
+    petMapButton.addEventListener('click', function () {
+        openPetMapPopup();
+    });
 });
+
+// 팝업 창 열기 함수
+function openPetMapPopup() {
+    window.open('/map', 'PetMapPopup', 'width=1000,height=600,scrollbars=yes,resizable=yes');
+}

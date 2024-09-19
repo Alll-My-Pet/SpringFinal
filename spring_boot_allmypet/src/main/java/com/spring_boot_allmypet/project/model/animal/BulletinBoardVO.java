@@ -3,11 +3,13 @@ package com.spring_boot_allmypet.project.model.animal;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.web.multipart.MultipartFile;
 
 public class BulletinBoardVO {
 	private int postNo;
 	private String petCtgNo;
 	private int headerNo;
+	private String headerName;
 	private String postTitle;
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
 	private Date postDate;
@@ -16,7 +18,9 @@ public class BulletinBoardVO {
 	private String postContent;
 	private int postLike;
 	private int postView;
-	private String postImg;
+	private MultipartFile postImg; // 수정
+	private byte[] postImgBytes; // 데이터베이스에 저장할 바이트 배열
+	private boolean isFiltered;
 
 	public int getPostNo() {
 		return postNo;
@@ -82,11 +86,19 @@ public class BulletinBoardVO {
 		this.postLike = postLike;
 	}
 
-	public String getPostImg() {
+	public byte[] getPostImgBytes() {
+		return postImgBytes;
+	}
+
+	public void setPostImgBytes(byte[] postImgBytes) {
+		this.postImgBytes = postImgBytes;
+	}
+
+	public MultipartFile getPostImg() {
 		return postImg;
 	}
 
-	public void setPostImg(String postImg) {
+	public void setPostImg(MultipartFile postImg) {
 		this.postImg = postImg;
 	}
 
@@ -104,6 +116,22 @@ public class BulletinBoardVO {
 
 	public void setPostView(int postView) {
 		this.postView = postView;
+	}
+
+	public String getHeaderName() {
+		return headerName;
+	}
+
+	public void setHeaderName(String headerName) {
+		this.headerName = headerName;
+	}
+
+	public boolean isFiltered() {
+		return isFiltered;
+	}
+
+	public void setFiltered(boolean isFiltered) {
+		this.isFiltered = isFiltered;
 	}
 
 }

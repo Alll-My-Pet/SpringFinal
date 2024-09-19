@@ -7,16 +7,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>간단한 지도 표시하기</title>
+    <title>반려동물 지도</title>
 	<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=p8d8z1bubk&submodules=geocoder"></script>
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 </head>
 <body>
+    <div>
+        <!-- 카테고리 선택 드롭다운 -->
+        <label for="categorySelect">카테고리 선택:</label>
+        <select id="categorySelect">
+            <option value="">모든 카테고리</option>
+            <option value="동물병원">동물병원</option>
+            <option value="동물약국">동물약국</option>
+            <option value="문예회관">동반가능문예회관</option>
+            <option value="미술관">동반가능미술관</option>
+            <option value="미용">미용</option>
+            <option value="박물관">박물관</option>
+            <option value="반려동물용품">반려동물용품</option>
+            <option value="식당">동반가능식당</option>
+            <option value="여행지">동반가능여행지</option>
+            <option value="위탁관리">반려동물위탁</option>
+            <option value="카페">동반가능카페</option>
+            <option value="펜션">동반가능펜션</option>
+        </select>
+    </div>
+
     <div id="map" style="width:1000px;height:500px;"></div>
 </body>
 
 <script type="text/javascript">
-    // 여기에 수정된 스크립트를 넣습니다.
     var map = new naver.maps.Map('map', {
         center: new naver.maps.LatLng(37.5666805, 126.9784147),
         zoom: 18,
@@ -34,7 +53,6 @@
             infowindow.open(map, center);
         }
 
-        // 지도가 로드된 후, 범위 내 데이터를 가져옴
         loadPetMarkers();
     });
 
@@ -45,7 +63,7 @@
         map.setCenter(location); 
         map.setZoom(18); 
 
-        infowindow.setContent('<div style="padding:20px;">' + 'geolocation.getCurrentPosition() 위치' + '</div>');
+        infowindow.setContent('<div style="padding:20px;">' + '현재 내 위치' + '</div>');
 
         infowindow.open(map, location);
         console.log('Coordinates: ' + location.toString());
@@ -68,8 +86,11 @@
         var sw = bounds.getSW(); 
         var ne = bounds.getNE(); 
 
+        var selectedCategory = $('#categorySelect').val();  // 선택된 카테고리
+
         console.log('SW Lat: ' + sw.lat(), 'SW Lng: ' + sw.lng());
         console.log('NE Lat: ' + ne.lat(), 'NE Lng: ' + ne.lng());
+        console.log('Selected Category: ' + selectedCategory);
 
         $.ajax({
             type: "post",
@@ -78,10 +99,11 @@
                 swLat: sw.lat(),  
                 swLng: sw.lng(),  
                 neLat: ne.lat(),  
-                neLng: ne.lng()   
+                neLng: ne.lng(),
+                category: selectedCategory  // 선택된 카테고리를 서버로 전송
             },
             success: function(petList) {
-                console.log(petList); 
+                console.log(petList);
 
                 markerArr.forEach(marker => marker.setMap(null));
                 markerArr = [];
@@ -93,8 +115,32 @@
                         position: new naver.maps.LatLng(petList[i].latitude, petList[i].longitude)
                     });
 
+                    var infowindowContent = '<div>';
+
+                    if (petList[i].facilityName != '정보없음') {
+                        infowindowContent += '<b>' + petList[i].facilityName + '</b><br>';
+                    }
+
+                    if (petList[i].placeDescription != '정보없음') {
+                        infowindowContent += petList[i].placeDescription + '<br>';
+                    }
+
+                    if (petList[i].phoneNum != '정보없음') {
+                        infowindowContent += petList[i].phoneNum + '<br>';
+                    }
+
+                    if (petList[i].openHours != '정보없음') {
+                        infowindowContent += petList[i].openHours + '<br>';
+                    }
+
+                    if (petList[i].homepage != '정보없음') {
+                        infowindowContent += '<a href="' + petList[i].homepage + '" target="_blank">' + petList[i].homepage + '</a><br>';
+                    }
+
+                    infowindowContent += '</div>';
+
                     var infowindow = new naver.maps.InfoWindow({
-                        content: '<div><b>' + petList[i].facilityName + '</b></div>'
+                        content: infowindowContent
                     });
 
                     markerArr.push(marker);
@@ -117,7 +163,13 @@
         });
     }
 
+    // 지도 이동 또는 확대/축소 후 마커 재로드
     naver.maps.Event.addListener(map, 'idle', function() {
+        loadPetMarkers();
+    });
+
+    // 카테고리 선택 변경 시 마커 재로드
+    $('#categorySelect').on('change', function() {
         loadPetMarkers();
     });
 </script>

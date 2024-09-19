@@ -16,12 +16,20 @@ import jakarta.servlet.http.HttpSession;
 public class MainController {
 	@Autowired
 	BoardService boardService;
-	
+
 	@RequestMapping("/")
 	public String index(Model model) {
-		// petCtgNo에 해당하는 양육팁 게시글 목록 조회
 		ArrayList<BoardVO> noticeList = boardService.viewNotice();
 		model.addAttribute("noticeList", noticeList);
+
+		ArrayList<BoardVO> freeBoardList = boardService.index_freeBoard();
+		model.addAttribute("freeBoardList", freeBoardList);
+
+		// 자유게시판 실시간 인기글
+		ArrayList<BoardVO> free_hotList = boardService.free_hotList();
+		/* System.out.println(free_hotList); */
+		model.addAttribute("free_hotList", free_hotList);
+		
 		return "index";
 	}
 

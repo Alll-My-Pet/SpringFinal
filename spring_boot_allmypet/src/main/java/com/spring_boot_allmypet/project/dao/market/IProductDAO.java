@@ -2,8 +2,11 @@ package com.spring_boot_allmypet.project.dao.market;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.market.ReviewVO;
 
 public interface IProductDAO {
 	public ArrayList<ProductVO> listAllProduct(); 
@@ -32,4 +35,7 @@ public interface IProductDAO {
 	public ArrayList<ProductVO> listProductsByCtgRange(HashMap<String, Integer> ctgRange);
 
 	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, String prdCtgNo, int startRange, int endRange);
+
+	public List<ReviewVO> getReviewsByProductNo(String prdNo);
+
 }

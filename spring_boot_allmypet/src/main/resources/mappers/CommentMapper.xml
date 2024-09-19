@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.comment.ICommentDAO">
+  	<resultMap id="commentResult" type="com.spring_boot_allmypet.project.model.comment.CommentVO" >
+  		<result property="commentId" column="commentId"  />
+  		<result property="postNo" column="postNo"  />
+  		<result property="boardCtgNo" column="boardCtgNo"  />
+  		<result property="memId" column="memId"  />
+  		<result property="commentDate" column="commentDate"  />
+  		<result property="commentText" column="commentText"  />
+  		<result property="emojiNo" column="emojiNo"  />
+  		<result property="commentlike" column="commentlike"  />
+  	</resultMap>
+  	
+    <!-- 특정 postNo와 boardCtgNo에 해당하는 댓글 조회 -->
+<select id="getCommentsByPostAndBoardCtgNo" resultMap="commentResult" parameterType="map">
+    SELECT * 
+    FROM comment 
+    WHERE postNo = #{postNo}
+      AND boardCtgNo = #{boardCtgNo}
+    ORDER BY commentDate DESC
+</select>
+
+<!-- 댓글 삽입 -->
+<insert id="insertComment" parameterType="com.spring_boot_allmypet.project.model.comment.CommentVO">
+    INSERT INTO comment (postNo, boardCtgNo, memId, commentDate, commentText, emojiNo, commentlike)
+    VALUES (#{postNo}, #{boardCtgNo}, #{memId}, NOW(), #{commentText}, #{emojiNo}, #{commentlike});
+</insert>
+	
+	
+<!-- 댓글 삭제 -->
+<delete id="deleteComment" parameterType="int">
+    DELETE FROM comment
+    WHERE commentId = #{commentId};
+</delete>
+
+<!-- 댓글 공감 수 증가 -->
+<update id="incrementCommentLike" parameterType="int">
+    UPDATE comment
+    SET commentlike = commentlike + 1
+    WHERE commentId = #{commentId};
+</update>
+
+<!-- 이모지 즐찾 리스트 출력 -->
+<select id="getFavoriteEmojisByMemId" parameterType="String" resultType="com.spring_boot_allmypet.project.model.comment.EmojiVO">
+    SELECT e.emoNo, e.emoImg, e.emoName
+    FROM emoji_favorites ef
+    JOIN emoji_purchase ep ON ef.purchaseId = ep.purchaseId
+    JOIN emoji e ON ep.emoNo = e.emoNo
+    WHERE ef.memId = #{memId}
+</select>
+
+<!-- 특정 postNo의 댓글 수 조회 -->
+<select id="countCommentsByPostNo" parameterType="int" resultType="int">
+    SELECT COUNT(*) FROM comment WHERE postNo = #{postNo};
+</select>
+
+</mapper>

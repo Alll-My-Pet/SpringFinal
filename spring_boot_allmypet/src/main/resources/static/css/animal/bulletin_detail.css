@@ -1,0 +1,306 @@
+@charset "UTF-8";
+
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 710px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	/* padding: 18.5px 22px 11.5px 21px; */
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* 페이지 설명 */
+.page-title .titleInfo {
+	display: inline-block;
+	align-self: flex-start;
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.39);
+	/* margin: 0 auto; */
+	margin-top: 10px;
+}
+
+/* 페이지 제목 */
+.page-title .ctgTitle {
+	align-self: flex-start;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 1;
+	color: #000000;
+	/* margin: 10px auto; */
+	margin: 10px 0;
+}
+
+/* 페이지명 위 아래 선 */
+.pageInfo::before, .pageInfo::after {
+	content: '';
+	position: absolute;
+	width: 230px; /* 선의 길이 설정 */
+	height: 3px; /* 선의 두께 설정 */
+	background-color: #848484; /* 선의 색상 설정 */
+}
+
+.pageInfo::before {
+	top: -10px; /* 위쪽 선의 위치 조정 */
+	left: 110px; /* 중앙 정렬 */
+	transform: translateX(-50%); /* 중앙으로 이동 */
+}
+
+.pageInfo::after {
+	bottom: -10px; /* 아래쪽 선의 위치 조정 */
+	left: 110px; /* 중앙 정렬 */
+	transform: translateX(-50%); /* 중앙으로 이동 */
+}
+
+/* **************************** */
+.postBox {
+	background-color: #CEF6F5;
+	/* border:1px solid black; */
+	width: 750px;
+	height: auto;
+	padding: 20px;
+	box-sizing: border-box;
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	flex-direction: column;
+	margin-top: 15px;
+	border-radius: 7px;
+}
+
+/* post-info: 게시글 제목, 작성자 들어간 box  */
+.post-info {
+	background-color: #FFFEFE;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	width: 710px;
+	height: 85px;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 게시글 제목 */
+.detailTitle {
+	background-color: white;
+	border: 1px solid #E6E6E6;
+	width: 700px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	/* 	margin-top:50px; */
+	/* 	margin-left:25px; */
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 17px;
+}
+
+/* 작성자 */
+.authorBox {
+	align-self: flex-end;
+	width: fit-content;
+	/* background-color: #F8E0F7; */
+	height: 35px;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+}
+
+.author {
+	/* background-color: #A9F5D0; */
+	/* border:1px solid black; */
+	width: fit-content;
+	height: 30px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+}
+
+.divider {
+    display: inline-block;
+    margin: 0 8px;
+    color: #d6d6d6;
+}
+
+
+.view-icon {
+	width: 20px;
+}
+/* 게시글 내용: 길면 스크롤 생기게 */
+.postContent {
+	overflow: auto;
+	background-color: white;
+	padding: 10px;
+	width: 710px;
+	min-height: 400px;
+	margin: 0 auto;
+	margin-top: 15px;
+	border-radius: 10px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	font-size: 14.5px;
+	display: flex;
+}
+
+#bodText {
+	/* overflow: hidden;  */ /* overflow를 숨김 */
+	overflow-wrap: break-word; /* 긴 단어 줄 바꿈 처리 */
+	word-wrap: break-word; /* 긴 단어 줄 바꿈 처리 (구형 브라우저 지원) */
+	max-height: 100%; /* 부모 요소의 높이를 초과하지 않도록 설정 */
+	flex-grow: 1; /* 공간을 차지하도록 설정 */
+}
+
+/* 업로드한 사진 */
+.photoBox {
+	background-color: white;
+	width: 710px;
+	height: 150px;
+	padding: 5px;
+	margin-top: 15px;
+	border-radius: 10px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	margin-top: 15px;
+	display: flex;
+	align-items: center;
+}
+
+.photoBox img {
+	width: 100px;
+	cursor: pointer;
+}
+
+/* 이미지 모달창 */
+.modal {
+    display: none; /* 기본적으로 숨김 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+
+    justify-content: center; /* 가로 중앙 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+}
+
+.modal-content {
+    max-width: 90%; /* 최대 너비 90% */
+    max-height: 90%; /* 최대 높이 90% */
+}
+
+.modal-content.large {
+    width: auto; /* 원래 크기 유지 */
+    height: auto; /* 원래 크기 유지 */
+    transform: scale(1.2); /* 이미지 크기 5배 확대 */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* ********************************* */
+/* reactionBox: 좋아요, 북마크 기능 */
+.reactionBox {
+	margin-top: 30px;
+	width: 710px;
+	height: 50px;
+	/* background-color: #F3E2A9; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	gap: 40px; /* 요소들 사이의 공백 설정 */
+}
+
+.like, .bookmark {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.like-icon {
+	width: 40px;
+}
+
+.bookmark-icon {
+	height: 40px;
+}
+
+/* 좋아요, 북마크 애니메이션 추가 */
+.like-icon, .bookmark-icon {
+    transition: transform 0.3s ease, opacity 0.3s ease; /* 트랜지션 효과 추가 */
+}
+
+.like-icon:hover, .bookmark-icon:hover {
+    transform: scale(1.1); /* 마우스 오버 시 아이콘 확대 */
+}
+
+.like-icon {
+    opacity: 0.9; /* 기본 투명도 설정 */
+}
+
+.bookmark-icon {
+    opacity: 0.9; /* 기본 투명도 설정 */
+}
+
+.like-icon[src='like-checked.svg'], .bookmark-icon[src='bookmark-checked.svg'] {
+    animation: pulse 0.6s infinite; /* 체크된 상태에 애니메이션 추가 */
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* 중간에 약간 확대 */
+    }
+}
+
+/* **************************** */
+/* 댓글 */
+.comments {
+	background-color: white;
+	width: 710px;
+	height: 150px;
+	padding: 5px;
+	margin-top: 30px;
+	border-radius: 10px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+}
