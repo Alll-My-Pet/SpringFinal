@@ -1,9 +1,87 @@
 @charset "UTF-8";
 
-body {
-    margin: 0;
+
+.contents {
+	min-height: 800px;
 }
 
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 689px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin: 40px auto;
+	/* 여백 설정 */
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	padding: 18.5px 22px 11.5px 21px;
+	box-sizing: border-box;
+}
+
+/* 공지/이벤트 */
+.page-title .ctgTitle {
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 43px;
+	line-height: 1;
+	color: #000000;
+	margin: 10px auto;
+}
+
+/* 공지사항 */
+.page-title .titleInfo {
+	margin-bottom: 8px;
+	display: inline-block;
+	align-self: flex-start;
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.39);
+	margin: 0 auto;
+}
+
+.bracket {
+	width: fit-content;
+	height: fit-content;	
+}
+
+.bLeft {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    left: -50px;
+    /* 부모의 왼쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
+}
+
+.bRight {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    right: -50px;
+    /* 부모의 오른쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
+}
+
+/* ******************************* */
 .gallery-container {
     max-width: 800px;
     margin: 0 auto;
@@ -17,7 +95,8 @@ body {
 
 
 .gallery-item {
-    width: calc(25% - 20px); /* 4개씩 배치 */
+   /*  width: calc(25% - 20px); */ /* 4개씩 배치 */
+    width: 182px;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;
