@@ -120,7 +120,7 @@
 									placeholder="댓글을 입력하세요" required></textarea>
 								<button class="comUploadBtn" type="submit">등록</button>
 							</form>
-
+							<br><br>
 							<h3>댓글 [${post.comments.size()}]</h3>
 
 							<!-- 댓글 리스트 출력 -->
@@ -159,6 +159,14 @@
 				<!-- contents 끝 -->
 			</div>
 			<!-- frame-2 끝 -->
+			<!-- 플로팅버튼(탑버튼 포함) -->
+			<div id="floatingBtn">
+				<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
+			</div>
+			<!-- sidebar 부착 -->
+			<div id="sidebar">
+				<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
+			</div>			
 		</div>
 		<!-- frame-1 끝 -->
 		<br> <br>
