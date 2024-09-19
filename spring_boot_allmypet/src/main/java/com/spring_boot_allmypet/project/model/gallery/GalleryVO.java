@@ -16,11 +16,20 @@ public class GalleryVO {
 	public String postLike;
 	public String boardCtgNo;
 	public MemberVO member;
+	public String profileImage;
 
 	public List<CommentVO> comments;
 	
 	
 	
+	public String getProfileImage() {
+		return profileImage;
+	}
+
+	public void setProfileImage(String profileImage) {
+		this.profileImage = profileImage;
+	}
+
 	public List<CommentVO> getComments() {
 		return comments;
 	}

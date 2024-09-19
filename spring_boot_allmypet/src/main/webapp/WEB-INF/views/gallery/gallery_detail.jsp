@@ -38,10 +38,6 @@
 </script>
 <style>
 @import
-	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap')
-	;
-
-@import
 	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap')
 	;
 </style>
@@ -85,7 +81,7 @@
 							<div class="right">
 								<div class="profile">
 									<img class="profile-image"
-										src="<c:url value='/image/${gall.member.profile_image}'/>" />
+										src="<c:url value='/image/member/${profileImage}'/>" />
 									<p>${gall.memId}</p>
 								</div>
 							</div>
@@ -120,7 +116,7 @@
 									placeholder="댓글을 입력하세요" required></textarea>
 								<button class="comUploadBtn" type="submit">등록</button>
 							</form>
-							<br><br>
+							<!-- comment-form 끝 -->
 							<h3>댓글 [${post.comments.size()}]</h3>
 
 							<!-- 댓글 리스트 출력 -->
@@ -151,8 +147,9 @@
 							</c:forEach>
 
 						</div>
+						<!-- comments-section끝 -->
 					</div>
-
+					<!-- gallery-item-container끝 -->
 
 					<div id="emojiModal" class="modal"></div>
 				</div>
@@ -166,7 +163,7 @@
 			<!-- sidebar 부착 -->
 			<div id="sidebar">
 				<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
-			</div>			
+			</div>
 		</div>
 		<!-- frame-1 끝 -->
 		<br> <br>

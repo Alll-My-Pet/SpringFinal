@@ -83,5 +83,7 @@
     JOIN member m ON r.memId = m.memId
     WHERE r.prdNo = #{prdNo}
     </select>
+	
 
+	
 </mapper>

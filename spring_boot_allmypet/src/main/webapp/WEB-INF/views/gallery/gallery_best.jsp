@@ -52,7 +52,7 @@
                             </div>
 							<div class="profile-icon">
                             	<!-- 회원 프로필 사진 이미지 폴더 만들어지면 경로 수정 -->
-					    		<img src="<c:url value='/image/${post.member.profile_image}'/>"/>
+					    		<img src="<c:url value='/image/member/${profileImages[post.postNo]}'/>"/>
 							</div>
                         </div>
                     </div>
