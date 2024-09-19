@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+/* ************** */
+/* 페이징 관련 css */
+/* ************** */
+
+
+.paging a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px 10px;
+        margin: 0 5px;
+    }
+
+    /* 현재 페이지 강조 스타일 */
+.paging a.current {
+        font-weight: bold;
+        color: #ff5722; /* 강조 색상 */
+        border: 1px solid #ff5722; /* 강조 테두리 색상 */
+        border-radius: 5px;
+    }
+
+    /* 마우스 호버 효과 */
+.paging a:hover {
+        background-color: #e0e0e0; /* 호버 시 배경색 */
+        color: #333; /* 호버 시 텍스트 색상 */
+        border-radius: 5px; /* 호버 시 테두리 반경 */
+    }

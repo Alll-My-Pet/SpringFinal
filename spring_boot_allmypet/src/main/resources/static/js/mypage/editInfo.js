@@ -97,7 +97,7 @@
 			$.ajax({
 	 			type:"post",
 	 			url:"/member/nnCheck", 
-	 			data : {"memNN": nickname}, 
+	 			data : {"memNickName": nickname}, 
 	 			dataType:'text', 
 	 			success:function(result) {
 	 				if(result == "success"|| nickname==default_nickname) {
@@ -117,6 +117,32 @@
     $('#edit_regis_btn').on('click',function(){
     	//e.preventDefault();
     	var file = $('#imageInput')[0].files[0];
+    	
+        var petData = [];
+
+        $(".info_pet_area").each(function(index, element) {
+            if (!$(element).hasClass("div_display_none")) {
+                var pet = {
+                    petCtgNo: $(element).find(".pet_species").val(),
+                    petName: $(element).find(".pet_name").val(),
+                    birth:$(element).find(".pet_birth_year").val()+"-"+$(element).find(".pet_birth_month").val()+"-"+$(element).find(".pet_birth_day").val(),
+                    rep_pet: $(element).find(".pet_radio").is(":checked")
+                };
+                petData.push(pet);
+            }
+        });
+
+        $.ajax({
+            type: "POST",
+            url: "/mypage/petDateUpdate", // 데이터를 보낼 컨트롤러의 URL
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify(petData)
+        });
+    	
+    	
+    	
+    	
     	if(!nickname_check){
     		alert("닉네임 중복체크를 해주세요");
     	}else if (file) {

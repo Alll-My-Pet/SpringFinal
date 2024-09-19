@@ -147,7 +147,7 @@
 					<!-- pageInfo끝 -->
 					<div class="all-board">
 						<div class="best-photos">
-							<a href="게시판_링크.html" class="board-title">
+							<a href="/gallery/category/${petCtgNo }" class="board-title">
 								<div>반려동물 갤러리 +</div>
 							</a>
 							<div class="best-slideshow">
@@ -171,14 +171,14 @@
 						<!-- best-photos 끝 -->
 						<div class="post-board">
 							<div class="bulletin-board">
-								<a href="<c:url value='/board/listAllBoard'/>" class="board-title">
+								<a href="<c:url value='/animal_home/${petCtgNo}/bulletin'/>" class="board-title">
 									<div>전체 게시판 +</div>
 								</a>
 								<div class="post-list">
 									<c:forEach var="bulletin" items="${bulletinList }">
-										<a href="게시판_상세.html" class="post">
+										<a href="<c:url value='/bulletin/${petCtgNo}/detailViewBoard/${bulletin.postNo}'/>" class="post">
 											<div class="post-title">${bulletin.postTitle}</div>
-											<div class="post-author">${bulletin.memId}</div> <!-- 시간 수정필요 -->
+											<div class="post-author">${bulletin.memNickName}</div> 
 											<div class="post-date">
 												<fmt:formatDate value="${bulletin.postDate}"
 													pattern="M/dd HH:mm" />
@@ -194,14 +194,14 @@
 										<a href="<c:url value='/petname'/>" class="naming-link">작명소로 이동🔜</a>
 								</div>
 								<div class="mytip-board">
-									<a href="게시판_링크.html" class="board-title">
+									<a href="<c:url value='/animal_home/${petCtgNo}/tip'/>" class="board-title">
 										<div>양육 팁💡 게시판 +</div>
 									</a>
 									<div class="post-list">
 										<c:forEach var="mytip" items="${myTipList }">
 											<a href="게시판_상세.html" class="post">
 												<div class="post-title">${mytip.postTitle}</div>
-												<div class="post-author">${mytip.memId}</div> <!-- 시간 수정필요 -->
+												<div class="post-author">${mytip.memNickName}</div>
 												<div class="post-date">
 													<fmt:formatDate value="${mytip.postDate}"
 														pattern="M/dd HH:mm" />

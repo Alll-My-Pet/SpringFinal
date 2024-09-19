@@ -49,7 +49,7 @@
 						<li><a href="<c:url value='/member/logout'/>" id="logout">로그아웃</a></li>
 					</c:if>
 					<c:if test="${not empty sessionScope.mid &&  sessionScope.mpos == 2}">
-						<li><a href="<c:url value='#'/>" id="topMenu2">관리자</a></li>
+						<li><a href="<c:url value='/admin/product_insert_view'/>" id="topMenu2">관리페이지</a></li>
 						<li>|</li>
 						<li><a href="<c:url value='market/cart'/>" id="topMenu1">장바구니</a></li>
 						<li>|</li>
@@ -75,7 +75,7 @@
 				</div>
 			</div>
 			<div class="navigation-pill">
-				<a href="#">갤러리</a>
+				<a href="/gallery">갤러리</a>
 			</div>
 			<div class="navigation-pill">
 				<a href="/">커뮤니티</a>
@@ -149,7 +149,6 @@
 		<!-- 검색 버튼 -->
 		<div class="search-icon">
 			<button class="searchBtn">
-				<!-- 버튼으로 감싸기 -->
 				<img src="/image/search.png" alt="검색" />
 			</button>
 		</div>

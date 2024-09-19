@@ -1,11 +1,41 @@
 @charset "UTF-8";
 
-.contents {
-	min-height: 1000px;
+
+.promoteBoardSearchBtn{
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
 }
 
-.promote {
-	position: relative;
+.promoteBoardSearchBtn:hover {
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
+}
+.promoteBoardSearchBtn:active {
+	position:relative;
+	top:1px;
+}
+
+
+.promoteBrdBtn{
+	background-color:white;
+	border-radius:10px;
+	width:150px;
+	height:30px;
+	margin-top:20px;
+	margin-left:800px;
+	margin-bottom:30px;
 }
 
 /* ********************* */
@@ -140,13 +170,40 @@ td a {
 	padding: 0;
 }
 
-.promoteSearch{
+.promoteSearchBox{
 	border:1px solid black;
 	border-radius:10px;
 	width:689px;
 	height:120px;
 	margin:0 auto;
 	margin-top:50px;
+}
+
+#promoteSearch{
+	margin-top:30px;
+	margin-left:200px;
+}
+
+.petNameSearch{
+	position:absolute;
+	margin-left:100px;
+	margin-top:2px;
+}
+
+.PSearchBar{
+	margin-left:230px;
+	height:25px;
+	border-color:skyblue;
+}
+
+.petNameSearch{
+	width:100px;
+	height:20px;
+}
+
+.petCtgBox{
+	margin-left:430px;
+	position:absolute;
 }
 
 #PSearchFont{
@@ -164,7 +221,7 @@ td a {
 .promotePetCtg{
 	width:150px;
 	height:30px;
-	margin-left:230px;
+	margin-left:370px;
 	margin-top:30px;
 }
 
@@ -174,8 +231,10 @@ td a {
 	height:250px;
     display: inline-block;
     padding: 10px;
-    margin-right: 20px; /* 아이템 사이의 간격 */
+    margin-right: 10px; /* 아이템 사이의 간격 */
     background-color:#01cbfe;
+    margin-left:33px;
+    margin-top:30px;
 }
 
 .promoteFont{
@@ -192,11 +251,14 @@ td a {
 	border:1px solid black;
     margin-top:160px;
     background-color:white;
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
 }
 
-.promotePicBox{
+.promoteBoardBox{
 	margin:0 auto;
-	margin-top:50px;
+	margin-top:70px;
 	border:1px solid black;
 	width:900px;
 	height:700px;
@@ -210,3 +272,33 @@ td a {
 	left:180px;
 	text-align:center;
 }
+
+.paging{
+	margin:0 auto;
+	margin-top:30px;
+	
+}
+
+
+
+.paging a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px 10px;
+        margin: 0 5px;
+    }
+
+    /* 현재 페이지 강조 스타일 */
+.paging a.current {
+        font-weight: bold;
+        color: #ff5722; /* 강조 색상 */
+        border: 1px solid #ff5722; /* 강조 테두리 색상 */
+        border-radius: 5px;
+    }
+
+    /* 마우스 호버 효과 */
+.paging a:hover {
+        background-color: #e0e0e0; /* 호버 시 배경색 */
+        color: #333; /* 호버 시 텍스트 색상 */
+        border-radius: 5px; /* 호버 시 테두리 반경 */
+    }

@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+.contents {
+	height: 1200px;
+}
+
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 689px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin: 40px auto;
+	/* 여백 설정 */
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	padding: 18.5px 22px 11.5px 21px;
+	box-sizing: border-box;
+}
+
+/* 페이지 설명 */
+.page-title .titleInfo {
+	margin-bottom: 8px;
+	display: inline-block;
+	align-self: flex-start;
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.39);
+	margin: 0 auto;
+}
+
+/* 페이지 제목 */
+.page-title .ctgTitle {
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 43px;
+	line-height: 1;
+	color: #000000;
+	margin: 10px auto;
+}
+
+.bracket {
+	width: fit-content;
+	height: fit-content;
+}
+
+.bLeft {
+	position: absolute;
+	/* 부모 기준으로 절대 위치 설정 */
+	left: -50px;
+	/* 부모의 왼쪽에서 5px 위치 */
+	top: 60%;
+	/* 부모의 중앙으로 이동 */
+	transform: translateY(-50%);
+	/* 수직 중앙 정렬 */
+}
+
+.bRight {
+	position: absolute;
+	/* 부모 기준으로 절대 위치 설정 */
+	right: -50px;
+	/* 부모의 오른쪽에서 5px 위치 */
+	top: 60%;
+	/* 부모의 중앙으로 이동 */
+	transform: translateY(-50%);
+	/* 수직 중앙 정렬 */
+}
+
+/* **************************** */
+
+/* 버튼 모음 */
+.imgUploadBtn {
+	width: 140px;
+	height: 30px;
+	/* background-color: white; */
+	border-radius: 7px;
+	/* 	margin-top: 20px; */
+	position: absolute;
+	bottom: -70px;
+	left: 50%;
+	transform: translate(-50%, -50%); /* 중앙 정렬을 위한 변환 */
+	cursor: pointer;
+	/*  background-color: aliceblue; */
+	background-color: #E6E6E6;
+	/* border: none; */
+	border-width: 1px;
+	border-color: blanchedalmond;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+	border-width: 1px /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); */
+}
+
+.MPhotoBtn {
+	display: flex; /* 아이콘과 텍스트 정렬을 위해 flexbox 사용 */
+	align-items: center; /* 세로 중앙 정렬 */
+}
+
+/* **************************** */
+.writeBox {
+	/* background-color: skyblue; */
+	border: 1px solid #E6E6E6;
+	background-color: #FFFEFE;
+	width: 690px;
+	height: 930px;
+	margin: 0 auto;
+	position: relative;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.postInfo-box {
+	/* background-color: yellow; */
+	display: flex;
+	flex-direction: row;
+	margin: 30px 30px 0 30px;
+	box-sizing: border-box;
+	padding: 0;
+}
+
+.postInfo-box .post-info {
+	/* background-color: pink; */
+	margin: 40px 20px 20px 20px;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+.author input {
+	border: none; /* 테두리 제거 */
+	background-color: transparent; /* 배경색 제거 */
+	font-size: 16px;
+}
+
+.post-info .headerNoFilter {
+	margin-top: 10px;
+	width: 94px;
+	height: 24px;
+	width: 94px;
+}
+
+.mainPhotoBox .uploadImg {
+	width: 90px;
+	margin: 30px 30px 30px 300px;
+}
+
+.FreeDetail {
+	border: 1px solid black;
+	width: 900px;
+	height: 700px;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
+.MainDetailTitle {
+	width: 590px;
+	height: 30px;
+	border: 1px solid #BDBDBD;
+	border-radius: 7px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin-left: 45px;
+	margin-top: 30px;
+}
+
+.mainDetailBody {
+	width: 590px;
+	height: 600px;
+	border-radius: 7px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	margin-left: 45px;
+	margin-top: 30px;
+}
+
+/* .mainPhotoBox {
+	width: 100px;
+	margin-left: 770px;
+	margin-top: 40px;
+} */
+#fileUpload {
+	display: none;
+}

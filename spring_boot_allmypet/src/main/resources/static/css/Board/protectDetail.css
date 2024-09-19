@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+.protectLikeBtn{
+	width:70px;
+  	height:70px;
+  	border-radius:100%;
+  	background-color:white;
+  	margin-left:335px;
+  	margin-top:15px;
+}
+
+.protectBookmarkBtn{
+	width:70px;
+  	height:70px;
+  	border-radius:100%;
+  	background-color:white;
+  	margin-left:30px;
+}
+
+.protectTitle{
+	border:1px solid black;
+	border-radius:5px;
+	width:750px;
+	height:30px;
+	margin:0 auto;
+	margin-top:100px;
+}
+
+.protectContent{
+ 	width:750px;
+ 	height:400px;
+ 	border:1px solid black;
+ 	border-radius:50px;
+ 	margin:0 auto;
+ 	margin-top:50px;
+}
+
+.localAndInfo{
+	width:450px;
+	height:100px;
+	border:1px solid black;
+	border-radius:20px;
+	margin-left:365px;
+	margin-top:50px;
+}
+
+.bookMarkInfo{
+	border:1px solid black;
+	border-radius:20px;
+	margin-top:50px;
+	width:250px;
+	height:100px;
+	position:absolute;
+	top:68vh;
+	left:870px;
+}
+
+.likeAndBookmarkBox{
+	margin-left:300px;
+	margin-top:50px;
+}
+

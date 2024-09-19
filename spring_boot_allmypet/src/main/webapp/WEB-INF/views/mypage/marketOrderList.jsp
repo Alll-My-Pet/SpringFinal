@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
 <!DOCTYPE html>
 <html>
 	<head>
@@ -39,42 +40,50 @@
 							<div id="mol_date_two_year" class="div_cursor_pointer btn_div" >2년</div>
 						</div>
 						<div id="mol_order_lists">
-							<div class="mol_order_list">
-								<div class="mol_info">
-									<div class="mol_info_date">주문일자 : 0000년 00월 00일</div>
-									<div class="mol_info_area">
-										<div class="mol_info_img"><img src=""></div>
-										<div class="mol_info_txt">
-											<table>
-												<tr class="mol_info_tr">
-													<td class="mol_info_config_area">상품명</td>
-													<td class="mol_info_text_area inner_text_div inner_text_div">고양이 장난감</td>
-												</tr>
-												<tr class="mol_info_tr">
-													<td class="mol_info_config_area">상품 수량</td>
-													<td class="mol_info_text_area inner_text_div">3개</td>
-												</tr>
-												<tr class="mol_info_tr">
-													<td class="mol_info_config_area">총 가격</td>
-													<td class="mol_info_text_area inner_text_div">17000원</td>
-												</tr>
-											</table>
-										</div>
+							<c:if test="${not empty orderList }">
+								<c:forEach var="order" items="${orderList }">
+									<div class="mol_order_list">
+										<div class="mol_info_date">주문일자 : ${order.ordDate}</div>
+										<c:forEach var="product" items="${order.orderProducts}">
+											<div class="mol_info_div">
+												<div class="mol_info">
+													<div class="mol_info_area">
+														<div class="mol_info_img"><img class="order_image" src="<c:url value='/image/market/${product.productDetails.prdImg}'/>"/></div>
+														<div class="mol_info_txt">
+															<table>
+																<tr class="mol_info_tr">
+																	<td class="mol_info_config_area">상품명</td>
+																	<td class="mol_info_text_area inner_text_div">${product.productDetails.prdName}</td>
+																</tr>
+																<tr class="mol_info_tr">
+																	<td class="mol_info_config_area">상품 수량</td>
+																	<td class="mol_info_text_area inner_text_div">${product.ordQty}개</td>
+																</tr>
+																<tr class="mol_info_tr">
+																	<td class="mol_info_config_area">총 가격</td>
+																	<td class="mol_info_text_area inner_text_div"><fmt:formatNumber value= "${product.productDetails.prdPrice}" pattern="#,###" />원</td>
+																</tr>
+															</table>
+														</div>
+													</div>
+												</div>
+												<div class="mol_btns">
+													<div class="mol_status">배송중</div>
+													<div class="mol_btns_area">
+														<div class="mol_view_details"><button>상세 보기</button></div>
+														<!-- 배송 준비중일시 보여줌 (if문 처리) -->
+														<div class="mol_prd_cancel mol_center_btn"><button>주문 취소</button></div>
+														<!-- 배송 준비중을 빼고 보여줌 보여주는 화면 (if문 처리)
+															<div class="mol_prd_return mol_center_btn"><button>교환/반품 신청</button></div>
+														 -->
+														<div class="mol_view_details"><button>상세 보기</button></div>
+													</div>
+												</div>
+											</div>
+										</c:forEach>
 									</div>
-								</div>
-								<div class="mol_btns">
-									<div class="mol_status">배송중</div>
-									<div class="mol_btns_area">
-										<div class="mol_view_details"><button>상세 보기</button></div>
-										<!-- 배송 준비중일시 보여줌 (if문 처리) -->
-										<div class="mol_prd_cancel mol_center_btn"><button>주문 취소</button></div>
-										<!-- 배송 준비중을 빼고 보여줌 보여주는 화면 (if문 처리)
-											<div class="mol_prd_return mol_center_btn"><button>교환/반품 신청</button></div>
-										 -->
-										<div class="mol_view_details"><button>상세 보기</button></div>
-									</div>
-								</div>
-							</div>
+								</c:forEach>
+							</c:if>
 						</div>
 					</div>
 				</div>

@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,8 +19,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.spring_boot_allmypet.project.model.member.MemberPointVO;
-import com.spring_boot_allmypet.project.model.mypage.BlockListVO;
+import com.spring_boot_allmypet.project.model.member.PetVO;
+import com.spring_boot_allmypet.project.model.mypage.AnimalDealers;
+import com.spring_boot_allmypet.project.model.mypage.AnimalDealers.Row;
 import com.spring_boot_allmypet.project.model.mypage.BookMarkVO;
+import com.spring_boot_allmypet.project.service.mypage.AnimalDealerService;
 import com.spring_boot_allmypet.project.service.mypage.MypageService;
 
 import jakarta.servlet.ServletContext;
@@ -27,18 +31,25 @@ import jakarta.servlet.http.HttpSession;
 
 @RestController
 public class MyPageRestController {
-	@Autowired
     private ServletContext servletContext;
+	private MypageService mypageService;
+	private AnimalDealerService animalDealerService;
 	
 	@Autowired
-	MypageService mypageService;
+	public MyPageRestController(ServletContext servletContext,
+			MypageService mypageService,
+			AnimalDealerService animalDealerService) {
+		this.servletContext =servletContext;
+		this.mypageService =mypageService;
+		this.animalDealerService =animalDealerService;
+	}
 
     @PostMapping("/mypage/uploadImage")
     public String uploadImage(HttpSession session,@RequestParam("image") MultipartFile image) {
         if (!image.isEmpty()) {
             try {
                 // 웹 애플리케이션 루트 경로 기준으로 파일 저장 경로 설정
-                String uploadDir = servletContext.getRealPath("/uploads/profile_Img/");
+                String uploadDir = "/usr/local/allmypet/member_images/";
                 String fileName = System.currentTimeMillis() + "_" + image.getOriginalFilename();
                 File destFile = new File(uploadDir, fileName);
                 
@@ -58,7 +69,15 @@ public class MyPageRestController {
             return "{\"error\": \"No file uploaded\"}";
         }
     }
-    
+    @PostMapping("/mypage/petDateUpdate")
+    public void petDateUpdate(HttpSession session,@RequestBody List<PetVO> petVOs) {
+    	String memId = (String) session.getAttribute("mid");
+    	mypageService.myPetDelete(memId);
+    	for(PetVO pet : petVOs) {
+    		pet.setMemId(memId);
+    		mypageService.myPetUpdate(pet);
+        }
+    };
     @PostMapping("/mypage/getMonthlyPoints")
     public Map<String, Object> getMonthlyPoints(HttpSession session, @RequestParam("month") int month) {
         String memId = (String) session.getAttribute("mid");
@@ -246,5 +265,11 @@ public class MyPageRestController {
     public void deleteFavorites(HttpSession session, @RequestParam("purchaseId") int purchaseId) {
     	String memId = (String) session.getAttribute("mid");
     	mypageService.emoji_favorites_delete(memId, purchaseId);
+    }
+    /* 브리더 인허가번호 확인*/
+    @GetMapping("/api/dealer")
+    public Row getDealerByLicenseNumber(@RequestParam("licenseNumber") String licenseNumber) {
+        AnimalDealers dealers = animalDealerService.loadAnimalDealers("src/main/resources/xml/fulldata_animal_dealers.xml");
+        return animalDealerService.findDealerByLicenseNumber(dealers, licenseNumber);
     }
 }

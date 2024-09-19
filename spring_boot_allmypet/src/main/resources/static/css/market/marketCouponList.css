@@ -1,0 +1,103 @@
+/* 공통 레이아웃 스타일 */
+.mcl_coupon {
+  width: 500px;
+  height: 200px;
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  color: white;
+  position: relative;
+  margin: 0 auto 25px auto;
+}
+
+.mcl_coupon .left-section {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+}
+
+.mcl_coupon .left-section span {
+  transform: rotate(-90deg); /* 텍스트를 시계 반대 방향으로 90도 회전 */
+  display: inline-block;
+}
+
+.mcl_coupon .right-section {
+  width: 75%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.mcl_coupon .right-section div {
+  padding: 0 3%;
+}
+
+.mcl_discount {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.mcl_use_availabe {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mcl_actions {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.mcl_actions a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.mcl_actions a:visited {
+  color: inherit;
+}
+
+/* 쿠폰의 양쪽 둥근 장식 */
+.mcl_coupon::before,
+.mcl_coupon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.mcl_coupon::before {
+  left: -20px;
+}
+
+.mcl_coupon::after {
+  right: -20px;
+}
+
+/* 쿠폰 타입별 색상 */
+.all_coupon_R, .all_coupon_L {
+  background-color: #aaaaff;
+}
+
+.goods_coupon_R, .goods_coupon_L {
+  background-color: #b3ffdb;
+}
+
+.pet_coupon_R, .pet_coupon_L {
+  background-color: #ffb0b0;
+}

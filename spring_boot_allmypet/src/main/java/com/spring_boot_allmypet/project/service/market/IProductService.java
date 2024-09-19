@@ -2,8 +2,10 @@ package com.spring_boot_allmypet.project.service.market;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.spring_boot_allmypet.project.model.market.ProductVO;
+import com.spring_boot_allmypet.project.model.market.ReviewVO;
 
 
 // 요청 : client(View) -> Controller -> Service -> DAO -> DB
@@ -39,6 +41,8 @@ public interface IProductService {
 	
 	// 새로 추가 : 카테고리별 상품 조회
 	public ArrayList<ProductVO> ctgListProduct(String ctgId);
+
+	public List<ReviewVO> getReviewsByProductNo(String prdNo);
 }
 
 

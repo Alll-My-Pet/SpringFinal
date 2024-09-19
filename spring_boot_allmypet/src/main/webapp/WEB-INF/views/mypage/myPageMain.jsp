@@ -8,8 +8,11 @@
 		<meta charset="UTF-8">
 		<title>마이페이지</title>
 		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/myPageMain.css'/>">
+		<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/mypagePublic.css'/>">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<script src="https://kit.fontawesome.com/5698518370.js" crossorigin="anonymous"></script>
+		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+		<script src="<c:url value='/js/mypage/mypageMain.js'/>"></script>		
 	</head>
 	<body>
 		<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
@@ -21,7 +24,7 @@
 						<span>내 정보</span>
 						<div id="info_pic_area">
 							<div id="info_pic">
-								<div id="info_mypic"><img id="my_profile_img" src="<c:url value='/project_images/profile_Img/${memVO.profile_image }'/>"></div>
+								<div id="info_mypic"><img id="my_profile_img" src="<c:url value='/member_images/${memVO.profile_image }'/>"></div>
 								<div id="info_mypic_btn">
 									<button onClick="location.href='/mypage/edit_info'">프로필 수정</button>
 								</div>								
@@ -86,8 +89,8 @@
 						<div>브리더</div>
 						<i class="fa-solid fa-briefcase"></i>
 					</div>
-					<a href="/mypage/breeder_regist"><div id="breeder_regist" class="mp_brd_div mp_div_list">브리더 등록/취소</div></a>
-					<a href="/mypage/inquiry_lists"><div id="breeder_inquiry" class="mp_brd_div mp_div_list">문의 내역</div></a>
+					<a href="/mypage/breeder_regist"><div id="breeder_regist" class="mp_brd_div mp_div_list">브리더 등록/수정</div></a>
+					<a href="/mypage/inquiry_lists"><div id="breeder_inquiry" class="mp_brd_div mp_div_list <c:if test="${mpos ==0 }">general_member</c:if>">문의 내역</div></a>
 				</div>
 
 				

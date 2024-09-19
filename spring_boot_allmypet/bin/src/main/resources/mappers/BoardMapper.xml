@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.spring_boot_allmypet.project.dao.IBoardDAO">
+   <resultMap id="boardResultMap" type="com.spring_boot_allmypet.project.model.BoardVO">
+	     <result property="postNo" column="postNo"/>
+	     <result property="boardCtgNo" column="boardCtgNo"/>
+	     <result property="postTitle" column="postTitle"/>
+	     <result property="postDate" column="postDate"/>
+	     <result property="memId" column="memId"/>
+	     <result property="postContent" column="postContent"/>
+	     <result property="postLike" column="postLike"/>
+	     <result property="postView" column="postView"/>
+	     <result property="postImg" column="postImg"/>
+	     <result property="postTypeNo" column="postTypeNo"/>
+    </resultMap>
+  
+  
+  <!-- 전체 게시글 조회 --> 
+  <!-- 	<select id="listAllBoard" resultMap="boardResultMap">
+  		SELECT * FROM board ORDER BY bodNo DESC
+  	</select> -->
+  	
+  	<select id="listAllBoard" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.BoardVO">
+  		SELECT * FROM post LIMIT #{startNo}, 15;  		
+  	</select>
+  	
+  	<!-- 페이징 -->
+  	<select id="getBoardCount" resultType="int">
+  		SELECT count(*) FROM post
+  	</select>
+  
+   <!-- 게시글 검색 -->
+  	<select id="boardSearch" parameterType="hashmap" resultMap="boardResultMap">
+  		SELECT * FROM post WHERE true
+  			<choose>
+  				<when test="type != null and type.equals('postTitle')">
+  					AND postTitle LIKE CONCAT('%',#{keyword},'%')
+  				</when>
+  				<when test="type != null and type.equals('memId')">
+  					AND memId LIKE CONCAT('%',#{keyword},'%')
+  				</when>
+  				<when test="type != null and type.equals('memId','postTitle')">
+  					AND memId LIKE CONCAT('%',#{keyword},'%')
+  					OR postTitle LIKE CONCAT('%',#{keyword},'%')
+  				</when>
+  			</choose>
+  	</select>
+  
+  <!-- 게시글 조회 -->
+  	<select id="detailViewBoard" parameterType="int" resultType="com.spring_boot_allmypet.project.model.BoardVO">
+  		SELECT postNo, postTitle, memId, postContent, postLike, postImg, postView, boardCtgNo  FROM post WHERE postNo = #{postNo}
+  	</select>
+  
+  <!-- 글 작성 -->
+  <insert id="insertBoard" parameterType="com.spring_boot_allmypet.project.model.BoardVO">
+       <!--  INSERT INTO board (bodTitle, memId, bodDate, bodText)
+        VALUES (#{bodTitle}, #{memId}, #{bodDate}, #{bodText}) -->
+				INSERT INTO post (postTitle, memId, postDate, postContent, boardCtgNo)
+        VALUES (#{postTitle}, #{memId}, NOW(), #{postContent}, #{boardCtgNo})
+    </insert>
+  
+  </mapper>
