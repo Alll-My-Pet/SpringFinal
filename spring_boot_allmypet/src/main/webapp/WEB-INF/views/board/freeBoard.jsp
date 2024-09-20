@@ -90,9 +90,7 @@
 						</form>
 						<!-- form 끝 -->
 						<div class="freeHotBoard">
-							<h3
-								style="margin-left: 2%; margin-top: 30px; position: absolute;">실시간
-								인기글🔥</h3>
+							<div class="board-title"><strong>🔥실시간 인기글🔥</strong></div>
 							<div class="post-list">
 								<table class="freeHotTable">
 									<thead>
@@ -105,6 +103,11 @@
 										</tr>
 									</thead>
 									<tbody>
+										<!-- tbody와 thead간의 공백 -->
+										<tr>
+											<td colspan="5"
+												style="height: 10px; background-color: transparent;"></td>
+										</tr>
 										<c:forEach var="hot" items="${free_hotList }">
 											<tr>
 												<td><a
@@ -115,6 +118,9 @@
 												<td>${hot.postView }</td>
 												<td>${hot.postLike }</td>
 											</tr>
+											<td colspan="5">
+												<div class="separator"></div>
+											</td>
 										</c:forEach>
 
 									</tbody>
@@ -123,9 +129,8 @@
 							</div>
 
 						</div>
-
+						<div class="board-title">전체 게시글</div>
 						<table class="freeboardTB">
-
 							<thead>
 								<tr>
 									<th scope="col" class="th-title">글 제목</th>
@@ -135,7 +140,6 @@
 									<th scope="col" class="th-good">추천</th>
 								</tr>
 							</thead>
-
 							<tbody id="FreeboardList">
 								<c:forEach var="free" items="${freeBoardList }">
 									<tr>

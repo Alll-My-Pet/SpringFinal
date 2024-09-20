@@ -77,7 +77,7 @@
 }
 
 
-/* *********** */
+/* ****************************** */
 .freeBoard {
 	/* border: 1px solid black; */
 	border: none;
@@ -95,20 +95,26 @@
 	width: fit-content;
 	height: fit-content;
 	margin: 0 auto;
-	margin-top: 150px;
-	margin-right:125px;
+	margin-top: 100px;
+	flex-direction: column;
 }
 
+.board-title {
+	/* background-color: yellow; */
+	display: inline-block; /* 또는 block */
+	font-size: 17px;
+	transform: translateY(30px);
+	margin-bottom: 50px;
+	margin-left: 2%;
+}
 
 .freeboardTB {
 	width: 800px;
 	border-collapse: collapse;
 	border: 1px solid black;
 	margin: 0 auto;
-	margin-top: 50px;
 	/* height: 900px; */
 	overflow: hidden;
-	margin-right:125px;
 }
 
 
@@ -159,10 +165,22 @@
 
 /* 실시간 인기글 섹션 */
 .post-list {
+/* 	background-color: pink;
 	display: flex;
 	margin: 20px auto;
 	flex-direction: column;
-	height: fit-content;
+	height: fit-content !important;
+	box-sizing: border-box; */
+}
+
+.post-list{
+	background-color: white;
+	border: 1px solid #A4A4A4;
+	border-radius: 8px;
+	width: fit-content;
+	height: auto;
+/* 	margin-top: 10px; */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* 게시글(post) 상세페이지로 이동하는 링크 */
@@ -230,8 +248,16 @@
 }
 
 
-/* ******************************** */
+/* ************** 테이블 관련 css***************** */
 
+/* 각 게시글 구분하는 선 */
+.separator {
+	width: 95%; /* 테이블 너비보다 약간 짧게 설정 */
+	height: 1px; /* 구분선의 두께 */
+	background-color: #D8D8D8; /* 구분선 색상 */
+	margin: 0 auto; /* 가운데 정렬 */
+	padding: 0px;
+}
 
 .freeboardTB td {
 	border-top: 1px solid black;
@@ -338,26 +364,31 @@
         color: #333; /* 호버 시 텍스트 색상 */
         border-radius: 5px; /* 호버 시 테두리 반경 */
     }
-    
+
+/* 실시간 인기글 테이블 관련 */
 .freeHotTable{
 	width:800px;
-	margin-top:65px;
+/* 	margin-top:65px; */
 	border-collapse: collapse;
-	border:1px solid black;
+	/* border:1px solid black; */
 	border-radius:10px;
-	border-color:#8000ff;
+	/* border-color:#8000ff; */
 	color: black;
-	
+}
+
+thead th {
+	border-bottom: 2px solid #A4A4A4; /* 하단 테두리 추가 */
 }
 
 .freeHotTable td {
-	border-top:1px solid black;
-	border-bottom:1px solid black;
-	padding: 8px;
+/* 	border-top:1px solid black;
+	border-bottom:1px solid black; */
+/* 	padding: 8px; */
+	padding: 0px !important;
 	text-align: center;
 	height: 20px;
-	border-collapse: collapse;
-	border-color:#8000ff;
+/* 	border-collapse: collapse; */
+/* 	border-color:#8000ff; */
 }
 
 .freeHotTable tr:hover{
