@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+	namespace="com.spring_boot_allmypet.project.dao.board.IEmojiDAO">
+	<resultMap id="emojiResultMap"
+		type="com.spring_boot_allmypet.project.model.board.EmojiVO">
+		<result property="emoNo" column="emoNo" />
+		<result property="memId" column="memId" />
+		<result property="emoDate" column="emoDate" />
+		<result property="emoSale" column="emoSale" />
+		<result property="emoImg" column="emoImg" />
+		<result property="emoName" column="emoName" />
+		<result property="approvalStatus" column="approvalStatus" />
+		<result property="approvalDate" column="approvalDate" />
+	</resultMap>
+
+
+	<!-- 전체 이모지 -->
+	<select id="listAllEmoji" parameterType="hashmap"
+		resultType="com.spring_boot_allmypet.project.model.board.EmojiVO">
+		SELECT * FROM emoji LIMIT #{emoNo}, 15;
+	</select>
+
+
+
+	<!-- 페이징 -->
+	<select id="getEmojiCount" resultType="int">
+		SELECT count(*) FROM post
+	</select>
+
+
+
+	<!-- 이모지 검색 -->
+	<select id="emojiSearch" parameterType="hashmap"
+		resultMap="emojiResultMap">
+		SELECT * FROM emoji WHERE true
+		<choose>
+			<when test="type != null and type.equals('postTitle')">
+				AND emoName LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when test="type != null and type.equals('memId')">
+				AND memId LIKE CONCAT('%', #{keyword}, '%')
+			</when>
+			<when
+				test="type != null and type.equals('postTitleAndpostContent')">
+				AND (emoName LIKE CONCAT('%', #{keyword}, '%'))
+			</when>
+		</choose>
+		ORDER BY emoNo DESC
+	</select>
+
+	<!-- 이모지 조회 -->
+	<select id="detailViewEmoji" parameterType="int"
+		resultType="com.spring_boot_allmypet.project.model.board.EmojiVO">
+		SELECT emoNo, memId, emoDate, emoImg,
+		emoName
+		FROM emoji
+		WHERE emoNo = #{emoNo}
+	</select>
+
+	<!-- 이모지 작성 -->
+	<insert id="insertEmoji"
+		parameterType="com.spring_boot_allmypet.project.model.board.EmojiVO">
+		INSERT INTO emoji (emoNo, memId, emoDate,
+		emoImg, emoName)
+		VALUES (#{emoNo},
+		#{memId}, NOW(), #{emoImg},#{emoName})
+	</insert>
+
+	<!-- 인기 이모지 -->
+	<select id="listHotEmojis" resultMap="emojiResultMap">
+		SELECT * FROM emoji
+		WHERE
+		emojiLike > 50
+		ORDER BY emojiLike DESC
+		LIMIT 2
+	</select>
+
+<!-- 전체 커뮤니티  -->
+	<!-- 공지게시판 -->
+	<select id="viewNotice" parameterType="string"
+		resultType="com.spring_boot_allmypet.project.model.BoardVO">
+		SELECT p.*, m.memNickName
+		FROM post p
+		JOIN member m ON
+		p.memId = m.memId
+		WHERE p.boardCtgNo = '1'
+		ORDER BY postDate DESC;
+	</select>
+
+	<!-- 자유게시판: 페이징 -->
+	<select id="paging" resultType="int">
+		SELECT count(*) FROM post
+		WHERE
+		boardCtgNo = '3';
+	</select>
+	
+</mapper>

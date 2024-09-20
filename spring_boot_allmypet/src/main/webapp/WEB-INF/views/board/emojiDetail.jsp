@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/emojiWrite.css'/>">
+	href="<c:url value='/css/Board/emojiDetail.css'/>">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/Board/paging.css'/>">
 <script src="<c:url value='/js/board/emojiDetail.js'/> "></script>
@@ -30,24 +30,30 @@
 					<br> <br>
 	         		
 	         		<section class="emojiDetail">
-		        		<div class="emoView">
-		        			${emoji.emoImg}
-		        		</div>
-		        		<div class="emoInfo">
-		        			${emoji.emoName}<br>
-		        			${emoji.memNickName}<br>
-		        			${emoji.emoDate}<br>
-		        			${emoji_purchase.useCount}
-		        		</div>
-		        		<div class="emojiDescription">
-		        			${emoji.emoContent}
-		        		</div>
-		        		<div class="emojiPurchase">
-		        			<button type="submit" class="emoPurchase" id="emoPurchase" name="emoPurchase">구매하기(100pt)</button>
-		        		</div>
-		        		<div class="bookmark">
-		        			
-		        		</div>
+	         			<div class="emoUp">
+			        		<div class="emoView">
+			        			${emoji.emoImg}
+			        		</div>
+			        		<div class="emoInfo">
+			        			${emoji.emoName}<br>
+			        			${emoji.memNickName}<br>
+			        			${emoji.emoDate}<br>
+			        			${emoji_purchase.useCount}
+			        		</div>
+			        	</div>
+			        	<div class="emoCenter">
+			        		<div class="emojiDescription">
+			        			${emoji.emoContent}
+			        		</div>
+			        	</div>
+			        	<div class="emoBottom">
+			        		<div class="emojiPurchase">
+			        			<button type="submit" class="emoPurchaseBtn" id="emoPurchaseBtn" name="emoPurchaseBtn">구매하기(100pt)</button>
+			        		</div>
+			        		<div class="bookmark">
+			        			
+			        		</div>
+			        	</div>
 		        	</section>
 	        		<form class="commentsWriteFrm">
    						<textarea class="commentWriteArea" name="commentText" placeholder="${Fboard.memId}:"></textarea>

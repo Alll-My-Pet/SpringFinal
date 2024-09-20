@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .contents {
-    max-width: 1200px;
+    max-width: 853px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
@@ -15,7 +15,7 @@ h2 {
 }
 
 .emojiBestBox, .emojiBoard {
-	width: fit-content;
+	width: 800px;
     margin-bottom: 30px;
     padding: 15px;
     border: 1px solid #000000;
@@ -55,11 +55,17 @@ h2 {
     flex-wrap: wrap;
 }
 
+.emoji-container1 {
+	display: flex; /* Flexbox 활성화 */
+    flex-wrap: wrap; /* 여러 줄로 감싸기 */
+    margin: -10px; /* 간격을 위한 마진 조정 */
+}
+
 .emojiBox {
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-    width: calc(25% - 15px); /* 4개가 한 줄에 나올 수 있도록 조정 */
+    width: calc(25% - 40px); /* 4개가 한 줄에 나올 수 있도록 조정 */
     margin-right: 15px;
     border: 1px solid #000000;
     border-radius: 5px;
@@ -79,8 +85,36 @@ h2 {
     font-size: 14px;
 }
 
-.emojiArray {
+.emojiUpload {
+	display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.emojiUploadBtn {
+	text-decoration: none;
+	color: black;
+	padding: 10px 15px;
+    margin-right: 5px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.emojiUploadBtn:hover {
+	background-color: black;
+    color: white;
+}
+.emoji-container2 {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
+}
+
+.emojiArray {
 }
 
 .emojiArrayBtn {
@@ -99,14 +133,10 @@ h2 {
 }
 
 .emojiSearch {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
 }
 
 .emojiSearchBar {
-    flex: 1;
-    padding: 10px;
+    padding: 10px 20px;
     border: 1px solid #000000;
     border-radius: 5px;
     margin-right: 10px;

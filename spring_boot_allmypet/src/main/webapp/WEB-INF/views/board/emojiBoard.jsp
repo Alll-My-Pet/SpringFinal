@@ -35,35 +35,42 @@
 							<button class="bestEmojiBtn">주간</button>
 							<button class="bestEmojiBtn">월간</button>
 						</div>
-		                <div class="emojiBox">
-							<div class="emojiPic"></div>
-						    <div class="emojiInfo">이름 / 제작자 / 구매자 수</div>
-						</div>
-						<div class="emojiBox">
-							<div class="emojiPic"></div>
-						    <div class="emojiInfo">이름 / 제작자 / 구매자 수</div>
-						</div>
-						<div class="emojiBox">
-							<div class="emojiPic"></div>
-						    <div class="emojiInfo">이름 / 제작자 / 구매자 수</div>
-						</div>
-						<div class="emojiBox">
-							<div class="emojiPic"></div>
-						    <div class="emojiInfo">이름 / 제작자 / 구매자 수</div>
+						<div class="emoji-container1">
+			                <div class="emojiBox">
+								<div class="emojiPic"></div>
+							    <div class="emojiInfo">이름 / 제작자 / 구매자 수</div>
+							</div>
+							<div class="emojiBox">
+								<div class="emojiPic"></div>
+							    <div class="emojiInfo">이름 / 제작자 / 구매자 수</div>
+							</div>
+							<div class="emojiBox">
+								<div class="emojiPic"></div>
+							    <div class="emojiInfo">이름 / 제작자 / 구매자 수</div>
+							</div>
+							<div class="emojiBox">
+								<div class="emojiPic"></div>
+							    <div class="emojiInfo">이름 / 제작자 / 구매자 수</div>
+							</div>
 						</div>
 	         		</div>
 	         		
 	        		<section class="emojiBoard">
 	        			<h2>전체 이모지</h2>
-	        			<div class="emojiArry">
-		        			<button class="emojiArrayBtn">최신순</button>
-		        			<button class="emojiArrayBtn">구매자순</button>
+	        			<div class="emojiUpload">
+	        				<a href="<c:url value='/board/emojiWrite' />" class="emojiUploadBtn">이모지 업로드</a>
 	        			</div>
-	        			<div class="emojiSearch">
-	        				<input type="text" class="emojiSearchBar" placeholder="게시판 내 검색">
-	        				<button type="submit" class="emojiSearchBtn">
-	        					<img src="image/search.png"/>
-	        			</div>
+	        			<div class="emoji-container2">
+		        			<div class="emojiArray">
+			        			<button class="emojiArrayBtn">최신순</button>
+			        			<button class="emojiArrayBtn">구매자순</button>
+		        			</div>
+		        			<div class="emojiSearch">
+		        				<input type="text" class="emojiSearchBar" placeholder="게시판 내 검색">
+		        				<button type="submit" class="emojiSearchBtn">
+		        					<img src="image/search.png"/></button>
+		        			</div>
+		        		</div>
 	        			<div class="emojiNotice">
 	        				<c:forEach items="${noticeList}" var="noticeBoard">
 	        					<table>
