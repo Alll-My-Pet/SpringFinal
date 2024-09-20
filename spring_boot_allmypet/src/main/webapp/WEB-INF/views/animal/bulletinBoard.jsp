@@ -127,6 +127,7 @@
 							<!-- post-list 끝 -->
 						</div>
 						<!-- hotBoard 끝 -->
+						<div class="board-title">전체 게시글</div>
 						<div class="post-list" id="all-posts">
 							<table class="boardTB">
 							<thead>
@@ -171,6 +172,9 @@
 											<td>${bulletin.postView }</td>
 											<td>${bulletin.postLike }</td>
 										</tr>
+										<td colspan="6" class="sep-td">
+											<div class="separator"></div>
+										</td>
 									</c:forEach>
 
 								</tbody>

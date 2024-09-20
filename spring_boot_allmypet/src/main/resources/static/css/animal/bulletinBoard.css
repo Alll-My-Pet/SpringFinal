@@ -173,22 +173,24 @@
 
 .board-title {
 	/* background-color: yellow; */
+	width: fit-content;
 	display: inline-block; /* 또는 block */
 	font-size: 17px;
 	transform: translateY(30px);
 	margin-bottom: 50px;
-	margin-left: 2%;
+	margin-left: 4%;
 }
 
 /* 각 게시글 구분하는 선 */
-.separator {
+.boardTB .separator,
+.hotTable .separator {
 	width: 95% !important; /* 테이블 너비보다 약간 짧게 설정 */
 	height: 1px; /* 구분선의 두께 */
 	background-color: #D8D8D8; /* 구분선 색상 */
 	margin: 0 auto; /* 가운데 정렬 */
 	padding: 0px;
 }
-
+#all-posts .sep-td,
 table .sep-td{
 	height: 3px;
 	padding:0;
@@ -206,7 +208,7 @@ tbody td {
 	border-collapse: collapse;
 }
 
-table tr:hover{
+tbody tr:hover{
 	background-color: #f0f0f0;
 }
 
@@ -217,8 +219,9 @@ table tr:hover{
 	width: fit-content;
 	height: fit-content;
 	margin: 0 auto !important;
-	margin-bottom: 50px;
+	margin-bottom: 20px !important;
 	flex-direction: column;
+	
 }
 
 /* 실시간 인기글 */
@@ -235,7 +238,7 @@ table tr:hover{
 .boardTB {
 	width: 800px;
 	border-collapse: collapse;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	margin: 0 auto;
 	/* margin-top: 50px; */
 	/* height: 900px; */
@@ -243,10 +246,58 @@ table tr:hover{
 	margin-right:125px;
 }
 
+
 #all-posts {
-	margin-top: 100px;
+	/* margin-top: 100px; */
 }
 
+/* 전체게시글  */
+/* 게시글 헤더(thead) */
+.boardTB .th {
+	text-align: center;
+}
+
+.boardTB .th-filter {
+	/* background-color: pink; */
+	width: 50px;
+	padding: 8px;
+}
+
+.boardTB .th-title{
+	/* background-color: orange; */
+	width: 410px;
+}
+
+
+.boardTB .th-author{
+	/* background-color: yellow; */
+	width: 97px;
+}
+
+.boardTB .th-date{
+	/* background-color: lime; */
+	width: 114px;
+}
+
+/* th에 대한 스타일 */
+.boardTB thead th {
+	/* background-color: skyblue; */
+}
+
+/* //////// */
+
+/* 게시글 목록(tbody) */
+/* .boardTB td {
+	padding: 8px;
+	text-align: center;
+	border-collapse: collapse;
+	height: 20px;
+} */
+
+
+
+
+/* ********수정중******** */
 .mainWriteBox {
 	background-color: red;
 	/* width: 100%; */
@@ -292,61 +343,7 @@ table tr:hover{
 }
 
 
-
-
-
-
 /* ******************************** */
-
-
-/* 게시글 헤더(thead) */
-.boardTB .th {
-	text-align: center;
-}
-
-.boardTB .th-filter {
-	width: 50px;
-	padding: 8px;
-}
-
-.boardTB .th-title{
-	width: 345px;
-}
-
-
-.boardTB .th-author{
-	width: 119px;
-}
-
-.boardTB .th-date{
-	width: 150px;
-}
-
-/* th에 대한 스타일 */
-.boardTB thead th {
-	background-color: skyblue;
-}
-
-/* //////// */
-
-/* 게시글 목록(tbody) */
-.boardTB td {
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
-	padding: 8px;
-	text-align: center;
-	border-collapse: collapse;
-	height: 20px;
-}
-
-/* tr에 대한 호버 효과 적용 */
-.boardTB tbody tr:hover {
-	background-color: #f0f0f0;
-}
-
-
-
-/* ********수정중******** */
 #boardCtg {
 	width: 50px !important;
 }
@@ -357,7 +354,7 @@ table tr:hover{
 
 #keyword {
 	border-radius: 5px;
-	border-color: #01bffe;
+	/* border-color: #01bffe; */
 }
 
 #MainFont {

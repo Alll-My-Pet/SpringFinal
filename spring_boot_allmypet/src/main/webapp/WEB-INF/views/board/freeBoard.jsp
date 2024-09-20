@@ -89,8 +89,8 @@
 
 						</form>
 						<!-- form 끝 -->
+						<div class="board-title"><strong>🔥실시간 인기글🔥</strong></div>
 						<div class="freeHotBoard">
-							<div class="board-title"><strong>🔥실시간 인기글🔥</strong></div>
 							<div class="post-list">
 								<table class="freeHotTable">
 									<thead>
