@@ -10,8 +10,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/freeBoard.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/board/freeBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <%-- <script src="<c:url value='/js/Board/freeBoard.js'/>"></script> --%>
 <script>

@@ -5,7 +5,7 @@
  <html>
   <head>
    <title>동물보호 게시글 작성</title>
-   <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/protectWrite.css'/>" />
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/protectWrite.css'/>" />
   </head>
 	<body>
 		<div class="All">

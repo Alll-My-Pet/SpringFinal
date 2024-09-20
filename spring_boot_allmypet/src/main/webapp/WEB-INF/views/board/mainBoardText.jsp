@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>글 작성 페이지</title>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/mainBoardText.css' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/board/mainBoardText.css' />" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/mainBoardText.js'/>"></script>
 </head>

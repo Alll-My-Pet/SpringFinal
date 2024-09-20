@@ -5,7 +5,7 @@
  <html>
   <head>
    <title>유기동물 신고 작성</title>
-   <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/protectReport.css'/>" />
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/protectReport.css'/>" />
    <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
    <script src="<c:url value='/js/Board/protectReport.js'/>"></script>
   </head>

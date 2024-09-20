@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자유게시판</title>
-    <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/freeDetail.css'/>" />
+    <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/freeDetail.css'/>" />
 </head>
 <body>
 

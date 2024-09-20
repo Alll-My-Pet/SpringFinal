@@ -5,7 +5,7 @@
  <html>
   <head>
    <title>동물보호 상세페이지</title>
-   <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/protectDetail.css'/>" />
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/protectDetail.css'/>" />
    <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
    <script src="<c:url value='/js/Board/protectBoard.js'/>"></script>
   </head>
