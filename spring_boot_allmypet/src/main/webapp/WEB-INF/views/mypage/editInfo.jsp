@@ -24,7 +24,7 @@
 			<form id="edit_info_area" method="POST" action="/mypage/update">
 				<div id="edit_t">
 					<div id="edit_t_l">
-						<div id="edit_t_img_area"><img id="edit_img" src="<c:url value='/project_images/profile_Img/${memVO.profile_image }'/>"></div>
+						<div id="edit_t_img_area"><img id="edit_img" src="<c:url value='/member_images/${memVO.profile_image }'/>"></div>
 						<input type="hidden" name="profileImage" id="profileImage" value="${memVO.profile_image }">
 						<div id="edit_img_btn"class="ei_cursor_pointer btn_div">이미지 변경</div>
 						 <input type="file" id="imageInput" style="display: none;" accept="image/*">

@@ -49,7 +49,7 @@
 						<li><a href="<c:url value='/member/logout'/>" id="logout">로그아웃</a></li>
 					</c:if>
 					<c:if test="${not empty sessionScope.mid &&  sessionScope.mpos == 2}">
-						<li><a href="<c:url value='#'/>" id="topMenu2">관리자</a></li>
+						<li><a href="<c:url value='/admin/product_insert_view'/>" id="topMenu2">관리페이지</a></li>
 						<li>|</li>
 						<li><a href="<c:url value='market/cart'/>" id="topMenu1">장바구니</a></li>
 						<li>|</li>

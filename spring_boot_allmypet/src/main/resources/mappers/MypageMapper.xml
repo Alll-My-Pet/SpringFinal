@@ -348,9 +348,9 @@
 		    c.discount_percent,
 		    c.valid_items
 		FROM 
-		    usercoupons uc
+		    UserCoupons uc
 		JOIN 
-		    coupons c ON uc.coupon_id = c.coupon_id
+		    Coupons c ON uc.coupon_id = c.coupon_id
 		WHERE 
 		    uc.memId = #{memId};
 	</select>

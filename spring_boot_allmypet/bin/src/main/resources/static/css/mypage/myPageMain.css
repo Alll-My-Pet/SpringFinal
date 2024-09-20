@@ -1,0 +1,233 @@
+@charset "UTF-8";
+html, body {
+	height: 100%;
+	margin: 0;
+   
+}
+#mypage_main div{
+	box-sizing: border-box;
+	white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+#mypage_main a{
+	display: block;
+	text-decoration: none;
+ 	color: inherit;
+}
+
+#mypage_main {
+  width: 70%;
+  margin: 0 auto;
+  height: 1000px;
+  display: flex;
+  justify-content: center; 
+  padding-top:50px;
+}
+
+#myp {
+  width: 50%;
+  height: 90%;
+  border: 1px solid black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+}
+#myp .mp_main_box {
+  margin: 5px auto;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+/*공용*/
+
+button{
+	cursor:pointer;
+}
+
+#myp .mp_div_list{
+	display: flex;
+	align-items: center;
+	border: 1px solid black;
+	border-radius: 15px;
+	padding-left: 10px;
+	cursor:pointer;
+}
+.myp_area_name{
+	display:flex;
+	flex-direction: row;
+	height:10%;
+	align-items: center;
+}
+.myp_area_name >i{
+	padding-left:5px;
+}
+
+/*mp info 영역*/
+
+#mp_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 23.08%;
+}
+
+#mp_info > div:first-child {
+  width: 58%;
+  position: relative; 
+  display: flex;
+  flex-direction: column;
+}
+
+#mp_info > div:first-child::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1.5px; 
+  width: 5px; 
+  height: 70%; 
+  background-color: black; 
+  transform: translateY(-50%); 
+}
+
+#mp_info > div:nth-child(2) {
+  width: 39%;
+}
+#mp_info #info_pic_area{
+	width: 100%;
+	height:80%;
+	display: flex;
+  	flex-direction: row;
+  	justify-content: space-around;
+  	align-items: center;
+  	padding:5px;
+}
+#mp_info #info_pic{
+	width: 38%;
+	height:100%;
+	display: flex;
+  	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+#mp_info #info_pic #info_mypic{
+	height:70%;
+	width:70%;
+	border: 1px solid black;
+	border-radius: 50%;
+	overflow: hidden;
+}
+#my_profile_img{
+	width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+#mp_info #info_pic #info_mypic_btn{
+	height:25%;
+	width:70%;
+	text-align:center;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+}
+
+#mp_info #info_txt{
+	width:58%;
+	height:100%;
+	border: 1px solid gray;
+	display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+#info_point_area{
+	height:80%;
+}
+
+#info_point_area #info_point{
+	height:80%;
+	display:flex;
+	flex-direction: row;
+	justify-content: space-around;
+  	align-items: center;
+}
+#info_point div{
+	height:100%;
+} 
+#info_point #info_point_img{
+	display:flex;
+	justify-content: center;
+	width:35%;
+}
+#info_point_img img{
+	width:100%;
+}
+#info_point #info_point_num{
+	display: flex;
+  	justify-content: center; 
+ 	align-items: center;
+ 	text-align: center;
+	width:55%;
+	font-weight: bold;
+	font-size:2vw;
+}
+#info_point_area #info_point_btn{
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+	height:20%;
+}
+
+/*mp comm 영역*/
+
+#mp_comm{
+	height: 38.46%;
+	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#mp_comm a {
+	height:15%;
+}
+#mp_comm a .mp_div_list{
+	height:100%;
+}
+
+/*mp mkm 영역*/
+
+#mp_mk {
+ 	height: 23.08%; 
+  	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+#mp_mk a{
+	height:25%;
+}
+#mp_mk .mp_mk_div{
+	height:100%;
+}
+
+/*mp breeder 영역*/
+
+#mp_breeder {
+ 	height: 15.38%; 
+  	display:flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+#mp_breeder a{
+	height:37%;
+}
+#mp_breeder .mp_brd_div{
+	height:100%;
+}
+#mp_breeder .myp_area_name{
+	height:20%
+}
+

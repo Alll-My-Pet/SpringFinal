@@ -18,7 +18,7 @@ import org.springframework.context.annotation.PropertySources;
 ignoreResourceNotFound=true)
 }) 
 public class SpringBootAllmypetApplication {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootAllmypetApplication.class, args);
 	}

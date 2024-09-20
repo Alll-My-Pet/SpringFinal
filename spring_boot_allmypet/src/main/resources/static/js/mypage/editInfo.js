@@ -97,7 +97,7 @@
 			$.ajax({
 	 			type:"post",
 	 			url:"/member/nnCheck", 
-	 			data : {"memNN": nickname}, 
+	 			data : {"memNickName": nickname}, 
 	 			dataType:'text', 
 	 			success:function(result) {
 	 				if(result == "success"|| nickname==default_nickname) {

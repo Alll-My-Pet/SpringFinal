@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+#mypage_breeder{
+	display: flex;
+	flex-direction: row;
+	width:100%;
+	height:100%;
+}
+#mypage_breeder #mypage_r{
+	width:70%;
+}
+#mypage_r #mbr{
+	width:80%;
+	padding: 1%;
+}
+#mbr{
+	height:100%;
+}
+#mbr_t{
+	height:10%;
+}
+#mbr_m{
+	height:80%;
+	padding:5%;
+	width:80%;
+	margin:0 auto;
+}
+#mbr_b{
+	height:10%;
+}
+
+#mbr_t #first_name{
+	font-size:10px;
+}
+#mbr_t #second_name{
+	font-size:30px;
+	font-weight: bold;
+}
+
+#mbr{
+	box-shadow: 0 0 0 1px #aaaaaa;
+	border-radius: 10px;
+}
+
+#mbr #mbr_m{
+	width:100%;
+}
+#mbr_post_lists{
+	width:95%;
+	margin: 1% auto;
+}
+#mbr_post_lists #config_name{
+	width:100%;
+	display:flex;
+	box-shadow: 0 0 0 1px #ccc;
+	
+	
+}
+
+#mbr_type, .mbr_list_type{
+	width:10%;
+	text-align: center;
+}
+#mbr_title, .mbr_list_title{
+	width:60%;
+	padding-left:5px;
+}
+#mbr_writer, .mbr_list_writer{
+	width:15%;
+	text-align: center;
+}
+#mbr_post_date, .mbr_list_post_date{
+	width:15%;
+	text-align: center;
+}
+#mbr_post_lists .mbr_post_list{
+	box-shadow: 0 0 0 1px #ccc;
+	width:100%;
+	display:flex;
+}
+
+#m_filter_search_div{
+	display:flex;
+	justify-content: flex-end;
+	padding-right:1%;
+}
+
+#mbr_b{
+	display:flex;
+	flex-direction:column;
+}
+#mbr_b div{
+	display:flex;
+	flex-direction:row;
+	justify-content: center;
+}
+.search_btm {
+	cursor: pointer;
+}

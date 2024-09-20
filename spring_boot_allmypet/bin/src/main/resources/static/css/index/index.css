@@ -1,0 +1,223 @@
+@charset "UTF-8";
+
+/*
+* index.css
+*/
+
+/* ****************************************************** */
+/* desktop-1, framer-1, contents css는 common.css에 있음. */
+/* ****************************************************** */
+
+
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목 + 이용가이드 포함 */
+.contents .pageInfo {
+	/* background: #E6E6E6; */
+    display: flex;
+    flex-direction: row;
+    /* 수직으로 정렬 */
+    position: relative;
+    /* 자식 요소의 절대 위치에 필요 */
+    width: 689px;
+    /* 원하는 너비 설정 */
+    box-sizing: border-box;
+    margin: 45px 24px 40px 0;
+    /* 여백 설정 */
+}
+
+/****************************************/
+/* 이용 가이드 버튼 */
+/* w: 114  h: 34*/
+#userguideBtn {
+    all: unset;
+    /* 모든 기본 스타일 초기화 */
+    position: absolute;
+    bottom: 0;
+    /* 부모 요소의 하단에 붙임 */
+    right: 0;
+    /* 부모 요소의 오른쪽에 붙임 */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 114px;
+    height: 34px;
+    background: #F2F2F2;
+    border: 1px solid #B3B3B3;
+    border-radius: 8px;
+    cursor: pointer;
+    /* 포인터 커서 */
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+#userguideBtn:hover {
+    background-color: #cccfd2;
+    /* 마우스 오버 시 색상 변화 */
+}
+
+/**************************************/
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+   /*  background: #E6E6E6; */
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 18.5px 22px 11.5px 21px;
+    box-sizing: border-box;
+}
+
+/* 동물별 카테고리 */
+.page-title .ctgTitle {
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: 43px;
+    line-height: 1;
+    color: #000000;
+}
+
+/* 다양한 반려동물 커뮤니티를 한 눈에! */
+.page-title .titleInfo {
+    margin-bottom: 8px;
+    display: inline-block;
+    align-self: flex-start;
+    overflow-wrap: break-word;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.39);
+}
+
+.bracket {
+	width: fit-content;
+	height: fit-content;	
+}
+
+.bLeft {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    left: -50px;
+    /* 부모의 왼쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
+}
+
+.bRight {
+    position: absolute;
+    /* 부모 기준으로 절대 위치 설정 */
+    right: -70px;
+    /* 부모의 오른쪽에서 5px 위치 */
+    top: 60%;
+    /* 부모의 중앙으로 이동 */
+    transform: translateY(-50%);
+    /* 수직 중앙 정렬 */
+}
+/*********************************/
+/* 동물 카테고리 */
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    /* 카드들을 수직 방향으로 정렬 */
+    align-items: center;
+    /* 카드들을 중앙 정렬 */
+    margin-top: 0px !important;
+    /* 위쪽 여백 추가 */
+}
+
+.card-container .row {
+    display: flex;
+    /* 플렉스 박스 사용 */
+    justify-content: center;
+    /* 카드들을 중앙 정렬 */
+    width: 100% !important;
+    /* 전체 너비를 사용 */
+}
+
+.row .col-sm-3 {
+    flex: 0 0 25% !important;
+    /* 각 카드가 25% 너비를 차지하도록 설정 */
+    max-width: 25% !important;
+    /* 최대 너비 설정 */
+    padding: 10px !important;
+    /* 카드 간격 */
+}
+
+.card {
+    width: 120px !important;
+    /* 원하는 너비 설정 */
+    height: 120px !important;
+    /* 원하는 높이 설정 (정사각형을 위해 너비와 같게 설정) */
+    display: flex;
+    /* 플렉스 박스로 설정 */
+    flex-direction: column;
+    /* 세로 방향으로 정렬 */
+    justify-content: center;
+    /* 수직 중앙 정렬 */
+    align-items: center;
+    /* 수평 중앙 정렬 */
+    margin: 4px;
+    /* 카드 간의 여백 */
+    background-color: #f8f9fa !important;
+    /* 카드 배경색 설정 */
+    border: 1px solid #ccc;
+    /* 카드 테두리 설정 */
+    border-radius: 8px;
+    /* 모서리 둥글게 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 그림자 추가 */
+    position: relative;
+    /* 자식 요소의 위치 조정을 위해 relative 설정 */
+    cursor: pointer;
+}
+
+.card img {
+    /* max-width: 70%; */
+    /* 이미지 너비 최대 80% */
+    /* max-height: 70%; */
+    /* 이미지 높이 최대 80% */
+    object-fit: cover !important;
+    /* 이미지 비율 유지 */
+    margin-bottom: 10px !important;
+    opacity: 0.9;
+}
+
+.card-body {
+    position: absolute;
+    /* 절대 위치 설정 */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    bottom: 5px;
+    /* 카드 바닥으로부터 1px 떨어지게 설정 */
+    left: 0;
+    /* 왼쪽 정렬 */
+    right: 0;
+    /* 오른쪽 정렬 */
+    display: flex;
+    justify-content: center;
+    /* 제목 중앙 정렬 */
+    box-sizing: border-box;
+    padding: 0px !important;
+}
+
+.card-title {
+    margin: 0 auto !important;
+    font-size: 15px !important;
+    font-weight: bold;
+    /* 제목 글자 크기 조정 */
+    text-align: center !important;
+    /* 중앙 정렬 */
+}
+
+.card-link {
+    text-decoration: none;
+    /* 링크의 기본 밑줄 제거 */
+    color: inherit;
+    /* 텍스트 색상을 부모 요소에서 상속받음 */
+}
+
