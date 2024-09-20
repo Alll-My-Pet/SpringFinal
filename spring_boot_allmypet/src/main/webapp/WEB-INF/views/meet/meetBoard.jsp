@@ -68,17 +68,18 @@
 										<td colspan="5"
 											style="height: 3px; background-color: transparent;"></td>
 									</tr>
-									<c:forEach var="top3" items="${topLikedTips }">
-										<tr>
-											<td class="post-title"><a href="<c:url value='/tip/${petCtgNo}/detailTipBoard/${top3.postNo}'/>">내 주변 소모임 찾기</a></td>
-										</tr>
-										<tr>
-											<td class="post-title">지역별로 찾기</td>
-										</tr>
-										<tr>
-											<td class="post-title">동물별로 찾기</td>
-										</tr>
-									</c:forEach>
+									<tr>
+										<td class="post-title"><a href="<c:url value='/tip/${petCtgNo}/detailTipBoard/${top3.postNo}'/>">내 주변 소모임 찾기</a></td>
+									</tr>
+									<tr>
+										<td class="post-title">지역별로 찾기</td>
+									</tr>
+									<tr>
+										<td class="post-title">동물별로 찾기</td>
+									</tr>
+									<tr>
+										<td class="post-title">온라인/오프라인</td>
+									</tr>
 								</tbody>
 							</table>
 						</div>
