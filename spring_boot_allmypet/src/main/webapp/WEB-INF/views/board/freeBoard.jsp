@@ -130,7 +130,8 @@
 
 						</div>
 						<div class="board-title">전체 게시글</div>
-						<table class="freeboardTB">
+						<div class="post-list">
+							<table class="freeboardTB">
 							<thead>
 								<tr>
 									<th scope="col" class="th-title">글 제목</th>
@@ -140,22 +141,40 @@
 									<th scope="col" class="th-good">추천</th>
 								</tr>
 							</thead>
-							<tbody id="FreeboardList">
-								<c:forEach var="free" items="${freeBoardList }">
-									<tr>
-										<td><a
-											href="<c:url value='/board/FreeDetailView/${free.postNo}'/>" />${free.postTitle }</td>
-										<td>${free.memNickName }</td>
-										<td><fmt:formatDate value="${free.postDate }"
-												pattern="YYYY-MM-dd" /></td>
-										<td>${free.postView }</td>
-										<td>${free.postLike }</td>
-									</tr>
-								</c:forEach>
-							</tbody>
+								<tbody id="FreeboardList">
+									<c:forEach var="free" items="${freeBoardList }">
+										<tr>
+											<td><a
+												href="<c:url value='/board/FreeDetailView/${free.postNo}'/>" />${free.postTitle }</td>
+											<td>${free.memNickName }</td>
+											<td><fmt:formatDate value="${free.postDate }"
+													pattern="YYYY-MM-dd" /></td>
+											<td>${free.postView }</td>
+											<td>${free.postLike }</td>
+										</tr>
+										<td colspan="5" class="sep-td">
+											<div class="separator"></div>
+										</td>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+						<div class="mainWriteBox">
+							<!-- <button class="mainWriteBtn">글 작성</button> -->
+							<!-- 로그인 한 경우  -->
+							<c:if test="${not empty sessionScope.mid }">
+								<button class="mainWriteBtn">
+									<a href="<c:url value='/Board/MainBoardText'/>">글 작성</a>
+								</button>
+							</c:if>
 
-						</table>
-						<br> <br>
+
+							<!-- 로그인 하지 않은 경우-->
+							<c:if test="${empty sessionScope.mid }">
+								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
+							</c:if>
+						</div>
+						<br>
 
 						<div class="paging" style="text-align: center;">
 							<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
@@ -177,21 +196,7 @@
 						</form>
 
 
-						<div class="mainWriteBox">
-							<!-- <button class="mainWriteBtn">글 작성</button> -->
-							<!-- 로그인 한 경우  -->
-							<c:if test="${not empty sessionScope.mid }">
-								<button class="mainWriteBtn">
-									<a href="<c:url value='/Board/MainBoardText'/>">글 작성</a>
-								</button>
-							</c:if>
-
-
-							<!-- 로그인 하지 않은 경우-->
-							<c:if test="${empty sessionScope.mid }">
-								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
-							</c:if>
-						</div>
+						
 
 					</section>
 

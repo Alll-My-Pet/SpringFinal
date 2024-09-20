@@ -81,22 +81,22 @@
 .freeBoard {
 	/* border: 1px solid black; */
 	border: none;
-	width: 100vh;
-	height: 150vh;
+	/* width: 100vh; */
+	height: fit-content;
 	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
 
 .freeHotBoard {
-	/* background-color: pink; */
 	display: flex;
-	/* border: 1px solid black; */
-	/* width: 800px;
-	height: 200px; */
 	width: fit-content;
 	height: fit-content;
-	margin: 0 auto;
-	margin-top: 100px;
+	margin: 0 auto !important;
+	margin-top: 180px;
 	flex-direction: column;
+	margin-bottom: 20px !important;
 }
 
 .board-title {
@@ -111,16 +111,16 @@
 .freeboardTB {
 	width: 800px;
 	border-collapse: collapse;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	margin: 0 auto;
 	/* height: 900px; */
 	overflow: hidden;
 }
 
 
-.mainWriteBox {
+/* .mainWriteBox {
 	background-color: red;
-	/* width: 100%; */
+	width: 100%;
 	height: fit-content;
 	position: relative;
 	margin-right:150px;
@@ -140,8 +140,40 @@
 
 .mainWriteBtn:hover{
 	background-color:skyblue;
+} */
+
+/* 글작성 버튼 */
+.mainWriteBox{
+	display: flex;
+	width: auto;
+	height: 50px;
+	position: relative;
+	/* background-color: lime; */
+	/* margin-bottom: 50px; */
 }
 
+.mainWriteBtn {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	width: 130px;
+	height: 30px;
+	border-radius: 8px;
+	/* 	border: none; */
+	cursor: pointer;
+	/*  background-color: aliceblue; */
+	background-color: #E6E6E6;
+	/* border: none; */
+	border-width: 1px;
+	border-color: blanchedalmond;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.mainWriteBtn a{
+	text-decoration: none;
+	color: inherit;
+}
 
 .FBoardSearchBtn {
 	border: 0px;
@@ -156,6 +188,7 @@
 	text-indent: -9999px; /* 버튼의 텍스트를 화면에서 숨김 */
 	overflow: hidden; /* 텍스트가 남는 것을 방지 */
 	width: 20px;
+	margin-left: 5px;
 }
 
 .FBoardSearchBtn:hover {
@@ -163,16 +196,7 @@
 }
 
 
-/* 실시간 인기글 섹션 */
-.post-list {
-/* 	background-color: pink;
-	display: flex;
-	margin: 20px auto;
-	flex-direction: column;
-	height: fit-content !important;
-	box-sizing: border-box; */
-}
-
+/* 테이블 감싸는 div: post-list */
 .post-list{
 	background-color: white;
 	border: 1px solid #A4A4A4;
@@ -181,6 +205,7 @@
 	height: auto;
 /* 	margin-top: 10px; */
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	margin: 0 auto;
 }
 
 /* 게시글(post) 상세페이지로 이동하는 링크 */
@@ -258,10 +283,13 @@
 	margin: 0 auto; /* 가운데 정렬 */
 	padding: 0px;
 }
-
+#FreeboardList .sep-td{
+	height: 3px;
+	padding:0;
+}
 .freeboardTB td {
-	border-top: 1px solid black;
-	border-bottom: 1px solid black;
+	/* border-top: 1px solid black;
+	border-bottom: 1px solid black; */
 	padding: 8px;
 	text-align: center;
 	border-collapse: collapse;
@@ -274,12 +302,12 @@
 
 /* th에 대한 스타일 */
 .freeboardTB thead th {
-	background-color: skyblue;
+	/* background-color: skyblue; */
 }
 
 #keyword {
 	border-radius: 5px;
-	border-color: #01bffe;
+	/* border-color: #01bffe; */
 }
 
 #MainFont {
@@ -295,29 +323,11 @@
 	border: none;
 }
 
-.hot1 {
-	border: 1px solid black;
-	width: 90%;
-	height: 25%;
-	border-radius: 6px;
-	margin: 0 auto;
-	display: flex;
-}
-
-.hot2 {
-	border: 1px solid black;
-	width: 90%;
-	height: 25%;
-	border-radius: 6px;
-	margin: 0 auto;
-	margin-top: 10px;
-	display: flex;
-}
 
 
 
 #FBoardSearchBar {
-	position: absolute;
+	/* position: absolute; */
 	width: 300px;
 	margin-left: 56vh;
 	margin-top: 7vh;
@@ -338,32 +348,33 @@
 }
 
 .paging{
-	margin-right:80px;
+	/* margin-right:80px; */
+	margin: 30px;
 }
 
 
 
 .paging a {
-        text-decoration: none;
-        color: #007bff;
-        padding: 5px 10px;
-        margin: 0 5px;
-    }
+	text-decoration: none;
+	color: #007bff;
+	padding: 5px 10px;
+	margin: 0 5px;
+}
 
-    /* 현재 페이지 강조 스타일 */
+/* 현재 페이지 강조 스타일 */
 .paging a.current {
-        font-weight: bold;
-        color: #ff5722; /* 강조 색상 */
-        border: 1px solid #ff5722; /* 강조 테두리 색상 */
-        border-radius: 5px;
-    }
+	font-weight: bold;
+	color: #ff5722; /* 강조 색상 */
+	border: 1px solid #ff5722; /* 강조 테두리 색상 */
+	border-radius: 5px;
+}
 
-    /* 마우스 호버 효과 */
+/* 마우스 호버 효과 */
 .paging a:hover {
-        background-color: #e0e0e0; /* 호버 시 배경색 */
-        color: #333; /* 호버 시 텍스트 색상 */
-        border-radius: 5px; /* 호버 시 테두리 반경 */
-    }
+	background-color: #e0e0e0; /* 호버 시 배경색 */
+	color: #333; /* 호버 시 텍스트 색상 */
+	border-radius: 5px; /* 호버 시 테두리 반경 */
+}
 
 /* 실시간 인기글 테이블 관련 */
 .freeHotTable{
@@ -391,6 +402,6 @@ thead th {
 /* 	border-color:#8000ff; */
 }
 
-.freeHotTable tr:hover{
+/* .freeHotTable tr:hover{
 	background-color: #f0f0f0;
-}
+} */
