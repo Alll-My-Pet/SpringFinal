@@ -43,6 +43,12 @@ public class MemberService implements IMemberService {
 		return dao.memPosition(id);
 	}
 	
+	// 포지션 체크
+	@Override
+	public int memFiltering(String id) {
+		return dao.memFiltering(id);
+	}
+	
 	// 로그인 체크
 	@Override
 	public String loginCheck(HashMap<String, Object> map) {
@@ -63,8 +69,13 @@ public class MemberService implements IMemberService {
 	// 비밀번호 찾기
 	@Override
 	public String findPwd(HashMap<String, Object> map) {
-        System.out.println("asdf");
 		return dao.findPwd(map);
+    }
+	
+	// 비밀번호 변경
+	@Override
+	public void changePwd(MemberVO vo) {
+		dao.changePwd(vo);
     }
 
 }

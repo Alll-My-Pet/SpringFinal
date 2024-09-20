@@ -2,8 +2,6 @@ package com.spring_boot_allmypet.project.controller.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring_boot_allmypet.project.model.member.MemberVO;
@@ -35,9 +33,9 @@ public class MemberController {
 		return "member/forgotPW";
 	}
 	
-	@RequestMapping("/changePW")
+	@RequestMapping("/changePwd")
 	public String changePW() {
-		return "member/changePW";
+		return "member/changePwd";
 	}
 	
 	/* 회원가입 */

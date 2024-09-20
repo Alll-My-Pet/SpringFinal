@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+/* ******************* */
+/* 사이드 바 css */
+/* ******************* */
+
+/* #sidebar {
+    width: fit-content;
+    position: fixed;
+    bottom: 160px;
+    right: 1200px;
+}
+ */
+.menu {
+	position: absolute;
+	top: 300px;
+    box-shadow: var(--drop-shadow-300, 0px 4px 4px -1px rgba(12, 12, 13, 0.1)), var(--drop-shadow-300, 0px 4px 4px -1px rgba(12, 12, 13, 0.05));
+    border-radius: 8px;
+    border: 1px solid #D9D9D9;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+}
+
+.menu .menu-header {
+    display: flex;
+    box-sizing: border-box;
+    margin: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menu-header a,
+.menu-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menu .menu-section {
+    background-color: white;
+    border-radius: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+}
+
+.menu-section .menu-item {
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    margin: 5px;
+    height: 30px;
+    align-items: center;
+}
+
+.menu-item:hover {
+    background: #f0f0f0;
+    /* 마우스 오버 시 배경색 변경 */
+}
+
+.menu .menu-separator {
+    border-radius: 8px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-separator .rule {
+    background: #D9D9D9;
+    width: 160px;
+    height: 1px;
+    margin: 0 auto;
+}

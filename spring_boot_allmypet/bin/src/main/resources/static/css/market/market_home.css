@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p,
+span {
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration-line: none; 
+}
+
+.market_home {
+    width: 60%;
+	margin: auto;
+	padding: 30px;
+}
+
+.category {
+    margin-bottom: 40px;
+}
+
+.home_title {
+	font-size : 30px;
+	font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.item {
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 calc(25% - 20px);
+    box-sizing: border-box;
+}
+
+.item span {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.category-section{
+	width : 550px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.category-item{
+	width : 20%;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.category-image{
+	width: 50px;
+	height: 75px;
+}
+
+/*********************************/
+/* 동물 카테고리 */
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+    /* 카드들을 수직 방향으로 정렬 */
+    align-items: center;
+    /* 카드들을 중앙 정렬 */
+    margin-top: 0px;
+    /* 위쪽 여백 추가 */
+}
+
+.card-container .row {
+    display: flex;
+    /* 플렉스 박스 사용 */
+    justify-content: center;
+    /* 카드들을 중앙 정렬 */
+}
+
+.row .col-sm-3 {
+    flex: 0 0 25%;
+    /* 각 카드가 25% 너비를 차지하도록 설정 */
+    max-width: 25%;
+    /* 최대 너비 설정 */
+    padding: 10px;
+    /* 카드 간격 */
+}
+
+.card {
+    width: 120px;
+    /* 원하는 너비 설정 */
+    height: 120px;
+    /* 원하는 높이 설정 (정사각형을 위해 너비와 같게 설정) */
+    display: flex;
+    /* 플렉스 박스로 설정 */
+    flex-direction: column;
+    /* 세로 방향으로 정렬 */
+    justify-content: center;
+    /* 수직 중앙 정렬 */
+    align-items: center;
+    /* 수평 중앙 정렬 */
+    margin: 4px;
+    /* 카드 간의 여백 */
+    background-color: #f8f9fa;
+    /* 카드 배경색 설정 */
+    border: 1px solid #ccc;
+    /* 카드 테두리 설정 */
+    border-radius: 8px;
+    /* 모서리 둥글게 */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* 그림자 추가 */
+    position: relative;
+    /* 자식 요소의 위치 조정을 위해 relative 설정 */
+    cursor: pointer;
+}
+
+
+.card img {
+    /* max-width: 70%; */
+    /* 이미지 너비 최대 80% */
+    /* max-height: 70%; */
+    /* 이미지 높이 최대 80% */
+    object-fit: cover;
+    /* 이미지 비율 유지 */
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.card-body {
+    position: absolute;
+    /* 절대 위치 설정 */
+    margin-top: 15px;
+    bottom: 5px;
+    /* 카드 바닥으로부터 1px 떨어지게 설정 */
+    left: 0;
+    /* 왼쪽 정렬 */
+    right: 0;
+    /* 오른쪽 정렬 */
+    display: flex;
+    justify-content: center;
+    /* 제목 중앙 정렬 */
+}
+
+.card-title {
+    margin: 0 auto;
+    font-size: 14px;
+    /* 제목 글자 크기 조정 */
+    text-align: center;
+    /* 중앙 정렬 */
+}
+
+.card-link {
+    text-decoration: none;
+    /* 링크의 기본 밑줄 제거 */
+    color: inherit;
+    /* 텍스트 색상을 부모 요소에서 상속받음 */
+}

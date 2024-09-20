@@ -132,7 +132,7 @@
 			<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
 		</div>
 		<div id="footer">
-		<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
+			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 		</div>
 	</div>
 	<!-- desktop-1 끝 -->

@@ -28,24 +28,36 @@ public class BulletinService implements IBulletinServcie {
 		// 필터링 로직 추가 (예: headerNo가 null이 아닐 경우 필터링)
 		return dao.getBulletinList(map);
 	}
-	
+
 	// 전체게시판 실시간 인기글
 	@Override
 	public ArrayList<BulletinBoardVO> hotList(String petCtgNo) {
 		return dao.hotList(petCtgNo);
 	}
-	
-	
+
 	@Override
 	public BulletinBoardVO getPost(int postNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	
+	// 게시글 상세보기
 	@Override
-	public void insertPost(BulletinBoardVO post) {
-		// TODO Auto-generated method stub
+	public BulletinBoardVO detailViewBoard(int postNo) {
+		return dao.detailViewBoard(postNo);
+	}
+	
+	// 좋아요 업데이트
+	@Override
+	public void updateLikeCount(int postNo, int postLike) {
+	    dao.updateLikeCount(postNo, postLike);
+	}
 
+	
+	// 게시글 등록
+	@Override
+	public void insertPost(BulletinBoardVO vo) {
+		dao.insertPost(vo);
 	}
 
 	@Override
@@ -59,6 +71,5 @@ public class BulletinService implements IBulletinServcie {
 		// TODO Auto-generated method stub
 
 	}
-
 
 }

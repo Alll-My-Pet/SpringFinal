@@ -24,7 +24,7 @@
 						<span>내 정보</span>
 						<div id="info_pic_area">
 							<div id="info_pic">
-								<div id="info_mypic"><img id="my_profile_img" src="<c:url value='/project_images/profile_Img/${memVO.profile_image }'/>"></div>
+								<div id="info_mypic"><img id="my_profile_img" src="<c:url value='/member_images/${memVO.profile_image }'/>"></div>
 								<div id="info_mypic_btn">
 									<button onClick="location.href='/mypage/edit_info'">프로필 수정</button>
 								</div>								

@@ -1,0 +1,194 @@
+@charset "UTF-8";
+
+#admin_prdinsert{
+	display: flex;
+	flex-direction: row;
+	width:100%;
+}
+#admin_prdinsert #admin_r{
+	width:70%;
+}
+#admin_r #admin_section{
+	width:80%;
+	padding: 1%;
+}
+#admin_section{
+	height:100%;
+	width:100%;
+}
+#admin_section_t{
+}
+#admin_section_m{
+	width:100%;
+}
+
+/* 삭제할꺼 */
+#admin_r div{
+	
+}
+
+#admin_section_t #first_name{
+	font-size:10px;
+}
+#admin_section_t #second_name{
+	font-size:30px;
+	font-weight: bold;
+}
+#admin_section{
+	box-shadow: 0 0 0 1px #aaaaaa;
+	border-radius: 10px;
+}
+
+/* admin_section_m 내부에서만 적용되는 스타일 */
+#admin_section_m {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 섹션 간의 간격 */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.prd_div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 라벨과 입력 필드 사이의 간격 */
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.prd_div_name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* 입력 필드와 버튼을 옆에 배치 */
+.prd_info_area {
+    display: flex;
+    align-items: center; /* 입력 필드와 버튼을 세로로 가운데 정렬 */
+    gap: 10px; /* 입력 필드와 버튼 사이 간격 */
+}
+
+#prdNo {
+    flex-grow: 1; /* 입력 필드가 가능한 공간을 더 차지하게 만듦 */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: auto; /* 기본 가로 크기를 유지 */
+}
+
+/* 불러오기 버튼을 입력 필드 옆에 배치 */
+#no_check_btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* 텍스트가 줄바꿈되지 않도록 */
+    min-width: 80px; /* 버튼이 너무 작지 않도록 최소 너비 설정 */
+}
+
+.prd_detail {
+    display: flex;
+    flex-wrap: wrap; /* 버튼들이 가로로 배치되고 필요할 경우 줄바꿈 */
+    gap: 10px; /* 버튼 사이 간격 */
+}
+
+.prd_detail_name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    flex-basis: 100%; /* 분류 이름은 한 줄을 차지 */
+}
+
+.prd_info_area label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+    gap: 5px;  /* 라벨과 라디오 버튼 사이 간격 */
+    white-space: nowrap;  /* 라벨과 라디오 버튼이 한 줄에 표시되도록 */
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* 입력 필드 스타일 */
+.prd_info_area input[type="text"],
+.prd_info_area input[type="number"],
+.prd_info_area input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* 이미지 업로드 영역 */
+#prd_img_area, 
+#prd_info_area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    overflow: hidden; /* 이미지를 영역 내로 강제 제한 */
+}
+
+#prd_img_area img,
+#prd_info_area img {
+    max-width: 100%; /* 이미지가 영역을 벗어나지 않게 설정 */
+    max-height: 100%; /* 이미지가 영역을 벗어나지 않게 설정 */
+    object-fit: contain; /* 이미지를 영역 내에 맞춰서 넣음 */
+    border-radius: 5px;
+}
+
+/* 버튼 스타일 (색상 없음) */
+#admin_section_m .btn_div {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#admin_section_m .btn_div:hover {
+    background-color: #e0e0e0; /* 버튼 hover 시 살짝 강조 */
+}
+
+.btn_area {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 20px;
+}
+
+#admin_section {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    #admin_prdinsert {
+        flex-direction: column;
+    }
+
+    #admin_prdinsert #mypage_l,
+    #admin_prdinsert #admin_r {
+        width: 100%;
+    }
+}
+
+

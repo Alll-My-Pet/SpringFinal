@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+.FreeBoardBtn{
+	width:100px;
+	height:30px;
+	background-color:white;
+	border-radius:7px;
+	margin-top:30px;
+	margin-left:380px;
+	
+}
+
+.MPhotoBtn{
+	 display: flex; /* 아이콘과 텍스트 정렬을 위해 flexbox 사용 */
+     align-items: center; /* 세로 중앙 정렬 */
+}
+
+#mainWriteFont{
+	font-size:50px;
+	margin-left:500px;
+}
+
+.writeBox{
+	border:1px solid black;
+	width:900px;
+	height:900px;
+	margin:0 auto;
+	
+}
+
+.FreeDetail{
+	border:1px solid black;
+	width:900px;
+	height:700px;
+	margin:0 auto;
+	margin-top:200px;
+	
+}
+
+.MainDetailTitle{
+	width:800px;
+	height:30px;
+	border:1px solid black;
+	border-radius:7px;
+	margin-left:45px;
+	margin-top:50px;
+}
+
+.mainDetailBody{
+    width:800px;
+    height:600px;
+    border:1px solid black;
+    margin-left:45px;
+    margin-top:50px;
+}
+
+.mainPhotoBox{
+	width:100px;
+	margin-left:770px;
+	margin-top:40px;
+}
+
+#fileUpload {
+   display: none;
+}
+
+.mainWriteFilter{
+	position:absolute;
+	width:120px;
+	height:30px;
+	top:330px;
+	left:550px;
+}
+
+.author{
+	width:200px;
+	position:absolute;
+	top:300px;
+	left:550px;
+}

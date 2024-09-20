@@ -39,23 +39,11 @@
 	</select>
 
 	<!-- 전체게시판 실시간 인기글 -->
-	<!-- <select id="hotList" parameterType="string"
-		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
-		SELECT *
-		FROM(
-		SELECT bb.*, m.memNickName, ph.headerName
-		FROM
-		bulletin_board bb
-		JOIN member m ON bb.memId = m.memId
-		JOIN postHeader ph
-		ON bb.headerNo = ph.headerNo
-		WHERE bb.petCtgNo = #{petCtgNo}
-		ORDER BY
-		postLike DESC
-		LIMIT 3
-		) AS top3_posts
-		ORDER BY postDate DESC;
-	</select> -->
+	<!-- <select id="hotList" parameterType="string" resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO"> 
+		SELECT * FROM( SELECT bb.*, m.memNickName, ph.headerName FROM bulletin_board 
+		bb JOIN member m ON bb.memId = m.memId JOIN postHeader ph ON bb.headerNo 
+		= ph.headerNo WHERE bb.petCtgNo = #{petCtgNo} ORDER BY postLike DESC LIMIT 
+		3 ) AS top3_posts ORDER BY postDate DESC; </select> -->
 
 	<select id="hotList" parameterType="string"
 		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
@@ -71,5 +59,35 @@
 		LIMIT 3
 	</select>
 
+	<!-- 게시글 조회 -->
+	<select id="detailViewBoard" parameterType="int"
+		resultType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
+		SELECT bb.*, m.memNickName, ph.headerName, bb.postImg AS postImgBytes
+		FROM
+		bulletin_board bb
+		JOIN member m ON bb.memId = m.memId
+		JOIN postHeader ph
+		ON bb.headerNo = ph.headerNo
+		WHERE bb.postNo = #{postNo}
+	</select>
+
+	<!-- 좋아요 업데이트 -->
+	<update id="updateLikeCount" parameterType="map">
+		UPDATE bulletin_board
+		SET postLike = #{postLike}
+		WHERE postNo = #{postNo}
+	</update>
+
+
+	<!-- 게시글 작성 -->
+	<insert id="insertPost"
+		parameterType="com.spring_boot_allmypet.project.model.animal.BulletinBoardVO">
+		INSERT INTO bulletin_board (postTitle, memId, postDate,
+		postContent, headerNo, petCtgNo, postImg)
+		VALUES (#{postTitle},
+		#{memId}, NOW(),
+		#{postContent},
+		#{headerNo}, #{petCtgNo}, #{postImgBytes})
+	</insert>
 
 </mapper>

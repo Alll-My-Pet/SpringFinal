@@ -6,6 +6,8 @@
   <head>
    <title>분양홍보 작성</title>
    <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/promoteWrite.css'/>" />
+   <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+   <script src="<c:url value='/js/Board/promoteWrite.js'/>"></script>
   </head>
 	<body>
 		<div class="All">
@@ -16,36 +18,38 @@
 				
 				
 		 <section class="promoteWrite">
-		  <form class="promoteFrm">
+		 
+		  <form class="promoteFrm" method="post" action="<c:url value='/insertPromote'/>">
+		  
 		  <div class="animalCtg">
-			<select class="animalCtg">
-			  <option value="default1">동물 분류 선택</option>
-			  <option value="dog">강아지</option>
-			  <option value="cat">고양이</option>
-			  <option value="mammalia">기타 포유류</option>
-			  <option value="reptile">파충류/양서류</option>
-			  <option value="fish">어류</option>
-			  <option value="bird">조류</option>
-			  <option value="rodent">설치류</option>
-			  <option value="insect">절지류/곤충류</option>
+			<select class="animalCtg" name="petCtgNo" id="petCtgNo">
+			  <option value="9">동물 분류 선택</option>
+			  <option value="1">강아지</option>
+			  <option value="2">고양이</option>
+			  <option value="3">기타 포유류</option>
+			  <option value="4">파충류/양서류</option>
+			  <option value="5">어류</option>
+			  <option value="6">조류</option>
+			  <option value="7">설치류</option>
+			  <option value="8">절지류/곤충류</option>
 			</select>
 		  </div>
 		  
 		  <div class="promoteMethod">
-			<select class="promoteMethod">
-			 <option value="default2">분양 방법 선택</option>
+			<select class="promoteMethod" name="parcelOutInfo" id="parcelOutInfo">
+			 <option value="default">분양 방법 선택</option>
 			 <option value="FTF">대면</option>
 			 <option value="NFTF">비대면</option>
 			</select>
 		  </div>
 		  
 		  <div class="animalInfo">
-			<input class="animalName" placeholder="생물명">
-			<input class="parcelOutPlace" placeholder="분양처명">
+			<input class="animalName" placeholder="생물명" name="petName" id="petName">
+			<input class="parcelOutPlace" placeholder="분양처명" name="placeInfo" id="placeInfo">
 		  </div>
 		  
 		  <div class="promoteTextBox">
-			<textarea class="promoteTextArea"></textarea>
+			<textarea class="promoteTextArea" name="postContent" id="postContent"></textarea>
 		  </div>
 		
 		  <div class="btnAndPhoto">
@@ -54,14 +58,16 @@
 			 <button class="promoteLocationBtn">분양처 위치 등록</button>
 			</div>
 			
-			<label for="thumbNail" class="thumbNailPhoto">
+			<label for="thumbNail" class="thumbNailPhoto" >
         		파일 선택
    		    </label>
+   		    
 			<div class="thumbNail">
-			 <input type="file" class="thumbNailBtn">
+			 <input type="file" class="thumbNailBtn" name="postImg" id="postImg">
 			</div>
 			
 			<div class="thumbNailPreview"></div>
+			
 		  </div>
 		  
 		  <ul class="postInfo">
@@ -71,11 +77,14 @@
 		  </ul>
 		  
 		  <div class="uploadBox">
-		  	<button class="uploadBtn">업로드</button>
+		  	<button type="submit" class="uploadBtn">업로드</button>
 		  </div>
+		  
 		  
 		  </form>
 		 </section>
+		 
+		 
 		 <!-- 플로팅버튼(탑버튼 포함) -->
 			<div id="floatingBtn">
 				<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>

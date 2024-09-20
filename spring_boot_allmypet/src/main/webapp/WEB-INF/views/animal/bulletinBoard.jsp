@@ -107,7 +107,7 @@
 										<c:forEach items="${hotList}" var="hot">
 											<tr>
 												<td><a
-													href="<c:url value='/board/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
+													href="<c:url value='/bulletin/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
 												<td>${hot.memNickName}</td>
 												<td><fmt:formatDate value="${hot.postDate}"
 														pattern="M/dd HH:mm" /></td>
@@ -151,28 +151,28 @@
 									<th scope="col" class="th-like">추천</th>
 								</tr>
 							</thead>
+						</table>
+						<div id="filtering_result_box">
+							<!-- 필터링 결과 박스 -->
+							<table class="boardTB">
+								<tbody id="boardList">
+									<c:forEach var="bulletin" items="${bulletinList }">
+										<tr>
+											<td class="headerName">[${bulletin.headerName }]</td>
+											<td><a href="<c:url value='/bulletin/${petCtgNo}/detailViewBoard/${bulletin.postNo}'/>" />${bulletin.postTitle }</td>
+											<td>${bulletin.memNickName }</td>
+											<td><fmt:formatDate value="${bulletin.postDate }"
+													pattern="M/dd HH:mm" /></td>
+											<td>${bulletin.postView }</td>
+											<td>${bulletin.postLike }</td>
+										</tr>
+									</c:forEach>
+
+								</tbody>
+
 							</table>
-							<div id="filtering_result_box">
-								<!-- 필터링 결과 박스 -->
-								<table class="boardTB">
-									<tbody id="boardList">
-										<c:forEach var="bulletin" items="${bulletinList }">
-											<tr>
-												<td class="headerName">[${bulletin.headerName }]</td>
-												<td><a href="<c:url value=''/>" />${bulletin.postTitle }</td>
-												<td>${bulletin.memNickName }</td>
-												<td><fmt:formatDate value="${bulletin.postDate }"
-														pattern="M/dd HH:mm" /></td>
-												<td>${bulletin.postView }</td>
-												<td>${bulletin.postLike }</td>
-											</tr>
-										</c:forEach>
-
-									</tbody>
-
-								</table>
-							</div>
-							<!--  필터링 결과 박스 -->
+						</div>
+						<!--  필터링 결과 박스 -->
 
 						<br> <br>
 
@@ -199,19 +199,19 @@
 						<div class="mainWriteBox">
 							<!-- <button class="mainWriteBtn">글 작성</button> -->
 							<!-- 로그인 한 경우  -->
-							<%-- <c:if test="${not empty sessionScope.mid }">
+							<c:if test="${not empty sessionScope.mid }">
 								<button class="mainWriteBtn">
-									<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
+									<a href="<c:url value='/animal_home/${petCtgNo}/bulletin_form'/>">글 작성</a>
 								</button>
-							</c:if> --%>
-							<button class="mainWriteBtn">
+							</c:if>
+							<%-- <button class="mainWriteBtn">
 								<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
-							</button>
+							</button> --%>
 
 							<!-- 로그인 하지 않은 경우-->
-							<%-- <c:if test="${empty sessionScope.mid }">
+							<c:if test="${empty sessionScope.mid }">
 								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
-							</c:if> --%>
+							</c:if>
 						</div>
 
 					</section>
