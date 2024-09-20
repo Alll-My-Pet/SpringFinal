@@ -164,7 +164,7 @@ public class GalleryController {
         // 파일 업로드 처리
         if (!postImgFile.isEmpty()) {
             // 파일 저장 경로 설정 (시스템에 맞게 변경 필요)
-            String uploadDir = "C:/springWorkspace/final/SpringFinal/spring_boot_allmypet/src/main/resources/static/image/gallery/"; // 시스템 경로에 맞게 수정
+            String uploadDir = "/gallery_images/"; // 시스템 경로에 맞게 수정
 
             // 고유한 파일 이름 생성
             String originalFilename = postImgFile.getOriginalFilename();
