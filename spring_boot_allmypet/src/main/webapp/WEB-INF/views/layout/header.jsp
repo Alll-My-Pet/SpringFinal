@@ -95,7 +95,7 @@
 				</div>
 			</div>
 			<div class="navigation-pill">
-				<a href="#">용품 중고거래</a>
+				<a href="/usedItem">용품 중고거래</a>
 			</div>
 			<div class="navigation-pill">
 				<!-- 지역 소모임 -->
