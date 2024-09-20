@@ -81,7 +81,7 @@
 							<div class="right">
 								<div class="profile">
 									<img class="profile-image"
-										src="<c:url value='/image/member/${profileImage}'/>" />
+										src="<c:url value='/member_images/${profileImage}'/>" />
 									<p>${gall.memId}</p>
 								</div>
 							</div>
@@ -89,7 +89,7 @@
 
 						<div class="image-section">
 							<img class="post-image"
-								src="<c:url value='/image/gallery/${gall.postImg}'/>"
+								src="<c:url value='/gallery_images/${gall.postImg}'/>"
 								alt="Post Image" />
 						</div>
 
