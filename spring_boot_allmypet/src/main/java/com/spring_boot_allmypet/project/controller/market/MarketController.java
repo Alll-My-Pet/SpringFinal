@@ -86,19 +86,22 @@ public class MarketController {
         return "market/goods";
     }
 	
-	// 상품 상세
     @RequestMapping("/market/product/detail/{prdNo}")
     public String productDetail(@PathVariable String prdNo, Model model, HttpSession session) {
         String memId = (String) session.getAttribute("mid");
-        System.out.println("Session memId = " + memId); // 디버그 용도
+        System.out.println("Session memId = " + memId); // 디버깅 용도
             
         System.out.println("prdNo = " + prdNo);
         
-        MemberVO memVo = orderService.getMemberInfo(memId); 
+        MemberVO memVo = null;
+        if (memId != null) {
+            memVo = orderService.getMemberInfo(memId);  
+        }
+        
         ProductVO prd = prdService.detailViewProduct(prdNo);
         List<ReviewVO> reviews = prdService.getReviewsByProductNo(prdNo); // 리뷰 목록 조회
         
-        model.addAttribute("memVo", memVo); 
+        model.addAttribute("memVo", memVo);  
         model.addAttribute("prd", prd);
         model.addAttribute("reviews", reviews); // 리뷰 목록 추가
         
@@ -174,7 +177,7 @@ public class MarketController {
 	                           Model model, HttpSession session) {
 	    String memId = (String) session.getAttribute("mid");
 	    
-	    List<MemberPointVO> point = orderService.getPointInfo(memId);
+	    int point = orderService.getPointInfo(memId);
 		
 	    model.addAttribute("point", point);
 	    
@@ -199,7 +202,7 @@ public class MarketController {
 		String memId = (String) session.getAttribute("mid");
 		//String memId="abcd";
 		
-		List<MemberPointVO> point = orderService.getPointInfo(memId);
+		int point = orderService.getPointInfo(memId);
 		
 	    model.addAttribute("point", point);
 
@@ -254,10 +257,9 @@ public class MarketController {
 
 	    // 4. 포인트 사용 처리
 	    if (points > 0) {
-	        List<MemberPointVO> pointList = orderService.getPointInfo(memId);
-	        int totalPoints = pointList.stream().mapToInt(MemberPointVO::getPoint_change).sum();
+	        int pointList = orderService.getPointInfo(memId);
 
-	        if (points <= totalPoints) {
+	        if (points <= pointList) {
 	            MemberPointVO pointChange = new MemberPointVO();
 	            pointChange.setMemId(memId);
 	            pointChange.setPoint_change(-points);
@@ -312,10 +314,9 @@ public class MarketController {
 			
 			// 4. 포인트 사용 처리
 			if (points > 0) {
-			List<MemberPointVO> pointList = orderService.getPointInfo(memId);
-			int totalPoints = pointList.stream().mapToInt(MemberPointVO::getPoint_change).sum();
+			int pointList = orderService.getPointInfo(memId);
 			
-			if (points <= totalPoints) {
+			if (points <= pointList) {
 			MemberPointVO pointChange = new MemberPointVO();
 			pointChange.setMemId(memId);
 			pointChange.setPoint_change(-points);

@@ -25,7 +25,9 @@ img {
 }
 
 .order {
+  justify-content: center;
   width: 60%;
+  max-width : 800px;
   margin: auto;
   padding: 30px;
 }
@@ -195,26 +197,27 @@ td {
 .complete_s_box{
 	border: 1px solid #000;
 	width: 40%;
-	height: 200px;
+	height: auto;
+	min-height : 200px;
 	float: left;
 	box-sizing: border-box;
 	margin-right: 10%;
 }
 
 .cart__mainbtns {
+  display: flex;
+  justify-content: space-between; /* Ensures buttons are spaced evenly */
   width: 420px;
-  height: 200px;
-  padding-top: 40px;
-  display: block;
   margin: auto;
+  margin-top: 30px;
 }
 
 .cart__bigorderbtn {
   width: 200px;
   height: 50px;
   font-size: 16px;
-  margin: auto;
   border-radius: 5px;
+  text-align: center;
 }
 
 .cart__bigorderbtn.left {
@@ -225,7 +228,7 @@ td {
 .cart__bigorderbtn.right {
   background-color: blue;
   color: white;
-  border: none;
+  border: 1px lightgray solid
 }
 
 .point{

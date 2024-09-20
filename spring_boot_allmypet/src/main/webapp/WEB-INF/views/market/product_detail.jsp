@@ -10,6 +10,10 @@
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product_detail.css'/>" />
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 	<script src="<c:url value='/js/market/product_detail.js'/>"></script>
+	<script type="text/javascript">
+	    const memId = '${memVo != null ? memVo.memId : "null"}';
+	</script>
+
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
