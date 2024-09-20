@@ -32,7 +32,7 @@
         </div>
         <div class="menu-section">
             <div class="menu-item">
-                <a href="#" class="menu-link">
+                <a href="/gallery/category/${petCtgNo}" class="menu-link">
                     <span>
                         반려동물 갤러리
                     </span>

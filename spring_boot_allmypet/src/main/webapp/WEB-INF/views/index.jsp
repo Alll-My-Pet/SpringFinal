@@ -171,7 +171,7 @@
 						<div class="photo-Emoji">
 							<div class="best-photos">
 								<!-- 링크 삽입 -->
-								<a href="게시판_링크.html" class="board-title">
+								<a href="/gallery" class="board-title">
 									<div>이번달 BEST 📷 +</div>
 								</a>
 								<div class="best-slideshow">
