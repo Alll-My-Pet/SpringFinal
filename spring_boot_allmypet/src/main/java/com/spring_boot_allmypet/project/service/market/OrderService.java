@@ -94,7 +94,7 @@ public class OrderService implements IOrderService {
     }
 
 	@Override
-	public List<MemberPointVO> getPointInfo(String memId) {
+	public int getPointInfo(String memId) {
 		return dao.getPointInfo(memId);
 	}
 

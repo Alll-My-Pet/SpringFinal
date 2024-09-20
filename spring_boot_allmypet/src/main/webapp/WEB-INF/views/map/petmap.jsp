@@ -8,15 +8,15 @@
     <meta http-equiv="X-UA-Compatible="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <title>반려동물 지도</title>
+	<link rel="stylesheet" type="text/css" href="<c:url value='/css/map/map.css'/>">
 	<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=p8d8z1bubk&submodules=geocoder"></script>
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 </head>
 <body>
-    <div>
-        <!-- 카테고리 선택 드롭다운 -->
-        <label for="categorySelect">카테고리 선택:</label>
-        <select id="categorySelect">
-            <option value="">모든 카테고리</option>
+    <div class="map">
+        <label for="categorySelect"></label>
+        <select class="categorySelect" id="categorySelect">
+            <option value="">시설 필터링</option>
             <option value="동물병원">동물병원</option>
             <option value="동물약국">동물약국</option>
             <option value="문예회관">동반가능문예회관</option>
@@ -30,9 +30,10 @@
             <option value="카페">동반가능카페</option>
             <option value="펜션">동반가능펜션</option>
         </select>
-    </div>
+    
 
     <div id="map" style="width:1000px;height:500px;"></div>
+	</div>
 </body>
 
 <script type="text/javascript">

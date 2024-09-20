@@ -33,7 +33,7 @@
                     ${products.ordQty}개<br>
                 </div>
                 <a href="<c:url value='/market/review/${products.ordNo}/${products.prdNo}'/>">
-                <button>
+                <button class="order_button">
                 리뷰작성하기
                 </button>
                 </a>

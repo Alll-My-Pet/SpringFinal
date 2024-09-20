@@ -37,5 +37,5 @@ $(document).ready(function () {
 
 // 팝업 창 열기 함수
 function openPetMapPopup() {
-    window.open('/map', 'PetMapPopup', 'width=1000,height=600,scrollbars=yes,resizable=yes');
+    window.open('/map', 'PetMapPopup', 'width=900,height=500,scrollbars=yes,resizable=yes');
 }

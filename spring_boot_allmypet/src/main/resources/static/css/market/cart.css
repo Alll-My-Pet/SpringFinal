@@ -26,6 +26,7 @@ img {
 
 .cart {
   width: 80%;
+  max-width : 900px;
   margin: auto;
   padding: 30px;
 }
