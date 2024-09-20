@@ -7,8 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>분양 홍보 게시판</title>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/petPromoteBoard.css'/>" />
-<link rel="stylesheet"   type="text/css"  href="<c:url value='/css/mypage/myPageMain.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/Board/petPromoteBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/promoteBoard.js'/>"></script>
 
