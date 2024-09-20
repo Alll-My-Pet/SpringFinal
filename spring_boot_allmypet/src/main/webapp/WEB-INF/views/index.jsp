@@ -245,16 +245,16 @@
 											src="image/index/event_img.jpg" class="event-img" alt="..."
 											width="71px" height="105px" />
 											<div class="event-body">
-												<span>희귀동물 박람회</span>
-												<p>20XX.XX.XX ~ XX.XX</p>
-												<p>일산 킨텍스</p>
+												<span>2024 케이펫페어</span>
+												<p>2024.03.15 ~ 03.17</p>
+												<p>세텍(학여울역)</p>
 											</div>
 										</a> <a href="이벤트_상세.html" class="event-info-2"> <img
-											src="image/index/event_img.jpg" class="event-img" alt="..."
+											src="image/index/extotic_expo.jpg" class="event-img" alt="..."
 											width="71px" height="105px" />
 											<div class="event-body">
 												<span>희귀동물 박람회</span>
-												<p>20XX.XX.XX ~ XX.XX</p>
+												<p>2024.03.16 ~ 03.17</p>
 												<p>일산 킨텍스</p>
 											</div>
 										</a>
