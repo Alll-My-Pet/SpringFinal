@@ -60,7 +60,7 @@
                     </div>
                     <div class="info">
                         <p class="title">${post.postTitle}</p>
-                        <p class="comment-count">코멘트 수</p>
+                        <p class="comment-count">코멘트 수 : ${commentCounts[post.postNo]}</p>
                     </div>
                     </a>
                 </div>

@@ -67,18 +67,7 @@
     </delete>
     
     <delete id="deleteCartItem">
-    DELETE FROM Cart
+    DELETE FROM cart
     WHERE memId = #{memId} AND prdNo = #{prdNo}
 	</delete>
 </mapper>
-
-  
-
-  
-  
-  
-  
-  
-  
-  
-  
