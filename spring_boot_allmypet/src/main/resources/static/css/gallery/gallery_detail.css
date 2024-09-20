@@ -94,6 +94,7 @@
 	align-items: center;
 	flex-direction: column;
 	position: relative;
+	margin: 0 auto;
 }
 
 .Content-section {
