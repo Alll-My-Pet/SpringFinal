@@ -23,6 +23,9 @@ public class WebConfig implements WebMvcConfigurer {
 		.addResourceLocations("file:///usr/local/allmypet/image/member/");
 		registry.addResourceHandler("/gallery_images/**")
 		.addResourceLocations("file:///usr/local/allmypet/image/gallery/");
+		registry.addResourceHandler("/ai_images/**")
+		.addResourceLocations("file:///usr/local/allmypet/image/ai/");
+		
 
 	}
 }
