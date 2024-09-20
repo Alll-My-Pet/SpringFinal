@@ -69,7 +69,7 @@
 									<a href="/gallery/detail/${post.postNo}">
 										<div class="image-container">
 											<img class="gallery-image"
-												src="<c:url value='/image/gallery/${post.postImg}'/>"
+												src="<c:url value='/gallery_images/${post.postImg}'/>"
 												alt="${post.postTitle}" />
 											<div class="overlay">
 												<div class="like-count">
@@ -77,7 +77,7 @@
 												</div>
 												<div class="profile-icon">
 													<img
-														src="<c:url value='/image/member/${profileImages[post.postNo]}'/>" />
+														src="<c:url value='/member_images/${profileImages[post.postNo]}'/>" />
 												</div>
 											</div>
 										</div>
