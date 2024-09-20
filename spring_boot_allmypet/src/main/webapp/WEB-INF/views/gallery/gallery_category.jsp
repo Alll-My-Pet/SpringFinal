@@ -14,10 +14,6 @@
 	href="<c:url value='/css/gallery/gallery_category.css'/>" />
 <style>
 @import
-	url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap')
-	;
-
-@import
 	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap')
 	;
 </style>
