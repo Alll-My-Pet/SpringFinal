@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/Board/freeBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<%-- <script src="<c:url value='/js/Board/freeBoard.js'/>"></script> --%>
+<script src="<c:url value='/js/Board/freeBoard.js'/>"></script>
 <script>
 	function goPage(no) {
 		const frm = document.pageFrm;
@@ -160,7 +160,6 @@
 							</table>
 						</div>
 						<div class="mainWriteBox">
-							<!-- <button class="mainWriteBtn">글 작성</button> -->
 							<!-- 로그인 한 경우  -->
 							<c:if test="${not empty sessionScope.mid }">
 								<button class="mainWriteBtn">
@@ -168,14 +167,12 @@
 								</button>
 							</c:if>
 
-
 							<!-- 로그인 하지 않은 경우-->
 							<c:if test="${empty sessionScope.mid }">
 								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
 							</c:if>
 						</div>
 						<br>
-
 						<div class="paging" style="text-align: center;">
 							<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
 								onclick="javascript:goPage('prev')">이전</a>
@@ -194,10 +191,6 @@
 						<form name="pageFrm">
 							<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 						</form>
-
-
-						
-
 					</section>
 
 				</div>
