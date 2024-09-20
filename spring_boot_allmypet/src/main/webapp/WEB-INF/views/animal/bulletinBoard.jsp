@@ -76,7 +76,7 @@
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
-					<section class="MainBoard">
+					<section class="mainBoard">
 						<form id="BoardSearchBar">
 							<select id="type" name="type">
 								<option value="memId" selected>작성자</option>
@@ -90,26 +90,25 @@
 
 						</form>
 						<!-- form 끝 -->
+						<div class="board-title"><strong>🔥실시간 인기글🔥</strong></div>
 						<div class="hotBoard">
-							<h3
-								style="margin-left: 2%; margin-top: 30px; position: absolute;">실시간
-								인기글🔥</h3>
 							<div class="post-list">
 								<table class="hotTable">
-									<!-- <thead>
-							  <tr>
-							  <th>제목</th>
-							  <th>작성자</th>
-							  <th>작성일</th>
-							  <th>좋아요</th>
-							  <th>조회수</th>
-							  
-							  </tr>
-							  </thead> -->
+									<thead>
+										<tr>
+											<th scope="col" class="th-header">구분</th>
+											<th scope="col" class="th-title">글 제목</th>
+											<th scope="col" class="th-writer">작성자</th>
+											<th scope="col" class="th-date">날짜</th>
+											<th scope="col" class="th-view">조회</th>
+											<th scope="col" class="th-good">추천</th>
+										</tr>
+									</thead>
 
 									<tbody>
 										<c:forEach items="${hotList}" var="hot">
 											<tr>
+												<td class="headerName">[${hot.headerName }]</td>
 												<td><a
 													href="<c:url value='/bulletin/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
 												<td>${hot.memNickName}</td>
@@ -118,18 +117,18 @@
 												<td>${hot.postView }</td>
 												<td>${hot.postLike }</td>
 											</tr>
+											<td colspan="6" class="sep-td">
+												<div class="separator"></div>
+											</td>
 										</c:forEach>
-
 									</tbody>
-
 								</table>
 							</div>
 							<!-- post-list 끝 -->
 						</div>
 						<!-- hotBoard 끝 -->
-
-						<table class="boardTB">
-
+						<div class="post-list" id="all-posts">
+							<table class="boardTB">
 							<thead>
 								<tr>
 									<th scope="col" class="th-filter">
@@ -156,6 +155,8 @@
 								</tr>
 							</thead>
 						</table>
+						
+						
 						<div id="filtering_result_box">
 							<!-- 필터링 결과 박스 -->
 							<table class="boardTB">
@@ -177,7 +178,7 @@
 							</table>
 						</div>
 						<!--  필터링 결과 박스 -->
-
+						</div>
 						<br> <br>
 
 						<div class="paging" style="text-align: center;">
