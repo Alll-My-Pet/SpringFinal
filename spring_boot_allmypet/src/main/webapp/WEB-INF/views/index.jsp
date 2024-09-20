@@ -18,6 +18,9 @@
 	href="<c:url value='/css/index/slideshow.css'/>">
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/index.js'/>"></script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 	<div class="desktop-1">
@@ -168,7 +171,7 @@
 						<div class="photo-Emoji">
 							<div class="best-photos">
 								<!-- 링크 삽입 -->
-								<a href="게시판_링크.html" class="board-title">
+								<a href="/gallery" class="board-title">
 									<div>이번달 BEST 📷 +</div>
 								</a>
 								<div class="best-slideshow">

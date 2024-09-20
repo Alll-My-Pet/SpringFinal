@@ -34,7 +34,7 @@ public interface IProductDAO {
 
 	public ArrayList<ProductVO> listProductsByCtgRange(HashMap<String, Integer> ctgRange);
 
-	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, String prdCtgNo, int startRange, int endRange);
+	public ArrayList<ProductVO> listProductsByCtg(Map<String, Object> params);
 
 	public List<ReviewVO> getReviewsByProductNo(String prdNo);
 

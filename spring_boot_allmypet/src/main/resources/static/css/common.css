@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+* {
+	font-family: "IBM Plex Sans KR", sans-serif;
+}
+
 /* ******************** */
 /* 모든 페이지 공통 css */
 /* ******************** */
@@ -32,7 +36,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: fit-content;
+    width: 853px;
     height: 150%;
     margin: 0 auto;
     position: relative;

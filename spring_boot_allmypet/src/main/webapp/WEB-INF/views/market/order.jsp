@@ -11,6 +11,9 @@
 <script src="<c:url value='/js/market/jquery-3.7.1.min.js'/>"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="<c:url value='/js/market/order.js'/>"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>

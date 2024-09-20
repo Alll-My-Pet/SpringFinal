@@ -262,13 +262,16 @@
 	margin: 0 auto;
 	flex-direction: row;
 	overflow: hidden;
-	justify-content: space-between;
+	/* justify-content: space-between; */
+	justify-content: flex-start;
 	align-items: center;
 }
 
 .photo-container a {
 	text-decoration: none;
 	color: inherit;
+	margin-right: 10px; /* 각 사진 간의 간격 설정 */
+	
 }
 
 .photo {
@@ -278,10 +281,10 @@
 	height: 100px;
 }
 
-/* 마지막 사진의 margin-right 제거 */
-/* .photo:last-child {
+마지막 사진의 margin-right 제거
+.photo:last-child {
     margin-right: 0;
-} */
+}
 
 /* ********************************* */
 /* post-board: 전체게시판, 양육팁, 작명소 */
