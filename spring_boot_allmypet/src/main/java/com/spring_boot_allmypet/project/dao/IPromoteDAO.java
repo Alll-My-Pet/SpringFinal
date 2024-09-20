@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.spring_boot_allmypet.project.model.BoardVO;
 import com.spring_boot_allmypet.project.model.PromoteVO;
 
 

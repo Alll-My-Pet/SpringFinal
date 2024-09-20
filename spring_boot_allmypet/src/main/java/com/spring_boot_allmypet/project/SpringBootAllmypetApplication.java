@@ -13,7 +13,7 @@ import org.springframework.context.annotation.PropertySources;
 //DB 연결정보 : 프로퍼티 사용
 //로컬 경로 / 서버 경로
 @PropertySources({
-@PropertySource(value={"file:c:/springWorkspace/configure.properties", 
+@PropertySource(value={"file:d:/springWorkspace/configure.properties", 
 "file:/usr/local/allmypet/properties/configure.properties" }, 
 ignoreResourceNotFound=true)
 }) 

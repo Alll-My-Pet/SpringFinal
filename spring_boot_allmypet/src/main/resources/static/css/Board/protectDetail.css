@@ -174,3 +174,14 @@
  .header-text-red {
             color: red;
         }
+
+.imgBox{
+	width:500px;
+	height:250px;
+	margin:0 auto;
+}
+
+.post-image{
+	width:500px;
+	height:250px;
+}

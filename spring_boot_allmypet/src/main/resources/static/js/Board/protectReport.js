@@ -2,7 +2,7 @@
  * protectReport.js
  */
  $(document).ready(function() {
-    $('#postImg').change(function(event) {
+    $('#postImgFile').change(function(event) {
         var file = event.target.files[0]; // 선택된 파일 가져오기
         if (file) {
             var reader = new FileReader();
@@ -16,5 +16,5 @@
         } else {
             $('.ImgPreviewBox').html(''); // 파일이 선택되지 않았을 때 미리보기 영역 비우기
         }
-    });
+    }); 
 });

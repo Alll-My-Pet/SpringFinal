@@ -48,7 +48,13 @@ function goPage(no) {
 					<c:forEach items="${ReportList}" var="report">
 					<a href="<c:url value='/board/ProtectDetailView/${report.postNo}'/>">
 						<div class="abandonedPic">
-							<div class="abandonedFont">${report.postImg }</div>
+							<div class="abandonedFont">
+								<c:if test="${not empty report.postImg}">
+									<img class="post-image"
+										src="<c:url value='/protect_images/${report.postImg}'/>"
+										style="width:147px; height:150px;" />
+								</c:if>
+							</div>
 							<div class="description">
 								종류:${report.lossPet }<br>
 								위치:${report.lossLocation }<br>
