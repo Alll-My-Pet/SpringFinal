@@ -47,14 +47,14 @@
                 <div class="gallery-item">
                 <a href="/gallery/detail/${post.postNo }">
                     <div class="image-container">
-                        <img class="gallery-image" src="<c:url value='/image/gallery/${post.postImg}'/>"/>
+                        <img class="gallery-image" src="<c:url value='/gallery_images/${post.postImg}'/>"/>
                         <div class="overlay">
                             <div class="like-count">
                                 <span>&hearts;${post.postLike}</span>
                             </div>
 							<div class="profile-icon">
                             	<!-- 회원 프로필 사진 이미지 폴더 만들어지면 경로 수정 -->
-					    		<img src="<c:url value='/image/member/${profileImages[post.postNo]}'/>"/>
+					    		<img src="<c:url value='/member_images/${profileImages[post.postNo]}'/>"/>
 							</div>
                         </div>
                     </div>
