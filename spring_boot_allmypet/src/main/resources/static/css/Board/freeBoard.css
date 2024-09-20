@@ -379,11 +379,8 @@
 /* 실시간 인기글 테이블 관련 */
 .freeHotTable{
 	width:800px;
-/* 	margin-top:65px; */
 	border-collapse: collapse;
-	/* border:1px solid black; */
 	border-radius:10px;
-	/* border-color:#8000ff; */
 	color: black;
 }
 
