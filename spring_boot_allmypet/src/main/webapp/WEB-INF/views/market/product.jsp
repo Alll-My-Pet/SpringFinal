@@ -10,6 +10,9 @@
 		<title>마켓</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product.css'/>" />
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+	</style>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>

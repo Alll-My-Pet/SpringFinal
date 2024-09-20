@@ -8,6 +8,9 @@
 		<title>반려동물 페이지</title>
   		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
     	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/market_home.css'/>" />
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+		</style>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
