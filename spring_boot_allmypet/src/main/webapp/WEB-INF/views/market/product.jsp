@@ -130,7 +130,7 @@
 			    <label><input type="checkbox" name="prdCtgNo" value="4" 
 			        onchange="filterProducts()" 
 			        <c:if test="${fn:contains(param.prdCtgNo, '4')}">checked</c:if>
-			    >사육장</label>
+			    >반려동물가구</label>
 			    
 			    <button onclick="showAllProducts()">전체목록 보기</button>
 			</div>

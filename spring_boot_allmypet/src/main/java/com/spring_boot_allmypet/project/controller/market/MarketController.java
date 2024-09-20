@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -64,41 +65,64 @@ public class MarketController {
 		return "market/Home";
 	}
 	
-	  // 상품 페이지 (prdCtg 1~4)
-    @RequestMapping("/market/product")
-    public String product(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
-                          @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
-                          Model model) {
-        ArrayList<ProductVO> prdList;
-        prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNo, 1, 4);
-        
-        model.addAttribute("prdList", prdList);
-        return "market/product";
-    }
+	// 상퓸 페이지 (prdCtg 1~4)
+	@RequestMapping("/market/product")
+	public String product(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
+	                      @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
+	                      Model model) {
+	    
+	    ArrayList<ProductVO> prdList;
+
+	    // prdCtgNo를 리스트로 변환 (콤마로 구분된 값)
+	    List<String> prdCtgNoList = null;
+	    if (prdCtgNo != null && !prdCtgNo.isEmpty()) {
+	        prdCtgNoList = Arrays.asList(prdCtgNo.split(","));
+	    }
+
+	    // 서비스로 리스트 전달
+	    prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNoList, 1, 4);
+	    
+	    model.addAttribute("prdList", prdList);
+	    return "market/product";
+	}
 
     // 굿즈 페이지 (prdCtg 5~8)
-    @RequestMapping("/market/goods")
-    public String goods(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
-                        @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
-                        Model model) {
-        ArrayList<ProductVO> prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNo, 5, 8);
-        model.addAttribute("prdList", prdList);
-        return "market/goods";
-    }
+	@RequestMapping("/market/goods")
+	public String goods(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
+	                    @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
+	                    Model model) {
+	    
+	    ArrayList<ProductVO> prdList;
+
+	    // prdCtgNo를 리스트로 변환 (콤마로 구분된 값)
+	    List<String> prdCtgNoList = null;
+	    if (prdCtgNo != null && !prdCtgNo.isEmpty()) {
+	        prdCtgNoList = Arrays.asList(prdCtgNo.split(","));
+	    }
+
+	    // 서비스로 리스트 전달, startRange: 5, endRange: 8
+	    prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNoList, 5, 8);
+	    
+	    model.addAttribute("prdList", prdList);
+	    return "market/goods";
+	}
 	
-	// 상품 상세
     @RequestMapping("/market/product/detail/{prdNo}")
     public String productDetail(@PathVariable String prdNo, Model model, HttpSession session) {
         String memId = (String) session.getAttribute("mid");
-        System.out.println("Session memId = " + memId); // 디버그 용도
+        System.out.println("Session memId = " + memId); // 디버깅 용도
             
         System.out.println("prdNo = " + prdNo);
         
-        MemberVO memVo = orderService.getMemberInfo(memId); 
+        MemberVO memVo = null;
+        if (memId != null) {
+            memVo = orderService.getMemberInfo(memId);  
+        }
+        
         ProductVO prd = prdService.detailViewProduct(prdNo);
         List<ReviewVO> reviews = prdService.getReviewsByProductNo(prdNo); // 리뷰 목록 조회
         
-        model.addAttribute("memVo", memVo); 
+        model.addAttribute("memVo", memVo);  
         model.addAttribute("prd", prd);
         model.addAttribute("reviews", reviews); // 리뷰 목록 추가
         
@@ -174,7 +198,7 @@ public class MarketController {
 	                           Model model, HttpSession session) {
 	    String memId = (String) session.getAttribute("mid");
 	    
-	    List<MemberPointVO> point = orderService.getPointInfo(memId);
+	    int point = orderService.getPointInfo(memId);
 		
 	    model.addAttribute("point", point);
 	    
@@ -199,7 +223,7 @@ public class MarketController {
 		String memId = (String) session.getAttribute("mid");
 		//String memId="abcd";
 		
-		List<MemberPointVO> point = orderService.getPointInfo(memId);
+		int point = orderService.getPointInfo(memId);
 		
 	    model.addAttribute("point", point);
 
@@ -254,10 +278,9 @@ public class MarketController {
 
 	    // 4. 포인트 사용 처리
 	    if (points > 0) {
-	        List<MemberPointVO> pointList = orderService.getPointInfo(memId);
-	        int totalPoints = pointList.stream().mapToInt(MemberPointVO::getPoint_change).sum();
+	        int pointList = orderService.getPointInfo(memId);
 
-	        if (points <= totalPoints) {
+	        if (points <= pointList) {
 	            MemberPointVO pointChange = new MemberPointVO();
 	            pointChange.setMemId(memId);
 	            pointChange.setPoint_change(-points);
@@ -312,10 +335,9 @@ public class MarketController {
 			
 			// 4. 포인트 사용 처리
 			if (points > 0) {
-			List<MemberPointVO> pointList = orderService.getPointInfo(memId);
-			int totalPoints = pointList.stream().mapToInt(MemberPointVO::getPoint_change).sum();
+			int pointList = orderService.getPointInfo(memId);
 			
-			if (points <= totalPoints) {
+			if (points <= pointList) {
 			MemberPointVO pointChange = new MemberPointVO();
 			pointChange.setMemId(memId);
 			pointChange.setPoint_change(-points);

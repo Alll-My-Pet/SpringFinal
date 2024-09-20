@@ -72,6 +72,7 @@ h2 {
     align-items: left;
     height: auto;
     width : 50%;
+    max-width : 500px;
     margin: 10px;
 }
 
@@ -84,6 +85,8 @@ h2 {
 	border-radius: 10px;
     padding: 20px;
     box-sizing: border-box;
+    max-width: 400px;
+    max-height: 600px;
 }
 
 .info-item {
@@ -103,13 +106,18 @@ h2 {
 }
 
 .product-description {
-    border: 1px solid #ddd;
-	border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평 중앙 정렬 */
+    justify-content: center; /* 수직 중앙 정렬 (필요시) */
+   
     padding: 20px;
     box-sizing: border-box;
 }
 
 .description-item {
+    width: 100%; /* 아이템이 전체 너비를 차지하도록 설정 */
+    max-width: 800px; /* 최대 너비를 제한하여 너무 커지지 않도록 설정 */
     border: 1px solid #ddd;
     padding: 20px;
     box-sizing: border-box;
@@ -155,19 +163,32 @@ h2 {
 }
 
 .review-body{
-	width:inherit;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .review_img{
-	width: 100px;
-	height: auto;
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .review-item{
-	border-bottom: 1px solid lightgrey;
+    width: 100%; /* 리뷰가 부모 요소의 너비에 맞춰지도록 설정 */
+    max-width: 800px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+    display: flex;
+    flex-direction: column;
 }
 
 .review-header{
+	display: flex;
+    align-items: center;
+    justify-content: flex-start; /* 리뷰 헤더의 요소들을 왼쪽에 정렬 */
+    margin-bottom: 10px;
 }
 
 .review-score{
@@ -190,14 +211,16 @@ h2 {
 }
 
 .profile-image {
-	float: left;
     width: 20px;
     height: 20px;
     border-radius: 50%;
+    margin-right: 10px;
 }
 
 .product-Descript{
-	align-content: center;
-	width: 100%;
-	height: auto;
+    width: 100%; /* 부모 요소의 너비에 맞춰 이미지 크기를 조정 */
+    height: auto;
+    max-width: 800px; /* 최대 너비 제한 */
+    object-fit: contain; /* 비율을 유지하며 이미지가 표시되도록 설정 */
+    margin: 0 auto; /* 이미지 중앙 정렬 */
 }
