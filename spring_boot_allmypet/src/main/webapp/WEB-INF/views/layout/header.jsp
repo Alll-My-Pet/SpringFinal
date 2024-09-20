@@ -82,7 +82,7 @@
 				<div class="dropdown-menu">
 					<a href="<c:url value='/board/freeBoard'/>">자유게시판</a> 
 					<a href="#">분양 홍보</a> 
-					<a href="<c:url value='/board/protect'/>">반려동물 보호</a>
+					<a href="<c:url value='/board/ProtectBoardList'/>">반려동물 보호</a>
 					<a href="#">이모지 제작</a> 
 					<a href="#">핫한 게시글</a>
 				</div>
@@ -119,7 +119,7 @@
 					<strong>커뮤니티</strong> 
 					<a href="<c:url value='/board/freeBoard'/>">자유게시판</a> 
 					<a href="#">분양 홍보</a> 
-					<a href="<c:url value='/board/protect'/>">반려동물 보호</a> 
+					<a href="<c:url value='/board/ProtectBoardList'/>">반려동물 보호</a> 
 					<a href="#">이모지 제작</a> 
 				</div>
 				<div class="dropdown-section">
