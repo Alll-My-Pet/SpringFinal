@@ -57,16 +57,16 @@
 		    <div class="promoteLocation">
 			 <button class="promoteLocationBtn">분양처 위치 등록</button>
 			</div>
-			
-			<label for="thumbNail" class="thumbNailPhoto" >
-        		파일 선택
-   		    </label>
-   		    
+
+
 			<div class="thumbNail">
-			 <input type="file" class="thumbNailBtn" name="postImg" id="postImg">
+				<input type="file" class="thumbNailBtn" name="postImg" id="postImg"> 
+				<label for="postImg" class="imgSelectLabel">파일 선택</label>
 			</div>
 			
+			
 			<div class="thumbNailPreview"></div>
+			<p class="previewFont">썸네일 미리 보기</p>
 			
 		  </div>
 		  

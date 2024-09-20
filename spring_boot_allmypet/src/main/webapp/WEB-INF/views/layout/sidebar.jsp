@@ -65,7 +65,7 @@
                 </a>
             </div>
             <div class="menu-item">
-                <a href="/board/protect" class="menu-link">
+                <a href="/board/ProtectBoardList" class="menu-link">
                     <span>
                         반려동물 보호 게시판
                     </span>

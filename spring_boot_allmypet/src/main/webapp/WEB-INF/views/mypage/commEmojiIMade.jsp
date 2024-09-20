@@ -55,7 +55,7 @@
 								        <div class="mej_list_title">${emj_e.emoName }</div>
 								        <div class="mej_list_date">${emj_e.emoDate }</div>
 								        <div class="spacer"></div>
-								        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/image/emoji/${emj_e.emoImg}'/>" alt="Emoji Image"></div>
+								        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/emoji_images/${emj_e.emoImg}'/>" alt="Emoji Image"></div>
 								        <div class="spacer"></div>
 								        <div class="mej_list_check">${emj_e.approvalStatus }</div>
 								        <div class="mej_list_favorites my_favorites_btn" data-emj-check ="${emj_e.approvalStatus }"  data-emo-no="${emj_e.purchaseId}">즐겨찾기</div>

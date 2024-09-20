@@ -38,23 +38,7 @@
 	margin-bottom:30px;
 }
 
-/* ********************* */
-/*      페이지 정보 및 제목    */
-/* ********************* */
-/* pageInfo: 페이지 설명 + 페이지 제목*/
-.contents .pageInfo {
-	/* background: #B5CCAB; */
-	display: flex;
-	flex-direction: column;
-	/* 수직으로 정렬 */
-	position: relative;
-	/* 자식 요소의 절대 위치에 필요 */
-	width: 689px;
-	/* 원하는 너비 설정 */
-	box-sizing: border-box;
-	margin: 40px auto;
-	/* 여백 설정 */
-}
+
 
 /* page-title: 페이지 설명 + 페이지 제목 만 포함 */
 .pageInfo .page-title {

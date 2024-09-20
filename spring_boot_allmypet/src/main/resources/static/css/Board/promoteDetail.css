@@ -32,7 +32,9 @@
 
 .udButtons{
 	display:flex;
+	margin-top:100px;
 	margin-bottom:30px;
+	margin-left:330px;
 }
 
 .updateBtn{
@@ -80,11 +82,27 @@
 	top:1px;
 }
 
+.bookMarkBtn{
+	background-color:white;
+	margin-right:100px;
+}
+
+
+.LikeBtn{
+	background-color:white;
+}
 
 .All{
 	border:1px solid black;
 	width:950px;
 	margin:0 auto;
+}
+
+
+.bookMarkAndLike{
+	position:absolute;
+	margin-left:380px;
+	
 }
 
 #promoteDetailFont{
