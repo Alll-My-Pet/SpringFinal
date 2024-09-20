@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
-	<link rel="icon" type="image/png" href="#" />
+	<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
     <!-- 헤더: top-bar, nav-bar -->
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/layout/header.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/layout/nav.css'/>">
