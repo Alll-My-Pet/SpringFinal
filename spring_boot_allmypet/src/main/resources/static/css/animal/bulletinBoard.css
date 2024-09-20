@@ -297,30 +297,38 @@ tbody tr:hover{
 
 
 /* ********수정중******** */
-.mainWriteBox {
-	background-color: red;
-	/* width: 100%; */
-	height: fit-content;
+/* 글작성 버튼 */
+.mainWriteBox{
+	display: flex;
+	width: auto;
+	height: 50px;
 	position: relative;
-	margin-right:150px;
+	/* background-color: lime; */
+	/* margin-bottom: 50px; */
 }
 
-.mainWriteBox .mainWriteBtn{
+.mainWriteBtn {
 	position: absolute;
-	right: 0px;
-	top: 50%;
-	width:150px;
-	height:30px;
-	background-color:white;
-	border-radius:5px;
-	margin-left:780px;
-	margin-top:40px;
+	right: 25px;
+	top: 20px;
+	width: 130px;
+	height: 30px;
+	border-radius: 8px;
+	/* 	border: none; */
+	cursor: pointer;
+	/*  background-color: aliceblue; */
+	background-color: #E6E6E6;
+	/* border: none; */
+	border-width: 1px;
+	border-color: blanchedalmond;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
 }
 
-.mainWriteBtn:hover{
-	background-color:skyblue;
+.mainWriteBtn a{
+	text-decoration: none;
+	color: inherit;
 }
-
 
 .BoardSearchBtn {
 	border: 0px;
@@ -335,6 +343,7 @@ tbody tr:hover{
 	text-indent: -9999px; /* 버튼의 텍스트를 화면에서 숨김 */
 	overflow: hidden; /* 텍스트가 남는 것을 방지 */
 	width: 20px;
+	margin-left: 5px;
 }
 
 .BoardSearchBtn:hover {
@@ -373,11 +382,14 @@ tbody tr:hover{
 
 
 #BoardSearchBar {
-	/* position: absolute; */
+	position: absolute;
 	width: 300px;
-	margin-left: 56vh;
-	margin-top: 7vh;
+	/* margin-left: 50vh;
+	margin-top: 7vh; */
+	top: 20px;
+	right: 30px;
 	display: flex;
+	margin-bottom: 30px !important;
 }
 
 .PetCtgBrd {
@@ -394,7 +406,7 @@ tbody tr:hover{
 }
 
 .paging{
-	margin-right:80px;
+	margin: 30px;
 }
 
 

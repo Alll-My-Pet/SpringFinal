@@ -183,7 +183,24 @@
 						</div>
 						<!--  필터링 결과 박스 -->
 						</div>
-						<br> <br>
+						<div class="mainWriteBox">
+							<!-- <button class="mainWriteBtn">글 작성</button> -->
+							<!-- 로그인 한 경우  -->
+							<c:if test="${not empty sessionScope.mid }">
+								<button class="mainWriteBtn">
+									<a href="<c:url value='/animal_home/${petCtgNo}/bulletin_form'/>">글 작성</a>
+								</button>
+							</c:if>
+							<%-- <button class="mainWriteBtn">
+								<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
+							</button> --%>
+
+							<!-- 로그인 하지 않은 경우-->
+							<c:if test="${empty sessionScope.mid }">
+								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
+							</c:if>
+						</div>
+						<br> 
 
 						<div class="paging" style="text-align: center;">
 							<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
@@ -203,25 +220,6 @@
 						<form name="pageFrm">
 							<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 						</form>
-
-
-						<div class="mainWriteBox">
-							<!-- <button class="mainWriteBtn">글 작성</button> -->
-							<!-- 로그인 한 경우  -->
-							<c:if test="${not empty sessionScope.mid }">
-								<button class="mainWriteBtn">
-									<a href="<c:url value='/animal_home/${petCtgNo}/bulletin_form'/>">글 작성</a>
-								</button>
-							</c:if>
-							<%-- <button class="mainWriteBtn">
-								<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
-							</button> --%>
-
-							<!-- 로그인 하지 않은 경우-->
-							<c:if test="${empty sessionScope.mid }">
-								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
-							</c:if>
-						</div>
 
 					</section>
 
