@@ -9,6 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -64,27 +65,47 @@ public class MarketController {
 		return "market/Home";
 	}
 	
-	  // 상품 페이지 (prdCtg 1~4)
-    @RequestMapping("/market/product")
-    public String product(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
-                          @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
-                          Model model) {
-        ArrayList<ProductVO> prdList;
-        prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNo, 1, 4);
-        
-        model.addAttribute("prdList", prdList);
-        return "market/product";
-    }
+	// 상퓸 페이지 (prdCtg 1~4)
+	@RequestMapping("/market/product")
+	public String product(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
+	                      @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
+	                      Model model) {
+	    
+	    ArrayList<ProductVO> prdList;
+
+	    // prdCtgNo를 리스트로 변환 (콤마로 구분된 값)
+	    List<String> prdCtgNoList = null;
+	    if (prdCtgNo != null && !prdCtgNo.isEmpty()) {
+	        prdCtgNoList = Arrays.asList(prdCtgNo.split(","));
+	    }
+
+	    // 서비스로 리스트 전달
+	    prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNoList, 1, 4);
+	    
+	    model.addAttribute("prdList", prdList);
+	    return "market/product";
+	}
 
     // 굿즈 페이지 (prdCtg 5~8)
-    @RequestMapping("/market/goods")
-    public String goods(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
-                        @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
-                        Model model) {
-        ArrayList<ProductVO> prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNo, 5, 8);
-        model.addAttribute("prdList", prdList);
-        return "market/goods";
-    }
+	@RequestMapping("/market/goods")
+	public String goods(@RequestParam(value = "petCtgNo", required = false) String petCtgNo,
+	                    @RequestParam(value = "prdCtgNo", required = false) String prdCtgNo,
+	                    Model model) {
+	    
+	    ArrayList<ProductVO> prdList;
+
+	    // prdCtgNo를 리스트로 변환 (콤마로 구분된 값)
+	    List<String> prdCtgNoList = null;
+	    if (prdCtgNo != null && !prdCtgNo.isEmpty()) {
+	        prdCtgNoList = Arrays.asList(prdCtgNo.split(","));
+	    }
+
+	    // 서비스로 리스트 전달, startRange: 5, endRange: 8
+	    prdList = prdService.listProductsByCtg(petCtgNo, prdCtgNoList, 5, 8);
+	    
+	    model.addAttribute("prdList", prdList);
+	    return "market/goods";
+	}
 	
     @RequestMapping("/market/product/detail/{prdNo}")
     public String productDetail(@PathVariable String prdNo, Model model, HttpSession session) {
