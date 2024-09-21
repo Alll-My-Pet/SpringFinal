@@ -83,7 +83,10 @@
 	        bb.postDate, 
 	        bb.memId AS author, 
 	        ph.headerName,
-	        bp.bookmarkDate
+	        bp.bookmarkDate,
+	        bb.petCtgNo,
+	        bb.headerNo,
+	        bb.postNo
 	    FROM 
 	        bookmark_post bp
 	    INNER JOIN 
@@ -162,7 +165,8 @@
 	        pg.postImg,
 	        pg.memId AS author, 
 	        mb.profile_image,
-	        bg.bookmarkDate
+	        bg.bookmarkDate,
+	        pg.postNo
 	    FROM 
 	        bookmark_gallery bg
 	    INNER JOIN 
