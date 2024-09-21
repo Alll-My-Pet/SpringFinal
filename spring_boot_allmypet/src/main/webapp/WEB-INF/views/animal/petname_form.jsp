@@ -19,7 +19,8 @@
 	crossorigin="anonymous">
 
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/animal/petname.js'/>"></script>
+<%-- <script src="<c:url value='/js/animal/petname.js'/>"></script> --%>
+<script src="<c:url value='/js/animal/tmp_petname.js'/>"></script>
 
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -85,7 +86,7 @@
 													</button>
 													<button type="button" class="gender-button unknown"
 														value="무성/모름">
-														<img src="image/petname/question.png" width="20px"
+														<img src="/image/petname/question.png" width="20px"
 															alt="무성/모름">
 													</button>
 												</td>
