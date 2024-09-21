@@ -78,11 +78,6 @@ public class AnimalController {
 		return "animal/animal_index";
 	}
 
-	// 반려동물 작명소
-	@RequestMapping("/petname")
-	public String petNameGen() {
-		return "animal/petname_form";
-	}
 
 	// *************************** 양육팁 게시판 ***************************
 	// 동물별 양육팁 게시판
