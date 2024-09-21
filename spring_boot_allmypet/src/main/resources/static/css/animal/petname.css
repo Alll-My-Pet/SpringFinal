@@ -233,10 +233,18 @@ input:hover::placeholder {
     width: 310px;
     height: 172px;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    flex-direction: column;
 }
 
+.nameOutput span {
+	font-size: 20px;
+}
+
+.name-result div{
+	margin: 5px;
+}
 .btn-area {
     display: flex;
     flex-direction: row;

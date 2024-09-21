@@ -27,7 +27,9 @@
 	integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
 	crossorigin="anonymous"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap')
+	;
 </style>
 </head>
 <body>
@@ -39,8 +41,7 @@
 					<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 				</div>
 				<div class="contents">
-					<br>
-					<br>
+					<br> <br>
 					<div class="pageInfo">
 						<div class="bracket">
 							<img src="/image/index/bracket-light-left.svg" class="bLeft"
@@ -57,8 +58,8 @@
 					</div>
 					<!-- pageInfo끝 -->
 					<div class="petname-container">
-						<form id="petNameForm">
-							<div class="petname-genbox">
+						<div class="petname-genbox">
+							<form id="petNameForm">
 								<div class="formBtn" id="formBtn">
 									<div class="form-container" id="formContainer">
 										<table>
@@ -97,32 +98,35 @@
 									<button type="submit" class="generateBtn btn-hover">작명
 										시작!</button>
 								</div>
-							</div>
-						</form>
-						<!-- petNameForm끝 -->
 
-						<div class="spinner-container" id="spinnerContainer"
-							style="display: none;">
-							<div class="d-flex justify-content-center">
-								<div class="spinner-border text-secondary" role="status">
-									<span class="visually-hidden">Loading</span>
+							</form>
+							<!-- petNameForm끝 -->
+
+							<div class="spinner-container" id="spinnerContainer"
+								style="display: none;">
+								<div class="d-flex justify-content-center">
+									<div class="spinner-border text-secondary" role="status">
+										<span class="visually-hidden">Loading</span>
+									</div>
+								</div>
+								<br> <span>열심히 이름을 고르고 있어요!</span>
+							</div>
+
+							<div class="resultContainer" id="resultContainer"
+								style="display: none;">
+								<div class="nameOutput" id="nameOutput">
+									<span><strong>✨ 이름 후보 ✨</strong></span>
+									<br>
+									<div class="name-result"></div>
+								</div>
+								<div class="btn-area">
+									<button class="resetBtn btn-hover">다시하기</button>
+									<button class="generateNewBtn btn-hover">새로운 작명 시작</button>
 								</div>
 							</div>
-							<br> <span>열심히 이름을 고르고 있어요!</span>
+							<!-- resultContainer 끝 -->
 						</div>
-
-						<div class="resultContainer" id="resultContainer"
-							style="display: none;">
-							<div class="nameOutput" id="nameOutput">
-								<span>✨ 이름 후보 ✨</span>
-								<div class="name-result"></div>
-							</div>
-							<div class="btn-area">
-								<button class="resetBtn btn-hover">다시하기</button>
-								<button class="generateNewBtn btn-hover">새로운 작명 시작</button>
-							</div>
-						</div>
-						<!-- resultContainer 끝 -->
+						<!-- petname-genbox끝 -->
 					</div>
 					<!-- petname-container끝 -->
 
