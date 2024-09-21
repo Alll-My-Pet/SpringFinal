@@ -4,7 +4,7 @@
 
 $(document).ready(function() {
     let selectedGender = '무성/모름'; // 기본 성별 설정
-
+    
     // gender-button을 클릭했을 때 호출되는 함수
     function selectGender(button) {
         const genderValue = button.value; // 버튼의 value 속성을 가져옴
@@ -117,7 +117,9 @@ $(document).ready(function() {
                 if (names.length > 0) {
                     names.forEach(name => {
                         console.log("Name candidate:", name.nameCandidate); // 각 이름 후보 확인
-                        nameResult.append(`<div>${name.nameCandidate}</div>`);
+                        /*const color = colors[index % colors.length];*/ // 배열 길이에 따라 색상을 순환
+                        nameResult.append(`<div class="name-item">${name.nameCandidate}</div>`);
+                        // nameResult.append(`<div class="name-item" style="background-color: ${color};">${name.nameCandidate}</div>`); // name-item 클래스를 추가
                     });
                 } else {
                     nameResult.append(`<div>이름 후보가 없습니다.</div>`);
@@ -138,7 +140,7 @@ $(document).ready(function() {
         console.log("다시하기 petColor: " + petColor);
         console.log("다시하기 petType: " + petType);
         console.log("다시하기 selectedGender: " + selectedGender);
-        
+
         // 현재 색깔과 성별로 랜덤 이름 요청
         fetchPetNames(petColor ? petColor : '미정', selectedGender); // 색깔이 비어있으면 '미정'으로 요청
 

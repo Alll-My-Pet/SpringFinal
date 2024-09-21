@@ -28,7 +28,7 @@
 		FROM pet_names
 		WHERE color_group = #{colorGroup} AND pet_gender = #{petGender}
 		ORDER BY RAND()
-		LIMIT 3
+		LIMIT 4
 	</select>
 	
 </mapper>

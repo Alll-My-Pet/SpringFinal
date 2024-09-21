@@ -242,9 +242,29 @@ input:hover::placeholder {
 	font-size: 20px;
 }
 
-.name-result div{
+/* .name-result div{
 	margin: 5px;
+} */
+
+.name-result {
+    display: flex;
+    flex-wrap: wrap; /* 요소가 넘치면 다음 줄로 이동 */
+    justify-content: space-between; /* 요소 간의 간격 조정 */
+    gap: 10px; /* 요소 간의 간격 */
 }
+
+.name-item {
+    width: calc(50% - 10px); /* 각 요소의 너비를 50%로 설정. gap을 고려하여 조정 */
+    box-sizing: border-box; /* padding과 border를 포함하여 총 너비를 계산 */
+    padding: 10px; /* 내부 여백 */
+    border: 1px solid #ddd; /* 테두리 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    background-color: #E0E6F8; /* 배경색 */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 .btn-area {
     display: flex;
     flex-direction: row;
