@@ -9,4 +9,9 @@ public class UsedController {
 	public String usedItemHome() {
 		return "usedItem/usedItemBoard";
 	}
+	
+	@RequestMapping("/usedItemBuy")
+	public String usedItemBuy() {
+		return "usedItem/usedItemBuyBoard";
+	}
 }

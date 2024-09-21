@@ -81,7 +81,7 @@
     UPDATE animal_protect 
     SET headerNo=#{headerNo}, companyName=#{companyName},
         postContent=#{postContent}, postImg=#{postImg}, postTitle=#{postTitle},
-        postDate=NOW(), memId=#{memId}
+        postDate=#{postDate}, memId=#{memId}
     WHERE postNo=#{postNo}
 	</update>
 	

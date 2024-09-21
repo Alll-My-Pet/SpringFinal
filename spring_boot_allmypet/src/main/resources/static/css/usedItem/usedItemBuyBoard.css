@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* 중고거래 게시판 */
+/* 중고거래 삽니다 게시판 */
 
 .writeBtn{
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -27,6 +27,8 @@
 	top:1px;
 }
 
+
+
 .usedItemFont{
 	position:absolute;
 	left:50px;
@@ -44,7 +46,7 @@
 .All{
 	border:1px solid black;
 	width:750px;
-	height:950px;
+	height:970px;
 	margin-bottom:30px;
 	margin-top:100px;
 }
@@ -76,79 +78,24 @@ hr{
 
 
 .postBox{
-	width: 750px;
+	width: 700px;
     height: 750px;
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;             /* 여러 줄로 감싸기 */
-    justify-content: center;      /* 가로 방향 중앙 정렬 */
-    align-items: flex-start;
+    margin:0 auto;
+    margin-top:30px;      
 }
 
-.postCardBox{
-	border: 1px solid black;
-    width: 150px;
-    height: 220px;
-    margin: 15px 15px;  
-}
-
-.postCardPic{
-	width:140px;
-	height:150px;
+.buyTable{
 	border:1px solid black;
-	margin:0 auto;
-	margin-top:10px;
+	width:700px;
+	height:750px;
+	border-collapse: collapse;
 }
 
-.img{
-	width:140px;
-	height:150px;
-}
-
-.itemInfo{
-	height:58px;
-	width:140px;
-	margin:0 auto;
-	flex-wrap: wrap;             /* 여러 줄로 감싸기 */
-    justify-content: center;
-    display: flex;
-}
-
-.tradelocal{
-	border:1px solid black;
-	width:65px;
-	height:20px;
-	margin-right: 5px; 
-	margin-top:5px;
-	font-size:13px;
+.buyTable th,td{
+	border-top:1px solid black;
+	border-bottom:1px solid black;
 	text-align:center;
 }
-.itemState{
-	border:1px solid black;
-	width:65px;
-	height:20px;
-	margin-top:5px;
-	text-align:center;
-}
-
-.itemName{
-	border:1px solid black;
-	width:65px;
-	height:20px;
-	margin-right: 5px; 
-	margin-top:5px;
-	font-size:10px;
-	text-align:center;
-}
-
-.itemPrice{
-	border:1px solid black;
-	width:65px;
-	height:20px;
-	margin-top:5px;
-	text-align:center;
-}
-
 
 .pagingBox{
 	width: 150px;
@@ -178,3 +125,4 @@ hr{
 	height:25px;
 	margin:0 auto;
 }
+

@@ -22,13 +22,39 @@
 				
 				
 				<div class="petInfoBox">
-					<div class="petPhotoBox">${promoteBoard.postImg }</div>
-					<div class="petExplain">분류:${promoteBoard.petCtgNo }<br>
-				    						생물명:${promoteBoard.petName }<br>
-				    						분양처:${promoteBoard.placeInfo }<br>
-				    						분양 방법:${promoteBoard.parcelOutInfo }<br>
-				    						작성자:${promoteBoard.memId}
-				    </div>
+					<div class="petPhotoBox">
+						<c:if test="${not empty promoteBoard.postImg}">
+							<img class="post-image"
+								src="<c:url value='/protect_images/${promoteBoard.postImg}'/>"
+								style="width: 200px; height: 200px;" />
+						</c:if>
+					</div>
+					
+					<div class="petExplain">
+						분류:
+						<c:choose>
+							<c:when test="${promoteBoard.petCtgNo == 1}">강아지</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 2}">고양이</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 3}">기타 포유류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 4}">파충류/양서류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 5}">어류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 6}">조류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 7}">설치류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 8}">절지류/곤충류</c:when>
+						</c:choose>
+						<br> 
+						생물명:${promoteBoard.petName }
+						<br>
+						분양처:${promoteBoard.placeInfo }
+						<br>
+						분양 방법:
+						<c:choose>
+						<c:when test="${promoteBoard.parcelOutInfo == 'FTF' }">대면</c:when>
+						<c:when test="${promoteBoard.parcelOutInfo == 'NFTF' }">비 대면</c:when>
+						</c:choose>
+						<br>
+						작성자:${promoteBoard.memId}
+				</div>
 				</div>
 				
 				<div class="parcelOutInfoBox">
