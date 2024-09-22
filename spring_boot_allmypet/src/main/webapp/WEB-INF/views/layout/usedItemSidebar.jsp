@@ -23,7 +23,7 @@
 				</a>
 			</div>
 			<div class="menu-item">
-				<a href="/usedItemBuy" class="menu-link"> <span>&nbsp; 사요!&nbsp;🛒</span>
+				<a href="/usedItemBuy" class="menu-link"> <span>&nbsp; 사요!&nbsp;🛍️</span>
 				</a>
 			</div>
 		</div>

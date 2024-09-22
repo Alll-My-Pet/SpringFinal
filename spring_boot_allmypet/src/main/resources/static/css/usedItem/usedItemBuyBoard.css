@@ -1,6 +1,172 @@
 @charset "UTF-8";
 
 /* 중고거래 삽니다 게시판 */
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 710px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	/* padding: 18.5px 22px 11.5px 21px; */
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* 페이지 설명 */
+.page-title .titleInfo {
+	display: inline-block;
+	align-self: flex-start;
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.39);
+	/* margin: 0 auto; */
+	margin-top: 10px;
+	margin-left: 2px;
+	margin-bottom: 10px;
+}
+
+/* 페이지 제목 */
+.page-title .ctgTitle {
+	align-self: flex-start;
+	/* font-weight: 400; */
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 1;
+	color: #000000;
+	/* margin: 10px auto; */
+	/* margin: 10px 0; */
+	margin-top: 10px;
+}
+
+/* 페이지명 위 아래 선 */
+.pageInfo::before, .pageInfo::after {
+	content: '';
+	position: absolute;
+	width: 235px; /* 선의 길이 설정 */
+	height: 3px; /* 선의 두께 설정 */
+	/* background-color: #848484;  */
+	background-color: #5F88A0;
+}
+
+.pageInfo::before {
+	top: -10px; /* 위쪽 선의 위치 조정 */
+	left: 100px; /* 중앙 정렬 */
+	transform: translateX(-50%); /* 중앙으로 이동 */
+}
+
+.pageInfo::after {
+	bottom: -10px; /* 아래쪽 선의 위치 조정 */
+	left: 100px; /* 중앙 정렬 */
+	transform: translateX(-50%); /* 중앙으로 이동 */
+}
+
+/*********************************/
+/* 동물 카테고리 */
+/*********************************/
+.card-container {
+	display: flex;
+	flex-direction: column;
+	/* 세로 방향으로 배치 */
+	align-items: center;
+	/* 카드들을 중앙 정렬 */
+	margin-top: 40px;
+	margin-bottom: 40px;
+	/* 위쪽 여백 추가 */
+	width: 638px;
+	height: 84px;
+	/* 전체 너비 사용 */
+	/* background-color: rgb(199, 175, 175); */
+}
+
+.row {
+	display: flex;
+	/* 한 행의 카드를 가로로 나열 */
+	justify-content: space-between;
+	/* 카드 사이의 간격을 고르게 분배 */
+	width: 100%;
+	/* 행의 너비를 전체로 설정 */
+	margin: 5px;
+}
+
+.card {
+	background-color: #f8f9fa;
+	/* 카드 배경색 설정 */
+	border: 1px solid #ccc;
+	/* 카드 테두리 설정 */
+	border-radius: 8px;
+	/* 모서리 둥글게 */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	/* 그림자 추가 */
+	flex: 1;
+	/* 카드가 동일한 너비를 갖도록 설정 */
+	margin: 0 10px;
+	/* 카드 사이의 간격 추가 */
+	width: 135px;
+}
+
+.card-content {
+	display: flex;
+	/* 이미지와 제목을 수평으로 배치 */
+	align-items: center;
+	/* 세로 방향으로 중앙 정렬 */
+	height: 30px;
+	margin-left: 5px;
+	text-align: center;
+}
+
+.card-title {
+	margin: 0 auto;
+	/* 이미지와 제목 사이의 간격 추가 */
+}
+
+.card-link {
+	text-decoration: none;
+	/* 링크의 기본 밑줄 제거 */
+	color: inherit;
+	/* 텍스트 색상을 부모 요소에서 상속받음 */
+}
+
+/* ************************************** */
+
+.All {
+	width: 750px;
+	/* height: 950px; */
+	height: 1050px;
+	margin-bottom: 30px;
+	margin-top: 50px;
+	border: 2px solid #E6E6E6;
+	background-color: #FFFEFE;
+	border-radius: 10px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
+.petCtgBox {
+	width: 730px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 10px;
+}
 
 .writeBtn{
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
@@ -43,23 +209,6 @@
 }
 
 
-.All{
-	border:1px solid black;
-	width:750px;
-	height:970px;
-	margin-bottom:30px;
-	margin-top:100px;
-}
-
-.petCtgBox{
-	width:730px;
-	height:100px;
-	display:flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0 10px;
-}
-
 .petCtg{
 	width:60px;
 	height:60px;
@@ -82,47 +231,125 @@ hr{
     height: 750px;
     margin:0 auto;
     margin-top:30px;      
+    border-radius: 8px;
 }
 
+
 .buyTable{
-	border:1px solid black;
+	/* border:1px solid black; */
 	width:700px;
 	height:750px;
 	border-collapse: collapse;
 }
-
-.buyTable th,td{
+.buyTable th {
 	border-top:1px solid black;
-	border-bottom:1px solid black;
+}
+
+.buyTable td{
+	border-top:1px solid black;
+	border-bottom:1px solid #BDBDBD;
 	text-align:center;
 }
 
-.pagingBox{
-	width: 150px;
-	height:30px;
-	margin:0 auto;
-	display:flex;
+tbody tr:hover {
+	background-color: #f0f0f0;
+	cursor: pointer;
 }
 
-.paging{
-	width:40px;
-	height:30px;
-	margin:0 auto;
-	text-align:center;
-	margin-left:
+/* 구매완료 - 색 변하게 */
+.highlight {
+    color: blue; 
+}
+
+.bottom-box {
+	position: absolute;
+	/* background-color: lime; */
+	width: auto;
+	height: 150px;
+	display: flex;
+	flex-direction: column;
+	bottom: 0px;
+}
+
+.searchAndButton {
+	width: 750px;
+	height: 70px;
+	display: flex;
+	margin-top: 5px;
+}
+
+.searchBar {
+	width: 350px;
+	height: 25px;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+
+.btn-container {
+	/* background-color: skyblue !important; */
+	position: relative;
+	width: auto;
+}
+
+.writeBtn {
+	width: 100px;
+	height: 30px;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color: #ededed;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	cursor: pointer;
+	color: #777777;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 2px 18px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
 	
+	position: absolute;
+	right: 25px;
 }
 
-.searchAndButton{
-	width:750px;
-	height:40px;
-	display:flex;
-	margin-top:5px;
+.writeBtn:hover {
+	background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color: #dfdfdf;
 }
 
-.searchBar{
-	width:350px;
-	height:25px;
-	margin:0 auto;
+.writeBtn:active {
+	position: relative;
+	top: 1px;
+}
+
+.usedItemFont {
+	position: absolute;
+	left: 50px;
+	margin-top: 30px;
+}
+
+.usedItemFont-sell {
+	position: absolute;
+	left: 50px;
+	margin-top: 60px;
+	color: gray;
+}
+
+
+.pagingBox {
+	width: 150px;
+	height: 30px;
+	margin: 0 auto;
+	display: flex;
+}
+
+.paging {
+	width: 40px;
+	height: 30px;
+	margin: 0 auto;
+	margin-top: 30px;
+	text-align: center;
+	/* margin-left: */
 }
 
