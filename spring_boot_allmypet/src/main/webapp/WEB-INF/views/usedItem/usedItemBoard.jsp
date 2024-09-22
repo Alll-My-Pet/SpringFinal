@@ -62,7 +62,7 @@
 							<div class="postBox">
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/도마뱀 사육장.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/도마뱀 사육장.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -81,7 +81,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/햄스터 먹이.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/햄스터 먹이.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -100,7 +100,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/노즈워크.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/노즈워크.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -119,7 +119,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/물고기 사료.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/물고기 사료.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal" style="font-size:10px;">
@@ -138,7 +138,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/앵무새 집.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/앵무새 집.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -157,7 +157,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/캣닢.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/캣닢.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -176,7 +176,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/강아지 장난감.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/강아지 장난감.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -195,7 +195,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/스크래처.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/스크래처.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal" style="font-size:10px;">
@@ -214,7 +214,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/사슴벌레 먹이.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/사슴벌레 먹이.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -233,7 +233,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/페럿 집.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/페럿 집.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -252,7 +252,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/토끼 사료.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/토끼 사료.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
@@ -271,7 +271,7 @@
 								</div> <!-- postCardBox끝 -->
 								<div class="postCardBox">
 									<div class="postCardPic">
-										<img src="<c:url value='/project_images/앵무새 먹이.jfif'/>" class="img"/>
+										<img src="<c:url value='/usedmarket_images/앵무새 먹이.jfif'/>" class="img"/>
 									</div>
 									<div class="itemInfo">
 										<div class="tradelocal">
