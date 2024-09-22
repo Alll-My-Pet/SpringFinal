@@ -199,6 +199,14 @@
 				<!-- contents끝 -->
 			</div>
 			<!-- frame-2 끝 -->
+			<!-- 플로팅버튼(탑버튼 포함) -->
+			<div id="floatingBtn">
+				<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
+			</div>
+			<!-- sidebar 부착 -->
+			<div id="sidebar">
+				<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
+			</div>
 		</div>
 		<!-- frame-1끝 -->
 		<br> <br>

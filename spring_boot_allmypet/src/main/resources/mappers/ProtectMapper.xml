@@ -18,7 +18,10 @@
 	
 	<!-- 게시판 리스트 -->
 	<select id="ProtectBoardList" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.ProtectVO">
-		SELECT * FROM animal_protect 
+		SELECT pr.*, m.memNickName 
+		FROM animal_protect pr
+		JOIN member m ON
+		pr.memId = m.memId
 		LIMIT #{startNo}, 15;
 	</select>
 	
@@ -26,7 +29,7 @@
 	<select id="ProtectReportList" parameterType="hashmap" resultType="com.spring_boot_allmypet.project.model.ProtectVO">
 		SELECT * FROM animal_protect
 		WHERE headerNo = 4
-		LIMIT #{startNo}, 4;
+		LIMIT #{startNo}, 3;
 	</select>
 	
 	<!-- 페이징 -->
