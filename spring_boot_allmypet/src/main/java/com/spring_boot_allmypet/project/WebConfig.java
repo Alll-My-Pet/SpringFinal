@@ -12,11 +12,6 @@ public class WebConfig implements WebMvcConfigurer {
 		// 현재 작업 중인 프로젝트의 루트 경로
 		String projectRootPath = System.getProperty("user.dir");
 		// 맵핑 이름 : project_images
-		registry.addResourceHandler("/project_images/**")
-		.addResourceLocations("file:///" + projectRootPath + "/src/main/webapp/uploads/");
-		
-		registry.addResourceHandler("/protect_images/**")
-		.addResourceLocations("file:///D:/finalWorkSpace/final/SpringFinal/uploads/");
 
 		registry.addResourceHandler("/prd_images/**")
 		.addResourceLocations("file:///usr/local/allmypet/image/market/");
@@ -30,6 +25,12 @@ public class WebConfig implements WebMvcConfigurer {
 		.addResourceLocations("file:///usr/local/allmypet/image/ai/");
 		registry.addResourceHandler("/usedmarket_images/**")
 		.addResourceLocations("file:///usr/local/allmypet/image/usedmarket/");
+		registry.addResourceHandler("/promote_images/**")
+		.addResourceLocations("file:///usr/local/allmypet/image/promote/");
+		registry.addResourceHandler("/project_images/**")
+		.addResourceLocations("file:///usr/local/allmypet/image/uploads/");
+		registry.addResourceHandler("/protect_images/**")
+		.addResourceLocations("file:///usr/local/allmypet/image/upload/");
 		
 
 	}

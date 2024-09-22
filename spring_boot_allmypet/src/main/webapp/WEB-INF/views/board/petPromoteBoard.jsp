@@ -132,7 +132,7 @@
 													style="width: 147px; height: 150px;" />
 											</c:if> --%>
 											<img class="post-image"
-												src="/image/promote/${promote.postImg}"
+												src="/promote_images/${promote.postImg}"
 												style="width: 147px; height: 150px;" />
 										</div>
 										<div class="promoteDescription">
