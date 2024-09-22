@@ -70,7 +70,10 @@
 							</c:forEach>
 							</table>
 						</div>
+<<<<<<< HEAD
 					
+=======
+>>>>>>> refs/heads/develop
 				</div>
 
 				<div class="promoteSearchBox">
@@ -159,10 +162,7 @@
 					<form name="pageFrm">
 						<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 					</form>
-
-				</div>
-				<!-- promotePicBox 끝 -->
-
+					
 				<!-- 로그인 시 -->
 				<c:if test="${not empty sessionScope.mid }">
 					<button class="promoteBrdBtn">
@@ -174,6 +174,10 @@
 				<c:if test="${empty sessionScope.mid }">
 					<button id="notLoginBtn" class="promoteBrdBtn">글 작성</button>
 				</c:if>
+
+				</div>
+				<!-- promotePicBox 끝 -->
+
 			</div>
 		</section>
 	</div>

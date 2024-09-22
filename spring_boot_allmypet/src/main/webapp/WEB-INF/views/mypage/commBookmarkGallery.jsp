@@ -57,19 +57,19 @@
 						    <tr>
 						        <c:forEach var="bookMark" items="${bookMarkList}">
 						            <td>
-						            	<div class="bmg_gallery_list">
-											<img class="bmg_img_thumbnail" src="<c:url value='/image/testimg.jpg'/>">
+						            	<a href="/gallery/detail/${bookMark.postNo}" class="bmg_gallery_list">
+											<img class="bmg_img_thumbnail" src="<c:url value='/gallery_images/${bookMark.postImg} '/>">
 											<div class="bmg_img_overlay">
 												<div class="bmg_img_top">
 													<div class="bmg_like_area inner_text_div">❤ ${bookMark.postLike }</div>
-													<div class="bmg_profile_area"><img class="bmg_profile_img" src="<c:url value='/project_images/profile_Img/${bookMark.profile_image }'/>"></div>
+													<div class="bmg_profile_area"><img class="bmg_profile_img" src="<c:url value='/member_images/${bookMark.profile_image }'/>"></div>
 												</div>
 												<div class="bmg_img_bottom">
 													<div class="bmg_title_area inner_text_div">${bookMark.postTitle }</div>
 													<div class="bmg_comment_area">00 comment</div>
 												</div>
 											</div>
-										</div>
+										</a>
 						            </td>
 						            <c:set var="count" value="${count + 1}" />
 						            <c:if test="${count % 5 == 0}">
@@ -83,7 +83,7 @@
 				</div>
 				<div id="bmg_b">
 					<div id="paging_view">
-						페이징뷰 영역
+						
 					</div>
 					<div id="b_filter_search_div">
 						<form id="b_filter_search" class="bmg_filter_search">
