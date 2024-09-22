@@ -28,51 +28,6 @@
 				<div id="header">
 					<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 				</div>
-<<<<<<< HEAD
-					<div class="contents">
-					
-						<h3 class="usedItemFont">중고거래</h3>
-						<p class="usedItemFont-sell">팝니다</p>
-						
-						<div class="All">
-							<div class="petCtgBox">
-							
-								<div class="petCtg" style="font-size:15px;">
-									전체보기
-								</div>
-								<div class="petCtg">
-									강아지
-								</div>
-								<div class="petCtg">
-									고양이
-								</div>
-								<div class="petCtg" style="font-size:15px;">
-									기타 포유류
-								</div>
-								<div class="petCtg" style="font-size:15px;">
-									파충류/양서류
-								</div>
-								<div class="petCtg">
-									어류
-								</div>
-								<div class="petCtg">
-									조류
-								</div>
-								<div class="petCtg">
-									설치류
-								</div>
-								<div class="petCtg" style="font-size:15px;">
-									절지류/곤충류
-								</div>
-								
-							</div><!-- petCtgBox 끝 -->
-							<hr>
-							
-							<div class="postBox">
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/도마뱀 사육장.jfif'/>" class="img"/>
-=======
 				<div class="contents">
 
 					<!-- <h3 class="usedItemFont">중고거래</h3>
@@ -102,28 +57,7 @@
 												</div>
 											</div>
 										</a>
->>>>>>> refs/heads/KKR
 									</div>
-<<<<<<< HEAD
-									<div class="itemInfo">
-										<div class="tradelocal">
-											서울-직접
-										</div>
-										<div class="itemState">
-											중고
-										</div>
-										<div class="itemName">
-											도마뱀 사육장
-										</div>
-										<div class="itemPrice">
-											10000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/햄스터 먹이.jfif'/>" class="img"/>
-=======
 									<div class="col-md-3">
 										<!-- 두 번째 카드 -->
 										<a href="<c:url value='/animal_home/${2}'/>" class="card-link">
@@ -135,28 +69,7 @@
 												</div>
 											</div>
 										</a>
->>>>>>> refs/heads/KKR
 									</div>
-<<<<<<< HEAD
-									<div class="itemInfo">
-										<div class="tradelocal">
-											경기-택배
-										</div>
-										<div class="itemState">
-											새 제품
-										</div>
-										<div class="itemName">
-											햄스터 먹이
-										</div>
-										<div class="itemPrice">
-											7000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/노즈워크.jfif'/>" class="img"/>
-=======
 									<div class="col-md-3">
 										<!-- 세 번째 카드 -->
 										<a href="<c:url value='/animal_home/${3}'/>" class="card-link">
@@ -168,28 +81,7 @@
 												</div>
 											</div>
 										</a>
->>>>>>> refs/heads/KKR
 									</div>
-<<<<<<< HEAD
-									<div class="itemInfo">
-										<div class="tradelocal">
-											대구-택배
-										</div>
-										<div class="itemState">
-											중고
-										</div>
-										<div class="itemName" style="font-size:13px;">
-											노즈워크
-										</div>
-										<div class="itemPrice">
-											15000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/물고기 사료.jfif'/>" class="img"/>
-=======
 									<div class="col-md-3">
 										<!-- 네 번째 카드 -->
 										<a href="<c:url value='/animal_home/${4}'/>" class="card-link">
@@ -201,183 +93,7 @@
 												</div>
 											</div>
 										</a>
->>>>>>> refs/heads/KKR
 									</div>
-<<<<<<< HEAD
-									<div class="itemInfo">
-										<div class="tradelocal" style="font-size:10px;">
-											제주도-택배
-										</div>
-										<div class="itemState">
-											새 제품
-										</div>
-										<div class="itemName">
-											물고기 사료
-										</div>
-										<div class="itemPrice">
-											5000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/앵무새 집.jfif'/>" class="img"/>
-									</div>
-									<div class="itemInfo">
-										<div class="tradelocal">
-											인천-직접
-										</div>
-										<div class="itemState">
-											중고
-										</div>
-										<div class="itemName" style="font-size:15px;">
-											새 집
-										</div>
-										<div class="itemPrice">
-											40000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/캣닢.jfif'/>" class="img"/>
-									</div>
-									<div class="itemInfo">
-										<div class="tradelocal">
-											서울-택배
-										</div>
-										<div class="itemState">
-											새 제품
-										</div>
-										<div class="itemName" style="font-size:15px;">
-											캣닢
-										</div>
-										<div class="itemPrice">
-											10000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/강아지 장난감.jfif'/>" class="img"/>
-									</div>
-									<div class="itemInfo">
-										<div class="tradelocal">
-											충남-택배
-										</div>
-										<div class="itemState">
-											중고
-										</div>
-										<div class="itemName">
-											강아지 장난감
-										</div>
-										<div class="itemPrice">
-											8000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/스크래처.jfif'/>" class="img"/>
-									</div>
-									<div class="itemInfo">
-										<div class="tradelocal" style="font-size:10px;">
-											강원도-택배
-										</div>
-										<div class="itemState">
-											새 제품
-										</div>
-										<div class="itemName" style="font-size:12px;">
-											스크래처
-										</div>
-										<div class="itemPrice">
-											20000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/사슴벌레 먹이.jfif'/>" class="img"/>
-									</div>
-									<div class="itemInfo">
-										<div class="tradelocal">
-											서울-택배
-										</div>
-										<div class="itemState">
-											새 제품
-										</div>
-										<div class="itemName">
-											사슴벌레 먹이
-										</div>
-										<div class="itemPrice">
-											6000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/페럿 집.jfif'/>" class="img"/>
-									</div>
-									<div class="itemInfo">
-										<div class="tradelocal">
-											경기-직접
-										</div>
-										<div class="itemState">
-											중고
-										</div>
-										<div class="itemName" style="font-size:13px;">
-											페럿 집
-										</div>
-										<div class="itemPrice">
-											27000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/토끼 사료.jfif'/>" class="img"/>
-									</div>
-									<div class="itemInfo">
-										<div class="tradelocal">
-											수원-택배
-										</div>
-										<div class="itemState">
-											새 제품
-										</div>
-										<div class="itemName" style="font-size:12px;">
-											토끼 사료
-										</div>
-										<div class="itemPrice">
-											15000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-								<div class="postCardBox">
-									<div class="postCardPic">
-										<img src="<c:url value='/usedmarket_images/앵무새 먹이.jfif'/>" class="img"/>
-									</div>
-									<div class="itemInfo">
-										<div class="tradelocal">
-											논산-택배
-										</div>
-										<div class="itemState">
-											새 제품
-										</div>
-										<div class="itemName">
-											앵무새 먹이
-										</div>
-										<div class="itemPrice">
-											15000원
-										</div>
-									</div> <!-- itemInfo끝 -->
-								</div> <!-- postCardBox끝 -->
-							</div>	<!-- postBox끝  -->
-							
-							<div class="pagingBox">
-								<div class="paging">
-									이전
-=======
->>>>>>> refs/heads/KKR
 								</div>
 								<!-- 첫 번째 행 끝 -->
 
