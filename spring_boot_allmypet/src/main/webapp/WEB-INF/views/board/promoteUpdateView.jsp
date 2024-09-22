@@ -73,12 +73,13 @@
 		  	<li>CITES 등록종일 경우 생물명 앞에 [CITES] 표기 바랍니다.</li>
 		  	<li>생물분양으로 인한 불이익은 올마이펫의 책임이 아닙니다.</li>
 		  </ul>
-		  
-		  <div class="form-group">
-                         <label for="password">비밀번호</label>
-                         <input type="password" id="memPwd" name="memPwd" required />
-                    </div>
-		  
+
+
+		 <div class="form-group">
+			  <label for="password">비밀번호</label> 
+			  <input type="password" id="memPwd" name="memPwd" required />
+		  </div>
+
 		  <div class="uploadBox">
 		  	<button type="submit" class="uploadBtn">업로드</button>
 		  </div>

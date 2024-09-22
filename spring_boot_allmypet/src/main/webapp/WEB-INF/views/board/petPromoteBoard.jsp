@@ -39,22 +39,37 @@
 			<div class="promoteHeader">
 
 
-				<h1 id="titleFont">분양 홍보 게시판</h1>
-				<p id="titleFont2" style="color: gray;">인가받은 업체나 브리더에 한해서만 게시글
+				<h1 id="titleFont" style="margin-left:50px;">분양 홍보 게시판</h1>
+				<p id="titleFont2" style="color: gray; margin-left:50px;">인가받은 업체나 브리더에 한해서만 게시글
 					업로드 가능합니다</p>
 
-				<div class="promoteHotBoard">
-					<h3 style="margin-left: 2%;">분양 시 주의사항</h3>
-					<div class="hot1">
-						<p style="text-indent: 30px;">제목1</p>
-						<p style="text-indent: 500px;">닉네임</p>
-						<p style="text-indent: 50px;">2021-10-12</p>
-					</div>
-					<div class="hot2">
-						<p style="text-indent: 30px;">제목1</p>
-						<p style="text-indent: 500px;">닉네임</p>
-						<p style="text-indent: 50px;">2021-10-12</p>
-					</div>
+				<div class="promoteNotice-box">
+					<h3 style="margin-left: 2%;" class="promoteNotice-title">분양 시 주의사항</h3>
+					<c:forEach var="notice" items="${noticeList }" >
+						<div class="promoteNotice">
+							
+							<table class="noticeTable">
+									<tr>
+										<th>제목</th>
+										<th>작성자</th>
+										<th>날짜</th>
+										<th>조회수</th>
+										<th>좋아요</th>
+									</tr>
+							
+								<a href="#">
+									<tr>
+										<td style="color: red;" ><a href="#">${notice.postTitle}</a></td>
+										<td>${notice.memNickName}</td>
+										<td><fmt:formatDate value="${notice.postDate}"
+												pattern="M/dd HH:mm" /></td>
+										<td>${notice.postView}</td>
+										<td>${notice.postLike}</td>
+									</tr>
+								</a>
+							</table>
+						</div>
+					</c:forEach>
 				</div>
 
 				<div class="promoteSearchBox">
@@ -139,12 +154,10 @@
 				</c:if>
 			</div>
 		</section>
-
-
+	</div>
+	
 		<div id="footer">
 			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 		</div>
-
-	</div>
 </body>
 </html>

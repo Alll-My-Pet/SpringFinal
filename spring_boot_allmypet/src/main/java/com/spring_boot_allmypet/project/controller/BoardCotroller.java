@@ -1,19 +1,28 @@
 package com.spring_boot_allmypet.project.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.spring_boot_allmypet.project.model.BoardPagingVO;
 import com.spring_boot_allmypet.project.model.BoardVO;
-import com.spring_boot_allmypet.project.model.animal.MyTipBoardVO;
 import com.spring_boot_allmypet.project.model.FreeVO;
 import com.spring_boot_allmypet.project.model.PromoteVO;
 import com.spring_boot_allmypet.project.model.ProtectVO;
@@ -164,15 +173,162 @@ public class BoardCotroller {
 
 		ArrayList<ProtectVO> ProtectList = protectService.ProtectBoardList(map);
 		model.addAttribute("ProtectList", ProtectList);
+		
+		ArrayList<ProtectVO> ReportList = protectService.ProtectReportList(map);
+		model.addAttribute("ReportList", ReportList);
+		
 		model.addAttribute("pageVo", pageVo);
 
 		return "board/petProtectBoard";
 	}
 
-	@RequestMapping("/board/protectDetail")
-	public String protectDetail() {
-		return "board/protectDetail";
-	}
+		// 상세 페이지
+		@RequestMapping("/board/ProtectDetailView/{postNo}")
+		public String ProtectDetailView(@PathVariable int postNo, Model model,HttpSession session) {
+			// 서비스에게 상품번호 전달하고, 해당 상품 데이터 받아오기
+			ProtectVO protect = protectService.ProtectDetailView(postNo);
+			String logInUser = (String) session.getAttribute("mid");
+
+			// 뷰 페이지에 출력하기 위해 Model 설정
+			model.addAttribute("protect", protect);
+			model.addAttribute("logInUser", logInUser);
+
+			return "board/protectDetail";
+		}
+		
+		// 게시글 작성 폼 열기
+		@RequestMapping("/board/protectWrite")
+		public String protectWrite(HttpSession session, Model model) {
+			// 세션에서 사용자 정보 가져오기
+			String userId = (String) session.getAttribute("mid");
+
+			// 사용자 정보가 있으면, 필요한 데이터를 모델에 추가
+			model.addAttribute("userId", userId);
+
+			return "board/protectWrite";
+		}
+
+		// 글 등록
+		@RequestMapping("/ProtectInsert")
+		public String ProtectInsert(ProtectVO vo, HttpSession session) {
+			// 세션에서 로그인한 사용자 아이디 가져오기
+			String logInUser = (String) session.getAttribute("mid");
+
+			// 사용자 아이디 설정
+			vo.setMemId(logInUser);
+
+			protectService.ProtectInsert(vo);
+
+			return "redirect:board/ProtectBoardList";
+		}
+		
+		
+		// 게시글 수정 화면 열기
+		  @RequestMapping("/board/protectUpdateForm/{postNo}")
+		  public String protectUpdateForm(@PathVariable int postNo, Model model) {
+			  
+			ProtectVO protectBoard = protectService.ProtectDetailView(postNo);
+		    model.addAttribute("protectBoard", protectBoard);  
+		    
+		    return "board/protectUpdateView"; // 폼에 데이터 출력
+		  }
+		  
+		  	// 수정된 정보 저장
+		  @ResponseBody
+		  @RequestMapping(value="/board/ProtectUpdate" , method = RequestMethod.POST)
+		  public String ProtectUpdate(ProtectVO vo, @RequestParam String memPwd, HttpSession session) {
+		      String logInUser = (String) session.getAttribute("mid");
+
+		      if (logInUser == null) {
+		          return "fail"; // 로그인 되어 있지 않으면 실패 반환
+		      }
+
+		      // HashMap을 생성하여 loginCheck 메서드 호출
+		      HashMap<String, Object> map = new HashMap<>();
+		      map.put("memId", logInUser);
+		      map.put("memPwd", memPwd);
+
+		      String result = memberService.loginCheck(map);
+
+		      if ("success".equals(result)) {
+		          vo.setMemId(logInUser); // 게시글 작성자 ID 설정
+		          protectService.ProtectUpdate(vo); // 게시글 수정 서비스 호출
+		      }
+		      
+		      return result; 
+		  }
+		  
+		  //삭제
+		  @RequestMapping("/board/deleteProtect/{postNo}")
+		  public String ProtectDelete(@PathVariable int postNo) {
+		    protectService.ProtectDelete(postNo);  
+		    return "redirect:/board/ProtectBoardList";
+		  }
+		  
+		  @RequestMapping("/board/protectReport")
+			public String protectReport() {
+				return "board/protectReportWrite";
+			}
+		  
+		  
+		  // 신고하기 글
+		  @PostMapping("/reportInsert")
+		  public String reportInsert(@ModelAttribute ProtectVO vo ,
+									@RequestParam("postImgFile") MultipartFile postImgFile,
+		                              HttpSession session) throws IOException {
+			  
+			  System.out.println("확인");
+			  
+		      // 세션에서 로그인한 사용자 아이디 가져오기
+		      String logInUser = (String) session.getAttribute("mid");
+
+		      // 사용자 아이디 설정
+				
+				 vo.setMemId(logInUser);
+				 
+				 // 파일 업로드 처리 
+				 if (!postImgFile.isEmpty()) { // 파일 저장 경로 설정 (시스템에 맞게 변경 필요) String
+				 String uploadDir = "D:/finalWorkSpace/final/SpringFinal/uploads/";
+				 
+				 // 고유한 파일 이름 생성 
+				 String originalFilename = postImgFile.getOriginalFilename();
+				 String newFilename = System.currentTimeMillis() + "_" + originalFilename;
+				 
+				 // 저장할 디렉토리 경로가 존재하지 않으면 생성 
+				 Path uploadPath = Paths.get(uploadDir); 
+				 if(!Files.exists(uploadPath)) { 
+					 Files.createDirectories(uploadPath); 
+				 	}
+				 
+				 // 파일을 저장 디렉토리에 저장 
+				 Path filePath = uploadPath.resolve(newFilename);
+				 Files.copy(postImgFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+				  
+				 // VO 객체에 이미지 파일 이름 설정 
+				 vo.setPostImg(newFilename); 
+				 
+		  }
+				 
+				 // 게시글 저장 서비스 호출
+			        protectService.reportInsert(vo);
+
+			        // 저장 후 갤러리 페이지로 리다이렉트
+			        return "redirect:/board/ProtectBoardList";
+}
+		
+				 
+
+		   
+		  
+
+		  	// 검색
+			@ResponseBody
+			@RequestMapping("/board/ProtectSearch")
+			public ArrayList<ProtectVO> ProtectSearch(@RequestParam HashMap<String, String> param) {
+				ArrayList<ProtectVO> ProtectList = protectService.ProtectSearch(param);
+				return ProtectList;
+			}
+		
 
 	// ********************************동물분양
 	// 홍보****************************************
@@ -188,6 +344,10 @@ public class BoardCotroller {
 		ArrayList<PromoteVO> Promote = promoteService.promoteList(map);
 		model.addAttribute("Promote", Promote);
 		model.addAttribute("pageVo", pageVo);
+		
+		ArrayList<BoardVO> noticeList = boardService.viewNotice();
+		List<BoardVO> limitedNoticeList = noticeList.subList(0, Math.min(noticeList.size(), 2));
+		model.addAttribute("noticeList", limitedNoticeList);
 
 		return "board/petPromoteBoard";
 	}
@@ -251,6 +411,8 @@ public class BoardCotroller {
 		if (logInUser == null) {
 			return "fail"; // 로그인 되어 있지 않으면 실패 반환
 		}
+		
+		
 
 		// HashMap을 생성하여 loginCheck 메서드 호출
 		HashMap<String, Object> map = new HashMap<>();

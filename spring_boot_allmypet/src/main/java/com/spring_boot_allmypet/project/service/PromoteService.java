@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.spring_boot_allmypet.project.dao.IPromoteDAO;
+import com.spring_boot_allmypet.project.model.BoardVO;
 import com.spring_boot_allmypet.project.model.PromoteVO;
 
 @Service

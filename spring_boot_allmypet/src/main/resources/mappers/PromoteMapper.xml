@@ -47,7 +47,6 @@
     WHERE postNo=#{postNo}
 	</update>
   	
-  	<!--  상품 정보 삭제 -->
   	<!-- 파라미터로 상품번호 전달 받음 -->
   	<delete id="deletePromote" parameterType="string">
   		DELETE FROM promote_board WHERE postNo=#{postNo}
@@ -76,6 +75,5 @@
 		FROM promote_board 
 		WHERE postNo = #{postNo}
 	</select>
-	
 	
    </mapper>
