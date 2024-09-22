@@ -95,7 +95,7 @@
 			</div>
 			<div class="navigation-pill">
 				<!-- 지역 소모임 -->
-				<a href="#">집사들 모임</a>
+				<a href="<c:url value='/meet'/>">집사들 모임</a>
 			</div>
 			<div class="navigation-pill">
 				<a href="<c:url value='/market/home'/>">마켓🛒</a>
@@ -131,7 +131,9 @@
 					<strong>용품 중고거래</strong>
 				</div>
 				<div class="dropdown-section">
-					<strong>집사들 모임</strong>
+					<strong>
+					<a href="<c:url value='/meet'/>">집사들 모임</a>
+					</strong>
 				</div>
 				<div class="dropdown-section">
 					<strong>마켓</strong>
