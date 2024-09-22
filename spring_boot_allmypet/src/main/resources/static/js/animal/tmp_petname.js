@@ -75,7 +75,7 @@ $(document).ready(function() {
             success: function(colorGroup) {
                 if (colorGroup) {
                     fetchPetNames(colorGroup, selectedGender); // 색깔이 유효한 경우
-                    alert("ajax요청 들어감");
+                    /*alert("ajax요청 들어감");*/
 
                     console.log("colorGroup: " + colorGroup);
 
