@@ -22,7 +22,7 @@ import org.springframework.context.annotation.PropertySources;
 ignoreResourceNotFound=true)
 }) 
 public class SpringBootAllmypetApplication {
-	@Bean    
+	/*@Bean    
 	public ServletWebServerFactory serveltContainer(){       
 		TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory();        
 		tomcat.addAdditionalTomcatConnectors(createStandardConnector());       
@@ -33,7 +33,7 @@ public class SpringBootAllmypetApplication {
 		Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");        
 		connector.setPort(8080);        
 		return connector;    
-	}
+	}*/
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootAllmypetApplication.class, args);
 	}
