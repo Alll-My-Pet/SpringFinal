@@ -72,7 +72,7 @@
 											<tr>
 												<td><label for="petColor">🌟 색깔:</label></td>
 												<td><input type="text" id="petColor"
-													placeholder="예: 초록색, 적갈색, 모래색..." required><br>
+													placeholder="예: 초록색, 적갈색, 모래색..."><br>
 												</td>
 											</tr>
 											<tr>

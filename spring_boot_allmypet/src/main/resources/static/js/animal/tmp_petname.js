@@ -3,8 +3,8 @@
  */
 
 $(document).ready(function() {
-    let selectedGender = '무성/모름'; // 기본 성별 설정
-    
+    let selectedGender = '없음'; // 기본 성별 설정
+
     // gender-button을 클릭했을 때 호출되는 함수
     function selectGender(button) {
         const genderValue = button.value; // 버튼의 value 속성을 가져옴
@@ -52,12 +52,20 @@ $(document).ready(function() {
         if (!petColor) {
             alert("반려동물 색깔이 정확하지 않습니다! 반려동물 특징과 상관이 없는 이름이 매칭됩니다.");
             fetchPetNames('미정', selectedGender); // AJAX 요청: color_group='미정'으로 요청
-            return;
+            /*return;*/
         }
 
+        if (petColor && !petColor.endsWith("색")) {
+            alert("색으로 끝나게 해주세요."); // 경고 메시지
+            return; // 더 이상 진행하지 않음
+        }
 
-        // 스피너 보여주기
-        /*$('#spinnerContainer').show();*/
+        // 성별 선택 검사 추가
+        if (selectedGender === '없음') {
+            alert("성별을 선택해 주세요."); // 경고 메시지
+            return; // 더 이상 진행하지 않음
+        }
+
 
         // AJAX 요청: colors 테이블에서 color_group 찾기
         $.ajax({
@@ -78,7 +86,6 @@ $(document).ready(function() {
             },
             error: function() {
                 alert('서버 오류가 발생했습니다.');
-                /*$('#spinnerContainer').hide();*/
             }
         });
 
@@ -100,8 +107,6 @@ $(document).ready(function() {
             method: 'GET',
             data: { colorGroup: colorGroup, petGender: gender },
             success: function(names) {
-                /*$('#spinnerContainer').hide();
-                $('#resultContainer').show();*/
 
                 console.log("fetchNames에서의 colorGroup: " + colorGroup);
                 console.log("fetchNames에서의 gender: " + gender);
@@ -141,8 +146,29 @@ $(document).ready(function() {
         console.log("다시하기 petType: " + petType);
         console.log("다시하기 selectedGender: " + selectedGender);
 
-        // 현재 색깔과 성별로 랜덤 이름 요청
-        fetchPetNames(petColor ? petColor : '미정', selectedGender); // 색깔이 비어있으면 '미정'으로 요청
+        // petColor가 비어 있지 않은 경우 색깔군 조회
+        if (petColor) {
+            $.ajax({
+                url: '/api/colors', // 색깔군을 조회하는 API
+                method: 'GET',
+                data: { specificColor: petColor }, // 입력된 petColor를 사용
+                success: function(colorGroup) {
+                    if (colorGroup) {
+                        // 색깔군이 유효한 경우 fetchPetNames 호출
+                        fetchPetNames(colorGroup, selectedGender);
+                    } else {
+                        // 색깔군이 유효하지 않은 경우 '미정'으로 요청
+                        fetchPetNames('미정', selectedGender);
+                    }
+                },
+                error: function() {
+                    alert('색깔군을 가져오는 데 실패했습니다.');
+                }
+            });
+        } else {
+            // petColor가 비어 있을 경우 '미정'으로 요청
+            fetchPetNames('미정', selectedGender);
+        }
 
     });
 
