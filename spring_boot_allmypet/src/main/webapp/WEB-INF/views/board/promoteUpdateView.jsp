@@ -19,7 +19,7 @@
 				
 		 <section class="promoteWrite">
 		 
-		  <form class="promoteUpdateFrm" method="post" action="<c:url value='/board/updatePromote'/>">
+		  <form class="promoteUpdateFrm" id="promoteUpdateFrm" method="post" action="<c:url value='/board/updatePromote'/>">
 		  <input type="hidden" id="postNo" name="postNo" value="${promoteBoard.postNo}" />
 		  <div class="animalCtg">
 			<select class="animalCtg" name="petCtgNo" id="petCtgNo">
