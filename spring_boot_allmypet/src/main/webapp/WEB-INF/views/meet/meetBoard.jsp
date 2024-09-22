@@ -12,12 +12,14 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/animal/tipBoard.css'/>" />
+	href="<c:url value='/css/meet/meetBoard.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/Board/paging.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/paging.js'/>"></script>
 <script src="<c:url value='/js/animal/tipBoard.js'/>"></script>
+<script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=p8d8z1bubk&submodules=geocoder"></script>
+<script src="<c:url value='/js/map/meetmap.js'/>"></script>
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
@@ -49,44 +51,79 @@
 					</div>
 					<!-- pageInfo 끝 -->
 					<div class="board-contents">
-						<!-- 게시판 관련 컨텐츠 시작 -->
-						<div class="searchBar">
-							<form action="${pageContext.request.contextPath}/search"
-								method="get">
-								<input type="text" name="keyword" placeholder="게시글 검색" required />
-								<button class="searchBtn" type="submit">
-									<img src="/image/search.png" alt="검색" />
-								</button>
-							</form>
-						</div>
-						<!-- searchBar 끝 -->
 						<div class="bestTip-box">
-							<table class="bestTip-table">
-								<tbody>
-									<!-- tbody와 thead간의 공백 -->
-									<tr>
-										<td colspan="5"
-											style="height: 3px; background-color: transparent;"></td>
-									</tr>
-									<tr>
-										<td class="post-title"><a href="<c:url value='/tip/${petCtgNo}/detailTipBoard/${top3.postNo}'/>">내 주변 소모임 찾기</a></td>
-									</tr>
-									<tr>
-										<td class="post-title">지역별로 찾기</td>
-									</tr>
-									<tr>
-										<td class="post-title">동물별로 찾기</td>
-									</tr>
-									<tr>
-										<td class="post-title">온라인/오프라인</td>
-									</tr>
-								</tbody>
-							</table>
+						    <table class="bestTip-table">
+						        <colgroup>
+						            <col style="width: 20%;">
+						            <col style="width: 80%;">
+						        </colgroup>
+						        
+						        <thead>
+						            <tr>
+						                <th colspan="2" class="post-title">소모임 필터링</th>
+						            </tr>
+						        </thead>
+						        <tbody>
+						            <tr>
+						                <td colspan="2" class="post-title">내 주변 소모임 찾기</td>
+						            </tr>
+						            <tr>
+						                <td class="post-title">지역별로 찾기</td>
+						                <td>
+						                    <select class="categorySelect" name="addressRegion" id="addressRegion"></select>
+						                    <select name="addressDo" id="addressDo1"></select>
+						                    <select name="addressSiGunGu" id="addressSiGunGu1"></select>
+						                </td>
+						            </tr>
+						            <tr>
+						                <td class="post-title">동물별로 찾기</td>
+						                <td>
+						                    <label for="petCtgNo">동물 종류:</label>
+						                    <select id="petCtgNo" name="petCtgNo">
+						                        <option value="">동물 카테고리</option>
+						                        <option value="1">강아지</option>
+						                        <option value="2">고양이</option>
+						                        <option value="3">기타 포유류</option>
+						                        <option value="4">파충류/양서류</option>
+						                        <option value="5">어류</option>
+						                        <option value="6">조류</option>
+						                        <option value="7">설치류</option>
+						                        <option value="8">절지류/곤충류</option>
+						                    </select>
+						                </td>
+						            </tr>
+						            <tr>
+						                <td class="post-title">모임 형식</td>
+						                <td>
+						                    <input type="checkbox" name="meetType" value="online" id="online">온라인 &nbsp;&nbsp;
+						                    <input type="checkbox" name="meetType" value="offline" id="offline">오프라인
+						                </td>
+						            </tr>
+						        </tbody>
+						    </table>
+						    <button type="button" id="filterButton">필터링된 목록 보기</button>
+							<button type="button" id="showAllButton" onclick="showAllMeets()">전체목록 보기</button>
 						</div>
 						<!-- bestTip-box끝 -->
 						<div class="board-title">&nbsp;모임 목록</div>
+						<div class="searchBar">
+								<input type="text" id="searchKeyword" name="searchKeyword" placeholder="모임명 검색" value="${param.searchKeyword}" required />
+								<button class="searchBtn">
+									<img src="/image/search.png" alt="검색" />
+								</button>
+							
+						</div>
+						
+						
 						<div class="notice-box">
 							<table class="notice-table">
+								<colgroup>
+							       <col style="width: 10%;">
+							       <col style="width: 40%;">
+							       <col style="width: 20%;">
+							       <col style="width: 15%;">
+							       <col style="width: 15%;">
+							    </colgroup>
 								<thead>
 									<tr>
 										<th class="post-view">구분</th>
@@ -97,24 +134,32 @@
 									</tr>
 								</thead>
 								<tbody>
-									<!-- tbody와 thead간의 공백 -->
-									<tr>
-										<td colspan="5"
-											style="height: 3px; background-color: transparent;"></td>
-									</tr>
-									<c:forEach var="mytip" items="${myTipList }">
-										<tr>
-											<td class="post-title"><a href="<c:url value='/tip/${petCtgNo}/detailTipBoard/${mytip.postNo}'/>">${mytip.postTitle}</a></td>
-											<td class="post-author">${mytip.memNickName}</td>
-											<td class="post-date"><fmt:formatDate value="${mytip.postDate}"
-													pattern="M/dd HH:mm" /></td>
-											<td class="post-view">${mytip.postView}</td>
-											<td class="post-like">${mytip.postLike}</td>
-										</tr>
-										<td colspan="5">
-											<div class="separator"></div>
-										</td>
-									</c:forEach>
+									<c:forEach var="meet" items="${meetList}">
+						                <tr>
+						                    <td id="category-${meet.petCtgNo}">
+								              <c:choose>
+								                  <c:when test="${meet.petCtgNo == 1}">강아지</c:when>
+								                  <c:when test="${meet.petCtgNo == 2}">고양이</c:when>
+								                  <c:when test="${meet.petCtgNo == 3}">기타 포유류</c:when>
+								                  <c:when test="${meet.petCtgNo == 4}">파충류/양서류</c:when>
+								                  <c:when test="${meet.petCtgNo == 5}">어류</c:when>
+								                  <c:when test="${meet.petCtgNo == 6}">조류</c:when>
+								                  <c:when test="${meet.petCtgNo == 7}">설치류</c:when>
+								                  <c:when test="${meet.petCtgNo == 8}">절지류/곤충</c:when>
+								                  <c:otherwise>Unknown Category</c:otherwise>
+								              </c:choose>
+								          </td>
+						                    <td><a href="${pageContext.request.contextPath}/meetDetail?meetNo=${meet.meetNo}">${meet.meetName}</a></td>
+						                    <td>${meet.addressDo} ${meet.addressSiGunGu}</td>
+						                    <td>
+									            <c:choose>
+									                <c:when test="${meet.meetType}">오프라인</c:when>
+									                <c:otherwise>온라인</c:otherwise>
+									            </c:choose>
+									        </td>
+						                    <td>${meet.meetMember}</td>
+						                </tr>
+						            </c:forEach>
 								</tbody>
 							</table>
 						</div>
@@ -140,19 +185,15 @@
 						<div class="bottom-box">
 							<!-- 페이징 -->
 							<div class="paging" style="text-align: center;">
-								<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
-									onclick="javascript:goPage('prev')">이전</a>
-
-								<c:forEach var="i" begin="${pageVo.startPage }"
-									end="${pageVo.endPage }">
-									<%-- <a onclick="javascript:goPage('${i}')">${i }</a> --%>
-									<a onclick="javascript:goPage('${i}')"
-										class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
-								</c:forEach>
-
-								<a onclick="javascript:goPage('next')">다음</a> <a
-									onclick="javascript:goPage('${pageVo.totalPage }')">
-									&gt;&gt;</a>
+							    <a onclick="javascript:goPage(1)">&lt;&lt;</a> 
+							    <a onclick="javascript:goPage('${currentPage > 1 ? currentPage - 1 : 1}')">이전</a>
+							
+							    <c:forEach var="i" begin="1" end="${totalPages}">
+							        <a onclick="javascript:goPage('${i}')" class="${i == currentPage ? 'current' : ''}">${i}</a>
+							    </c:forEach>
+							
+							    <a onclick="javascript:goPage('${currentPage < totalPages ? currentPage + 1 : totalPages}')">다음</a> 
+							    <a onclick="javascript:goPage('${totalPages}')">&gt;&gt;</a>
 							</div>
 							<form name="pageFrm">
 								<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
