@@ -117,10 +117,25 @@
 									</c:if>
 								</div>
 								<div class="promoteDescription">
-									분류:${promote.petCtgNo }<br> 
+									분류:
+										<c:choose>
+											<c:when test="${promote.petCtgNo == 1}">강아지</c:when>
+											<c:when test="${promote.petCtgNo == 2}">고양이</c:when>
+											<c:when test="${promote.petCtgNo == 3}">기타 포유류</c:when>
+											<c:when test="${promote.petCtgNo == 4}">파충류/양서류</c:when>
+											<c:when test="${promote.petCtgNo == 5}">어류</c:when>
+											<c:when test="${promote.petCtgNo == 6}">조류</c:when>
+											<c:when test="${promote.petCtgNo == 7}">설치류</c:when>
+											<c:when test="${promote.petCtgNo == 8}">절지류/곤충류</c:when>
+										</c:choose>
+									<br> 
 									생물명:${promote.petName }<br>
 									분양처:${promote.placeInfo }<br> 
-									분양 방법:${promote.parcelOutInfo }
+									분양 방법:
+										<c:choose>
+											<c:when test="${promote.parcelOutInfo == 'FTF' }">대면</c:when>
+											<c:when test="${promote.parcelOutInfo == 'NFTF' }">비 대면</c:when>
+										</c:choose>
 								</div>
 							</div>
 						</a>

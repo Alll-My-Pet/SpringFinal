@@ -99,12 +99,12 @@
 							<!-- 댓글 작성 폼 -->
 							<h3>댓글 작성</h3>
 							<form id="comment-form" method="post" action="/comment/insert">
-								<input type="hidden" name="postNo" value="${gall.postNo}" /> <input
-									type="hidden" name="boardCtgNo" value="${gall.petCtgNo}" /> <input
-									type="hidden" id="selectedEmoji" name="emojiImg" value="" />
+								<input type="hidden" name="postNo" value="${gall.postNo}" /> 
+								<input type="hidden" name="boardCtgNo" value="${gall.petCtgNo}" /> 
+								<input type="hidden" id="selectedEmoji" name="emojiImg" value="" />
 
 								<!-- 이모지 선택 버튼 -->
-								<button type="button" id="open-emoji-modal">이모지 추가</button>
+								<button type="button" class="custom-btn btn-1" id="open-emoji-modal">이모지 추가</button>
 
 								<!-- 선택된 이모지를 보여주는 영역 -->
 								<div id="selected-emoji">
@@ -115,7 +115,7 @@
 								<textarea class="commentText" name="commentText"
 									placeholder="댓글을 입력하세요" required></textarea>
 								<button class="comUploadBtn" type="submit">등록</button>
-							</form>
+							</form><br><br>
 							<!-- comment-form 끝 -->
 							<h3>댓글 [${post.comments.size()}]</h3>
 
@@ -123,9 +123,9 @@
 							<c:forEach var="comment" items="${post.comments}">
 								<div class="comment-item">
 									<div class="comment-info">
-										<span class="comment-author">${comment.memId}</span> <span
-											class="comment-date">${comment.commentDate}</span>
-									</div>
+										<span class="comment-author">${comment.memId}</span> 
+										<span class="comment-date">${comment.commentDate}</span>
+									</div><br>
 									<div class="comment-text">
 										<p>${comment.commentText}</p>
 									</div>

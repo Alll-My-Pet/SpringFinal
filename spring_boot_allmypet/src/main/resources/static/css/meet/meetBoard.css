@@ -1,0 +1,278 @@
+@charset "UTF-8";
+
+.board-contents {
+	position: relative;
+}
+/* ******************* */
+/* 검색창 기능 */
+/* ******************* */
+.searchBar {
+	/* background-color: pink; */
+	width: fit-content;
+	height: auto;
+	position: absolute;
+	right: 0;
+	display: flex;
+}
+
+.searchBar form {
+	height: fit-content !important;
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	justify-content: flex-end;
+}
+
+.searchBar input {
+	width: 160px; /* 원하는 너비 설정 */
+	height: 23px; /* 높이 설정 */
+	border: 1px solid #ccc; /* 테두리 스타일 */
+	border-radius: 5px; /* 모서리 둥글게 */
+	padding: 0 10px; /* 좌우 패딩 */
+	margin-right: 3px; /* 버튼과의 여유 공간 */
+	transition: border-color 0.3s; /* 테두리 색상 변화 효과 */
+}
+
+.searchBar input:focus {
+	border-color: #808080; /* 포커스 시 테두리 색상 변경 */
+	outline: none; /* 기본 아웃라인 제거 */
+}
+
+.searchBtn {
+	width: fit-content;
+	height: fit-content;
+	background: none;
+	/* 배경 제거 */
+	border: none;
+	/* 경계선 제거 */
+	padding: 0;
+	/* 패딩 제거 */
+	cursor: pointer;
+	/* 	transform: translateY(9px);  */
+	/* 아래로 이동 */
+}
+
+.searchBtn img {
+	height: 25px;
+	/* 이미지 높이 조정 (필요에 따라 조정) */
+	width: auto;
+	/* 비율 유지 */
+}
+
+/* ******************* */
+/* 양육팁 베스트 div */
+/* ******************* */
+.bestTip-box {
+	/* 	background-color: yellow; */
+	width: 689px;
+	height: auto;
+	margin-top: 40px;
+	background-color: white;
+	border: 1px solid #A4A4A4;
+	border-radius: 8px;
+	box-shadow: 0 4px 1px rgba(0, 0, 0, 0.2);
+}
+
+.bestTip-title {
+	/* background-color: yellow; */
+	display: inline-block; /* 또는 block */
+/* 	margin: 15px; */
+	/* font-weight: bold; */
+	font-size: 17px;
+	transform: translateY(20px);
+}
+/* *************************************************** */
+/* 공지사항에서 가져온 전체 설정*/
+.contents {
+	min-height: 1000px;
+}
+
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 689px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin: 40px auto;
+	/* 여백 설정 */
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	padding: 18.5px 22px 11.5px 21px;
+	box-sizing: border-box;
+}
+
+/* 공지/이벤트 */
+.page-title .ctgTitle {
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 43px;
+	line-height: 1;
+	color: #000000;
+	margin: 10px auto;
+}
+
+/* 공지사항 */
+.page-title .titleInfo {
+	margin-bottom: 8px;
+	display: inline-block;
+	align-self: flex-start;
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.39);
+	margin: 0 auto;
+}
+
+.bracket {
+	width: fit-content;
+	height: fit-content;
+}
+
+.bLeft {
+	position: absolute;
+	/* 부모 기준으로 절대 위치 설정 */
+	left: -50px;
+	/* 부모의 왼쪽에서 5px 위치 */
+	top: 60%;
+	/* 부모의 중앙으로 이동 */
+	transform: translateY(-50%);
+	/* 수직 중앙 정렬 */
+}
+
+.bRight {
+	position: absolute;
+	/* 부모 기준으로 절대 위치 설정 */
+	right: -50px;
+	/* 부모의 오른쪽에서 5px 위치 */
+	top: 60%;
+	/* 부모의 중앙으로 이동 */
+	transform: translateY(-50%);
+	/* 수직 중앙 정렬 */
+}
+
+/* ***************** */
+/* 공지사항 테이블 */
+.notice-box {
+	/* 	display: flex; */
+	background-color: white;
+	border: 1px solid #A4A4A4;
+	border-radius: 8px;
+	width: 689px;
+	height: auto;
+	margin-top: 40px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 글작성 버튼 */
+.mainWriteBox{
+	display: flex;
+	position: relative;
+}
+.mainWriteBtn {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	width: 130px;
+	height: 30px;
+	border-radius: 8px;
+	/* 	border: none; */
+	cursor: pointer;
+	/*  background-color: aliceblue; */
+	background-color: #E6E6E6;
+	/* border: none; */
+	border-width: 1px;
+	border-color: blanchedalmond;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.mainWriteBtn a{
+	text-decoration: none;
+	color: inherit;
+}
+.board-title {
+	/* background-color: yellow; */
+	display: inline-block; /* 또는 block */
+	font-size: 17px;
+	transform: translateY(30px);
+}
+.bestTip-table, .notice-table {
+	width: 100%;
+	margin: 0 auto;
+	border-collapse: collapse; /* 테두리 겹침 방지 */
+}
+
+/* 각 게시글 구분하는 선 */
+.separator {
+	width: 95%; /* 테이블 너비보다 약간 짧게 설정 */
+	height: 1px; /* 구분선의 두께 */
+	background-color: #D8D8D8; /* 구분선 색상 */
+	margin: 0 auto; /* 가운데 정렬 */
+	padding: 0;
+}
+
+/* .notice-table tbody tr:first-child {
+    margin-top: 10px; 원하는 마진 값
+} */
+
+.notice-table {
+	table-layout: fixed;
+}
+
+.notice-table th, td {
+	text-align: center;
+	padding: 5px; /* 셀 안의 패딩 추가 */
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	/* 넘치는 부분 숨김 */
+	text-overflow: ellipsis !important;
+	/* 넘치는 부분에 ... 표시 */
+}
+
+thead th {
+	border-bottom: 2px solid #A4A4A4; /* 하단 테두리 추가 */
+}
+
+tbody td {
+	border: 2px solid #A4A4A4; /* tbody 셀 테두리 제거 */
+}
+
+td a {
+	text-decoration: none;
+	color: inherit;
+}
+
+
+.post-title {
+	width: 377px !important;
+}
+
+.post-author {
+	width: 82px;
+}
+
+.post-date {
+	width: 115px;
+}
+
+.post-view {
+	width: 32px;
+}
+
+.post-like {
+	width: 32px;
+}
+
