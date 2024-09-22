@@ -5,7 +5,7 @@
  <html>
   <head>
    <title>분양홍보 게시글</title>
-   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/protectDetail.css'/>" />
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/promoteDetail.css'/>" />
    <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
    <script src="<c:url value='/js/Board/promoteDetail.js'/>"></script>
   </head>

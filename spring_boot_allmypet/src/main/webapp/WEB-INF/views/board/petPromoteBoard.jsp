@@ -39,13 +39,13 @@
 			<div class="promoteHeader">
 
 
-				<h1 id="titleFont" style="margin-left:50px;">분양 홍보 게시판</h1>
-				<p id="titleFont2" style="color: gray; margin-left:50px;">인가받은 업체나 브리더에 한해서만 게시글
+				<h1 id="titleFont" style="margin-left:500px;">분양 홍보 게시판</h1>
+				<p id="titleFont2" style="color: gray; margin-left:500px;">인가받은 업체나 브리더에 한해서만 게시글
 					업로드 가능합니다</p>
 
 				<div class="promoteNotice-box">
 					<h3 style="margin-left: 2%;" class="promoteNotice-title">분양 시 주의사항</h3>
-					<c:forEach var="notice" items="${noticeList }" >
+					
 						<div class="promoteNotice">
 							
 							<table class="noticeTable">
@@ -56,7 +56,7 @@
 										<th>조회수</th>
 										<th>좋아요</th>
 									</tr>
-							
+							<c:forEach var="notice" items="${noticeList }" >
 								<a href="#">
 									<tr>
 										<td style="color: red;" ><a href="#">${notice.postTitle}</a></td>
@@ -67,9 +67,9 @@
 										<td>${notice.postLike}</td>
 									</tr>
 								</a>
+							</c:forEach>
 							</table>
 						</div>
-					</c:forEach>
 				</div>
 
 				<div class="promoteSearchBox">
@@ -143,10 +143,7 @@
 					<form name="pageFrm">
 						<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 					</form>
-
-				</div>
-				<!-- promotePicBox 끝 -->
-
+					
 				<!-- 로그인 시 -->
 				<c:if test="${not empty sessionScope.mid }">
 					<button class="promoteBrdBtn">
@@ -158,6 +155,10 @@
 				<c:if test="${empty sessionScope.mid }">
 					<button id="notLoginBtn" class="promoteBrdBtn">글 작성</button>
 				</c:if>
+
+				</div>
+				<!-- promotePicBox 끝 -->
+
 			</div>
 		</section>
 	</div>
