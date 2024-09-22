@@ -329,7 +329,7 @@ public class BoardCotroller {
 			}
 		
 
-	// ********************************동물분양 홍보****************************************
+	// ******************************** 동물분양 홍보 ****************************************
 	@RequestMapping("/board/PromoteBoardList")
 	public String PromoteBoardList(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) {
 
