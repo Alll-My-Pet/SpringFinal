@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/meet/meetBoard.css'/>" />
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/paging.css'/>" />
+	href="<c:url value='/css/board/paging.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/paging.js'/>"></script>
 <script src="<c:url value='/js/animal/tipBoard.js'/>"></script>
