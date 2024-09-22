@@ -147,8 +147,8 @@
 												<c:when test="${promote.petCtgNo == 7}">설치류</c:when>
 												<c:when test="${promote.petCtgNo == 8}">절지류/곤충류</c:when>
 											</c:choose>
-											<br> 생물명: ${promote.petName }<br>
-											분양처: ${promote.placeInfo }<br> 
+											<br> 생물명: ${promote.petName }<br> 분양처:
+											${promote.placeInfo }<br>
 											<%-- 분양 방법:
 											<c:choose>
 												<c:when test="${promote.parcelOutInfo == 'FTF' }">대면</c:when>
@@ -157,27 +157,12 @@
 										</div>
 									</a>
 								</div>
+								<!-- "promotePic"끝 -->
 							</c:forEach>
 
-							<div class="paging" style="text-align: center;">
-								<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
-									onclick="javascript:goPage('prev')">이전</a>
-
-								<c:forEach var="i" begin="${pageVo.startPage }"
-									end="${pageVo.endPage }">
-									<%-- <a onclick="javascript:goPage('${i}')">${i }</a> --%>
-									<a onclick="javascript:goPage('${i}')"
-										class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
-								</c:forEach>
-
-								<a onclick="javascript:goPage('next')">다음</a> <a
-									onclick="javascript:goPage('${pageVo.totalPage }')">
-									&gt;&gt;</a>
-							</div>
-							<form name="pageFrm">
-								<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
-							</form>
-
+						</div>
+						<!-- promoteBoardBox 끝 -->
+						<div class="mainWriteBox">
 							<!-- 로그인 시 -->
 							<c:if test="${not empty sessionScope.mid }">
 								<button class="promoteBrdBtn">
@@ -189,9 +174,25 @@
 							<c:if test="${empty sessionScope.mid }">
 								<button id="notLoginBtn" class="promoteBrdBtn">글 작성</button>
 							</c:if>
-
 						</div>
-						<!-- promotePicBox 끝 -->
+						<div class="paging" style="text-align: center;">
+							<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
+								onclick="javascript:goPage('prev')">이전</a>
+
+							<c:forEach var="i" begin="${pageVo.startPage }"
+								end="${pageVo.endPage }">
+								<%-- <a onclick="javascript:goPage('${i}')">${i }</a> --%>
+								<a onclick="javascript:goPage('${i}')"
+									class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
+							</c:forEach>
+
+							<a onclick="javascript:goPage('next')">다음</a> <a
+								onclick="javascript:goPage('${pageVo.totalPage }')">
+								&gt;&gt;</a>
+						</div>
+						<form name="pageFrm">
+							<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
+						</form>
 					</section>
 					<!-- section끝 -->
 				</div>

@@ -280,20 +280,53 @@ td a {
 	top:1px;
 }
 
-
-.promoteBrdBtn{
+/* ****************************** */
+/* 브리더 전용 - 분양홍보 글 작성 버튼 */
+/* ****************************** */
+/* .promoteBrdBtn{
 	background-color:white;
 	border-radius:10px;
 	width:150px;
 	height:30px;
 	margin-left:720px;
 	margin-bottom:30px;
+} */
+
+
+/* 글작성 버튼 */
+.mainWriteBox{
+	display: flex;
+	width: auto;
+	height: 50px;
+	position: relative;
+	/* background-color: lime; */
+	/* margin-bottom: 50px; */
 }
 
+.promoteBrdBtn {
+	position: absolute;
+	right: 50px;
+	top: 20px;
+	width: 130px;
+	height: 30px;
+	border-radius: 8px;
+	/* 	border: none; */
+	cursor: pointer;
+	/*  background-color: aliceblue; */
+	background-color: #E6E6E6;
+	/* border: none; */
+	border-width: 1px;
+	border-color: blanchedalmond;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
 
+.mainWriteBtn a{
+	text-decoration: none;
+	color: inherit;
+}
 
-
-
+/* ****************************** */
 
 
 
@@ -332,7 +365,7 @@ td a {
 
 .paging{
 	margin:0 auto;
-	margin-top:90px;
+	margin-top:40px;
 	
 }
 
