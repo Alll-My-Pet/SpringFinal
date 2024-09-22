@@ -195,7 +195,7 @@
 									<div class="info-box2">
 										<div class="petCtgName">
 											<img src="/image/animal_ctg/ctg_기타1.png" class="card-img"
-														alt="..." style="width: 20px; height: 20px;">
+												alt="..." style="width: 20px; height: 20px;">
 										</div>
 										<div class="itemName">햄스터 먹이</div>
 									</div>
@@ -219,8 +219,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_강아지.png" class="card-img"
+												alt="..." style="width: 25px; height: 25px;">
 										</div>
 										<div class="itemName">노즈워크</div>
 									</div>
@@ -244,8 +244,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_어류.png" class="card-img"
+												alt="..." style="width: 25px; height: 25px;">
 										</div>
 										<div class="itemName">물고기 사료</div>
 									</div>
@@ -269,10 +269,10 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_조류.png" class="card-img"
+												alt="..." style="width: 15px; height: 15px;">
 										</div>
-										<div class="itemName">새 사육</div>
+										<div class="itemName">새 사육장</div>
 									</div>
 									<div class="info-box">
 										<div class="itemPrice">40000원</div>
@@ -293,8 +293,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_고양이.png" class="card-img"
+												alt="..." style="width: 20px; height: 20px;">
 										</div>
 										<div class="itemName">캣닢</div>
 									</div>
@@ -319,8 +319,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_강아지.png" class="card-img"
+												alt="..." style="width: 25px; height: 25px;">
 										</div>
 										<div class="itemName">강아지 장난감</div>
 									</div>
@@ -344,8 +344,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_고양이.png" class="card-img"
+												alt="..." style="width: 20px; height: 20px;">
 										</div>
 										<div class="itemName">스크래처</div>
 									</div>
@@ -369,8 +369,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_절지류.png" class="card-img"
+												alt="..." style="width: 25px; height: 25px;">
 										</div>
 										<div class="itemName">사슴벌레 먹이</div>
 									</div>
@@ -394,8 +394,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_기타1.png" class="card-img"
+												alt="..." style="width: 20px; height: 20px;">
 										</div>
 										<div class="itemName">페럿 집</div>
 									</div>
@@ -419,8 +419,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_기타1.png" class="card-img"
+												alt="..." style="width: 20px; height: 20px;">
 										</div>
 										<div class="itemName">토끼 사료</div>
 									</div>
@@ -444,8 +444,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_조류.png" class="card-img"
+												alt="..." style="width: 15px; height: 15px;">
 										</div>
 										<div class="itemName">앵무새 알곡 사</div>
 									</div>
