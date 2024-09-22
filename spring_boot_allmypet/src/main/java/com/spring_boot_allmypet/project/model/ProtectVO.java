@@ -8,6 +8,7 @@ public class ProtectVO {
 	private int postNo;
 	private int headerNo;
 	private String memId;
+	private String memNickName;
 	private String postTitle;
 	private String postContent;
 	private String postImg;
@@ -91,6 +92,11 @@ public class ProtectVO {
 	public void setPostImg(String postImg) {
 		this.postImg = postImg;
 	}
+	public String getMemNickName() {
+		return memNickName;
+	}
+	public void setMemNickName(String memNickName) {
+		this.memNickName = memNickName;
+	}
 	
-
 }
