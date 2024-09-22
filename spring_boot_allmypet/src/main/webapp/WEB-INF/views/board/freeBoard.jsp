@@ -12,7 +12,7 @@
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/freeBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<%-- <script src="<c:url value='/js/Board/freeBoard.js'/>"></script> --%>
+<script src="<c:url value='/js/Board/freeBoard.js'/>"></script>
 <script>
 	function goPage(no) {
 		const frm = document.pageFrm;
@@ -88,10 +88,8 @@
 
 						</form>
 						<!-- form 끝 -->
+						<div class="board-title"><strong>🔥실시간 인기글🔥</strong></div>
 						<div class="freeHotBoard">
-							<h3
-								style="margin-left: 2%; margin-top: 30px; position: absolute;">실시간
-								인기글🔥</h3>
 							<div class="post-list">
 								<table class="freeHotTable">
 									<thead>
@@ -104,6 +102,11 @@
 										</tr>
 									</thead>
 									<tbody>
+										<!-- tbody와 thead간의 공백 -->
+										<tr>
+											<td colspan="5"
+												style="height: 10px; background-color: transparent;"></td>
+										</tr>
 										<c:forEach var="hot" items="${free_hotList }">
 											<tr>
 												<td><a
@@ -114,6 +117,9 @@
 												<td>${hot.postView }</td>
 												<td>${hot.postLike }</td>
 											</tr>
+											<td colspan="5">
+												<div class="separator"></div>
+											</td>
 										</c:forEach>
 
 									</tbody>
@@ -122,9 +128,9 @@
 							</div>
 
 						</div>
-
-						<table class="freeboardTB">
-
+						<div class="board-title">전체 게시글</div>
+						<div class="post-list">
+							<table class="freeboardTB">
 							<thead>
 								<tr>
 									<th scope="col" class="th-title">글 제목</th>
@@ -134,24 +140,38 @@
 									<th scope="col" class="th-good">추천</th>
 								</tr>
 							</thead>
+								<tbody id="FreeboardList">
+									<c:forEach var="free" items="${freeBoardList }">
+										<tr>
+											<td><a
+												href="<c:url value='/board/FreeDetailView/${free.postNo}'/>" />${free.postTitle }</td>
+											<td>${free.memNickName }</td>
+											<td><fmt:formatDate value="${free.postDate }"
+													pattern="YYYY-MM-dd" /></td>
+											<td>${free.postView }</td>
+											<td>${free.postLike }</td>
+										</tr>
+										<td colspan="5" class="sep-td">
+											<div class="separator"></div>
+										</td>
+									</c:forEach>
+								</tbody>
+							</table>
+						</div>
+						<div class="mainWriteBox">
+							<!-- 로그인 한 경우  -->
+							<c:if test="${not empty sessionScope.mid }">
+								<button class="mainWriteBtn">
+									<a href="<c:url value='/Board/MainBoardText'/>">글 작성</a>
+								</button>
+							</c:if>
 
-							<tbody id="FreeboardList">
-								<c:forEach var="free" items="${freeBoardList }">
-									<tr>
-										<td><a
-											href="<c:url value='/board/FreeDetailView/${free.postNo}'/>" />${free.postTitle }</td>
-										<td>${free.memNickName }</td>
-										<td><fmt:formatDate value="${free.postDate }"
-												pattern="YYYY-MM-dd" /></td>
-										<td>${free.postView }</td>
-										<td>${free.postLike }</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-
-						</table>
-						<br> <br>
-
+							<!-- 로그인 하지 않은 경우-->
+							<c:if test="${empty sessionScope.mid }">
+								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
+							</c:if>
+						</div>
+						<br>
 						<div class="paging" style="text-align: center;">
 							<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
 								onclick="javascript:goPage('prev')">이전</a>
@@ -170,24 +190,6 @@
 						<form name="pageFrm">
 							<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 						</form>
-
-
-						<div class="mainWriteBox">
-							<!-- <button class="mainWriteBtn">글 작성</button> -->
-							<!-- 로그인 한 경우  -->
-							<c:if test="${not empty sessionScope.mid }">
-								<button class="mainWriteBtn">
-									<a href="<c:url value='/Board/MainBoardText'/>">글 작성</a>
-								</button>
-							</c:if>
-
-
-							<!-- 로그인 하지 않은 경우-->
-							<c:if test="${empty sessionScope.mid }">
-								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
-							</c:if>
-						</div>
-
 					</section>
 
 				</div>

@@ -7,7 +7,7 @@
    <title>분양홍보 작성</title>
    <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/promoteWrite.css'/>" />
    <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-   <script src="<c:url value='/js/Board/promoteWrite.js'/>"></script>
+   <script src="<c:url value='/js/board/promoteWrite.js'/>"></script>
   </head>
 	<body>
 		<div class="All">

@@ -7,7 +7,7 @@
    <title>동물보호 게시글 작성</title>
    <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/protectWrite.css'/>" />
    <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-   <script src="<c:url value='/js/Board/protectUpdate.js'/>"></script>
+   <script src="<c:url value='/js/board/protectUpdate.js'/>"></script>
   </head>
 	<body>
 		<div class="All">
