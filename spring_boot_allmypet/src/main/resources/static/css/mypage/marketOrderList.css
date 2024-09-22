@@ -20,6 +20,7 @@
 }
 #mol_m{
 	height:80%;
+	min-height:600px;
 }
 #mol_b{
 	height:10%;
@@ -73,6 +74,7 @@
 	margin: 0 auto;
 	padding: 1% 1%;
 	border:1px solid #aaaaaa;
+	min-height:550px;
 }
 .mol_order_list{
 	width:90%;
