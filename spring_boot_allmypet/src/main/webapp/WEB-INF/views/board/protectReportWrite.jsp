@@ -17,7 +17,8 @@
 			<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
 		</div>
 		
-		  <form class="reportFrm" method="post" action="/reportInsert">
+		  <form class="reportFrm" method="post" action="/reportInsert" enctype="multipart/form-data">
+		  <input type="hidden" name="memId" value="${sessionScope.mid}">
 		  	<h1 id="reportFont">유기동물 신고</h1>
 		  
 			<section class="reportHeader">
@@ -44,8 +45,8 @@
 				<div class="buttonAndImg">
 				
 					<div class="imgAndPreview">
-						<input type="file" class="thumbNailBtn" id="postImg" name="postImg">
-						<label for="postImg" class="imgSelectLabel">파일 선택</label>
+						<input type="file" class="thumbNailBtn" id="postImgFile" name="postImgFile">
+						<label for="postImgFile" class="imgSelectLabel">파일 선택</label>
 						
 						<div class="ImgPreviewBox"></div>
 					</div>
@@ -59,7 +60,7 @@
 						</ul>
 					</div>
 					
-					<button type="submit" class="reportBtn">업로드</button>
+					<button type=submit class="reportBtn" id="uploadBtn">업로드</button>
 				</div>
 			</section>
 		  </form>

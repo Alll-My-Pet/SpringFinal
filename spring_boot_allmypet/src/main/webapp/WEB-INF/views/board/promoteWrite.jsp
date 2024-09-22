@@ -19,7 +19,7 @@
 				
 		 <section class="promoteWrite">
 		 
-		  <form class="promoteFrm" method="post" action="<c:url value='/insertPromote'/>">
+		  <form class="promoteFrm" method="post" action="<c:url value='/insertPromote'/>" enctype="multipart/form-data">
 		  
 		  <div class="animalCtg">
 			<select class="animalCtg" name="petCtgNo" id="petCtgNo">
@@ -60,8 +60,8 @@
 
 
 			<div class="thumbNail">
-				<input type="file" class="thumbNailBtn" name="postImg" id="postImg"> 
-				<label for="postImg" class="imgSelectLabel">파일 선택</label>
+				<input type="file" class="thumbNailBtn" name="postImgFile" id="postImgFile"> 
+				<label for="postImgFile" class="imgSelectLabel">파일 선택</label>
 			</div>
 			
 			

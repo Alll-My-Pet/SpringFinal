@@ -3,7 +3,7 @@ package com.spring_boot_allmypet.project.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+import com.spring_boot_allmypet.project.model.BoardVO;
 import com.spring_boot_allmypet.project.model.PromoteVO;
 
 public interface IPromoteService {

@@ -38,7 +38,6 @@ public class ProtectService implements IProtectService {
 	
 	@Override
 	public int ReportPaging() {
-		// TODO Auto-generated method stub
 		return dao.ReportPaging();
 	}
 

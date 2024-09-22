@@ -48,7 +48,7 @@ $(document).ready(function() {
         event.preventDefault();
 
         var formData = $(this).serialize(); // 폼 데이터 직렬화
-        var bodNo = $('#postNo').val();
+        var postNo = $('#postNo').val();
 
         $.ajax({
             type: "POST",
@@ -58,7 +58,7 @@ $(document).ready(function() {
             success: function(result) {
                 if (result == "success") {
                     alert("게시글 수정 완료.");
-                    location.href = "/board/promoteDetailView/" + bodNo; // 해당 게시글 상세 페이지로 이동
+                    location.href = "/board/promoteDetailView/" + postNo; // 해당 게시글 상세 페이지로 이동
                 } else if (result == "fail") {
                     alert("비밀번호가 일치하지 않습니다");
                     location.reload(); // 현재 페이지 새로고침

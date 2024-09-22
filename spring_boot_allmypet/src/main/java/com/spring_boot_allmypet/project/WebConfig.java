@@ -14,6 +14,9 @@ public class WebConfig implements WebMvcConfigurer {
 		// 맵핑 이름 : project_images
 		registry.addResourceHandler("/project_images/**")
 		.addResourceLocations("file:///" + projectRootPath + "/src/main/webapp/uploads/");
+		
+		registry.addResourceHandler("/protect_images/**")
+		.addResourceLocations("file:///D:/finalWorkSpace/final/SpringFinal/uploads/");
 
 		registry.addResourceHandler("/prd_images/**")
 		.addResourceLocations("file:///usr/local/allmypet/image/market/");

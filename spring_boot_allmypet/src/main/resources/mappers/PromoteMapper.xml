@@ -68,4 +68,5 @@
 		FROM promote_board
 		WHERE postNo = #{postNo}
 	</select>
-  </mapper>
+	
+   </mapper>

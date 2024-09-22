@@ -81,7 +81,7 @@
 				<a href="/">커뮤니티</a>
 				<div class="dropdown-menu">
 					<a href="<c:url value='/board/freeBoard'/>">자유게시판</a> 
-					<a href="#">분양 홍보</a> 
+					<a href="/board/PromoteBoardList">분양 홍보</a> 
 					<a href="<c:url value='/board/ProtectBoardList'/>">반려동물 보호</a>
 					<a href="#">이모지 제작</a> 
 					<a href="#">핫한 게시글</a>
@@ -91,7 +91,7 @@
 				<a href="<c:url value='/board/bestTipBoard'/>">베스트 양육팁</a>
 			</div>
 			<div class="navigation-pill">
-				<a href="#">용품 중고거래</a>
+				<a href="/usedItem">용품 중고거래</a>
 			</div>
 			<div class="navigation-pill">
 				<!-- 지역 소모임 -->

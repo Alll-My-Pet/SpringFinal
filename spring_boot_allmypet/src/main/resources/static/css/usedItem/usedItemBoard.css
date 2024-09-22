@@ -1,0 +1,180 @@
+@charset "UTF-8";
+
+/* 중고거래 게시판 */
+
+.writeBtn{
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:2px 18px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+.writeBtn:hover {
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
+}
+.writeBtn:active {
+	position:relative;
+	top:1px;
+}
+
+.usedItemFont{
+	position:absolute;
+	left:50px;
+	margin-top:30px;
+}
+
+.usedItemFont-sell{
+	position:absolute;
+	left:50px;
+	margin-top:60px;
+	color:gray;
+}
+
+
+.All{
+	border:1px solid black;
+	width:750px;
+	height:950px;
+	margin-bottom:30px;
+	margin-top:100px;
+}
+
+.petCtgBox{
+	width:730px;
+	height:100px;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 10px;
+}
+
+.petCtg{
+	width:60px;
+	height:60px;
+	border:1px solid black;
+	display:flex;
+	align-items:center;
+	font:center;
+	justify-content: center;
+}
+
+hr{
+	width:90%;
+	margin:0 auto;
+}
+
+
+
+.postBox{
+	width: 750px;
+    height: 750px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;             /* 여러 줄로 감싸기 */
+    justify-content: center;      /* 가로 방향 중앙 정렬 */
+    align-items: flex-start;
+}
+
+.postCardBox{
+	border: 1px solid black;
+    width: 150px;
+    height: 220px;
+    margin: 15px 15px;  
+}
+
+.postCardPic{
+	width:140px;
+	height:150px;
+	border:1px solid black;
+	margin:0 auto;
+	margin-top:10px;
+}
+
+.img{
+	width:140px;
+	height:150px;
+}
+
+.itemInfo{
+	height:58px;
+	width:140px;
+	margin:0 auto;
+	flex-wrap: wrap;             /* 여러 줄로 감싸기 */
+    justify-content: center;
+    display: flex;
+}
+
+.tradelocal{
+	border:1px solid black;
+	width:65px;
+	height:20px;
+	margin-right: 5px; 
+	margin-top:5px;
+	font-size:13px;
+	text-align:center;
+}
+.itemState{
+	border:1px solid black;
+	width:65px;
+	height:20px;
+	margin-top:5px;
+	text-align:center;
+}
+
+.itemName{
+	border:1px solid black;
+	width:65px;
+	height:20px;
+	margin-right: 5px; 
+	margin-top:5px;
+	font-size:10px;
+	text-align:center;
+}
+
+.itemPrice{
+	border:1px solid black;
+	width:65px;
+	height:20px;
+	margin-top:5px;
+	text-align:center;
+}
+
+
+.pagingBox{
+	width: 150px;
+	height:30px;
+	margin:0 auto;
+	display:flex;
+}
+
+.paging{
+	width:40px;
+	height:30px;
+	margin:0 auto;
+	text-align:center;
+	margin-left:
+	
+}
+
+.searchAndButton{
+	width:750px;
+	height:40px;
+	display:flex;
+	margin-top:5px;
+}
+
+.searchBar{
+	width:350px;
+	height:25px;
+	margin:0 auto;
+}

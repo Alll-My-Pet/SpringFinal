@@ -42,7 +42,15 @@
 		  <div class="protectContent">
 		  <br><br>
 		   ${protect.postContent}
-		  </div>
+		   <br>
+			<c:if test="${not empty protect.postImg}">
+				<div class="imgBox">
+						<img class="post-image"
+							src="<c:url value='/protect_images/${protect.postImg}'/>"
+							alt="Post Image" />
+				</div>
+			</c:if>
+			</div>
 		 </section>
 		 
 		 <section class="postInfo">

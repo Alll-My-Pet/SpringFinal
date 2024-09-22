@@ -65,7 +65,7 @@
 		INSERT INTO animal_protect 
 		(headerNo, companyName, postContent, postImg, postTitle, postDate, postNo, memId)
 		VALUES (#{headerNo}, #{companyName}, #{postContent}, #{postImg},
-		 #{postTitle}, #{postDate}, #{postNo}, #{memId})
+		 #{postTitle}, NOW(), #{postNo}, #{memId})
 	</insert>
 	
 	<!-- 글 작성 -->
@@ -73,7 +73,7 @@
 	    INSERT INTO animal_protect 
 	    (headerNo, companyName, postContent, postImg, postTitle, postDate, postNo, memId, lossLocation, lossPet)
 	    VALUES (4, #{companyName}, #{postContent}, #{postImg}, #{postTitle}, 
-	    		#{postDate}, #{postNo}, #{memId}, #{lossLocation}, #{lossPet})
+	    		NOW(), #{postNo}, #{memId}, #{lossLocation}, #{lossPet})
 	</insert>
 	
 	<!-- 게시글 수정 -->
@@ -84,4 +84,8 @@
         postDate=#{postDate}, memId=#{memId}
     WHERE postNo=#{postNo}
 	</update>
+	
+	<delete id="ProtectDelete" parameterType="int">
+  		DELETE FROM animal_protect WHERE postNo=#{postNo}
+  	</delete>
 </mapper>
