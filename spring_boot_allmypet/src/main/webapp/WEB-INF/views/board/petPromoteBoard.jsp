@@ -70,10 +70,6 @@
 							</c:forEach>
 							</table>
 						</div>
-<<<<<<< HEAD
-					
-=======
->>>>>>> refs/heads/develop
 				</div>
 
 				<div class="promoteSearchBox">
