@@ -14,11 +14,7 @@
 	<section class="order">
 		<div class="complete_message">주문이 완료 되었습니다</div>
 		<br><br><br>
-<<<<<<< HEAD
-		<div class="complete_guide">상품배송 정보</div>
-=======
 		<div class="complete_guide">주문 정보</div>
->>>>>>> refs/heads/KCU
 		
 		<br><br><br>
 		

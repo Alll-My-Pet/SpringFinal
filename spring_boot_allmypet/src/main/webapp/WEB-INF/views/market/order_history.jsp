@@ -44,7 +44,7 @@
            	 <c:forEach var="product" items="${order.orderProducts}">
             <div class="order-item">
                 <div class="product-info">
-                <img class="order_image" src="<c:url value='/image/market/${product.productDetails.prdImg}'/>"/>
+                <img class="order_image" src="<c:url value='/prd_images/${product.productDetails.prdImg}'/>"/>
                      <p>${product.productDetails.prdName}
                     <br>
                     <fmt:formatNumber value= "${product.productDetails.prdPrice}" pattern="#,###" />원
