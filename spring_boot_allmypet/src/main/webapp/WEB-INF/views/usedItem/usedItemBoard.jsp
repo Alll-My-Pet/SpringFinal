@@ -14,7 +14,9 @@
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/usedItem/usedItemBoard.js'/>"></script>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap')
+	;
 </style>
 </head>
 <body>
@@ -160,7 +162,7 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="info-box">									
+									<div class="info-box">
 										<div class="tradelocal">서울-직접</div>
 										<span class="divider">|</span>
 										<div class="itemState" id="itemState">중고</div>
@@ -170,7 +172,7 @@
 											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
 												style="width: 25px; height: 25px;">
 										</div>
-										<div class="itemName">도마뱀 사육장</div>				
+										<div class="itemName">도마뱀 사육장</div>
 									</div>
 									<div class="info-box">
 										<div class="itemPrice">10000원</div>
@@ -185,10 +187,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal">경기-택배</div>
-									<div class="itemState">새 제품</div>
-									<div class="itemName">햄스터 먹이</div>
-									<div class="itemPrice">7000원</div>
+									<div class="info-box">
+										<div class="tradelocal">경기-택배</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">새 제품</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">햄스터 먹이</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">7000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -199,10 +212,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal">대구-택배</div>
-									<div class="itemState">중고</div>
-									<div class="itemName" style="font-size: 13px;">노즈워크</div>
-									<div class="itemPrice">15000원</div>
+									<div class="info-box">
+										<div class="tradelocal">대구-택배</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">중고</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">노즈워크</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">15000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -213,10 +237,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal" style="font-size: 10px;">제주도-택배</div>
-									<div class="itemState">새 제품</div>
-									<div class="itemName">물고기 사료</div>
-									<div class="itemPrice">5000원</div>
+									<div class="info-box">
+										<div class="tradelocal">제주도-택배</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">새 제품</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">물고기 사료</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">5000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -227,10 +262,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal">인천-직접</div>
-									<div class="itemState">중고</div>
-									<div class="itemName" style="font-size: 15px;">새 집</div>
-									<div class="itemPrice">40000원</div>
+									<div class="info-box">
+										<div class="tradelocal">인천-직접</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">중고</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">새 사육</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">40000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -240,10 +286,21 @@
 									<img src="<c:url value='/project_images/캣닢.jfif'/>" class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal">서울-택배</div>
-									<div class="itemState">새 제품</div>
-									<div class="itemName" style="font-size: 15px;">캣닢</div>
-									<div class="itemPrice">10000원</div>
+									<div class="info-box">
+										<div class="tradelocal">서울-직접</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">새 제품</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">캣닢</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">4000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -253,11 +310,23 @@
 									<img src="<c:url value='/project_images/강아지 장난감.jfif'/>"
 										class="img" />
 								</div>
+								
 								<div class="itemInfo">
-									<div class="tradelocal">충남-택배</div>
-									<div class="itemState">중고</div>
-									<div class="itemName">강아지 장난감</div>
-									<div class="itemPrice">8000원</div>
+									<div class="info-box">
+										<div class="tradelocal">충남-택배</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">중고</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">강아지 장난감</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">8000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -268,10 +337,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal" style="font-size: 10px;">강원도-택배</div>
-									<div class="itemState">새 제품</div>
-									<div class="itemName" style="font-size: 12px;">스크래처</div>
-									<div class="itemPrice">20000원</div>
+									<div class="info-box">
+										<div class="tradelocal">강원도-택배</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">새 제품</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">스크래처</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">20000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -282,10 +362,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal">서울-택배</div>
-									<div class="itemState">새 제품</div>
-									<div class="itemName">사슴벌레 먹이</div>
-									<div class="itemPrice">6000원</div>
+									<div class="info-box">
+										<div class="tradelocal">서울-택배</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">새 제품</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">사슴벌레 먹이</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">6000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -296,10 +387,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal">경기-직접</div>
-									<div class="itemState">중고</div>
-									<div class="itemName" style="font-size: 13px;">페럿 집</div>
-									<div class="itemPrice">27000원</div>
+									<div class="info-box">
+										<div class="tradelocal">경기-직접</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">중고</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">페럿 집</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">페럿 집</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -310,10 +412,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal">수원-택배</div>
-									<div class="itemState">새 제품</div>
-									<div class="itemName" style="font-size: 12px;">토끼 사료</div>
-									<div class="itemPrice">15000원</div>
+									<div class="info-box">
+										<div class="tradelocal">수원-택배</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">새 제품</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">토끼 사료</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">15000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
@@ -324,10 +437,21 @@
 										class="img" />
 								</div>
 								<div class="itemInfo">
-									<div class="tradelocal">논산-택배</div>
-									<div class="itemState">새 제품</div>
-									<div class="itemName">앵무새 먹이</div>
-									<div class="itemPrice">15000원</div>
+									<div class="info-box">
+										<div class="tradelocal">논산-택배</div>
+										<span class="divider">|</span>
+										<div class="itemState" id="itemState">새 제품</div>
+									</div>
+									<div class="info-box2">
+										<div class="petCtgName">
+											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
+												style="width: 25px; height: 25px;">
+										</div>
+										<div class="itemName">앵무새 알곡 사</div>
+									</div>
+									<div class="info-box">
+										<div class="itemPrice">20000원</div>
+									</div>
 								</div>
 								<!-- itemInfo끝 -->
 							</div>
