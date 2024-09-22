@@ -194,8 +194,8 @@
 									</div>
 									<div class="info-box2">
 										<div class="petCtgName">
-											<img src="/image/animal_ctg/ctg_파충류.png" alt="..."
-												style="width: 25px; height: 25px;">
+											<img src="/image/animal_ctg/ctg_기타1.png" class="card-img"
+														alt="..." style="width: 20px; height: 20px;">
 										</div>
 										<div class="itemName">햄스터 먹이</div>
 									</div>
