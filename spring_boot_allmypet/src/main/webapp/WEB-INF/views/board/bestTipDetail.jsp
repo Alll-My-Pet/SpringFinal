@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>게시글 상세</title>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/TipDetail.css' />" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/board/TipDetail.css' />" />
 </head>
 <body>
 	<div class="All">

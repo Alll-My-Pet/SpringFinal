@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/mainBoardText.css' />" />
+	href="<c:url value='/css/board/mainBoardText.css' />" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/mainBoardText.js'/>"></script>
 <style>

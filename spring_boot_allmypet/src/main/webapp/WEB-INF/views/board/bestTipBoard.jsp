@@ -17,7 +17,7 @@
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-<script src="<c:url value='/js/Board/bestTipBoard.js'/>"></script>
+<script src="<c:url value='/js/board/bestTipBoard.js'/>"></script>
 <style>
 	@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');

@@ -9,7 +9,7 @@
 <title>반려동물 보호 게시판</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/petProtect.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/Board/protectBoard.js'/>"></script>
+<script src="<c:url value='/js/board/protectBoard.js'/>"></script>
 	
 <script>
 function goPage(no) {
