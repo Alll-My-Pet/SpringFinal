@@ -19,7 +19,9 @@
 				
 		 <section class="promoteWrite">
 		 
-		  <form class="promoteUpdateFrm" id="promoteUpdateFrm" method="post" action="<c:url value='/board/updatePromote'/>">
+		  <form class="promoteUpdateFrm" id="promoteUpdateFrm" method="post" 
+		  action="<c:url value='/board/updatePromote'/>" enctype="multipart/form-data">
+		  
 		  <input type="hidden" id="postNo" name="postNo" value="${promoteBoard.postNo}" />
 		  <div class="animalCtg">
 			<select class="animalCtg" name="petCtgNo" id="petCtgNo">
@@ -58,11 +60,12 @@
 			 <button class="promoteLocationBtn">분양처 위치 등록</button>
 			</div>
 			
-			<label for="thumbNail" class="thumbNailPhoto" >
-        		파일 선택
-   		    </label>
 			<div class="thumbNail">
-			 <input type="file" class="thumbNailBtn" name="postImg" id="postImg" value="${promoteBoard.postImg }">
+			 	<input type="file" class="thumbNailBtn" name="postImgFile" id="postImgFile" value="${promoteBoard.postImg }">
+				<label for="postImgFile" class="imgSelectLabel" >
+        			파일 선택
+   		   		</label>
+			
 			</div>
 			
 			<div class="thumbNailPreview"></div>

@@ -39,13 +39,13 @@
 			<div class="promoteHeader">
 
 
-				<h1 id="titleFont" style="margin-left:50px;">분양 홍보 게시판</h1>
-				<p id="titleFont2" style="color: gray; margin-left:50px;">인가받은 업체나 브리더에 한해서만 게시글
+				<h1 id="titleFont" style="margin-left:500px;">분양 홍보 게시판</h1>
+				<p id="titleFont2" style="color: gray; margin-left:500px;">인가받은 업체나 브리더에 한해서만 게시글
 					업로드 가능합니다</p>
 
 				<div class="promoteNotice-box">
 					<h3 style="margin-left: 2%;" class="promoteNotice-title">분양 시 주의사항</h3>
-					<c:forEach var="notice" items="${noticeList }" >
+					
 						<div class="promoteNotice">
 							
 							<table class="noticeTable">
@@ -56,7 +56,7 @@
 										<th>조회수</th>
 										<th>좋아요</th>
 									</tr>
-							
+							<c:forEach var="notice" items="${noticeList }" >
 								<a href="#">
 									<tr>
 										<td style="color: red;" ><a href="#">${notice.postTitle}</a></td>
@@ -67,9 +67,10 @@
 										<td>${notice.postLike}</td>
 									</tr>
 								</a>
+							</c:forEach>
 							</table>
 						</div>
-					</c:forEach>
+					
 				</div>
 
 				<div class="promoteSearchBox">
@@ -117,10 +118,25 @@
 									</c:if>
 								</div>
 								<div class="promoteDescription">
-									분류:${promote.petCtgNo }<br> 
+									분류:
+										<c:choose>
+											<c:when test="${promote.petCtgNo == 1}">강아지</c:when>
+											<c:when test="${promote.petCtgNo == 2}">고양이</c:when>
+											<c:when test="${promote.petCtgNo == 3}">기타 포유류</c:when>
+											<c:when test="${promote.petCtgNo == 4}">파충류/양서류</c:when>
+											<c:when test="${promote.petCtgNo == 5}">어류</c:when>
+											<c:when test="${promote.petCtgNo == 6}">조류</c:when>
+											<c:when test="${promote.petCtgNo == 7}">설치류</c:when>
+											<c:when test="${promote.petCtgNo == 8}">절지류/곤충류</c:when>
+										</c:choose>
+									<br> 
 									생물명:${promote.petName }<br>
 									분양처:${promote.placeInfo }<br> 
-									분양 방법:${promote.parcelOutInfo }
+									분양 방법:
+										<c:choose>
+											<c:when test="${promote.parcelOutInfo == 'FTF' }">대면</c:when>
+											<c:when test="${promote.parcelOutInfo == 'NFTF' }">비 대면</c:when>
+										</c:choose>
 								</div>
 							</div>
 						</a>
