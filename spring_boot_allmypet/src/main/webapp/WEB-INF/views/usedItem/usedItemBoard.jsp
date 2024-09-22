@@ -35,8 +35,8 @@
 
 					<div class="pageInfo">
 						<div class="page-title">
-							<span class="ctgTitle">중고거래</span>
-							<div class="titleInfo">팝니다</div>
+							<span class="ctgTitle">용품 중고거래</span>
+							<div class="titleInfo">팔아요! 🤚</div>
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
@@ -310,7 +310,7 @@
 									<img src="<c:url value='/project_images/강아지 장난감.jfif'/>"
 										class="img" />
 								</div>
-								
+
 								<div class="itemInfo">
 									<div class="info-box">
 										<div class="tradelocal">충남-택배</div>
@@ -458,18 +458,20 @@
 							<!-- postCardBox끝 -->
 						</div>
 						<!-- postBox끝  -->
-
-						<div class="pagingBox">
-							<div class="paging">이전</div>
-							<div class="paging" style="border: 1px solid skyblue;">1</div>
-							<div class="paging">다음</div>
+						<div class="bottom-box">
+							<div class="btn-container">
+								<button class="writeBtn">글 쓰기</button>
+							</div>
+							<div class="searchAndButton">
+								<input type="text" class="searchBar" placeholder="검색어 입력">
+							</div>
+							<div class="pagingBox">
+								<div class="paging">이전</div>
+								<div class="paging" style="border: 1px solid skyblue;">1</div>
+								<div class="paging">다음</div>
+							</div>
 						</div>
-
-						<div class="searchAndButton">
-							<input type="text" class="searchBar" placeholder="검색어 입력">
-
-							<button class="writeBtn">글 쓰기</button>
-						</div>
+						<!-- bottom-box끝 -->
 					</div>
 					<!-- All 끝 -->
 
@@ -477,16 +479,14 @@
 				<!-- contents 끝 -->
 			</div>
 			<!-- frame-2 끝 -->
+
+			<!-- sidebar -->
+			<div id="sidebar">
+				<c:import url="/WEB-INF/views/layout/usedItemSidebar.jsp"></c:import>
+			</div>
 		</div>
 		<!-- frame-1끝 -->
 		<br> <br>
-
-		<!-- sidebar -->
-		<div id="sidebar">
-			<c:import url="/WEB-INF/views/layout/usedItemSidebar.jsp"></c:import>
-		</div>
-
-
 		<!-- footer부착 -->
 		<div id="footer">
 			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
