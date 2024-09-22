@@ -13,7 +13,6 @@ public class PromoteVO {
 	private int postLike;
 	
 	
-	
 	public int getPostLike() {
 		return postLike;
 	}

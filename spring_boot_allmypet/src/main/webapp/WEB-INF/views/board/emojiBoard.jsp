@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>이모지 게시판</title>
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/board/emojiBoard.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -68,7 +68,6 @@
             <br><br><br>
         </div> <!-- 첫 번째 행 끝 -->
             
-            <p class="product_total">전체상품 000개</p>
             
             <div class="product-grid">
             <c:forEach items="${prdList }" var="prd">

@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>글 작성 페이지</title>
+
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
 <link rel="stylesheet" type="text/css"

@@ -5,7 +5,7 @@
  <html>
   <head>
    <title>분양홍보 작성</title>
-   <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/promoteWrite.css'/>" />
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/promoteWrite.css'/>" />
    <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
    <script src="<c:url value='/js/Board/promoteWrite.js'/>"></script>
   </head>
@@ -19,7 +19,7 @@
 				
 		 <section class="promoteWrite">
 		 
-		  <form class="promoteFrm" method="post" action="<c:url value='/insertPromote'/>">
+		  <form class="promoteFrm" method="post" action="<c:url value='/insertPromote'/>" enctype="multipart/form-data">
 		  
 		  <div class="animalCtg">
 			<select class="animalCtg" name="petCtgNo" id="petCtgNo">
@@ -60,8 +60,8 @@
 
 
 			<div class="thumbNail">
-				<input type="file" class="thumbNailBtn" name="postImg" id="postImg"> 
-				<label for="postImg" class="imgSelectLabel">파일 선택</label>
+				<input type="file" class="thumbNailBtn" name="postImgFile" id="postImgFile"> 
+				<label for="postImgFile" class="imgSelectLabel">파일 선택</label>
 			</div>
 			
 			

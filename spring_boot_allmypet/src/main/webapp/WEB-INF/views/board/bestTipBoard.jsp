@@ -11,8 +11,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/common.css'/>">
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/Board/bestTipBoard.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/board/bestTipBoard.css'/>" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script
 	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

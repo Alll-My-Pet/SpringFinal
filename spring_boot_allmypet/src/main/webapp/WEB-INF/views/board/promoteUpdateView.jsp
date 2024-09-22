@@ -5,7 +5,7 @@
  <html>
   <head>
    <title>분양홍보 작성</title>
-   <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/promoteWrite.css'/>" />
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/promoteWrite.css'/>" />
    <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
    <script src="<c:url value='/js/Board/promoteUpdate.js'/>"></script>
   </head>
@@ -19,7 +19,7 @@
 				
 		 <section class="promoteWrite">
 		 
-		  <form class="promoteUpdateFrm" method="post" action="<c:url value='/board/updatePromote'/>">
+		  <form class="promoteUpdateFrm" id="promoteUpdateFrm" method="post" action="<c:url value='/board/updatePromote'/>">
 		  <input type="hidden" id="postNo" name="postNo" value="${promoteBoard.postNo}" />
 		  <div class="animalCtg">
 			<select class="animalCtg" name="petCtgNo" id="petCtgNo">

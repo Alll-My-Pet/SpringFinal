@@ -235,7 +235,7 @@ public class BoardCotroller {
 		  
 		  	// 수정된 정보 저장
 		  @ResponseBody
-		  @RequestMapping(value="/board/ProtectUpdate" , method = RequestMethod.POST)
+		  @RequestMapping("/board/ProtectUpdate")
 		  public String ProtectUpdate(ProtectVO vo, @RequestParam String memPwd, HttpSession session) {
 		      String logInUser = (String) session.getAttribute("mid");
 
@@ -277,7 +277,6 @@ public class BoardCotroller {
 									@RequestParam("postImgFile") MultipartFile postImgFile,
 		                              HttpSession session) throws IOException {
 			  
-			  System.out.println("확인");
 			  
 		      // 세션에서 로그인한 사용자 아이디 가져오기
 		      String logInUser = (String) session.getAttribute("mid");
@@ -330,8 +329,7 @@ public class BoardCotroller {
 			}
 		
 
-	// ********************************동물분양
-	// 홍보****************************************
+	// ********************************동물분양 홍보****************************************
 	@RequestMapping("/board/PromoteBoardList")
 	public String PromoteBoardList(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) {
 
@@ -368,13 +366,38 @@ public class BoardCotroller {
 
 	// 글 등록
 	@RequestMapping("/insertPromote")
-	public String insertPromote(PromoteVO vo, HttpSession session) {
+	public String insertPromote(@ModelAttribute PromoteVO vo, 
+								@RequestParam("postImgFile") MultipartFile postImgFile,
+								HttpSession session) throws IOException{
 		// 세션에서 로그인한 사용자 아이디 가져오기
 		String logInUser = (String) session.getAttribute("mid");
 
 		// 사용자 아이디 설정
 		vo.setMemId(logInUser);
-
+		
+		
+		 // 파일 업로드 처리 
+		 if (!postImgFile.isEmpty()) { // 파일 저장 경로 설정 (시스템에 맞게 변경 필요) String
+		 String uploadDir = "D:/finalWorkSpace/final/SpringFinal/uploads/";
+		 
+		 // 고유한 파일 이름 생성 
+		 String originalFilename = postImgFile.getOriginalFilename();
+		 String newFilename = System.currentTimeMillis() + "_" + originalFilename;
+		 
+		 // 저장할 디렉토리 경로가 존재하지 않으면 생성 
+		 Path uploadPath = Paths.get(uploadDir); 
+		 if(!Files.exists(uploadPath)) { 
+			 Files.createDirectories(uploadPath); 
+		 	}
+		 
+		 // 파일을 저장 디렉토리에 저장 
+		 Path filePath = uploadPath.resolve(newFilename);
+		 Files.copy(postImgFile.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);
+		  
+		 // VO 객체에 이미지 파일 이름 설정 
+		 vo.setPostImg(newFilename); 
+		
+		 }
 		promoteService.insertPromote(vo);
 
 		return "redirect:board/PromoteBoardList";

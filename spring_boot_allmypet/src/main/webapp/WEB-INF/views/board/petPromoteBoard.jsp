@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>분양 홍보 게시판</title>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/PetPromoteBoard.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/board/petPromoteBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/Board/promoteBoard.js'/>"></script>
 
@@ -109,7 +109,13 @@
 					<c:forEach var="promote" items="${Promote }">
 						<a href="<c:url value='/board/promoteDetailView/${promote.postNo}'/>">
 							<div class="promotePic">
-								<div class="promoteFont">${promote.postImg }</div>
+								<div class="promoteFont">
+									<c:if test="${not empty promote.postImg}">
+										<img class="post-image"
+											src="<c:url value='/protect_images/${promote.postImg}'/>"
+											style="width: 147px; height: 150px;" />
+									</c:if>
+								</div>
 								<div class="promoteDescription">
 									분류:${promote.petCtgNo }<br> 
 									생물명:${promote.petName }<br>

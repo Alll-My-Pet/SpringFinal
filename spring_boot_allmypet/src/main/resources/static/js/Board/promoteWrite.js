@@ -44,7 +44,7 @@
 
 
 $(document).ready(function() {
-    $('#postImg').change(function(event) {
+    $('#postImgFile').change(function(event) {
         var file = event.target.files[0]; // 선택된 파일 가져오기
         if (file) {
             var reader = new FileReader();
