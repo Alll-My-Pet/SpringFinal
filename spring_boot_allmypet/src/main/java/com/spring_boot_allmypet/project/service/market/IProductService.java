@@ -43,6 +43,8 @@ public interface IProductService {
 	public ArrayList<ProductVO> ctgListProduct(String ctgId);
 
 	public List<ReviewVO> getReviewsByProductNo(String prdNo);
+
+	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, List<String> prdCtgNoList, int startRange, int endRange);
 }
 
 

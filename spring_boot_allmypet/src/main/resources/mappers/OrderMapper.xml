@@ -13,18 +13,18 @@
     </select>
     
     <!-- 포인트 정보 받아오기 -->
-    <select id="getPointInfo" parameterType="java.lang.String"
-            resultType="com.spring_boot_allmypet.project.model.member.MemberPointVO">
-        SELECT *
-        FROM member_point
+    <select id="getPointInfo" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT point
+        FROM member
         WHERE memId = #{memId}	
     </select>
     
-     <!-- 포인트 변동 기록 삽입 (포인트 사용 시 음수 값으로 기록) -->
-    <insert id="insertPointChange" parameterType="map">
-        INSERT INTO member_point (memId, point_change, reason, change_date)
-        VALUES (#{memId}, #{point_change}, #{reason}, NOW())
-    </insert>
+<!-- 포인트 변동 기록 삽입 (포인트 사용 시 음수 값으로 기록) -->
+<insert id="insertPointChange" parameterType="map">
+    UPDATE member
+    SET point = point + #{point_change}
+    WHERE memId = #{memId};
+</insert>
  	
     <select id="getProductInfo" parameterType="java.lang.String"
             resultType="com.spring_boot_allmypet.project.model.market.ProductVO">

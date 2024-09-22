@@ -15,20 +15,21 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring_boot_allmypet.project.model.ai.GreenEyeVO;
 import com.spring_boot_allmypet.project.model.animal.AnimalCtgVO;
 import com.spring_boot_allmypet.project.model.comment.CommentVO;
-import com.spring_boot_allmypet.project.model.comment.EmojiVO;
 import com.spring_boot_allmypet.project.model.gallery.GalleryVO;
-import com.spring_boot_allmypet.project.model.market.MemberVO;
-import com.spring_boot_allmypet.project.model.market.ProductVO;
 import com.spring_boot_allmypet.project.service.comment.CommentService;
 import com.spring_boot_allmypet.project.service.gallery.GalleryService;
 
@@ -101,6 +102,17 @@ public class GalleryController {
     }
 
     
+	/*
+	 * @RequestMapping(value = "/gallery/category/img/{petCtgNo}", method =
+	 * RequestMethod.GET, produces = "application/json") public String
+	 * gallery_category2(@PathVariable("petCtgNo") String petCtgNo, Model model) {
+	 * System.out.
+	 * println("GalleryController - gallery_category called with petCtgNo: " +
+	 * petCtgNo); List<GalleryVO> galleryImg =
+	 * galleryService.getPostsByPetCtgNo(petCtgNo); model.addAttribute("galleryImg",
+	 * galleryImg); return "animal/gallery_image"; }
+	 */
+    
     @RequestMapping("/gallery/detail/{postNo}")
     public String gallery_detail(@PathVariable int postNo, Model model, HttpSession session) {
         String memId = (String) session.getAttribute("mid");
@@ -152,7 +164,7 @@ public class GalleryController {
         // 파일 업로드 처리
         if (!postImgFile.isEmpty()) {
             // 파일 저장 경로 설정 (시스템에 맞게 변경 필요)
-            String uploadDir = "C:/springWorkspace/final/SpringFinal/spring_boot_allmypet/src/main/resources/static/image/gallery/"; // 시스템 경로에 맞게 수정
+            String uploadDir = "/usr/local/allmypet/image/gallery/"; // 시스템 경로에 맞게 수정
 
             // 고유한 파일 이름 생성
             String originalFilename = postImgFile.getOriginalFilename();

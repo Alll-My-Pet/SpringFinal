@@ -42,8 +42,22 @@ $(document).ready(function() {
         }
     };
     
-
+    // 주문하기 버튼 클릭 시 장바구니 체크
+    $('.cart__bigorderbtn.right').click(function(event) {
+        var hasItems = false;
+        for (var i = 0; i < select_check.length; i++) {
+            if (select_check[i].checked) {
+                hasItems = true;
+                break;
+            }
+        }
+        if (!hasItems) {
+            event.preventDefault();  // 폼 제출 막기
+            alert("장바구니에 담긴 상품이 없습니다.");
+        }
+    });
 });
+
 function continueShopping() {
     // 쇼핑 계속하기 버튼 클릭 시 마켓홈으로 이동
     location.href = '/market/home';

@@ -29,9 +29,9 @@ public class AIController {
     // 파일 업로드를 처리하고 GreenEye 서비스로 파일 경로를 전달
     @PostMapping("/uploadImage")
     public String uploadImage(@RequestParam("file") MultipartFile file, Model model) {
-        String uploadDir = "C:/springWorkspace/ai/"; // 임시 업로드 경로
-        String galleryDir = "C:/springWorkspace/final/SpringFinal/spring_boot_allmypet/src/main/resources/static/image/gallery/"; // 실제 저장될 경로
-
+        String uploadDir = "/usr/local/allmypet/image/ai/"; // 임시 업로드 경로
+        String galleryDir = "/usr/local/allmypet/image/gallery/"; // 실제 저장될 경로
+       
         String fileName = UUID.randomUUID().toString() + "_" + file.getOriginalFilename();
         String filePath = uploadDir + fileName;
         String galleryFilePath = galleryDir + fileName;
@@ -51,7 +51,7 @@ public class AIController {
             Files.copy(sourcePath, destinationPath, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
 
             // 복사된 파일 경로를 JSP로 전달
-            model.addAttribute("postImg", "/image/gallery/" + fileName);
+            model.addAttribute("postImg", "/usr/local/allmypet/image/gallery/" + fileName);
         } catch (Exception e) {
             e.printStackTrace();
             return "error"; // 에러 처리

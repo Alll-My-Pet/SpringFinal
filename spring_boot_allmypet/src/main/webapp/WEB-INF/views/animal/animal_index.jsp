@@ -14,6 +14,13 @@
 	href="<c:url value='/css/animal/animal_index.css'/>">
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/animal/animal_index.js'/>"></script>
+<%-- <script src="${pageContext.request.contextPath}/js/animal/animal_index.js"></script> --%>
+<script>
+   /*  const petCtgNo = '${petCtgNo}';  */
+</script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 	<div class="desktop-1">
@@ -137,6 +144,7 @@
 							<img src="/image/index/bracket-light-left.svg" class="bLeft" alt="..." style="height: 128px;">
 						</div>
 						<div class="page-title">
+							<input type="hidden" name="petCtgNo" id="petCtgNo" value='${petCtgNo }'>
 							<div class="titleInfo">동물별 커뮤니티</div>
 							<span class="ctgTitle"> ${petCtgName} 커뮤니티 </span>
 						</div>
@@ -156,11 +164,17 @@
 									<img class="icon" src="/image/index/chevron_left.svg" alt="왼"
 										width="40px" height="45px" />
 								</button>
-								<div class="photo-container">
-									<a href="갤러리_상세.html" class="photo"></a> <a href="갤러리_상세.html"
-										class="photo"></a> <a href="갤러리_상세.html" class="photo"></a> <a
-										href="갤러리_상세.html" class="photo"></a> <a href="갤러리_상세.html"
-										class="photo"></a>
+								<div class="photo-container">							
+									<c:forEach var="post" items="${galleryImg}" varStatus="status">
+										<c:choose>
+											<c:when test="${status.index < 5}">
+												<a href="/gallery/detail/${post.postNo}"> 
+												<img src="<c:url value='/image/gallery/${post.postImg}'/>"
+													width="100px" height="100px">
+												</a>
+											</c:when>
+										</c:choose>
+									</c:forEach>
 								</div>
 								<button class="chevron-right">
 									<img class="icon" src="/image/index/chevron_right.svg" alt="오"

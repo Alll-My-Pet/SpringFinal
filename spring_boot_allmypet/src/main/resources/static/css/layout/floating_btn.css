@@ -1,5 +1,7 @@
 @charset "UTF-8";
-
+* {
+	font-family: "IBM Plex Sans KR", sans-serif;
+}
 /* floating action button */
 /* 플로팅버튼: 운세/반려동물지도/문의사항/top버튼 */
 

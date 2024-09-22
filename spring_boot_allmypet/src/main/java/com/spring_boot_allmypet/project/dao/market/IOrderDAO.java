@@ -32,7 +32,7 @@ public interface IOrderDAO {
 	public OrderProductVO getOrderProductForCancel(int ordNo, String prdNo);
 	public void insertOrderCancel(OrderCancelVO orderCancel);
 	
-    public List<MemberPointVO> getPointInfo(String memId);
+    public int getPointInfo(String memId);
     public void insertPointChange(MemberPointVO point);
     public void deleteUserCoupon(Map<String, Object> params);
 	public void deleteOrderInfo(int ordNo);

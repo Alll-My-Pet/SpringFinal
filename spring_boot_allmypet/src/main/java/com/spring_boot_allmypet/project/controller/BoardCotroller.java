@@ -329,8 +329,7 @@ public class BoardCotroller {
 			}
 		
 
-	// ********************************동물분양
-	// 홍보****************************************
+	// ********************************동물분양 홍보****************************************
 	@RequestMapping("/board/PromoteBoardList")
 	public String PromoteBoardList(@RequestParam(required = false, defaultValue = "1") int pageNo, Model model) {
 
@@ -483,15 +482,6 @@ public class BoardCotroller {
 		return "board/noticeBoard";
 	}
 
-	// ********************************베스트 팁****************************************
-	@RequestMapping("/board/bestTipBoard")
-	public String TipBoard() {
-		return "board/bestTipBoard";
-	}
-
-	@RequestMapping("/board/bestTipDetail")
-	public String TipDetail() {
-		return "board/bestTipDetail";
-	}
+	
 
 }

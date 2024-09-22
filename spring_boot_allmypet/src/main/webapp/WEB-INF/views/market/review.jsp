@@ -20,6 +20,9 @@
 				reader.readAsDataURL(event.target.files[0]); // 첫 번째 파일을 읽어 미리보기
 			}
 		</script>
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+		</style>
 	</head>
 <body>
     <c:import url="/WEB-INF/views/layout/header.jsp"></c:import>

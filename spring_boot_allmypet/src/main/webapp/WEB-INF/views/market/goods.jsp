@@ -8,6 +8,9 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product.css'/>" />
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+	</style>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -65,7 +68,6 @@
             <br><br><br>
         </div> <!-- 첫 번째 행 끝 -->
             
-            <p class="product_total">전체상품 000개</p>
             
             <div class="product-grid">
             <c:forEach items="${prdList }" var="prd">
