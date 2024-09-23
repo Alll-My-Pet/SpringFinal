@@ -92,14 +92,15 @@
 							</div>
 						</section>
 					</div>
-					<div id="floatingBtn">
-						<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
-					</div>
+
 
 				</div>
 
 			</div>
 			<!-- frame-2 끝 -->
+			<div id="floatingBtn">
+				<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
+			</div>
 			<!-- sidebar 부착 -->
 			<div id="sidebar">
 				<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
