@@ -198,9 +198,9 @@
 	margin: 0;
 	font-size: 24px;
 }
-.mainWriteBox {
-	/* background-color: red; */
-	/* width: 100%; */
+/* .mainWriteBox {
+	background-color: red;
+	width: 100%;
 	height: fit-content;
 	position: relative;
 	margin-right:150px;
@@ -233,11 +233,41 @@
 
 .mainWriteBtn:hover{
 	background-color:skyblue;
+} */
+
+/* 글작성 버튼 */
+.mainWriteBox{
+	display: flex;
+	position: relative;
+}
+.mainWriteBtn {
+	position: absolute;
+	right: 0;
+	top: 20px;
+	width: 130px;
+	height: 30px;
+	border-radius: 8px;
+	/* 	border: none; */
+	cursor: pointer;
+	/*  background-color: aliceblue; */
+	background-color: #E6E6E6;
+	/* border: none; */
+	border-width: 1px;
+	border-color: blanchedalmond;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.mainWriteBtn a{
+	text-decoration: none;
+	color: inherit;
 }
 
 .pagination{
 	text-align:center;
-	margin-right:80px;
+	/* margin-right:80px; */
+	
+	margin-top: 200px;
 }
 
 

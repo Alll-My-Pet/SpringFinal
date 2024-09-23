@@ -13,7 +13,9 @@
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/gallery/gallery_category.css'/>" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap')
+	;
 </style>
 </head>
 <body>
@@ -95,15 +97,6 @@
 								<p>해당 카테고리에 게시물이 없습니다.</p>
 							</c:if>
 						</div>
-
-						<!-- 페이지네이션 -->
-						<div class="pagination">
-							<c:forEach var="i" begin="1" end="${totalPages}">
-								<a href="?page=${i}&keyword=${param.keyword}"
-									class="${page == i ? 'active' : ''}">${i}</a>
-							</c:forEach>
-						</div>
-
 						<div class="mainWriteBox">
 							<!-- 로그인 한 경우  -->
 							<c:if test="${not empty sessionScope.mid }">
@@ -120,8 +113,18 @@
 								</button>
 							</c:if>
 						</div>
+
+
+
 					</div>
 					<!-- gallery-container 끝 -->
+					<!-- 페이지네이션 -->
+					<div class="pagination">
+						<c:forEach var="i" begin="1" end="${totalPages}">
+							<a href="?page=${i}&keyword=${param.keyword}"
+								class="${page == i ? 'active' : ''}">${i}</a>
+						</c:forEach>
+					</div>
 				</div>
 				<!-- contents끝 -->
 			</div>
