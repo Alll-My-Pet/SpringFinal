@@ -481,7 +481,26 @@ public class BoardCotroller {
 
 		return "board/noticeBoard";
 	}
-
 	
+	// 이모지
+	@RequestMapping("/board/emojiBoard")
+	public String emojiBoard() {
+		return "board/emojiBoard";
+	}
+	
+	@RequestMapping("/board/emojiWrite")
+	public String emojiWrite() {
+		return "board/emojiWrite";
+	}
+	
+	@RequestMapping("/board/emojiUpdate")
+	public String emojiUpdate() {
+		return "board/emojiUpdate";
+	}
+	
+	@RequestMapping("/board/emojiDetail")
+	public String emojiDetail() {
+		return "board/emojiDetail";
+	}
 
 }
