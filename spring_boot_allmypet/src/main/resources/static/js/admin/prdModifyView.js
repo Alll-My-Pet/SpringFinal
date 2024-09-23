@@ -27,7 +27,7 @@ $(function(){
 	            $("#prdStock").val(prdInfo.prdStock);
 	            
 	            // 이미지 표시 및 hidden 필드에 저장
-	            $('#prd_img_area').html('<img id="prd_img" src="' + prdInfo.prdImg + '" alt="Image Preview" >');
+	            $('#prd_img_area').html('<img id="prd_img" src="/prd_images/' + prdInfo.prdImg + '" alt="Image Preview" >');
 	            $('#prdImgHidden').val(prdInfo.prdImg);  // 기존 이미지 경로
 	
 	            // 상세 이미지 경로

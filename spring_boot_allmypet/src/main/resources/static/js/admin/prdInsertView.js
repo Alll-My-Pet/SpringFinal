@@ -43,7 +43,7 @@ $(function(){
     if (file) {
       var reader = new FileReader();
       reader.onload = function(e) {
-        $('#prd_img_area').html('<img id="prd_img" src="' + e.target.result + '" alt="Image Preview" >');
+        $('#prd_img_area').html('<img id="prd_img" src="/prd_images/' + e.target.result + '" alt="Image Preview" >');
       }
       reader.readAsDataURL(file); 
       imgForm.append('prdImg', file); // 이미지 파일 추가
