@@ -33,8 +33,7 @@ public class AdminRestController {
 		Map<String, Object> result = new HashMap<>();
         if (!prdImg.isEmpty()) {
             try {
-                //String uploadDir = "/usr/local/allmypet/member_images/";
-                String uploadDir = "C:/test/";
+                String uploadDir = "/usr/local/allmypet/image/market/";
                 String fileName = System.currentTimeMillis() + "_" + prdImg.getOriginalFilename();
                 File destFile = new File(uploadDir, fileName);
                 
@@ -50,8 +49,7 @@ public class AdminRestController {
         }
         if (!infoImg.isEmpty()) {
             try {
-                //String uploadDir = "/usr/local/allmypet/member_images/";
-                String uploadDir = "C:/test/";
+                String uploadDir = "/usr/local/allmypet/image/market/";
                 String fileName = System.currentTimeMillis() + "_" + infoImg.getOriginalFilename();
                 File destFile = new File(uploadDir, fileName);
                 

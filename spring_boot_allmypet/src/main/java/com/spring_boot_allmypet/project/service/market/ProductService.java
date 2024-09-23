@@ -3,6 +3,7 @@ package com.spring_boot_allmypet.project.service.market;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -68,13 +69,22 @@ public class ProductService implements IProductService {
 	    return dao.listProductsByCtgRange(ctgRange);
 	}
 	
-	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, String prdCtgNo, int startRange, int endRange) {
-        return dao.listProductsByCtg(petCtgNo, prdCtgNo, startRange, endRange);
-    }
+	@Override
+	public ArrayList<ProductVO> listProductsByCtg(String petCtgNo, List<String> prdCtgNoList, int startRange, int endRange) {
+	    Map<String, Object> params = new HashMap<>();
+	    params.put("petCtgNo", petCtgNo);
+	    params.put("prdCtgNoList", prdCtgNoList);
+	    params.put("startRange", startRange);
+	    params.put("endRange", endRange);
+
+	    return dao.listProductsByCtg(params);
+	}
 	
 	 @Override
     public List<ReviewVO> getReviewsByProductNo(String prdNo) {
         return dao.getReviewsByProductNo(prdNo);
     }
+	 
+	
 	
 }

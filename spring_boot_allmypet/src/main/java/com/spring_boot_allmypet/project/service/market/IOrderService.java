@@ -21,7 +21,7 @@ public interface IOrderService {
     // 사용자의 모든 주문 내역을 가져오는 메서드
 	public List<OrderInfoVO> getOrderHistory(String memId);
 	
-	public List<MemberPointVO> getPointInfo(String memId);
+	public int getPointInfo(String memId);
     public void insertPointChange(MemberPointVO point);
     public void insertReview(ReviewVO review);
 }

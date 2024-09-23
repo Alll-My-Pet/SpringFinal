@@ -11,4 +11,8 @@ public interface IGalleryService {
     public List<GalleryVO> getTopPostsByPetCtgNoInLastWeek(String petCtgNo);
 
     public GalleryVO getPostByPostNo(int postNo);
+
+	List<GalleryVO> searchPostsByPetCtgNo(String petCtgNo, String keyword, int offset, int limit);
+
+	int countPostsByPetCtgNo(String petCtgNo, String keyword);
 }

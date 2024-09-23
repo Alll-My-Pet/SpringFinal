@@ -1,0 +1,350 @@
+@charset "UTF-8";
+
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 689px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin: 40px auto;
+	/* 여백 설정 */
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	padding: 18.5px 22px 11.5px 21px;
+	box-sizing: border-box;
+}
+
+/* 공지/이벤트 */
+.page-title .ctgTitle {
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 43px;
+	line-height: 1;
+	color: #000000;
+	margin: 10px auto;
+}
+
+/* 공지사항 */
+.page-title .titleInfo {
+	margin-bottom: 8px;
+	display: inline-block;
+	align-self: flex-start;
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.39);
+	margin: 0 auto;
+}
+
+.bracket {
+	width: fit-content;
+	height: fit-content;
+}
+
+.bLeft {
+	position: absolute;
+	/* 부모 기준으로 절대 위치 설정 */
+	left: -50px;
+	/* 부모의 왼쪽에서 5px 위치 */
+	top: 60%;
+	/* 부모의 중앙으로 이동 */
+	transform: translateY(-50%);
+	/* 수직 중앙 정렬 */
+}
+
+.bRight {
+	position: absolute;
+	/* 부모 기준으로 절대 위치 설정 */
+	right: -50px;
+	/* 부모의 오른쪽에서 5px 위치 */
+	top: 60%;
+	/* 부모의 중앙으로 이동 */
+	transform: translateY(-50%);
+	/* 수직 중앙 정렬 */
+}
+
+/* ****************************** */
+.All {
+	/* border:1px solid black; */
+	height: 1400px;
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+/* *********** */
+/* 신고하기 버튼 */
+/* *********** */
+.report-link {
+	width: auto;
+	height: 30px;
+	/* background-color: yellow; */
+	position: relative;
+}
+
+.report-link .reportBtn {
+	width: 130px;
+	height: 30px;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	right: 80px;
+	display: flex;
+	position: absolute;
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color: #ededed;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	cursor: pointer;
+	color: #777777;
+	font-size: 15px;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+	display: flex;
+}
+
+.reportBtn:hover {
+	background: linear-gradient(to bottom, #ff0000 100%, #ff0000 100%);
+	background-color: #ff0000;
+}
+
+.reportBtn:active {
+	background-color: red;
+}
+
+/* *********** */
+/* 유기동물 신고 섹션 */
+/* *********** */
+.abandoned {
+	width: 700px;
+	height: 45vh;
+	margin: 0 auto;
+	margin-top: 10px;
+	background-color: white;
+	border: 1px solid #A4A4A4;
+	border-radius: 10px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+#reportFont {
+	font-size: 25px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.abandonedPic {
+	background-color: #FBFBF9;
+	border: 1px solid #A4A4A4;
+	border-radius: 10px;
+	width: 150px;
+	height: 250px;
+	display: inline-block;
+	padding: 10px;
+	margin-right: 20px; /* 아이템 사이의 간격 */
+}
+
+.abandonedPic a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* *********** */
+
+/* ************************ */
+/* 게시글 검색 폼 */
+.boardListForm {
+	margin-top: 40px;
+	/* background-color: pink; */
+	display: flex;
+	flex-direction: row;
+	/* align-items: flex-end; */
+	justify-content: flex-end;
+}
+
+.searchOption {
+	width: 100px;
+	height: 30px;
+}
+
+.searchBar {
+	width: 130px;
+	height: 24px;
+	margin-left: 5px;
+	border-color: #8fd5ef;
+	border-radius: 5px;
+}
+
+.ProtectSearchBtn {
+	border: 0px;
+	background-color: transparent;
+	margin-right: 70px;
+}
+
+/* ************************ */
+.ProtectBrd {
+	background-color: white;
+	border: 1px solid #A4A4A4;
+	border-radius: 10px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+	width: 700px;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 10px;
+	border: 1px solid #A4A4A4;
+	border-radius: 10px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.PttTable {
+	width: 700px;
+	padding: 2px;
+	text-align: center;
+	border-collapse: collapse;
+	border-style: hidden;
+}
+
+.PttTable thead tr {
+	border-bottom: 1px solid #848484;
+}
+
+.PttTable td {
+	border-radius: 5px;
+	height: 20px;
+	padding: 8px;
+	text-align: center;
+	border-collapse: collapse;
+	border-bottom: 1px solid #D8D8D8;
+}
+
+.PttTable tbody tr:hover {
+	background-color: #f0f0f0;
+}
+
+.post-title {
+	white-space: nowrap;
+	/* 한 줄로 유지 */
+	overflow: hidden;
+	/* 넘치는 부분 숨김 */
+	text-overflow: ellipsis;
+	/* 넘치는 부분에 ... 표시 */
+}
+
+td a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* ********************************* */
+.protectWriteBtn {
+	box-shadow: inset 0px 1px 0px 0px #ffffff;
+	background: linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color: #ededed;
+	border-radius: 6px;
+	border: 1px solid #dcdcdc;
+	display: inline-block;
+	cursor: pointer;
+	color: #777777;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 50px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #ffffff;
+	margin-left: 550px;
+	margin-top: 30px;
+}
+
+.protectWriteBtn:hover {
+	background: linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color: #dfdfdf;
+}
+
+.protectWriteBtn:active {
+	position: relative;
+	top: 1px;
+}
+
+#PPBoardFont {
+	font-size: 50px;
+	position: absolute;
+	top: 130px;
+}
+
+.MainFont {
+	margin: 0 auto;
+	align-text: left;
+	width: 900px;
+}
+
+.boardCtg {
+	border: 1px solid black;
+	width: 250px;
+	position: absolute;
+	top: 300px;
+	left: 200px;
+}
+
+.description {
+	width: 147px;
+	height: 90px;
+	border: 1px solid black;
+	margin-top: 160px;
+	background-color: white;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.abandonedFont {
+	border: 1px solid black;
+	position: absolute;
+	height: 150px;
+	width: 147px;
+	background-color: white;
+}
+
+.paging {
+	margin: 0 auto;
+	margin-top: 30px;
+}
+
+.paging a {
+	text-decoration: none;
+	color: #007bff;
+	padding: 5px 10px;
+	margin: 0 5px;
+}
+
+/* 현재 페이지 강조 스타일 */
+.paging a.current {
+	font-weight: bold;
+	color: #ff5722; /* 강조 색상 */
+	border: 1px solid #ff5722; /* 강조 테두리 색상 */
+	border-radius: 5px;
+}
+
+/* 마우스 호버 효과 */
+.paging a:hover {
+	background-color: #e0e0e0; /* 호버 시 배경색 */
+	color: #333; /* 호버 시 텍스트 색상 */
+	border-radius: 5px; /* 호버 시 테두리 반경 */
+}
+
+.header-text-red {
+	color: red;
+}

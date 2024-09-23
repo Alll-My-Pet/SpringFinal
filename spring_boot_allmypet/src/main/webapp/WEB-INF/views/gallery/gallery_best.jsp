@@ -9,7 +9,9 @@
     <meta charset="UTF-8">
     <title>갤러리</title>
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/gallery/gallery_best.css'/>" />
-    
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 <c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
@@ -45,20 +47,20 @@
                 <div class="gallery-item">
                 <a href="/gallery/detail/${post.postNo }">
                     <div class="image-container">
-                        <img class="gallery-image" src="<c:url value='/image/gallery/${post.postImg}'/>"/>
+                        <img class="gallery-image" src="<c:url value='/gallery_images/${post.postImg}'/>"/>
                         <div class="overlay">
                             <div class="like-count">
                                 <span>&hearts;${post.postLike}</span>
                             </div>
 							<div class="profile-icon">
                             	<!-- 회원 프로필 사진 이미지 폴더 만들어지면 경로 수정 -->
-					    		<img src="<c:url value='/image/${post.member.profile_image}'/>"/>
+					    		<img src="<c:url value='/member_images/${profileImages[post.postNo]}'/>"/>
 							</div>
                         </div>
                     </div>
                     <div class="info">
                         <p class="title">${post.postTitle}</p>
-                        <p class="comment-count">코멘트 수</p>
+                        <p class="comment-count">코멘트 수 : ${commentCounts[post.postNo]}</p>
                     </div>
                     </a>
                 </div>

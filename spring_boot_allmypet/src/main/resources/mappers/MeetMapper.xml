@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring_boot_allmypet.project.dao.meet.IMeetDAO">
+	
+	<!-- 모임 목록 가져오기 -->
+	<select id="getMeetList" parameterType="map" resultType="com.spring_boot_allmypet.project.model.meet.MeetVO">
+	    SELECT * FROM meet_info
+	    WHERE 1=1
+	    <if test="addressRegion != null and addressRegion != ''">
+	        AND addressRegion = #{addressRegion}
+	    </if>
+	    <if test="addressDo != null and addressDo != ''">
+	        AND addressDo = #{addressDo}
+	    </if>
+	    <if test="addressSiGunGu != null and addressSiGunGu != ''">
+	        AND addressSiGunGu = #{addressSiGunGu}
+	    </if>
+	    <if test="petCtgNo != null">
+	        AND petCtgNo = #{petCtgNo}
+	    </if>
+	    <if test="meetType != null">
+	        AND meetType IN (#{meetType1}, #{meetType2})
+	    </if>
+	    <if test="meetName != null and meetName != ''">
+	        AND meetName LIKE CONCAT('%', #{meetName}, '%')
+	    </if>
+	    <if test="offset != null and limit != null">
+	        LIMIT #{offset}, #{limit}
+	    </if>
+	</select>
+
+
+    <!-- 모임 총 개수 가져오기 -->
+    <select id="getMeetCount" parameterType="map" resultType="int">
+	    SELECT COUNT(*) FROM meet_info
+	    WHERE 1=1
+	    <if test="addressRegion != null and addressRegion != ''">
+	        AND addressRegion = #{addressRegion}
+	    </if>
+	    <if test="addressDo != null and addressDo != ''">
+	        AND addressDo = #{addressDo}
+	    </if>
+	    <if test="addressSiGunGu != null and addressSiGunGu != ''">
+	        AND addressSiGunGu = #{addressSiGunGu}
+	    </if>
+	    <if test="petCtgNo != null and petCtgNo != ''">
+	        AND petCtgNo = #{petCtgNo}
+	    </if>
+	    <if test="meetType != null and meetType.length > 0">
+	        AND meetType IN
+	        <foreach item="type" collection="meetType" open="(" separator="," close=")">
+	            #{type}
+	        </foreach>
+	    </if>
+	    <if test="searchKeyword != null and searchKeyword != ''">
+	        AND meetName LIKE CONCAT('%', #{searchKeyword}, '%')
+	    </if>
+	</select>
+    
+</mapper>

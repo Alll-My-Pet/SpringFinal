@@ -15,14 +15,47 @@ public class MyTipService implements IMyTipService {
 	@Qualifier("IMyTipDAO")
 	IMyTipDAO dao;
 	
+	// 전체 양육팁 리스트 
 	@Override
 	public ArrayList<MyTipBoardVO> getTipList(String petCtgNo) {
 		return dao.getTipList(petCtgNo);
 	}
-
+	
+	// 베스트 양육팁 3개
 	@Override
 	public ArrayList<MyTipBoardVO> getTop3List(String petCtgNo) {
 		return dao.getTop3List(petCtgNo);
 	}
-
+	
+	// 상세게시글 조회
+	@Override
+	public MyTipBoardVO detailViewBoard(int postNo) {
+		return dao.detailViewBoard(postNo);
+	}
+	
+	// 좋아요 업데이트
+	@Override
+	public void updateLikeCount(int postNo, int postLike) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	// 게시글 삽입
+	@Override
+	public void insertPost(MyTipBoardVO vo) {
+		dao.insertPost(vo);		
+	}
+	
+	// 베스트 양육팁 게시판 : 6개씩
+	@Override
+	public ArrayList<MyTipBoardVO> bestTips(String petCtgNo) {
+		return dao.bestTips(petCtgNo);
+	}
+	
+	// 베스트 양육팁 게시판 : 6개씩
+	@Override
+	public ArrayList<MyTipBoardVO> bestTips2(String petCtgNo) {
+		return dao.bestTips(petCtgNo);
+	}
+	
 }

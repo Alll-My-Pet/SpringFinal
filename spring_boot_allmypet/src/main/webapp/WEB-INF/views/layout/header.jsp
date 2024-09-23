@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>header</title>
-	<link rel="icon" type="image/png" href="#" />
+	<link rel="shortcut icon" type="image/x-icon" href="data:image/x-icon;,">
     <!-- 헤더: top-bar, nav-bar -->
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/layout/header.css'/>">
     <link rel="stylesheet" type="text/css" href="<c:url value='/css/layout/nav.css'/>">
@@ -40,7 +40,7 @@
 						<li><a href="<c:url value='/login'/>" id="topMenu1">로그인</a></li>
 					</c:if>
 					<c:if test="${not empty sessionScope.mid &&  sessionScope.mpos != 2}">
-						<li>${sessionScope.mid}님🐢</li>
+						<li>${sessionScope.mid}님</li>
 						<li>|</li>
 						<li><a href="<c:url value='/mypage'/>" id="topMenu2">마이페이지</a></li>
 						<li>|</li>
@@ -68,11 +68,11 @@
 		</div>
 		<div class="navigation-pill-list">
 			<div class="navigation-pill">
-				<a href="<c:url value='/board/noticeBoard'/>">공지/이벤트</a>
-				<div class="dropdown-menu">
+				<a href="<c:url value='/board/noticeBoard'/>">공지사항</a>
+				<%-- <div class="dropdown-menu">
 					<a href="<c:url value='/board/noticeBoard'/>">공지사항</a> 
 					<a href="#">이벤트</a>
-				</div>
+				</div> --%>
 			</div>
 			<div class="navigation-pill">
 				<a href="/gallery">갤러리</a>
@@ -81,25 +81,20 @@
 				<a href="/">커뮤니티</a>
 				<div class="dropdown-menu">
 					<a href="<c:url value='/board/freeBoard'/>">자유게시판</a> 
-					<a href="#">분양 홍보</a> 
-					<a href="<c:url value='/board/protect'/>">반려동물 보호</a>
+					<a href="/board/PromoteBoardList">분양 홍보</a> 
+					<a href="<c:url value='/board/ProtectBoardList'/>">반려동물 보호</a>
 					<a href="#">이모지 제작</a> 
-					<a href="#">핫한 게시글</a>
 				</div>
 			</div>
 			<div class="navigation-pill">
-				<a href="#">정보게시판</a>
-				<div class="dropdown-menu">
-					<a href="#">사육 기본정보</a> 
-					<a href="<c:url value='/board/bestTipBoard'/>">베스트 양육팁</a>
-				</div>
+				<a href="<c:url value='/board/bestTipBoard'/>">베스트 양육팁</a>
 			</div>
 			<div class="navigation-pill">
-				<a href="#">용품 중고거래</a>
+				<a href="/usedItem">용품 중고거래</a>
 			</div>
 			<div class="navigation-pill">
 				<!-- 지역 소모임 -->
-				<a href="#">집사들 모임</a>
+				<a href="<c:url value='/meet'/>">집사들 모임</a>
 			</div>
 			<div class="navigation-pill">
 				<a href="<c:url value='/market/home'/>">마켓🛒</a>
@@ -112,9 +107,9 @@
 			<!-- 전체 드롭다운 메뉴 -->
 			<div class="overall-dropdown">
 				<div class="dropdown-section">
-					<strong>공지/이벤트</strong> 
+					<strong>공지사항</strong> 
 					<a href="<c:url value='/board/noticeBoard'/>">공지사항</a> 
-					<a href="#">이벤트</a>
+					<!-- <a href="#">이벤트</a> -->
 				</div>
 				<div class="dropdown-section">
 					<strong>갤러리</strong>
@@ -123,20 +118,21 @@
 					<strong>커뮤니티</strong> 
 					<a href="<c:url value='/board/freeBoard'/>">자유게시판</a> 
 					<a href="#">분양 홍보</a> 
-					<a href="<c:url value='/board/protect'/>">반려동물 보호</a> 
+					<a href="<c:url value='/board/ProtectBoardList'/>">반려동물 보호</a> 
 					<a href="#">이모지 제작</a> 
-					<a href="#">핫한 게시글</a>
 				</div>
 				<div class="dropdown-section">
-					<strong>정보게시판</strong> 
-					<a href="#">사육 기본정보</a> 
-					<a href="<c:url value='/board/tipBoard'/>">베스트 양육팁</a>
+					<strong>
+						<a href="<c:url value='/board/tipBoard'/>">베스트 양육팁</a>
+					</strong>
 				</div>
 				<div class="dropdown-section">
 					<strong>용품 중고거래</strong>
 				</div>
 				<div class="dropdown-section">
-					<strong>집사들 모임</strong>
+					<strong>
+					<a href="<c:url value='/meet'/>">집사들 모임</a>
+					</strong>
 				</div>
 				<div class="dropdown-section">
 					<strong>마켓</strong>

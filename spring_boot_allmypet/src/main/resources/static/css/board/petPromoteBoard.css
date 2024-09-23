@@ -1,0 +1,393 @@
+@charset "UTF-8";
+
+/* ********************* */
+/*      페이지 정보 및 제목    */
+/* ********************* */
+/* pageInfo: 페이지 설명 + 페이지 제목*/
+.contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 710px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+
+/* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	/* padding: 18.5px 22px 11.5px 21px; */
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* 페이지 설명 */
+.page-title .titleInfo {
+	display: inline-block;
+	align-self: flex-start;
+	overflow-wrap: break-word;
+	font-weight: 400;
+	font-size: 15px;
+	line-height: 1;
+	color: rgba(0, 0, 0, 0.39);
+	/* margin: 0 auto; */
+	margin-top: 10px;
+	margin-left: 2px;
+	margin-bottom: 10px;
+}
+
+/* 페이지 제목 */
+.page-title .ctgTitle {
+	align-self: flex-start;
+	/* font-weight: 400; */
+	font-weight: 500;
+	font-size: 30px;
+	line-height: 1;
+	color: #000000;
+	/* margin: 10px auto; */
+	/* margin: 10px 0; */
+	margin-top: 10px;
+}
+
+/* 페이지명 위 아래 선 */
+.pageInfo::before, .pageInfo::after {
+	content: '';
+	position: absolute;
+	width: 400px; /* 선의 길이 설정 */
+	height: 3px; /* 선의 두께 설정 */
+	/* background-color: #848484;  */
+	background-color: #5F88A0;
+}
+
+.pageInfo::before {
+	top: -10px; /* 위쪽 선의 위치 조정 */
+	left: 190px; /* 중앙 정렬 */
+	transform: translateX(-50%); /* 중앙으로 이동 */
+}
+
+.pageInfo::after {
+	bottom: -10px; /* 아래쪽 선의 위치 조정 */
+	left: 190px; /* 중앙 정렬 */
+	transform: translateX(-50%); /* 중앙으로 이동 */
+}
+
+/* *********************************** */
+.promoteBoard {
+	width: 853px;
+	margin-top: 20px;
+	height: 1500px;
+}
+
+
+/* ***************** */
+/* 공지사항 */
+/* ***************** */
+.promoteNotice-box {
+	/* 	background-color: yellow; */
+	width: 750px;
+	height: 175px;
+	background-color: white;
+	border: 1px solid #A4A4A4;
+	border-radius: 10px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+	margin:0 auto;
+}
+
+.promoteNotice {
+	display: flex;
+	justify-content: center;
+}
+
+.promoteNotice-title {
+	/* background-color: yellow; */
+	display: inline-block; /* 또는 block */
+/* 	margin: 15px; */
+	/* font-weight: bold; */
+	font-size: 17px;
+	transform: translateY(20px);
+}
+
+
+
+.noticeTable {
+	width: 100%;
+	border-collapse: collapse; /* 테두리 겹침 방지 */
+	margin-top:30px;
+}
+
+.noticeTable th {
+	border-bottom: 2px solid #A4A4A4; /* 하단 테두리 추가 */
+}
+
+.noticeTable td {
+	border-bottom: 2px solid #A4A4A4; /* 하단 테두리 추가 */
+	border-top: 2px solid #A4A4A4; /* 하단 테두리 추가 */
+}
+
+td a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* 각 공지사항 구분하는 선 */
+.separator {
+	width: 95%; /* 테이블 너비보다 약간 짧게 설정 */
+	height: 1px; /* 구분선의 두께 */
+	background-color: #D8D8D8; /* 구분선 색상 */
+	margin: 0 auto; /* 가운데 정렬 */
+	padding: 0;
+}
+
+/* ************* */
+/* 동물별 검색 div */
+/* ************* */
+.promoteSearchBox{
+	background-color: white;
+	border: 1px solid #A4A4A4;
+	border-radius:10px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+	width:750px;
+	height:120px;
+	margin:0 auto;
+	margin-top:50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#promoteSearch{
+	/* background-color: pink; */
+	width: auto;
+	margin-top: 30px;
+}
+
+.petNameSearch{
+	/* position:absolute; */
+/* 	margin-left:100px;
+	margin-top:2px; */
+}
+
+.PSearchBar{
+	/* margin-left:230px; */
+	height:25px;
+	border-color:skyblue;
+}
+
+/* ************************************ */
+
+/* ************** */
+/* 분류선택 드롭박스 */
+/* ************** */
+.petCtgBox{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	/* background-color: pink; */
+	display: flex;
+	justify-content: flex-end;
+}
+
+.promotePetCtg{
+	width:90px;
+	height:30px;
+	margin-right: 50px;
+
+}
+
+/* ************** */
+
+.promoteBoardBox{
+	margin:0 auto;
+	/* margin-top:70px; */
+	width:750px;
+	height:940px;
+	background-color: white;
+	border: 1px solid #A4A4A4;
+	border-radius:10px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+.promotePic{
+	background-color: #FBFBF9;
+	border: 1px solid #A4A4A4;
+	border-radius:10px;
+	width:150px;
+	height:250px;
+    display: inline-block;
+    padding: 10px;
+    margin-right: 10px; /* 아이템 사이의 간격 */
+    margin-left:50px;
+    margin-top:30px;
+}
+
+.promotePic a{
+	text-decoration: none;
+	color: inherit;
+}
+
+.promoteFont{
+	border:1px solid black;
+	position:absolute;
+	height:150px;
+	width:147px;
+	background-color:white;
+}
+
+.promoteDescription{
+	width:147px;
+	height:90px;
+	/* border:1px solid black; */
+    margin-top:170px;
+    /* background-color:white; */
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+}
+
+/* *********************************** */
+
+
+.promoteBoardSearchBtn{
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+	background-color:#ededed;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#777777;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:5px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+
+.promoteBoardSearchBtn:hover {
+	background:linear-gradient(to bottom, #dfdfdf 5%, #ededed 100%);
+	background-color:#dfdfdf;
+}
+.promoteBoardSearchBtn:active {
+	position:relative;
+	top:1px;
+}
+
+/* ****************************** */
+/* 브리더 전용 - 분양홍보 글 작성 버튼 */
+/* ****************************** */
+/* .promoteBrdBtn{
+	background-color:white;
+	border-radius:10px;
+	width:150px;
+	height:30px;
+	margin-left:720px;
+	margin-bottom:30px;
+} */
+
+
+/* 글작성 버튼 */
+.mainWriteBox{
+	display: flex;
+	width: auto;
+	height: 50px;
+	position: relative;
+	/* background-color: lime; */
+	/* margin-bottom: 50px; */
+}
+
+.promoteBrdBtn {
+	position: absolute;
+	right: 50px;
+	top: 20px;
+	width: 130px;
+	height: 30px;
+	border-radius: 8px;
+	/* 	border: none; */
+	cursor: pointer;
+	/*  background-color: aliceblue; */
+	background-color: #E6E6E6;
+	/* border: none; */
+	border-width: 1px;
+	border-color: blanchedalmond;
+	box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.mainWriteBtn a{
+	text-decoration: none;
+	color: inherit;
+}
+
+/* ****************************** */
+
+
+
+
+.petNameSearch{
+	width:100px;
+	height:20px;
+}
+
+
+
+#PSearchFont{
+	width:100px;
+	margin:0 auto;
+}
+
+#ctgFont{
+	width:40px;
+	margin-left:180px;
+	margin-top:32px;
+	position:absolute;
+}
+
+
+
+
+
+.boardCtg{
+	border:1px solid black;
+	width:250px;
+	position:absolute;
+	top:300px;
+	left:180px;
+	text-align:center;
+}
+
+.paging{
+	margin:0 auto;
+	margin-top:40px;
+	
+}
+
+
+.paging a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 5px 10px;
+        margin: 0 5px;
+    }
+
+    /* 현재 페이지 강조 스타일 */
+.paging a.current {
+        font-weight: bold;
+        color: #ff5722; /* 강조 색상 */
+        border: 1px solid #ff5722; /* 강조 테두리 색상 */
+        border-radius: 5px;
+    }
+
+    /* 마우스 호버 효과 */
+.paging a:hover {
+        background-color: #e0e0e0; /* 호버 시 배경색 */
+        color: #333; /* 호버 시 텍스트 색상 */
+        border-radius: 5px; /* 호버 시 테두리 반경 */
+    }

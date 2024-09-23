@@ -10,6 +10,9 @@
 		<title>마켓</title>
 	<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/product.css'/>" />
 	<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+	<style>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+	</style>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -127,7 +130,7 @@
 			    <label><input type="checkbox" name="prdCtgNo" value="4" 
 			        onchange="filterProducts()" 
 			        <c:if test="${fn:contains(param.prdCtgNo, '4')}">checked</c:if>
-			    >사육장</label>
+			    >반려동물가구</label>
 			    
 			    <button onclick="showAllProducts()">전체목록 보기</button>
 			</div>
@@ -135,7 +138,7 @@
             <div class="product-grid">
             <c:forEach items="${prdList }" var="prd">
             <a class="product-item" data-type="${prd.prdCtgNo}" href="<c:url value='/market/product/detail/${prd.prdNo}'/>">
-                    <img class="product-image" src="<c:url value='/image/market/${prd.prdImg }'/>"/>
+                    <img class="product-image" src="<c:url value='/prd_images/${prd.prdImg }'/>"/>
                     <div class="product-name">${prd.prdName }</div>
                     <div class="product-price"><fmt:formatNumber value= "${prd.prdPrice}" pattern="#,###" />원</div>
             </a>

@@ -34,7 +34,7 @@
 									<tr>
 										<td>닉네임</td>
 										<td>${memVO.memNickName }</td>
-										<td><img src="#"></td>
+										<td></td>
 									</tr>
 									<tr><td colspan="3">반려동물</td></tr>
 									<c:if test="${not empty petList }">

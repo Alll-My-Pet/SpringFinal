@@ -1,0 +1,44 @@
+@charset "UTF-8";
+body {
+    background-color: #D9D9D9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.map {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+.categorySelect {
+    width: 250px;
+    padding: 10px;
+    border: 1px solid #999;
+    background: white;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.categorySelect:focus {
+    border-color: #6ca6fd;
+}
+
+/* 지도 크기 및 위치 조정 */
+#map {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}

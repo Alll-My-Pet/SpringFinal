@@ -83,13 +83,16 @@
 	        bb.postDate, 
 	        bb.memId AS author, 
 	        ph.headerName,
-	        bp.bookmarkDate
+	        bp.bookmarkDate,
+	        bb.petCtgNo,
+	        bb.headerNo,
+	        bb.postNo
 	    FROM 
 	        bookmark_post bp
 	    INNER JOIN 
 	        bulletin_board bb ON bp.postNo = bb.postNo
 	    INNER JOIN 
-	        postheader ph ON bb.headerNo = ph.headerNo
+	        postHeader ph ON bb.headerNo = ph.headerNo
 	    WHERE 
         	bp.memId = #{memId}
         ORDER BY 
@@ -108,7 +111,7 @@
 	    INNER JOIN 
 	        bulletin_board bb ON bp.postNo = bb.postNo
 	    INNER JOIN 
-	        postheader ph ON bb.headerNo = ph.headerNo
+	        postHeader ph ON bb.headerNo = ph.headerNo
 	    WHERE 
         	bp.memId = #{memId}
         AND bb.headerNo = #{headerNo}
@@ -128,7 +131,7 @@
 	    INNER JOIN 
 	        bulletin_board bb ON bp.postNo = bb.postNo
 	    INNER JOIN 
-	        postheader ph ON bb.headerNo = ph.headerNo
+	        postHeader ph ON bb.headerNo = ph.headerNo
 	    WHERE 
 	        bp.memId = #{memId}
 	    <if test="searchDiv != null and searchContents != null">
@@ -162,7 +165,8 @@
 	        pg.postImg,
 	        pg.memId AS author, 
 	        mb.profile_image,
-	        bg.bookmarkDate
+	        bg.bookmarkDate,
+	        pg.postNo
 	    FROM 
 	        bookmark_gallery bg
 	    INNER JOIN 

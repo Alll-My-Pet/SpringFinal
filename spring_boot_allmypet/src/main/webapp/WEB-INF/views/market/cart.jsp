@@ -11,6 +11,9 @@
 		<link rel="stylesheet" type="text/css" href="<c:url value='/css/market/cart.css'/>" />
 		<script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 		<script src="<c:url value='/js/market/cart.js'/>"></script>
+		<style>
+		@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+		</style>
 	</head>
 	<body>
 	<c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -37,19 +40,18 @@
                 <c:set var = "total" value = "0" />
                 <c:forEach items="${cartList }" var="car">
                     <tr class="cart__list__detail">
-                        <td><input type="checkbox" class="select" data-cartno="${car.cartNo}"></td>
+                        <td><input type="checkbox" class="select" data-cartno="${car.cartNo}" checked></td>
                         <td><img src="<c:url value='/image/market/${car.product.prdImg }'/>"/></td>
                         <td>${car.product.prdCompany }</a>
                             <p>${car.product.prdName }</p>
-                            <sapn class="price"><fmt:formatNumber value= "${car.product.prdPrice}" pattern="#,###" />원</sapn>
                         </td>
                         <td class="cart__list__option">
                             <p>제품명 : ${car.product.prdName} / ${car.cartQty}개</p>
                             <button class="cart__list__optionbtn" onclick="location.href='<c:url value='/market/product/detail'/>'">주문조건 추가/변경</button>
                         </td>
-                        <td><span class="price"><fmt:formatNumber value= "${car.product.prdPrice *car.cartQty}" pattern="#,###" />원</span><br>
-                        <c:set var= "total" value="${total + (car.product.prdPrice *car.cartQty)}"/>
-                            <button class="cart__list__orderbtn" onclick="location.href='<c:url value='/market/order'/>'">즉시구매</button>
+                        <td>
+                        <span class="price"><fmt:formatNumber value= "${car.product.prdPrice *car.cartQty}" pattern="#,###" />원</span><br>
+                        <button class="cart__list__orderbtn" onclick="location.href='<c:url value='/market/order'/>'">즉시구매</button>
                         </td>
                         <td>무료</td>
                     </tr>
@@ -85,14 +87,6 @@
         </thead>
         <tbody>
             <tr>
-                <td class="order_kind">총 상품 가격</td>
-                <td>
-                    <div class=order_Pirce>
-                    	<fmt:formatNumber value= "${total}" pattern="#,###" />원
-                    </div>
-                </td>
-            </tr>
-            <tr>
                 <td class="order_kind">배송비</td>
                 <td>
                     <div class=order_Pirce>0원</div>
@@ -101,20 +95,19 @@
         
             <tr>
                 <td class="order_kind">적립 포인트</td>
-                <td>
-                	<div class=order_Pirce>
-						+<fmt:formatNumber value= "${total*0.02}" pattern="#,###" />p
-					</div>
+				<td>
+				    <div class="order_Pirce points">
+				        +<fmt:formatNumber value= "${total * 0.02}" pattern="#,###" />p
+				    </div>
 				</td>
             </tr>
-            
             <tr>
-                <td class="order_kind">합계</td>
-                <td>
-					<div class=order_Pirce>
-                    	<fmt:formatNumber value= "${total}" pattern="#,###" />원
-                    </div>
-				</td>
+			<td class="order_kind">총 상품 가격</td>
+			<td>
+			    <div class="order_Pirce total">
+			        <fmt:formatNumber value= "${total}" pattern="#,###" />원
+			    </div>
+			</td>
             </tr>
           </tbody>
 		</table>

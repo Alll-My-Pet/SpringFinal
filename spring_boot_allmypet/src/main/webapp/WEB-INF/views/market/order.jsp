@@ -11,6 +11,9 @@
 <script src="<c:url value='/js/market/jquery-3.7.1.min.js'/>"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="<c:url value='/js/market/order.js'/>"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -162,14 +165,9 @@
             <tr>
                 <td>포인트</td>
                 <td>
-                    <c:set var="ptotal" value="0" />
-                    <c:forEach items="${point}" var="p">
-                        <c:set var="ptotal" value="${ptotal + p.point_change}" />
-                    </c:forEach>
-				    
 					<div class="point">
 					    사용할 포인트:
-					    <input type="number" id="points" name="points" min="0" max="${ptotal}" value="0" oninput="updateDiscount()" onfocus="showMaxPoints()" onkeydown="preventEnter(event)" required />
+					    <input type="number" id="points" name="points" min="0" max="${point}" value="0" oninput="updateDiscount()" onfocus="showMaxPoints()" onkeydown="preventEnter(event)" required />
 					    <div id="maxPointsMessage" style="color: gray; display: none;"></div>
 					</div>
                 </td>
@@ -177,7 +175,7 @@
         </tbody>
 		</table>
 		<script>
-		const ptotal = ${ptotal};  // JSP에서 포인트 최대값 설정
+		const ptotal = ${point};  // JSP에서 포인트 최대값 설정
 		const total = ${total};   // JSP에서 총 결제 금액 설정
 		</script>
 		<br>

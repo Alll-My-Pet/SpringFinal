@@ -63,18 +63,21 @@
 
     <!-- 특정 카테고리와 범위에 따른 상품 목록 조회 -->
     <select id="listProductsByCtg" parameterType="map" resultMap="productResult">
-        SELECT p.*, pc.prdCtgName 
-        FROM product p 
-        JOIN prd_ctg pc ON p.prdCtgNo = pc.prdCtgNo 
-        WHERE p.prdCtgNo BETWEEN #{startRange} AND #{endRange}
-        <if test="petCtgNo != null">
-            AND p.petCtgNo = #{petCtgNo}
-        </if>
-        <if test="prdCtgNo != null">
-            AND p.prdCtgNo = #{prdCtgNo}
-        </if>
-        ORDER BY CAST(p.prdNo AS UNSIGNED);
-    </select>
+	    SELECT p.*, pc.prdCtgName 
+	    FROM product p 
+	    JOIN prd_ctg pc ON p.prdCtgNo = pc.prdCtgNo 
+	    WHERE p.prdCtgNo BETWEEN #{startRange} AND #{endRange}
+	    <if test="petCtgNo != null">
+	        AND p.petCtgNo = #{petCtgNo}
+	    </if>
+	    <if test="prdCtgNoList != null and prdCtgNoList.size > 0">
+	        AND p.prdCtgNo IN 
+	        <foreach item="item" index="index" collection="prdCtgNoList" open="(" separator="," close=")">
+	            #{item}
+	        </foreach>
+	    </if>
+	    ORDER BY CAST(p.prdNo AS UNSIGNED);
+</select>
 
     <!-- 상품 번호에 따른 리뷰 목록 조회 -->
     <select id="getReviewsByProductNo" resultType="com.spring_boot_allmypet.project.model.market.ReviewVO">
@@ -83,5 +86,7 @@
     JOIN member m ON r.memId = m.memId
     WHERE r.prdNo = #{prdNo}
     </select>
+	
 
+	
 </mapper>

@@ -91,7 +91,7 @@
 		FROM post p
 		JOIN member m ON
 		p.memId = m.memId
-		WHERE p.boardCtgNo = '1'
+		WHERE p.boardCtgNo = '1' 
 		ORDER BY postDate DESC;
 	</select>
 	

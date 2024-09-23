@@ -21,14 +21,20 @@ function submitInstantOrder() {
     form.submit();
 }
 
+// 경고를 띄우고 로그인 페이지로 리다이렉트하는 함수
+    function redirectToLogin() {
+        alert("로그인이 필요합니다."); // 경고 메시지 표시
+        window.location.href = "/login"; // 로그인 페이지로 이동
+    }
 
 $(document).ready(function() {
-    const decreaseBtn = document.querySelector('.quantity-btn.decrease');
-    const increaseBtn = document.querySelector('.quantity-btn.increase');
-    const quantityInput = document.querySelector('.quantity-input');
-    const insertCartBtn = document.querySelector('#insertCart');
-    const insertOrderBtn = document.querySelector('#insertOrder');
-
+    let decreaseBtn = document.querySelector('.quantity-btn.decrease');  // let으로 변경
+    let increaseBtn = document.querySelector('.quantity-btn.increase');  // let으로 변경
+    let quantityInput = document.querySelector('.quantity-input');       // let으로 변경
+    let insertCartBtn = document.querySelector('#insertCart');           // let으로 변경
+    let insertOrderBtn = document.querySelector('#insertOrder');         // let으로 변경
+	
+	
     // 수량 감소
     decreaseBtn.addEventListener('click', function (event) {
         event.preventDefault();
@@ -46,16 +52,24 @@ $(document).ready(function() {
     });
 
     // 장바구니 담기
-    insertCartBtn.addEventListener('click', function (event) {
+    insertCartBtn.addEventListener('click', function(event) {
         event.preventDefault();
-        const form = event.target.closest('form');
-        form.action = '/market/product/insertCart';  // 장바구니에 담기
-        form.submit();
+        if (!memId || memId === "null" || memId === "") {  // 로그인하지 않은 경우
+            redirectToLogin();
+        } else {
+            const form = event.target.closest('form');
+            form.action = '/market/product/insertCart';  // 장바구니에 담기
+            form.submit();
+        }
     });
 
     // 즉시 구매하기
-    insertOrderBtn.addEventListener('click', function (event) {
+    insertOrderBtn.addEventListener('click', function(event) {
         event.preventDefault();
-        submitInstantOrder();  // 즉시 구매 함수 호출
+        if (!memId || memId === "null" || memId === "") {  // 로그인하지 않은 경우
+            redirectToLogin();
+        } else {
+            submitInstantOrder();  // 즉시 구매 함수 호출
+        }
     });
 });

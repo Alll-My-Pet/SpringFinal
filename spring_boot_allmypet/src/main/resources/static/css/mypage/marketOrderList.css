@@ -4,6 +4,7 @@
 	display: flex;
 	flex-direction: row;
 	width:100%;
+	min-height: 800px;
 }
 #mypage_market #mypage_r{
 	width:70%;
@@ -19,6 +20,7 @@
 }
 #mol_m{
 	height:80%;
+	min-height:600px;
 }
 #mol_b{
 	height:10%;
@@ -72,6 +74,7 @@
 	margin: 0 auto;
 	padding: 1% 1%;
 	border:1px solid #aaaaaa;
+	min-height:550px;
 }
 .mol_order_list{
 	width:90%;

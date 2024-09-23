@@ -5,7 +5,9 @@
  <html>
   <head>
    <title>분양홍보 게시글</title>
-   <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/PromoteDetail.css'/>" />
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/promoteDetail.css'/>" />
+   <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
+   <script src="<c:url value='/js/board/promoteDetail.js'/>"></script>
   </head>
 	<body>
 		<div class="All">
@@ -17,14 +19,42 @@
 				
 				<h2 id="promoteDetailFont">분양 홍보 게시판</h2>
 				
+				
+				
 				<div class="petInfoBox">
-					<div class="petPhotoBox">${promoteBoard.postImg }</div>
-					<div class="petExplain">분류:${promoteBoard.petCtgNo }<br>
-				    						생물명:${promoteBoard.petName }<br>
-				    						분양처:${promoteBoard.placeInfo }<br>
-				    						분양 방법:${promoteBoard.parcelOutInfo }<br>
-				    						작성자:${promoteBoard.memId}
-				    </div>
+					<div class="petPhotoBox">
+						<c:if test="${not empty promoteBoard.postImg}">
+							<img class="post-image"
+								src="<c:url value='/protect_images/${promoteBoard.postImg}'/>"
+								style="width: 200px; height: 200px;" />
+						</c:if>
+					</div>
+					
+					<div class="petExplain">
+						분류:
+						<c:choose>
+							<c:when test="${promoteBoard.petCtgNo == 1}">강아지</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 2}">고양이</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 3}">기타 포유류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 4}">파충류/양서류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 5}">어류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 6}">조류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 7}">설치류</c:when>
+							<c:when test="${promoteBoard.petCtgNo == 8}">절지류/곤충류</c:when>
+						</c:choose>
+						<br> 
+						생물명:${promoteBoard.petName }
+						<br>
+						분양처:${promoteBoard.placeInfo }
+						<br>
+						분양 방법:
+						<c:choose>
+						<c:when test="${promoteBoard.parcelOutInfo == 'FTF' }">대면</c:when>
+						<c:when test="${promoteBoard.parcelOutInfo == 'NFTF' }">비 대면</c:when>
+						</c:choose>
+						<br>
+						작성자:${promoteBoard.memId}
+				</div>
 				</div>
 				
 				<div class="parcelOutInfoBox">
@@ -43,6 +73,13 @@
 				<div class="promoteContentArea">
 					${promoteBoard.postContent}
 				</div>
+				
+				<div class="bookMarkAndLike">
+					<button class="bookMarkBtn"><img src="<c:url value='/project_images/free-icon-bookmark-white-25667.png'/>" /></button>
+					<button id="LikeBtn" class="LikeBtn" onclick="toggleLike(${promoteBoard.postNo})"><img src="<c:url value='/project_images/free-icon-thumb-up-5323424.png'/>" /></button>
+				</div>
+				
+				
 				
 				<div class="udButtons">
 					<c:if test="${promoteBoard.memId == logInUser}">

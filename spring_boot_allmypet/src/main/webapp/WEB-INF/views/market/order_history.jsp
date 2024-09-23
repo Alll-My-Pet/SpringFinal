@@ -9,6 +9,9 @@
 		<meta charset="UTF-8">
 <title>주문/결제</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/market/order_history.css'/>" />
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 <c:import url = "/WEB-INF/views/layout/header.jsp"></c:import>
@@ -41,7 +44,7 @@
            	 <c:forEach var="product" items="${order.orderProducts}">
             <div class="order-item">
                 <div class="product-info">
-                <img class="order_image" src="<c:url value='/image/market/${product.productDetails.prdImg}'/>"/>
+                <img class="order_image" src="<c:url value='/prd_images/${product.productDetails.prdImg}'/>"/>
                      <p>${product.productDetails.prdName}
                     <br>
                     <fmt:formatNumber value= "${product.productDetails.prdPrice}" pattern="#,###" />원

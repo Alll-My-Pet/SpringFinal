@@ -13,19 +13,18 @@
 
 	<select id="getTipList" parameterType="String"
 		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
-		SELECT mt.postNo, mt.petCtgNo, mt.postTitle, mt.postDate,
-		mt.memId, m.memNickName, mt.postContent, mt.postLike, mt.postView, mt.postImg
+		SELECT mt.*, m.memNickName
 		FROM mytip_board mt
 		JOIN member m ON mt.memId = m.memId
 		WHERE
 		mt.petCtgNo = #{petCtgNo}
+		ORDER BY mt.postDate DESC;
 	</select>
 
 	<!-- 양육팁 게시판 내 베스트 양육팁 -->
 	<select id="getTop3List" parameterType="String"
 		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
-		SELECT mt.postNo, mt.petCtgNo, mt.postTitle, mt.postDate,
-		mt.memId, m.memNickName, mt.postContent, mt.postLike, mt.postView, mt.postImg
+		SELECT mt.*, m.memNickName
 		FROM mytip_board mt
 		JOIN member m ON mt.memId = m.memId
 		WHERE
@@ -33,5 +32,35 @@
 		ORDER BY postLike DESC
 		LIMIT 3
 	</select>
-
+	
+	<!-- 게시글 조회 -->
+	<select id="detailViewBoard" parameterType="int"
+		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
+		SELECT mt.*, m.memNickName, mt.postImg AS postImgBytes
+		FROM mytip_board mt
+		JOIN member m ON mt.memId = m.memId
+		WHERE mt.postNo = #{postNo}
+	</select>
+	
+	<!-- 게시글 작성 -->
+	<insert id="insertPost"
+		parameterType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
+		INSERT INTO mytip_board (postTitle, memId, postDate,
+		postContent, petCtgNo, postImg, boardCtgNo)
+		VALUES (#{postTitle},
+		#{memId}, NOW(),
+		#{postContent}, #{petCtgNo}, #{postImgBytes}, '11')
+	</insert>
+	
+	<!-- 베스트 양육팁 게시판 -->
+	<select id="bestTips" parameterType="String"
+		resultType="com.spring_boot_allmypet.project.model.animal.MyTipBoardVO">
+		SELECT mt.*, m.memNickName
+		FROM mytip_board mt
+		JOIN member m ON mt.memId = m.memId
+		WHERE
+		mt.petCtgNo = #{petCtgNo}
+		ORDER BY postLike DESC
+		LIMIT 4
+	</select>
 </mapper>

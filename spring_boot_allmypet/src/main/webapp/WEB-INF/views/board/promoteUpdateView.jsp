@@ -5,9 +5,9 @@
  <html>
   <head>
    <title>분양홍보 작성</title>
-   <link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/promoteWrite.css'/>" />
+   <link rel="stylesheet" type="text/css" href="<c:url value='/css/board/promoteWrite.css'/>" />
    <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-   <script src="<c:url value='/js/Board/promoteUpdate.js'/>"></script>
+   <script src="<c:url value='/js/board/promoteUpdate.js'/>"></script>
   </head>
 	<body>
 		<div class="All">
@@ -19,7 +19,9 @@
 				
 		 <section class="promoteWrite">
 		 
-		  <form class="promoteUpdateFrm" method="post" action="<c:url value='/board/updatePromote'/>">
+		  <form class="promoteUpdateFrm" id="promoteUpdateFrm" method="post" 
+		  action="<c:url value='/board/updatePromote'/>" enctype="multipart/form-data">
+		  
 		  <input type="hidden" id="postNo" name="postNo" value="${promoteBoard.postNo}" />
 		  <div class="animalCtg">
 			<select class="animalCtg" name="petCtgNo" id="petCtgNo">
@@ -58,11 +60,12 @@
 			 <button class="promoteLocationBtn">분양처 위치 등록</button>
 			</div>
 			
-			<label for="thumbNail" class="thumbNailPhoto" >
-        		파일 선택
-   		    </label>
 			<div class="thumbNail">
-			 <input type="file" class="thumbNailBtn" name="postImg" id="postImg" value="${promoteBoard.postImg }">
+			 	<input type="file" class="thumbNailBtn" name="postImgFile" id="postImgFile" value="${promoteBoard.postImg }">
+				<label for="postImgFile" class="imgSelectLabel" >
+        			파일 선택
+   		   		</label>
+			
 			</div>
 			
 			<div class="thumbNailPreview"></div>
@@ -73,12 +76,13 @@
 		  	<li>CITES 등록종일 경우 생물명 앞에 [CITES] 표기 바랍니다.</li>
 		  	<li>생물분양으로 인한 불이익은 올마이펫의 책임이 아닙니다.</li>
 		  </ul>
-		  
-		  <div class="form-group">
-                         <label for="password">비밀번호</label>
-                         <input type="password" id="memPwd" name="memPwd" required />
-                    </div>
-		  
+
+
+		 <div class="form-group">
+			  <label for="password">비밀번호</label> 
+			  <input type="password" id="memPwd" name="memPwd" required />
+		  </div>
+
 		  <div class="uploadBox">
 		  	<button type="submit" class="uploadBtn">업로드</button>
 		  </div>

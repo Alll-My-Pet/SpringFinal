@@ -18,6 +18,9 @@
 	href="<c:url value='/css/index/slideshow.css'/>">
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/index.js'/>"></script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 </head>
 <body>
 	<div class="desktop-1">
@@ -168,7 +171,7 @@
 						<div class="photo-Emoji">
 							<div class="best-photos">
 								<!-- 링크 삽입 -->
-								<a href="게시판_링크.html" class="board-title">
+								<a href="/gallery" class="board-title">
 									<div>이번달 BEST 📷 +</div>
 								</a>
 								<div class="best-slideshow">
@@ -242,16 +245,16 @@
 											src="image/index/event_img.jpg" class="event-img" alt="..."
 											width="71px" height="105px" />
 											<div class="event-body">
-												<span>희귀동물 박람회</span>
-												<p>20XX.XX.XX ~ XX.XX</p>
-												<p>일산 킨텍스</p>
+												<span>2024 케이펫페어</span>
+												<p>2024.03.15 ~ 03.17</p>
+												<p>세텍(학여울역)</p>
 											</div>
 										</a> <a href="이벤트_상세.html" class="event-info-2"> <img
-											src="image/index/event_img.jpg" class="event-img" alt="..."
+											src="image/index/extotic_expo.jpg" class="event-img" alt="..."
 											width="71px" height="105px" />
 											<div class="event-body">
 												<span>희귀동물 박람회</span>
-												<p>20XX.XX.XX ~ XX.XX</p>
+												<p>2024.03.16 ~ 03.17</p>
 												<p>일산 킨텍스</p>
 											</div>
 										</a>

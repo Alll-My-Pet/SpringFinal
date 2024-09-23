@@ -51,7 +51,7 @@
 						                <td class="mej_favorites_td">
 						                    <div class="mej_favorites_mdiv">
 						                        <div class="mej_favorites_cancel" data-emjno ="${emj_f.purchaseId }"><i class="fa-duotone fa-solid fa-xmark"></i></div>
-						                        <div class="mej_favorites_img emj_div" ><img class="emj_img" src="<c:url value='/image/emoji/${emj_f.emoImg}'/>" alt="Emoji Image"></div>
+						                        <div class="mej_favorites_img emj_div" ><img class="emj_img" src="<c:url value='/emoji_images/${emj_f.emoImg}'/>" alt="Emoji Image"></div>
 						                        <div class="mej_favorites_info">
 						                            <div class="mej_favorites_name inner_text_div">${emj_f.emoName}</div>
 						                            <div class="mej_favorites_prod inner_text_div">제작자 ${emj_f.emojiMemId}</div>
@@ -134,7 +134,7 @@
 						        <div class="mej_list_title">${emj_e.emoName }</div>
 						        <div class="mej_list_date">${emj_e.emoDate }</div>
 						        <div class="spacer"></div>
-						        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/image/emoji/${emj_e.emoImg}'/>" alt="Emoji Image"></div>
+						        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/emoji_images/${emj_e.emoImg}'/>" alt="Emoji Image"></div>
 						        <div class="spacer"></div>
 						        <div class="mej_list_check">${emj_e.approvalStatus }</div>
 						        <div class="mej_list_favorites my_favorites_btn" data-emj-check ="${emj_e.approvalStatus }"  data-emo-no="${emj_e.purchaseId}">즐겨찾기</div>
@@ -163,7 +163,7 @@
 						        <div class="mej_list_title">${emj_p.emoName }</div>
 						        <div class="mej_list_date">${emj_p.purchaseDate }</div>
 						        <div class="spacer"></div>
-						        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/image/emoji/${emj_p.emoImg}'/>" alt="Emoji Image"></div>
+						        <div class="mej_img_preview emj_div"><img class="emj_img" src="<c:url value='/emoji_images/${emj_p.emoImg}'/>" alt="Emoji Image"></div>
 						        <div class="spacer"></div>
 						        <div class="mej_list_nou">${emj_p.useCount }</div>
 						        <div class="mej_list_favorites purch_favorites_btn" data-emo-no="${emj_p.purchaseId}">즐겨찾기</div>

@@ -7,10 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>분양 홍보 게시판</title>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/Board/PetPromoteBoard.css'/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/common.css'/>">
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/board/petPromoteBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
-<script src="<c:url value='/js/Board/promoteBoard.js'/>"></script>
-
+<script src="<c:url value='/js/board/promoteBoard.js'/>"></script>
+<style>
+@import
+	url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap')
+	;
+</style>
 <script>
 	function goPage(no) {
 		const frm = document.pageFrm;
@@ -27,124 +34,187 @@
 		frm.pageNo.value = no;
 		frm.submit();
 	}
-	
 </script>
 </head>
 <body>
-	<div class="All">
-		<section class="promoteBoard">
-			<div id="header">
-				<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
-			</div>
-			<div class="promoteHeader">
+	<div class="desktop-1">
+		<!-- 중앙 전체 프레임 -->
+		<div class="frame-1">
+			<div class="frame-2">
+				<!-- header 위치 부착 -->
+				<div id="header">
+					<c:import url="/WEB-INF/views/layout/header.jsp"></c:import>
+				</div>
+				<div class="contents">
 
-
-				<h1 id="titleFont">분양 홍보 게시판</h1>
-				<p id="titleFont2" style="color: gray;">인가받은 업체나 브리더에 한해서만 게시글
-					업로드 가능합니다</p>
-
-				<div class="promoteHotBoard">
-					<h3 style="margin-left: 2%;">분양 시 주의사항</h3>
-					<div class="hot1">
-						<p style="text-indent: 30px;">제목1</p>
-						<p style="text-indent: 500px;">닉네임</p>
-						<p style="text-indent: 50px;">2021-10-12</p>
+					<div class="pageInfo">
+						<div class="page-title">
+							<span class="ctgTitle">분양 홍보 게시판</span>
+							<div class="titleInfo">인가받은 업체나 브리더에 한해서만 게시글 업로드 가능합니다</div>
+						</div>
 					</div>
-					<div class="hot2">
-						<p style="text-indent: 30px;">제목1</p>
-						<p style="text-indent: 500px;">닉네임</p>
-						<p style="text-indent: 50px;">2021-10-12</p>
-					</div>
-				</div>
+					<!-- pageInfo 끝 -->
+					<section class="promoteBoard">
+						<div class="promoteNotice-box">
+							<h3 style="margin-left: 2%;" class="promoteNotice-title">분양
+								시 주의사항</h3>
 
-				<div class="promoteSearchBox">
-					<h4 id="PSearchFont">동물별 검색</h4>
-					<form id="promoteSearch" method="get" action="<c:url value='/board/promoteSearch'/>">
-					
-						<select class="petNameSearch" id="type" name="type" style="height:30px;">
-							<option value="petName">동물 이름</option>
-							<option value="placeInfo">업체 명</option>
-						</select>
-						
-						<input type="text" class="PSearchBar" id="keyword" name="keyword" placeholder="게시판 내 검색">
-						
-						<button class="promoteBoardSearchBtn">검색</button>
-					</form>
-				</div>
-				<!-- promoteSearch 끝 -->
-				
-				
-				<div class="petCtgBox">
-						<select class="promotePetCtg" id="petCtgNo" name="petCtgNo">
-							<option value="9">분류 선택</option>
-							<option value="1">강아지</option>
-							<option value="2">고양이</option>
-							<option value="3">기타 포유류</option>
-							<option value="4">파충류/양서류</option>
-							<option value="5">어류</option>
-							<option value="6">조류</option>
-							<option value="7">설치류</option>
-							<option value="8">절지류/곤충류</option>
-							
-						</select>
-				</div>
-				<!-- petCtgBox 끝 -->
-				
-				<div class="promoteBoardBox">
-					<c:forEach var="promote" items="${Promote }">
-						<a href="<c:url value='/board/promoteDetailView/${promote.postNo}'/>">
-							<div class="promotePic">
-								<div class="promoteFont">${promote.postImg }</div>
-								<div class="promoteDescription">
-									분류:${promote.petCtgNo }<br> 
-									생물명:${promote.petName }<br>
-									분양처:${promote.placeInfo }<br> 
-									분양 방법:${promote.parcelOutInfo }
-								</div>
+							<div class="promoteNotice">
+
+								<table class="noticeTable">
+									<tr>
+										<th>제목</th>
+										<th>작성자</th>
+										<th>날짜</th>
+										<th>조회수</th>
+										<th>좋아요</th>
+									</tr>
+									<c:forEach var="notice" items="${noticeList }">
+										<a href="#">
+											<tr>
+												<td style="color: red;"><a href="#">${notice.postTitle}</a></td>
+												<td>${notice.memNickName}</td>
+												<td><fmt:formatDate value="${notice.postDate}"
+														pattern="M/dd HH:mm" /></td>
+												<td>${notice.postView}</td>
+												<td>${notice.postLike}</td>
+											</tr>
+										</a>
+									</c:forEach>
+								</table>
 							</div>
-						</a>
-					</c:forEach>
+						</div>
+						<!-- promoteNotice-box끝 -->
 
-					<div class="paging" style="text-align: center;">
-						<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
-							onclick="javascript:goPage('prev')">이전</a>
+						<div class="promoteSearchBox">
+							<h4 id="PSearchFont">동물별 검색</h4>
+							<form id="promoteSearch" method="get"
+								action="<c:url value='/board/promoteSearch'/>">
 
-						<c:forEach var="i" begin="${pageVo.startPage }"
-							end="${pageVo.endPage }">
-							<%-- <a onclick="javascript:goPage('${i}')">${i }</a> --%>
-							<a onclick="javascript:goPage('${i}')"
-								class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
-						</c:forEach>
+								<select class="petNameSearch" id="type" name="type"
+									style="height: 30px;">
+									<option value="petName">동물 이름</option>
+									<option value="placeInfo">업체 명</option>
+								</select> <input type="text" class="PSearchBar" id="keyword"
+									name="keyword" placeholder="게시판 내 검색">
 
-						<a onclick="javascript:goPage('next')">다음</a> <a
-							onclick="javascript:goPage('${pageVo.totalPage }')"> &gt;&gt;</a>
-					</div>
-					<form name="pageFrm">
-						<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
-					</form>
+								<button class="promoteBoardSearchBtn">검색</button>
+							</form>
+						</div>
+						<!-- promoteSearch 끝 -->
 
+
+						<div class="petCtgBox">
+							<select class="promotePetCtg" id="petCtgNo" name="petCtgNo">
+								<option value="9">분류 선택</option>
+								<option value="1">강아지</option>
+								<option value="2">고양이</option>
+								<option value="3">기타 포유류</option>
+								<option value="4">파충류/양서류</option>
+								<option value="5">어류</option>
+								<option value="6">조류</option>
+								<option value="7">설치류</option>
+								<option value="8">절지류/곤충류</option>
+
+							</select>
+						</div>
+						<!-- petCtgBox 끝 -->
+
+						<div class="promoteBoardBox">
+							<c:forEach var="promote" items="${Promote }">
+								<div class="promotePic">
+									<a
+										href="<c:url value='/board/promoteDetailView/${promote.postNo}'/>">
+										<div class="promoteFont">
+											<%-- <c:if test="${not empty promote.postImg}">
+												<img class="post-image"
+													src="<c:url value='/promote/${promote.postImg}'/>"
+													style="width: 147px; height: 150px;" />
+											</c:if> --%>
+											<img class="post-image"
+												src="/promote_images/${promote.postImg}"
+												style="width: 147px; height: 150px;" />
+										</div>
+										<div class="promoteDescription">
+											분류:
+											<c:choose>
+												<c:when test="${promote.petCtgNo == 1}">강아지</c:when>
+												<c:when test="${promote.petCtgNo == 2}">고양이</c:when>
+												<c:when test="${promote.petCtgNo == 3}">기타 포유류</c:when>
+												<c:when test="${promote.petCtgNo == 4}">파충류/양서류</c:when>
+												<c:when test="${promote.petCtgNo == 5}">어류</c:when>
+												<c:when test="${promote.petCtgNo == 6}">조류</c:when>
+												<c:when test="${promote.petCtgNo == 7}">설치류</c:when>
+												<c:when test="${promote.petCtgNo == 8}">절지류/곤충류</c:when>
+											</c:choose>
+											<br> 생물명: ${promote.petName }<br> 분양처:
+											${promote.placeInfo }<br>
+											<%-- 분양 방법:
+											<c:choose>
+												<c:when test="${promote.parcelOutInfo == 'FTF' }">대면</c:when>
+												<c:when test="${promote.parcelOutInfo == 'NFTF' }">비 대면</c:when>
+											</c:choose> --%>
+										</div>
+									</a>
+								</div>
+								<!-- "promotePic"끝 -->
+							</c:forEach>
+
+						</div>
+						<!-- promoteBoardBox 끝 -->
+						<div class="mainWriteBox">
+							<!-- 로그인 시 -->
+							<c:if test="${not empty sessionScope.mid }">
+								<button class="promoteBrdBtn">
+									<a href="<c:url value='/board/promoteWrite'/>">글 작성</a>
+								</button>
+							</c:if>
+
+							<!-- 로그인 하지 않은 경우-->
+							<c:if test="${empty sessionScope.mid }">
+								<button id="notLoginBtn" class="promoteBrdBtn">글 작성</button>
+							</c:if>
+						</div>
+						<div class="paging" style="text-align: center;">
+							<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
+								onclick="javascript:goPage('prev')">이전</a>
+
+							<c:forEach var="i" begin="${pageVo.startPage }"
+								end="${pageVo.endPage }">
+								<%-- <a onclick="javascript:goPage('${i}')">${i }</a> --%>
+								<a onclick="javascript:goPage('${i}')"
+									class="${i == pageVo.pageNo ? 'current' : ''}">${i}</a>
+							</c:forEach>
+
+							<a onclick="javascript:goPage('next')">다음</a> <a
+								onclick="javascript:goPage('${pageVo.totalPage }')">
+								&gt;&gt;</a>
+						</div>
+						<form name="pageFrm">
+							<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
+						</form>
+					</section>
+					<!-- section끝 -->
 				</div>
-				<!-- promotePicBox 끝 -->
-
-				<!-- 로그인 시 -->
-				<c:if test="${not empty sessionScope.mid }">
-					<button class="promoteBrdBtn">
-						<a href="<c:url value='/board/promoteWrite'/>">글 작성</a>
-					</button>
-				</c:if>
-
-				<!-- 로그인 하지 않은 경우-->
-				<c:if test="${empty sessionScope.mid }">
-					<button id="notLoginBtn" class="promoteBrdBtn">글 작성</button>
-				</c:if>
+				<!-- contents끝 -->
 			</div>
-		</section>
-
-
+			<!-- frame-2 끝 -->
+			<!-- 플로팅버튼(탑버튼 포함) -->
+			<div id="floatingBtn">
+				<c:import url="/WEB-INF/views/layout/floating_btn.jsp"></c:import>
+			</div>
+			<!-- sidebar 부착 -->
+			<div id="sidebar">
+				<c:import url="/WEB-INF/views/layout/sidebar.jsp"></c:import>
+			</div>
+		</div>
+		<!-- frame-1끝 -->
+		<br> <br>
+		<!-- footer부착 -->
 		<div id="footer">
 			<c:import url="/WEB-INF/views/layout/footer.jsp"></c:import>
 		</div>
-
 	</div>
+	<!-- desktop-1끝 -->
 </body>
 </html>

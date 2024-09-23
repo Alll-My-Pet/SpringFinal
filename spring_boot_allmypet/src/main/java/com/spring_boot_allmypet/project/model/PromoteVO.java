@@ -10,9 +10,15 @@ public class PromoteVO {
 	private String parcelOutInfo;
 	private String postContent;
 	private String postImg;
+	private int postLike;
 	
 	
-	
+	public int getPostLike() {
+		return postLike;
+	}
+	public void setPostLike(int postLike) {
+		this.postLike = postLike;
+	}
 	public String getPetName() {
 		return petName;
 	}

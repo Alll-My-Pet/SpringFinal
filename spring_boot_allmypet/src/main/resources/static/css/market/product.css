@@ -101,22 +101,33 @@ h2 {
     box-sizing: border-box;
 }
 .product-grid {
-	display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: left;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 기본적으로 한 줄에 4개의 열을 고정 */
+    gap: 10px; /* 아이템 간의 간격 */
+    justify-content: center;
     margin-bottom: 20px;
 }
 
-.product-item{
-	width : 200px;
-	height : 250px;
+.product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%; /* 그리드 셀에 맞게 크기 조정 */
+    height: auto; /* 높이를 고정하지 않음 */
     border: 1px solid #ddd;
-	border-radius: 10px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 10px;
     text-align: center;
-    margin: 10px;
-    
+    box-sizing: border-box;
+}
+
+.product-name {
+    flex-grow: 1; /* 남은 공간을 채워서 product-price가 하단으로 이동하게 함 */
+}
+
+.product-price {
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 
@@ -124,14 +135,13 @@ h2 {
     flex: 1 1 calc(25% - 20px);
 }
 
-.product-item {
-    padding: 10px;
-    align-items: left;
-}
+
 
 .product-image {
-	width: 80%;
-	height: auto;
+    max-width: 100%;
+    height: auto; /* 이미지 비율 유지 */
+    margin: 0 auto;
+    object-fit: contain; /* 이미지가 부모 요소 내에서 비율을 유지하며 들어가도록 설정 */
 }
 
 .total-items {
@@ -143,6 +153,26 @@ h2 {
 .product_total{
 	font-size: 15px;
 	text-align: right;
+}
+
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr); /* 더 작아지면 한 줄에 2개 */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(1, 1fr); /* 모바일에서는 한 줄에 1개 */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-image {
+        width: 80%;
+        height: auto;
+    }
 }
 
 /*********************************/
@@ -242,3 +272,4 @@ h2 {
     color: inherit;
     /* 텍스트 색상을 부모 요소에서 상속받음 */
 }
+

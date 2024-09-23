@@ -14,6 +14,10 @@
 	href="<c:url value='/css/animal/bulletinBoard.css'/>" />
 <script src="<c:url value='/js/jquery-3.7.1.min.js'/>"></script>
 <script src="<c:url value='/js/animal/bulletinBoard.js'/>"></script>
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@100;200;300;400;500;600;700&family=Nanum+Gothic&display=swap');
+</style>
 <script>
 	/* function goPage(no) {
 		const frm = document.pageFrm;
@@ -72,7 +76,7 @@
 						</div>
 					</div>
 					<!-- pageInfo 끝 -->
-					<section class="MainBoard">
+					<section class="mainBoard">
 						<form id="BoardSearchBar">
 							<select id="type" name="type">
 								<option value="memId" selected>작성자</option>
@@ -86,26 +90,25 @@
 
 						</form>
 						<!-- form 끝 -->
+						<div class="board-title"><strong>🔥실시간 인기글🔥</strong></div>
 						<div class="hotBoard">
-							<h3
-								style="margin-left: 2%; margin-top: 30px; position: absolute;">실시간
-								인기글🔥</h3>
 							<div class="post-list">
 								<table class="hotTable">
-									<!-- <thead>
-							  <tr>
-							  <th>제목</th>
-							  <th>작성자</th>
-							  <th>작성일</th>
-							  <th>좋아요</th>
-							  <th>조회수</th>
-							  
-							  </tr>
-							  </thead> -->
+									<thead>
+										<tr>
+											<th scope="col" class="th-header">구분</th>
+											<th scope="col" class="th-title">글 제목</th>
+											<th scope="col" class="th-writer">작성자</th>
+											<th scope="col" class="th-date">날짜</th>
+											<th scope="col" class="th-view">조회</th>
+											<th scope="col" class="th-good">추천</th>
+										</tr>
+									</thead>
 
 									<tbody>
 										<c:forEach items="${hotList}" var="hot">
 											<tr>
+												<td class="headerName">[${hot.headerName }]</td>
 												<td><a
 													href="<c:url value='/bulletin/detailViewBoard/${hot.postNo}'/>">${hot.postTitle}</a></td>
 												<td>${hot.memNickName}</td>
@@ -114,18 +117,19 @@
 												<td>${hot.postView }</td>
 												<td>${hot.postLike }</td>
 											</tr>
+											<td colspan="6" class="sep-td">
+												<div class="separator"></div>
+											</td>
 										</c:forEach>
-
 									</tbody>
-
 								</table>
 							</div>
 							<!-- post-list 끝 -->
 						</div>
 						<!-- hotBoard 끝 -->
-
-						<table class="boardTB">
-
+						<div class="board-title">전체 게시글</div>
+						<div class="post-list" id="all-posts">
+							<table class="boardTB">
 							<thead>
 								<tr>
 									<th scope="col" class="th-filter">
@@ -152,6 +156,8 @@
 								</tr>
 							</thead>
 						</table>
+						
+						
 						<div id="filtering_result_box">
 							<!-- 필터링 결과 박스 -->
 							<table class="boardTB">
@@ -166,6 +172,9 @@
 											<td>${bulletin.postView }</td>
 											<td>${bulletin.postLike }</td>
 										</tr>
+										<td colspan="6" class="sep-td">
+											<div class="separator"></div>
+										</td>
 									</c:forEach>
 
 								</tbody>
@@ -173,8 +182,25 @@
 							</table>
 						</div>
 						<!--  필터링 결과 박스 -->
+						</div>
+						<div class="mainWriteBox">
+							<!-- <button class="mainWriteBtn">글 작성</button> -->
+							<!-- 로그인 한 경우  -->
+							<c:if test="${not empty sessionScope.mid }">
+								<button class="mainWriteBtn">
+									<a href="<c:url value='/animal_home/${petCtgNo}/bulletin_form'/>">글 작성</a>
+								</button>
+							</c:if>
+							<%-- <button class="mainWriteBtn">
+								<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
+							</button> --%>
 
-						<br> <br>
+							<!-- 로그인 하지 않은 경우-->
+							<c:if test="${empty sessionScope.mid }">
+								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
+							</c:if>
+						</div>
+						<br> 
 
 						<div class="paging" style="text-align: center;">
 							<a onclick="javascript:goPage(1)">&lt;&lt;</a> <a
@@ -194,25 +220,6 @@
 						<form name="pageFrm">
 							<input type="hidden" name="pageNo" value="${pageVo.pageNo }">
 						</form>
-
-
-						<div class="mainWriteBox">
-							<!-- <button class="mainWriteBtn">글 작성</button> -->
-							<!-- 로그인 한 경우  -->
-							<c:if test="${not empty sessionScope.mid }">
-								<button class="mainWriteBtn">
-									<a href="<c:url value='/animal_home/${petCtgNo}/bulletin_form'/>">글 작성</a>
-								</button>
-							</c:if>
-							<%-- <button class="mainWriteBtn">
-								<a href="<c:url value='/animal/bulletin_form'/>">글 작성</a>
-							</button> --%>
-
-							<!-- 로그인 하지 않은 경우-->
-							<c:if test="${empty sessionScope.mid }">
-								<button id="notLoginBtn" class="mainWriteBtn">글 작성</button>
-							</c:if>
-						</div>
 
 					</section>
 
