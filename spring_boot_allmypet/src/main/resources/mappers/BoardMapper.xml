@@ -95,6 +95,18 @@
 		ORDER BY postDate DESC;
 	</select>
 	
+	<select id="viewNoticeboard" parameterType="hashmap"
+		resultType="com.spring_boot_allmypet.project.model.BoardVO">
+		SELECT p.*, m.memNickName
+		FROM post p
+		JOIN member m ON
+		p.memId = m.memId
+		WHERE p.boardCtgNo = '1'
+		ORDER BY postDate DESC
+		LIMIT
+		#{startNo}, 15;
+	</select>
+	
 	<!-- 자유게시판: 메인에 붙이는 미리보기용 -->
 	<select id="index_freeBoard" parameterType="string"
 		resultType="com.spring_boot_allmypet.project.model.BoardVO">
