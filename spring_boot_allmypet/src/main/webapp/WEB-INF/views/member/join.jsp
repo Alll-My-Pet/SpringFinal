@@ -140,14 +140,14 @@
 							</div>
 						</div>
 					</div>
-					<div class="joinBottom">
+					<%-- <div class="joinBottom">
 						<div class="bottomContext">
 							<b>이용약관</b>
-							<%-- <div class="useterms">
+							<div class="useterms">
 								<c:out value="${termsContent}"></c:out>
-							</div> --%>
+							</div>
 						</div>
-					</div>
+					</div> --%>
 				</div>
 				<div class="joinSubmit">
 					<input type="submit" id="joinBtn" class="joinBtn" value="완료">

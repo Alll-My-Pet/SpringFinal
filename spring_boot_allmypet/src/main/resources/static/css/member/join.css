@@ -26,23 +26,23 @@
 
 .joinBox {
 	width: 853px;
-	height: 2500px;
+	height: 1300px;
 	margin: auto;
 }
 
 .joinUpper {
 	border: 2px solid #000000;
-	height: 45%;
+	height: 90%;
 	padding: 30px;
 }
 
-.joinBottom {
+/* .joinBottom {
 	border: 2px solid #000000;
 	border-radius: 10px;
 	height: 45%;
 	padding: 30px;
 	margin-top: 30px;
-}
+} */
 
 .joinSubmit {
 	display: flex;

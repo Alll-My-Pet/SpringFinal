@@ -307,5 +307,10 @@ public class BoardCotroller {
 	public String TipDetail() {
 		return "board/bestTipDetail";
 	}
+	
+	@RequestMapping("/board/emojiBoard")
+	public String emojiBoard() {
+		return "board/emojiBoard";
+	}
 
 }
