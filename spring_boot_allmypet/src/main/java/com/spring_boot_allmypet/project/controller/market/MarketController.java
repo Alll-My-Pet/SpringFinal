@@ -460,7 +460,7 @@ public class MarketController {
 	            String newFilename = timestamp + "_" + originalFilename;
 	            
 	            // 파일 저장 경로
-	            Path path = Paths.get("src/main/resources/static/image/market/" + newFilename);
+	            Path path = Paths.get("/usr/local/allmypet/image/market/" + newFilename);
 	            Files.write(path, revImg.getBytes());
 	            
 	            revImgPath = newFilename;
