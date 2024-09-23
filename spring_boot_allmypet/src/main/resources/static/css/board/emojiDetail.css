@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+.emojiDetail {
+    width: 700px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #BDBDBD;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.emoUp {
+	display: flex; /* Flexbox 활성화 */
+    flex-wrap: wrap; /* 여러 줄로 감싸기 */
+    margin: -10px; /* 간격을 위한 마진 조정 */
+}
+
+.emoCenter {
+    
+}
+
+.emoBottom {
+    
+}
+
+.emojiPurchase {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+.emoPurchaseBtn {
+	color: black;
+	padding: 10px 15px;
+    margin-right: 5px;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.emoPurchaseBtn:hover {
+	background-color: black;
+    color: white;
+}
