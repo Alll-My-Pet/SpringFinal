@@ -1,44 +1,255 @@
 @charset "UTF-8";
+.like, .bookmark {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
 
- .freeLikeBtn{
- 	width:70px;
-  	height:70px;
-  	border-radius:100%;
-  	background-color:white;
-  	margin-left:335px;
-  	margin-top:15px;
- }
+.like-icon {
+	width: 40px;
+}
+
+.bookmark-icon {
+	height: 40px;
+}
+
+.freeUploadBtn {
+	width: 70px;
+	height: 30px;
+	cursor: pointer;
+	position: absolute;
+	top: 140px;
+	right: 20px;
+	border-radius: 10px;
+	
+	padding: 0 10px;
+
+	background: #000000;
+	color: #fff;
+	font-size: 13px;
+	
+	transition: all 0.2s ease;
+}
+
+.freeUploadBtn:hover {
+	background-color: #808080;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+}
  
- .FreeBookmarkBtn{
-  	width:70px;
-  	height:70px;
-  	border-radius:100%;
-  	background-color:white;
-  	margin-left:30px;
- }
+ .contents .pageInfo {
+	/* background: #B5CCAB; */
+	display: flex;
+	flex-direction: column;
+	/* 수직으로 정렬 */
+	position: relative;
+	/* 자식 요소의 절대 위치에 필요 */
+	width: 710px;
+	/* 원하는 너비 설정 */
+	box-sizing: border-box;
+	margin-top: 50px;
+	margin-bottom: 10px;
+}
+ 
+ /* page-title: 페이지 설명 + 페이지 제목 만 포함 */
+.pageInfo .page-title {
+	display: flex;
+	flex-direction: column;
+	/* padding: 18.5px 22px 11.5px 21px; */
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* 페이지 제목 */
+.page-title .ctgTitle {
+	align-self: flex-start;
+	font-weight: 400;
+	font-size: 30px;
+	line-height: 1;
+	color: #000000;
+	/* margin: 10px auto; */
+	margin: 10px 0;
+	margin-bottom:30px;
+	margin-left:40px;
+}
+
+/* 페이지명 위 아래 선 */
+.pageInfo::before, .pageInfo::after {
+	content: '';
+	position: absolute;
+	width: 235px; /* 선의 길이 설정 */
+	height: 3px; /* 선의 두께 설정 */
+	background-color: #848484; /* 선의 색상 설정 */
+}
+
+.pageInfo::before {
+	top: -10px; /* 위쪽 선의 위치 조정 */
+	left: 100px; /* 중앙 정렬 */
+	transform: translateX(-50%); /* 중앙으로 이동 */
+}
+
+.pageInfo::after {
+	bottom: 10px; /* 아래쪽 선의 위치 조정 */
+	left: 100px; /* 중앙 정렬 */
+	transform: translateX(-50%); /* 중앙으로 이동 */
+}
  
  .TextBox{
- 	margin:0 auto;
- 	border:1px solid black;
- 	width:850px;
- 	height:400px;
- 	margin-top:50px;
+ 	/* overflow: hidden;  */ /* overflow를 숨김 */
+	overflow-wrap: break-word; /* 긴 단어 줄 바꿈 처리 */
+	word-wrap: break-word; /* 긴 단어 줄 바꿈 처리 (구형 브라우저 지원) */
+	max-height: 100%; /* 부모 요소의 높이를 초과하지 않도록 설정 */
+	flex-grow: 1; /* 공간을 차지하도록 설정 */
+	font-family: 'Nanum Gothic', sans-serif;
  }
  
  .likeAndBookmarkBox{
- 	margin:0 auto;
- 	width:850px;
- 	height:100px;
+ 	margin-top: 30px;
+	width: 710px;
+	height: 50px;
+	/* background-color: #F3E2A9; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	gap: 40px; /* 요소들 사이의 공백 설정 */
  }
  
- .commentsBox{
+ .comments {
+	background-color: white;
+	width: 710px;
+	height: auto;
+	min-height: 180px;
+	padding: 5px;
+	margin-top: 30px;
+	border-radius: 10px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	position: relative;	
+}
+
+.comments label {
+	position: absolute; /* 절대 위치 지정 */
+	top: 15px; /* 위에서 10px */
+	left: 15px; /* 왼쪽에서 20px */
+	background-color: white; /* 배경색으로 가려지는 효과 방지 */
+}
+ 
+/*  .commentsBox{
  	border:1px solid black;
  	width:850px;
  	height:300px;
  	margin:0 auto;
- }
+ } */
  
  .commentWriteArea{
- 	width:845px;
- 	margin-top:300px;
+ 	margin-top: 45px;
+	width: 670px;
+	height: 80px;
+	box-sizing: border-box;
+	padding: 10px;
+	border: 1px solid #A4A4A4;
+	border-radius: 15px;
+	resize: none; /* 크기 조절 비활성화 */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	transition: border-color 0.3s;
+	font-family: 'Nanum Gothic', sans-serif;
  }
+ 
+ .postText{
+ 	overflow: auto;
+	background-color: white;
+	padding: 10px;
+	width: 710px;
+	min-height: 400px;
+	margin: 0 auto;
+	margin-top: 15px;
+	border-radius: 10px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	font-size: 14.5px;
+	display: flex;
+	line-height: 1.5;
+ }
+ 
+ .postBox {
+	background-color: #F2F2F2;
+	/* border:1px solid black; */
+	width: 750px;
+	height: auto;
+	padding: 20px;
+	box-sizing: border-box;
+	display: flex;
+	/* justify-content: center; */
+	align-items: center;
+	flex-direction: column;
+	margin-top: 15px;
+	border-radius: 7px;
+	margin:0 auto;
+}
+
+
+.post-info {
+	background-color: #FFFEFE;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	width: 710px;
+	height: 85px;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 10px;
+	border: 1px solid #BDBDBD;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.detailTitle {
+	background-color: white;
+	border: 1px solid #E6E6E6;
+	width: 700px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	/* 	margin-top:50px; */
+	/* 	margin-left:25px; */
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 17px;
+}
+
+/* 작성자 */
+.authorBox {
+	align-self: flex-end;
+	width: fit-content;
+	/* background-color: #F8E0F7; */
+	height: 35px;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+}
+
+.author {
+	/* background-color: #A9F5D0; */
+	/* border:1px solid black; */
+	width: fit-content;
+	height: 30px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+}
+
+.divider {
+    display: inline-block;
+    margin: 0 8px;
+    color: #d6d6d6;
+}
+
+
+.view-icon {
+	width: 20px;
+}
